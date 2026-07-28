@@ -46,6 +46,55 @@ function initNavbarScroll() {
 }
 
 /* --------------------------------------------------------------------------
+   Navbar height -> CSS var (drives hero full-viewport-height calc)
+   -------------------------------------------------------------------------- */
+function syncNavbarHeightVar() {
+  const nav = document.getElementById('mainNavbar');
+  if (!nav) return;
+  document.documentElement.style.setProperty('--navbar-height', `${nav.offsetHeight}px`);
+}
+
+/* --------------------------------------------------------------------------
+   Hero Background Slider (auto-rotating photo slideshow)
+   -------------------------------------------------------------------------- */
+const HeroSlider = {
+  images: [
+    'asset/slider/01.jpg',
+    'asset/slider/02.jpg',
+    'asset/slider/03.jpg',
+    'asset/slider/04.jpg',
+    'asset/slider/05.png',
+    'asset/slider/06.png',
+    'asset/slider/07.jpg',
+  ],
+  current: 0,
+  timer: null,
+
+  init() {
+    this.track = document.getElementById('heroSliderBg');
+    if (!this.track) return;
+
+    this.track.innerHTML = this.images
+      .map(
+        (src, i) =>
+          `<div class="hero-slider-slide${i === 0 ? ' active' : ''}" style="background-image:url('${esc(src)}');"></div>`
+      )
+      .join('');
+
+    this.slides = this.track.querySelectorAll('.hero-slider-slide');
+    if (this.slides.length > 1) {
+      this.timer = setInterval(() => this.next(), 5000);
+    }
+  },
+
+  next() {
+    this.slides[this.current].classList.remove('active');
+    this.current = (this.current + 1) % this.slides.length;
+    this.slides[this.current].classList.add('active');
+  },
+};
+
+/* --------------------------------------------------------------------------
    Desktop Navbar Dropdowns: open on hover (>=992px), click still works
    -------------------------------------------------------------------------- */
 function initDesktopDropdownHover() {
@@ -805,6 +854,9 @@ function initAutoSliders() {
 document.addEventListener('DOMContentLoaded', () => {
   fillCompanyInfo();
   initNavbarScroll();
+  syncNavbarHeightVar();
+  window.addEventListener('resize', syncNavbarHeightVar);
+  HeroSlider.init();
   initDesktopDropdownHover();
   QuoteModal.init();
   ProductDetailModal.init();

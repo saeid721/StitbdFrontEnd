@@ -381,12 +381,14 @@ h6,
   font-size: 0.95rem;
 }
 
-/* Hero Mesh Gradient */
+/* Hero Mesh Gradient + Background Slider */
 .hero-gradient-bg {
   position: relative;
   background: linear-gradient(135deg, #0a2540 0%, #0f52ba 60%, #1e3a8a 100%);
   color: #ffffff;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .hero-gradient-bg::before {
@@ -399,6 +401,7 @@ h6,
   background: radial-gradient(circle, rgba(245, 158, 11, 0.18) 0%, rgba(245, 158, 11, 0) 70%);
   border-radius: 50%;
   pointer-events: none;
+  z-index: 1;
 }
 
 .hero-gradient-bg::after {
@@ -411,6 +414,140 @@ h6,
   background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(59, 130, 246, 0) 70%);
   border-radius: 50%;
   pointer-events: none;
+  z-index: 1;
+}
+
+/* Background photo slideshow layer */
+.hero-slider-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slider-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1.4s ease-in-out, transform 7s ease-out;
+}
+
+.hero-slider-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Light/translucent brand-color wash so slider photos stay visible */
+.hero-slider-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10, 37, 64, 0.78) 0%, rgba(15, 82, 186, 0.58) 60%, rgba(30, 58, 138, 0.75) 100%);
+  z-index: 1;
+}
+
+.hero-gradient-bg>.container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Navbar + Hero fill the full viewport on desktop */
+@media (min-width: 992px) {
+  .hero-gradient-bg {
+    min-height: calc(100vh - var(--navbar-height, 84px));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile: Navbar + Hero also fill full viewport height, with
+   proportionally reduced type/spacing so content fits without overflow.
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .hero-gradient-bg {
+    min-height: calc(100svh - var(--navbar-height, 64px));
+    display: flex;
+    align-items: center;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .hero-gradient-bg .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .hero-gradient-bg h1.display-4 {
+    font-size: 1.7rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero-gradient-bg .lead {
+    font-size: 0.92rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .hero-gradient-bg .d-inline-flex.rounded-pill {
+    padding: 0.35rem 0.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-gradient-bg .d-inline-flex.rounded-pill span.small {
+    font-size: 0.72rem !important;
+  }
+
+  .hero-gradient-bg .btn-lg {
+    font-size: 0.85rem !important;
+    padding: 0.65rem 1.25rem !important;
+  }
+
+  .hero-gradient-bg .btn-lg i {
+    font-size: 1rem !important;
+  }
+
+  .hero-gradient-bg .col-lg-7>.d-flex.flex-column.flex-sm-row {
+    gap: 0.65rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .hero-gradient-bg .border-top.border-white {
+    padding-top: 1rem !important;
+    gap: 0.9rem !important;
+  }
+
+  .hero-gradient-bg .border-top.border-white .fs-4 {
+    font-size: 1.1rem !important;
+  }
+
+  .hero-gradient-bg .border-top.border-white .fw-bold {
+    font-size: 0.8rem !important;
+  }
+
+  .hero-gradient-bg .border-top.border-white .small {
+    font-size: 0.68rem !important;
+  }
+
+  /* Dashboard preview card is hidden on mobile via col-lg-5's parent row
+     wrapping below the fold naturally; shrink it in case it still shows
+     on small tablets between 576-991px */
+  .hero-gradient-bg .col-lg-5 {
+    margin-top: 1.5rem;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-gradient-bg h1.display-4 {
+    font-size: 1.45rem !important;
+  }
+
+  .hero-gradient-bg .lead {
+    font-size: 0.85rem !important;
+  }
 }
 
 /* Cards & Hover Effects */
