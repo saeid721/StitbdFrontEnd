@@ -491,11 +491,19 @@ const COMPANY_STATS = [
 const DOMAIN_PRICING = [
   { tld: '.com', priceUsd: '$12.99', priceBdt: '\u09f31,400', period: '/year', tag: 'Most Popular', popular: true },
   { tld: '.com.bd', priceUsd: '$22.00', priceBdt: '\u09f32,500', period: '/year', tag: 'Official BD', popular: true },
+  { tld: '.edu.bd', priceUsd: '$8.00', priceBdt: '\u09f3810', period: '/year', tag: 'Educational', popular: false },
   { tld: '.net', priceUsd: '$14.99', priceBdt: '\u09f31,650', period: '/year', tag: 'Tech Standard', popular: false },
   { tld: '.org', priceUsd: '$13.99', priceBdt: '\u09f31,550', period: '/year', tag: 'Non-Profit', popular: false },
-  { tld: '.bd', priceUsd: '$25.00', priceBdt: '\u09f33,000', period: '/year', tag: 'National TLD', popular: false },
   { tld: '.info', priceUsd: '$9.99', priceBdt: '\u09f31,100', period: '/year', tag: 'Information', popular: false },
   { tld: '.xyz', priceUsd: '$3.99', priceBdt: '\u09f3450', period: '/year', tag: 'Budget', popular: false },
+  { tld: '.me', priceUsd: '$3.99', priceBdt: '\u09f3450', period: '/year', tag: 'Budget', popular: false },
+  { tld: '.ai', priceUsd: '$3.99', priceBdt: '\u09f3450', period: '/year', tag: 'Budget', popular: false },
+  { tld: '.pro', priceUsd: '$3.99', priceBdt: '\u09f3450', period: '/year', tag: 'Budget', popular: false },
+  { tld: '.live', priceUsd: '$3.99', priceBdt: '\u09f3450', period: '/year', tag: 'Budget', popular: false },
+  { tld: '.news', priceUsd: '$3.99', priceBdt: '\u09f3450', period: '/year', tag: 'Budget', popular: false },
+  { tld: '.online', priceUsd: '$3.99', priceBdt: '\u09f3450', period: '/year', tag: 'Budget', popular: false },
+  { tld: '.today', priceUsd: '$3.99', priceBdt: '\u09f3450', period: '/year', tag: 'Budget', popular: false },
+  { tld: '.site', priceUsd: '$3.99', priceBdt: '\u09f3450', period: '/year', tag: 'Budget', popular: false },
 ];
 
 const CLIENT_LOGOS = [

@@ -693,13 +693,12 @@ const TechStackSection = {
       .map(
         (tech, index) => `
       <div class="col-6 col-sm-4 col-md-3 col-lg-2-4" data-aos="zoom-in" data-aos-delay="${index * 30}">
-        <div class="tech-card h-100 d-flex flex-column justify-content-between">
-          <div>
-            <div class="mb-2"><i class="${esc(tech.iconClass)}"></i></div>
-            <h6 class="fw-bold font-heading text-dark mb-1 fs-6">${esc(tech.name)}</h6>
-            <span class="badge bg-light text-muted border extra-small mb-2 d-inline-block">${esc(tech.category)}</span>
+        <div class="tech-card h-100 d-flex flex-column align-items-center justify-content-center position-relative overflow-hidden">
+          <div class="tech-icon mb-2"><i class="${esc(tech.iconClass)}"></i></div>
+          <h6 class="fw-bold font-heading text-dark mb-0 fs-6 tech-name">${esc(tech.name)}</h6>
+          <div class="tech-description position-absolute w-100 h-100 d-flex align-items-center justify-content-center p-3">
+            <p class="text-white small mb-0 text-center leading-tight">${esc(tech.description)}</p>
           </div>
-          <p class="text-muted extra-small mb-0 leading-tight">${esc(tech.description)}</p>
         </div>
       </div>`
       )
