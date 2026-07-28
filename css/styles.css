@@ -529,14 +529,10 @@ h6,
     font-size: 0.68rem !important;
   }
 
-  /* Dashboard preview card is hidden on mobile via col-lg-5's parent row
-     wrapping below the fold naturally; shrink it in case it still shows
-     on small tablets between 576-991px */
+  /* Dashboard preview card is hidden entirely on mobile/tablet to keep
+     the hero focused and within the full-viewport-height budget */
   .hero-gradient-bg .col-lg-5 {
-    margin-top: 1.5rem;
-    max-width: 380px;
-    margin-left: auto;
-    margin-right: auto;
+    display: none !important;
   }
 }
 
