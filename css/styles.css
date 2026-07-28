@@ -537,3 +537,144 @@ h6,
 .modal.show.d-block {
   display: block;
 }
+
+
+/* --------------------------------------------------------------------------
+   Clients Marquee - Auto Sliding (Slow Motion)
+   -------------------------------------------------------------------------- */
+.clients-marquee-wrapper {
+  width: 100%;
+}
+
+.clients-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: marqueeScroll 60s linear infinite;
+  /* Changed from 30s to 60s for slower movement */
+}
+
+.client-logo-item {
+  transition: transform 0.3s ease;
+}
+
+.client-logo-item:hover {
+  transform: scale(1.05);
+}
+
+.client-logo-box {
+  transition: all 0.3s ease;
+  border-color: var(--border-color) !important;
+}
+
+.client-logo-box:hover {
+  border-color: var(--primary) !important;
+  box-shadow: 0 8px 25px rgba(15, 82, 186, 0.12) !important;
+}
+
+.client-logo-name {
+  font-size: 0.6rem;
+  opacity: 0.7;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Testimonials Slider - Auto Sliding (Slow Motion)
+   -------------------------------------------------------------------------- */
+.testimonials-slider-wrapper {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.testimonials-slider-track {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  width: max-content;
+  animation: testimonialScroll 70s linear infinite;
+  /* Changed from 35s to 70s for slower movement */
+}
+
+.testimonial-slide {
+  transition: transform 0.3s ease;
+}
+
+.testimonial-slide:hover {
+  transform: scale(1.02);
+}
+
+.testimonial-slide .card {
+  transition: all 0.3s ease;
+}
+
+.testimonial-slide .card:hover {
+  border-color: var(--primary) !important;
+  box-shadow: 0 12px 35px rgba(15, 82, 186, 0.12) !important;
+}
+
+@keyframes testimonialScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+/* Pause animation on hover */
+.clients-marquee-wrapper:hover .clients-marquee-track,
+.testimonials-slider-wrapper:hover .testimonials-slider-track {
+  animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .client-logo-box {
+    width: 100px !important;
+    height: 70px !important;
+  }
+
+  .client-logo-box img {
+    max-height: 50px !important;
+  }
+
+  .testimonial-slide {
+    width: 280px !important;
+  }
+
+  .testimonial-slide .card {
+    min-height: 240px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-logo-box {
+    width: 80px !important;
+    height: 60px !important;
+    padding: 0.5rem !important;
+  }
+
+  .client-logo-box img {
+    max-height: 40px !important;
+  }
+
+  .testimonial-slide {
+    width: 260px !important;
+  }
+
+  .testimonial-slide .card {
+    min-height: 220px !important;
+    padding: 1rem !important;
+  }
+}

@@ -792,12 +792,12 @@
     </section>
 
     <!-- =====================================================
-         CLIENTS & TESTIMONIALS
+         CLIENTS SECTION - Auto Sliding Logo Marquee
     ====================================================== -->
-    <section class="py-5 py-lg-6 bg-light position-relative border-bottom">
+    <section class="py-5 bg-white position-relative border-bottom">
       <div class="container">
         <div class="text-center max-w-2xl mx-auto mb-4" data-aos="fade-up">
-          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-shield-check me-1"></i> Trusted
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-building-check me-1"></i> Trusted
             Nationwide</span>
           <h2 class="fw-extrabold font-heading text-dark display-6 mb-2">Trusted by 1,000+ Enterprises & Institutions
           </h2>
@@ -805,15 +805,33 @@
             e-commerce companies across Bangladesh.</p>
         </div>
 
-        <div id="clientLogosGrid" class="row g-3 align-items-center justify-content-center mb-5" data-aos="fade-up"
-          data-aos-delay="100"></div>
+        <div class="clients-marquee-wrapper position-relative overflow-hidden py-3" data-aos="fade-up"
+          data-aos-delay="150">
+          <div class="clients-marquee-track d-flex align-items-center" id="clientsMarqueeTrack">
+            <!-- Client logos will be rendered by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="text-center max-w-2xl mx-auto mb-5 pt-4" data-aos="fade-up">
+    <!-- =====================================================
+         TESTIMONIALS SECTION - Auto Sliding Cards
+    ====================================================== -->
+    <section class="py-5 py-lg-6 bg-light position-relative border-bottom">
+      <div class="container">
+        <div class="text-center max-w-2xl mx-auto mb-5" data-aos="fade-up">
           <span class="badge-gold mb-2 d-inline-block"><i class="bi bi-star-fill me-1"></i> Client Reviews</span>
-          <h3 class="fw-extrabold font-heading text-dark display-6 mb-2">What Our Clients Say About STITBD</h3>
+          <h2 class="fw-extrabold font-heading text-dark display-6 mb-2">What Our Clients Say About STITBD</h2>
+          <p class="text-muted fs-6">Real feedback from real businesses we've helped transform through our software
+            solutions.</p>
         </div>
 
-        <div id="testimonialsGrid" class="row g-4" data-aos="fade-up" data-aos-delay="150"></div>
+        <div class="testimonials-slider-wrapper position-relative overflow-hidden" data-aos="fade-up"
+          data-aos-delay="150">
+          <div class="testimonials-slider-track d-flex" id="testimonialsSliderTrack">
+            <!-- Testimonial cards will be rendered by JavaScript -->
+          </div>
+        </div>
       </div>
     </section>
 

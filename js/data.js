@@ -499,15 +499,82 @@ const DOMAIN_PRICING = [
 ];
 
 const CLIENT_LOGOS = [
-  { name: 'Standard Group BD', sector: 'Textile & Garments' },
-  { name: 'Pran-RFL Partner Network', sector: 'FMCG & Retail' },
-  { name: 'Popular Diagnostic Center Partner', sector: 'Healthcare' },
-  { name: 'Uttara Motors Partner', sector: 'Automotive' },
-  { name: 'Dhaka Ideal Academy', sector: 'Education' },
-  { name: 'Beximco Partner Network', sector: 'Enterprise' },
-  { name: 'Square Hospitals Network', sector: 'Healthcare' },
-  { name: 'ACI Logistics Partner', sector: 'Logistics' },
+  // From "mi" section
+  { name: 'Xiaomi', sector: 'Technology', image: 'asset/clients/xiaomi.png' },
+  { name: 'Texvista', sector: 'Textile & Garments', image: 'asset/clients/texvista.png' },
+  { name: 'Test', sector: 'Services', image: 'asset/clients/test.png' },
+  { name: 'Symantec', sector: 'Technology', image: 'asset/clients/Symantec.png' },
+  { name: 'SBC', sector: 'Services', image: 'asset/clients/sbcs.png' },
+  { name: 'RR', sector: 'Services', image: 'asset/clients/rr.png' },
+  { name: 'Revive', sector: 'Healthcare', image: 'asset/clients/revive.png' },
+  { name: 'Next Concept', sector: 'Services', image: 'asset/clients/next_concept.png' },
+  { name: 'Nagarbajjar', sector: 'Real Estate', image: 'asset/clients/nagarbajzar.png' },
+  { name: 'Client Partner', sector: 'Services', image: 'asset/clients/m-08.png' },
+  { name: 'Client Partner', sector: 'Services', image: 'asset/clients/m-03.png' },
+  { name: 'Ispahani', sector: 'FMCG', image: 'asset/clients/ispahani-bangla.png' },
+  { name: 'Finest', sector: 'Services', image: 'asset/clients/finest.png' },
+  { name: 'Expressway', sector: 'Infrastructure', image: 'asset/clients/expressway.png' },
+
+  // From "EXPRESSWAY" section
+  { name: 'Express 1', sector: 'Logistics', image: 'asset/clients/express1.png' },
+  { name: 'Cocomaya', sector: 'Food & Beverage', image: 'asset/clients/cocomaya.png' },
+  { name: 'BASIS', sector: 'Technology', image: 'asset/clients/basis.png' },
+  { name: 'Bajaj Collection', sector: 'Automotive', image: 'asset/clients/Bajaj_collection.png' },
+  { name: 'Client 211', sector: 'Services', image: 'asset/clients/211.png' },
+  { name: 'Client 141', sector: 'Services', image: 'asset/clients/141.png' },
+  { name: 'Client 31', sector: 'Services', image: 'asset/clients/31.png' },
+  { name: 'Client 23', sector: 'Services', image: 'asset/clients/23.png' },
+  { name: 'Client 22', sector: 'Services', image: 'asset/clients/22.png' },
+  { name: 'Client 21', sector: 'Services', image: 'asset/clients/21.png' },
+  { name: 'Client 20', sector: 'Services', image: 'asset/clients/20.png' },
+  { name: 'Client 19', sector: 'Services', image: 'asset/clients/19.png' },
+  { name: 'Client 18', sector: 'Services', image: 'asset/clients/18.png' },
+  { name: 'Client 17', sector: 'Services', image: 'asset/clients/17.png' },
+
+  // From "THE RABIDUN" section
+  { name: 'State of Foods', sector: 'Food & Beverage', image: 'asset/clients/state-of-foods-turns-one.jpg' },
+  { name: 'Sonapur', sector: 'Food & Beverage', image: 'asset/clients/sonapur.jpg' },
+  { name: 'Sachatan', sector: 'Services', image: 'asset/clients/sachatan.jpg' },
+  { name: 'Peri-Pei Grill', sector: 'Food & Beverage', image: 'asset/clients/peri-peri-grill.jpg' },
+  { name: 'Paradise Restaurant', sector: 'Food & Beverage', image: 'asset/clients/paradise_to_dhaka_restaurant.jpg' },
+  { name: 'NPI-04', sector: 'Services', image: 'asset/clients/NPI-04.jpg' },
+  { name: 'Mr. Manik Foods', sector: 'Food & Beverage', image: 'asset/clients/mr-manik-foods.jpg' },
+  { name: 'Metro Express', sector: 'Logistics', image: 'asset/clients/mettro-express.jpg' },
+  { name: 'Client 19', sector: 'Services', image: 'asset/clients/m-19.jpg' },
+  { name: 'Client 17', sector: 'Services', image: 'asset/clients/m-17.jpg' },
+  { name: 'Client 16', sector: 'Services', image: 'asset/clients/m-16.jpg' },
+  { name: 'Client 15', sector: 'Services', image: 'asset/clients/m-15.jpg' },
+  { name: 'Client 14', sector: 'Services', image: 'asset/clients/m-14.jpg' },
+  { name: 'Client 13', sector: 'Services', image: 'asset/clients/m13.jpg' },
+
+  // From "FREG" section
+  { name: 'Client 12', sector: 'Services', image: 'asset/clients/m-12.jpg' },
+  { name: 'Client 11', sector: 'Services', image: 'asset/clients/m-11.jpg' },
+  { name: 'Client 10', sector: 'Services', image: 'asset/clients/m-10.jpg' },
+  { name: 'Client 09', sector: 'Services', image: 'asset/clients/m-09.jpg' },
+  { name: 'Client 07', sector: 'Services', image: 'asset/clients/m-07.jpg' },
+  { name: 'Client 06', sector: 'Services', image: 'asset/clients/m-06.jpg' },
+  { name: 'Client 05', sector: 'Services', image: 'asset/clients/m-05.jpg' },
+  { name: 'Client 02', sector: 'Services', image: 'asset/clients/m-02.jpg' },
+  { name: 'Client 01', sector: 'Services', image: 'asset/clients/m-01.jpg' },
+  { name: 'Jokurij', sector: 'Services', image: 'asset/clients/jolkuri.jpg' },
+  { name: 'Islami Bank', sector: 'Banking', image: 'asset/clients/Islami_Bank_Bangla.jpg' },
+  { name: 'ICST', sector: 'Technology', image: 'asset/clients/icst.jpg' },
+  { name: 'Frego Cafe', sector: 'Food & Beverage', image: 'asset/clients/frego-cafe.jpg' },
+  { name: 'Foring', sector: 'Services', image: 'asset/clients/foring.jpg' },
+
+  // From "FOSTER LOGISTICS LTD" section
+  { name: 'Foster Logistics', sector: 'Logistics', image: 'asset/clients/faster-logistics-ltd.jpg' },
+  { name: 'Fashion Bangla', sector: 'Fashion', image: 'asset/clients/fashion-bangla.jpg' },
+  { name: 'Chef Cuisine', sector: 'Food & Beverage', image: 'asset/clients/chefs-cuisine.jpg' },
+  { name: 'Chathilpamgov College', sector: 'Education', image: 'asset/clients/Chathilpamgovcollege.jpg' },
+  { name: 'Cafe Famous', sector: 'Food & Beverage', image: 'asset/clients/cafe-famous.jpg' },
+  { name: 'Bsofty', sector: 'Technology', image: 'asset/clients/bsofty.jpg' },
+  { name: 'Beacon', sector: 'Services', image: 'asset/clients/beacon.jpg' },
+  { name: 'Azad Printers', sector: 'Services', image: 'asset/clients/Azad_Printers.jpg' },
+  { name: 'Client 14', sector: 'Services', image: 'asset/clients/14.jpg' },
 ];
+
 
 const TESTIMONIALS = [
   {

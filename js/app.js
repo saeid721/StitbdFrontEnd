@@ -728,43 +728,76 @@ function renderStats() {
 }
 
 /* --------------------------------------------------------------------------
-   Clients & Testimonials
+   Clients & Testimonials - Auto Sliding
    -------------------------------------------------------------------------- */
 function renderClientsAndTestimonials() {
-  const clientsGrid = document.getElementById('clientLogosGrid');
-  clientsGrid.innerHTML = CLIENT_LOGOS.map(
-    (client) => `
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2-4">
-      <div class="card border-0 bg-white shadow-sm p-3 rounded-3 text-center h-100 d-flex flex-column justify-content-center align-items-center transition-all hover-gold-glow">
-        <i class="bi bi-building-check text-primary fs-3 mb-1"></i>
-        <h6 class="fw-bold text-dark font-heading mb-0 small">${esc(client.name)}</h6>
-        <span class="text-muted extra-small">${esc(client.sector)}</span>
-      </div>
-    </div>`
-  ).join('');
+  // Render Clients Marquee
+  const marqueeTrack = document.getElementById('clientsMarqueeTrack');
+  if (marqueeTrack) {
+    // Double the items for seamless loop
+    const allClients = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
 
-  const testimonialsGrid = document.getElementById('testimonialsGrid');
-  testimonialsGrid.innerHTML = TESTIMONIALS.map(
-    (t) => `
-    <div class="col-md-6 col-lg-3">
-      <div class="card card-modern h-100 p-4 border d-flex flex-column justify-content-between">
-        <div>
+    marqueeTrack.innerHTML = allClients.map(
+      (client) => `
+      <div class="client-logo-item flex-shrink-0 mx-3 d-flex flex-column align-items-center">
+        <div class="client-logo-box bg-white rounded-3 p-3 d-flex align-items-center justify-content-center shadow-sm border" style="width:130px;height:90px;">
+          <img src="${esc(client.image)}" alt="${esc(client.name)}" class="img-fluid" style="max-width:100%;max-height:70px;object-fit:contain;" loading="lazy">
+        </div>
+        <span class="client-logo-name text-muted extra-small mt-1 text-center">${esc(client.name)}</span>
+      </div>`
+    ).join('');
+  }
+
+  // Render Testimonials Slider
+  const sliderTrack = document.getElementById('testimonialsSliderTrack');
+  if (sliderTrack) {
+    // Double the testimonials for seamless loop
+    const allTestimonials = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS];
+
+    sliderTrack.innerHTML = allTestimonials.map(
+      (t) => `
+      <div class="testimonial-slide flex-shrink-0 px-3" style="width:320px;">
+        <div class="card card-modern h-100 p-4 border shadow-sm" style="min-height:280px;">
           <div class="d-flex align-items-center gap-1 text-warning mb-3">
             ${'<i class="bi bi-star-fill fs-6"></i>'.repeat(t.rating)}
           </div>
-          <p class="text-muted small leading-relaxed mb-4 italic">"${esc(t.text)}"</p>
-        </div>
-        <div class="pt-3 border-top d-flex align-items-center gap-3">
-          <img src="${esc(t.avatar)}" alt="${esc(t.name)}" class="rounded-circle object-fit-cover border" style="width:46px;height:46px;">
-          <div>
-            <h6 class="fw-bold text-dark font-heading mb-0 small">${esc(t.name)}</h6>
-            <span class="text-muted extra-small d-block">${esc(t.role)}</span>
-            <span class="text-primary fw-semibold extra-small">${esc(t.company)}</span>
+          <p class="text-muted small leading-relaxed mb-3 flex-grow-1">"${esc(t.text)}"</p>
+          <div class="pt-3 border-top d-flex align-items-center gap-3">
+            <img src="${esc(t.avatar)}" alt="${esc(t.name)}" class="rounded-circle object-fit-cover border" style="width:46px;height:46px;">
+            <div>
+              <h6 class="fw-bold text-dark font-heading mb-0 small">${esc(t.name)}</h6>
+              <span class="text-muted extra-small d-block">${esc(t.role)}</span>
+              <span class="text-primary fw-semibold extra-small">${esc(t.company)}</span>
+            </div>
           </div>
         </div>
-      </div>
-    </div>`
-  ).join('');
+      </div>`
+    ).join('');
+  }
+
+  // Initialize the auto-sliding animations
+  initAutoSliders();
+}
+
+/* --------------------------------------------------------------------------
+   Auto Sliding Animations
+   -------------------------------------------------------------------------- */
+function initAutoSliders() {
+  // Clients Marquee - Slower speed
+  const marqueeTrack = document.getElementById('clientsMarqueeTrack');
+  if (marqueeTrack) {
+    marqueeTrack.style.animation = 'none';
+    void marqueeTrack.offsetWidth;
+    marqueeTrack.style.animation = 'marqueeScroll 60s linear infinite';
+  }
+
+  // Testimonials Slider - Slower speed
+  const sliderTrack = document.getElementById('testimonialsSliderTrack');
+  if (sliderTrack) {
+    sliderTrack.style.animation = 'none';
+    void sliderTrack.offsetWidth;
+    sliderTrack.style.animation = 'testimonialScroll 70s linear infinite';
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -776,6 +809,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDesktopDropdownHover();
   QuoteModal.init();
   ProductDetailModal.init();
+  ServiceDetailModal.init();  // <-- ADD THIS LINE
   initContactForm();
   initDomainSearch();
   renderServices();
