@@ -420,24 +420,30 @@ const READY_SOFTWARE_PRODUCTS = [
 ];
 
 const TECH_STACK = [
+  // Frontend
   { name: 'React.js', category: 'Frontend', iconClass: 'devicon-react-original colored', description: 'Component-based UI library for ultra-fast web interfaces.' },
   { name: 'Next.js', category: 'Frontend', iconClass: 'devicon-nextjs-original-wordmark colored', description: 'Server-side rendering & static site generation framework.' },
-  { name: 'Vue.js', category: 'Frontend', iconClass: 'devicon-vuejs-plain colored', description: 'Progressive JavaScript framework for interactive web views.' },
+  { name: 'jQuery', category: 'Frontend', iconClass: 'devicon-jquery-plain colored', description: 'Lightweight JavaScript library for DOM manipulation and event handling.' },
   { name: 'HTML5', category: 'Frontend', iconClass: 'devicon-html5-plain colored', description: 'Modern semantic web structure and markup standard.' },
   { name: 'CSS3 / SCSS', category: 'Frontend', iconClass: 'devicon-sass-original colored', description: 'Advanced responsive styling, animations, and SASS preprocessor.' },
   { name: 'Tailwind CSS', category: 'Frontend', iconClass: 'devicon-tailwindcss-sharp colored', description: 'Utility-first CSS framework for rapid modern UI development.' },
   { name: 'Bootstrap', category: 'Frontend', iconClass: 'devicon-bootstrap-plain colored', description: 'Responsive mobile-first component grid system.' },
 
+  // Backend
   { name: 'Node.js', category: 'Backend', iconClass: 'devicon-nodejs-plain colored', description: 'Scalable event-driven JavaScript server runtime.' },
   { name: 'Express.js', category: 'Backend', iconClass: 'devicon-express-original colored', description: 'Minimalist and fast web API backend framework for Node.' },
   { name: 'Laravel (PHP)', category: 'Backend', iconClass: 'devicon-laravel-original colored', description: 'Robust, elegant PHP MVC framework for enterprise web apps.' },
   { name: 'CodeIgniter (PHP)', category: 'Backend', iconClass: 'devicon-codeigniter-plain colored', description: 'Lightweight and high-speed PHP framework for quick applications.' },
+  { name: 'WordPress', category: 'Backend', iconClass: 'devicon-wordpress-plain colored', description: 'Content Management System for blogs and websites.' },
 
+  // Mobile
   { name: 'Flutter', category: 'Mobile', iconClass: 'devicon-flutter-plain colored', description: 'Google cross-platform SDK for iOS and Android apps.' },
 
+  // Databases
   { name: 'MySQL', category: 'Databases', iconClass: 'devicon-mysql-plain colored', description: 'High-performance relational database management system.' },
   { name: 'Firebase', category: 'Databases', iconClass: 'devicon-firebase-plain colored', description: 'Google cloud real-time NoSQL database & authentication platform.' },
 
+  // Languages & Tools
   { name: 'TypeScript', category: 'Languages & Tools', iconClass: 'devicon-typescript-plain colored', description: 'Strongly typed JavaScript superset for scalable codebase.' },
   { name: 'JavaScript (ES6+)', category: 'Languages & Tools', iconClass: 'devicon-javascript-plain colored', description: 'Modern dynamic web programming language.' },
   { name: 'REST API', category: 'Languages & Tools', iconClass: 'bi bi-arrow-repeat text-primary fs-2', description: 'Standardized JSON web API communication protocol.' },
@@ -448,6 +454,18 @@ const TECH_STACK = [
   { name: 'Netlify', category: 'Languages & Tools', iconClass: 'devicon-netlify-plain colored', description: 'Modern static web publishing & continuous integration.' },
   { name: 'Nginx', category: 'Languages & Tools', iconClass: 'devicon-nginx-original colored', description: 'High-performance web server, reverse proxy & load balancer.' },
   { name: 'Apache', category: 'Languages & Tools', iconClass: 'devicon-apache-plain colored', description: 'Reliable cross-platform HTTP web server.' },
+  { name: 'Redux', category: 'Languages & Tools', iconClass: 'devicon-redux-plain colored', description: 'Predictable state container for JavaScript apps.' },
+  { name: 'Figma', category: 'Languages & Tools', iconClass: 'devicon-figma-plain colored', description: 'Collaborative interface design and prototyping tool.' },
+  { name: 'Trello', category: 'Languages & Tools', iconClass: 'devicon-trello-plain colored', description: 'Visual project management and task tracking tool.' },
+  { name: 'Jira', category: 'Languages & Tools', iconClass: 'devicon-jira-plain colored', description: 'Agile project management and issue tracking software.' },
+
+  // AI Tools & Assistants
+  { name: 'GitHub Copilot', category: 'Languages & Tools', iconClass: 'bi bi-github text-primary fs-2', description: 'AI-powered code completion and suggestion tool.' },
+  { name: 'Antigravity', category: 'Languages & Tools', iconClass: 'bi bi-rocket-takeoff text-primary fs-2', description: 'AI-powered development environment and code generation.' },
+  { name: 'Claude', category: 'Languages & Tools', iconClass: 'bi bi-cpu text-primary fs-2', description: 'Anthropic\'s AI assistant for complex tasks and reasoning.' },
+  { name: 'ChatGPT', category: 'Languages & Tools', iconClass: 'bi bi-chat-dots text-primary fs-2', description: 'OpenAI\'s conversational AI for content creation and analysis.' },
+  { name: 'Gemini', category: 'Languages & Tools', iconClass: 'bi bi-stars text-primary fs-2', description: 'Google\'s multimodal AI model for diverse tasks.' },
+  { name: 'Deepseek', category: 'Languages & Tools', iconClass: 'bi bi-search text-primary fs-2', description: 'Advanced AI model for deep reasoning and analysis.' },
 ];
 
 const COMPANY_STATS = [
