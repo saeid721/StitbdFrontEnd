@@ -67,6 +67,7 @@ function syncNavbarHeightVar() {
 
     if (isDesktop) {
       // Desktop: Hide when scrolling down, show when scrolling up
+      // But always show at the very top of the page
       if (currentScrollY <= 50) {
         // At the top - always show
         navbar.classList.remove('hidden');
@@ -88,7 +89,7 @@ function syncNavbarHeightVar() {
         }
       }
     } else {
-      // Mobile: Always keep navbar visible - remove hidden class if present
+      // Mobile: Always keep navbar visible
       navbar.classList.remove('hidden');
       navbar.classList.add('scrolled');
       isHidden = false;
@@ -110,12 +111,13 @@ function syncNavbarHeightVar() {
 
   // Initial check on load - ensure navbar is visible
   window.addEventListener('load', function () {
+    // Small delay to ensure layout is complete
     setTimeout(function () {
+      // Ensure navbar is visible on load
       navbar.classList.remove('hidden');
       navbar.classList.add('scrolled');
       isHidden = false;
       lastScrollY = window.scrollY;
-      updateNavbar();
     }, 100);
   });
 
@@ -124,6 +126,7 @@ function syncNavbarHeightVar() {
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function () {
+      // Reset state on resize
       if (window.innerWidth < 992) {
         navbar.classList.remove('hidden');
         navbar.classList.add('scrolled');

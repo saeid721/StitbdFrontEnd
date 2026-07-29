@@ -209,18 +209,16 @@ h6,
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    transform: translateY(0) !important;
     background: rgba(255, 255, 255, 0.98) !important;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08) !important;
     border-bottom: 1px solid rgba(226, 232, 240, 0.9) !important;
   }
 
   .sticky-glass-navbar.hidden {
-    transform: translateY(0) !important;
+    /* no transform needed on mobile — navbar stays visible */
   }
 
   .sticky-glass-navbar.scrolled {
-    transform: translateY(0) !important;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12) !important;
   }
 }
