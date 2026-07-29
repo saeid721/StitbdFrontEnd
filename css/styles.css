@@ -27,10 +27,22 @@
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-body);
   color: var(--text-main);
   background-color: var(--body-bg);
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   line-height: 1.6;
 }
@@ -233,9 +245,10 @@ h6,
   background: rgba(15, 82, 186, 0.18);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 991.98px) {
   #mobileMenuNav.offcanvas-end {
-    width: 100% !important;
+    width: min(400px, 100vw) !important;
+    max-width: 100vw !important;
   }
 }
 
@@ -439,6 +452,15 @@ h6,
   transform: scale(1);
 }
 
+@media (max-width: 991.98px) {
+
+  .hero-slider-bg,
+  .hero-slider-overlay {
+    position: absolute;
+    inset: 0;
+  }
+}
+
 /* Light/translucent brand-color wash so slider photos stay visible */
 .hero-slider-overlay {
   position: absolute;
@@ -465,11 +487,13 @@ h6,
    -------------------------------------------------------------------------- */
 @media (max-width: 991.98px) {
   .hero-gradient-bg {
-    min-height: calc(100svh - var(--navbar-height, 64px));
+    min-height: 40svh !important;
+    height: 40svh !important;
     display: flex;
     align-items: center;
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    overflow: hidden;
   }
 
   .hero-gradient-bg .container {
@@ -478,55 +502,73 @@ h6,
   }
 
   .hero-gradient-bg h1.display-4 {
-    font-size: 1.7rem !important;
-    line-height: 1.25 !important;
-    margin-bottom: 0.75rem !important;
+    font-size: 1.2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .hero-gradient-bg .lead {
-    font-size: 0.92rem !important;
-    line-height: 1.5 !important;
-    margin-bottom: 1.25rem !important;
+    display: none !important;
   }
 
   .hero-gradient-bg .d-inline-flex.rounded-pill {
-    padding: 0.35rem 0.75rem !important;
-    margin-bottom: 1rem !important;
+    padding: 0.2rem 0.55rem !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .hero-gradient-bg .d-inline-flex.rounded-pill span.small {
-    font-size: 0.72rem !important;
+    font-size: 0.62rem !important;
+  }
+
+  .hero-gradient-bg .spinner-grow-sm {
+    width: 0.5rem !important;
+    height: 0.5rem !important;
   }
 
   .hero-gradient-bg .btn-lg {
-    font-size: 0.85rem !important;
-    padding: 0.65rem 1.25rem !important;
+    font-size: 0.72rem !important;
+    padding: 0.5rem 0.9rem !important;
   }
 
   .hero-gradient-bg .btn-lg i {
-    font-size: 1rem !important;
+    font-size: 0.85rem !important;
   }
 
   .hero-gradient-bg .col-lg-7>.d-flex.flex-column.flex-sm-row {
-    gap: 0.65rem !important;
-    margin-bottom: 1.25rem !important;
+    gap: 0.5rem !important;
+    margin-bottom: 0.6rem !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+  }
+
+  .hero-gradient-bg .btn-lg span {
+    white-space: nowrap;
   }
 
   .hero-gradient-bg .border-top.border-white {
-    padding-top: 1rem !important;
-    gap: 0.9rem !important;
+    padding-top: 0.5rem !important;
+    margin-top: 0.4rem !important;
+    gap: 0.5rem !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+  }
+
+  .hero-gradient-bg .border-top.border-white>div {
+    gap: 0.35rem !important;
   }
 
   .hero-gradient-bg .border-top.border-white .fs-4 {
-    font-size: 1.1rem !important;
+    font-size: 0.75rem !important;
   }
 
   .hero-gradient-bg .border-top.border-white .fw-bold {
-    font-size: 0.8rem !important;
+    font-size: 0.62rem !important;
+    line-height: 1.1 !important;
   }
 
   .hero-gradient-bg .border-top.border-white .small {
-    font-size: 0.68rem !important;
+    font-size: 0.52rem !important;
+    line-height: 1.1 !important;
   }
 
   /* Dashboard preview card is hidden entirely on mobile/tablet to keep
@@ -537,12 +579,30 @@ h6,
 }
 
 @media (max-width: 380px) {
-  .hero-gradient-bg h1.display-4 {
-    font-size: 1.45rem !important;
+  .hero-gradient-bg {
+    min-height: 38svh !important;
+    height: 38svh !important;
   }
 
-  .hero-gradient-bg .lead {
-    font-size: 0.85rem !important;
+  .hero-gradient-bg h1.display-4 {
+    font-size: 1.05rem !important;
+  }
+
+  .hero-gradient-bg .btn-lg {
+    font-size: 0.68rem !important;
+    padding: 0.45rem 0.75rem !important;
+  }
+
+  .hero-gradient-bg .border-top.border-white .fs-4 {
+    font-size: 0.65rem !important;
+  }
+
+  .hero-gradient-bg .border-top.border-white .fw-bold {
+    font-size: 0.55rem !important;
+  }
+
+  .hero-gradient-bg .border-top.border-white .small {
+    font-size: 0.46rem !important;
   }
 }
 
@@ -779,6 +839,21 @@ h6,
   display: block;
 }
 
+.modal-dialog {
+  max-width: calc(100vw - 1.75rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 991.98px) {
+
+  .offcanvas,
+  .modal,
+  .modal-backdrop {
+    max-width: 100vw;
+  }
+}
+
 
 /* --------------------------------------------------------------------------
    Clients Marquee - Auto Sliding (Slow Motion)
@@ -917,5 +992,296 @@ h6,
   .testimonial-slide .card {
     min-height: 220px !important;
     padding: 1rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Global Mobile Responsiveness — reduced font sizes & spacing (all sections)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+
+  /* Section vertical spacing */
+  section.py-5,
+  section.py-lg-6 {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  /* Section badges */
+  .badge-primary-soft,
+  .badge-gold,
+  .badge-primary-soft+.badge,
+  section .badge {
+    font-size: 0.72rem !important;
+    padding: 0.3rem 0.7rem !important;
+  }
+
+  /* Section headings */
+  h2.display-6 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  section .fs-6 {
+    font-size: 0.85rem !important;
+  }
+
+  section .mb-5 {
+    margin-bottom: 1.75rem !important;
+  }
+
+  section .mb-4 {
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Cards (services, ready-software, tech) */
+  .card-modern {
+    border-radius: 12px;
+  }
+
+  .card-modern.p-4 {
+    padding: 1.1rem !important;
+  }
+
+  .card-modern h4.fs-5,
+  .card-modern h5.fs-5 {
+    font-size: 1rem !important;
+  }
+
+  .card-modern .small {
+    font-size: 0.8rem !important;
+  }
+
+  .card-modern .extra-small {
+    font-size: 0.7rem !important;
+  }
+
+  /* Icon boxes on cards */
+  .card-modern div[style*="width:56px"],
+  .card-modern div[style*="width:52px"] {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .card-modern .fs-3 {
+    font-size: 1.3rem !important;
+  }
+
+  /* Buttons inside cards / sections */
+  .card-modern .btn,
+  #quoteForm .btn,
+  .modal-footer .btn {
+    font-size: 0.82rem !important;
+    padding: 0.55rem 1rem !important;
+  }
+
+  /* Filter tabs (Ready Software / Tech Stack) */
+  .filter-tab-btn {
+    font-size: 0.78rem !important;
+    padding: 0.4rem 0.9rem !important;
+  }
+
+  /* Tech stack cards */
+  .tech-card {
+    min-height: 90px;
+    padding: 0.75rem !important;
+  }
+
+  .tech-card .tech-icon i {
+    font-size: 2rem !important;
+  }
+
+  .tech-card .tech-name {
+    font-size: 0.78rem !important;
+  }
+
+  .tech-card .tech-description p {
+    font-size: 0.68rem !important;
+  }
+
+  /* Stats section */
+  #statsGrid h2.display-5 {
+    font-size: 1.6rem !important;
+  }
+
+  #statsGrid h6 {
+    font-size: 0.8rem !important;
+  }
+
+  #statsGrid p.extra-small {
+    font-size: 0.68rem !important;
+  }
+
+  #statsGrid .fs-2 {
+    font-size: 1.4rem !important;
+  }
+
+  /* About Us mini stat cards */
+  #about .p-3.bg-light h6 {
+    font-size: 0.85rem !important;
+  }
+
+  #about .p-3.bg-light .fs-4 {
+    font-size: 1.2rem !important;
+  }
+
+  #about .p-3.bg-light .extra-small {
+    font-size: 0.7rem !important;
+  }
+
+  /* About mission/vision dark card */
+  #about .p-4.p-md-5 {
+    padding: 1.25rem !important;
+  }
+
+  #about .p-4.p-md-5 h4 {
+    font-size: 1.05rem !important;
+  }
+
+  #about .p-4.p-md-5 p.small {
+    font-size: 0.8rem !important;
+  }
+
+  /* Domain search */
+  #domain-search .input-group-lg .form-control,
+  #domain-search .form-select-lg,
+  #domain-search .btn-lg {
+    font-size: 0.85rem !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+  }
+
+  .domain-pricing-card h5 {
+    font-size: 0.95rem !important;
+  }
+
+  .domain-pricing-card .fs-5 {
+    font-size: 0.85rem !important;
+  }
+
+  .domain-pricing-card .extra-small {
+    font-size: 0.65rem !important;
+  }
+
+  #domainResultBox {
+    padding: 0.75rem !important;
+  }
+
+  #domainResultName {
+    font-size: 0.95rem !important;
+  }
+
+  /* Modals: header/body/footer padding + font */
+  .modal-content {
+    border-radius: 14px;
+  }
+
+  .modal-header.p-4,
+  .modal-body.p-4 {
+    padding: 1rem !important;
+  }
+
+  .modal-header .modal-title,
+  #productDetailName,
+  #serviceDetailName {
+    font-size: 1.05rem !important;
+  }
+
+  .modal-header div[style*="width:56px"] {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .modal-header .fs-2 {
+    font-size: 1.3rem !important;
+  }
+
+  .modal-body h6 {
+    font-size: 0.85rem !important;
+  }
+
+  .modal-body p,
+  .modal-body .small,
+  .modal-body .list-group-item {
+    font-size: 0.82rem !important;
+  }
+
+  .modal-footer.p-3 {
+    padding: 0.75rem !important;
+  }
+
+  .modal-footer .btn,
+  #quoteForm button[type="submit"] {
+    font-size: 0.8rem !important;
+    padding: 0.55rem 1rem !important;
+  }
+
+  /* Quote modal form */
+  #quoteForm label.small {
+    font-size: 0.78rem !important;
+  }
+
+  #quoteForm .form-select-lg,
+  #quoteForm .form-control-lg {
+    font-size: 0.85rem !important;
+    padding-top: 0.55rem !important;
+    padding-bottom: 0.55rem !important;
+  }
+
+  #quoteSuccessSection h4 {
+    font-size: 1.1rem !important;
+  }
+
+  #quoteSuccessSection p {
+    font-size: 0.85rem !important;
+  }
+
+  /* Footer */
+  footer h6 {
+    font-size: 0.78rem !important;
+  }
+
+  footer .small {
+    font-size: 0.78rem !important;
+  }
+
+  footer .extra-small {
+    font-size: 0.68rem !important;
+  }
+
+  footer .col-lg-4 img,
+  footer .navbar-brand img {
+    height: 38px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h2.display-6 {
+    font-size: 1.3rem !important;
+  }
+
+  section .fs-6 {
+    font-size: 0.8rem !important;
+  }
+
+  .card-modern.p-4 {
+    padding: 0.9rem !important;
+  }
+
+  .filter-tab-btn {
+    font-size: 0.72rem !important;
+    padding: 0.35rem 0.75rem !important;
+  }
+
+  .modal-header.p-4,
+  .modal-body.p-4 {
+    padding: 0.85rem !important;
+  }
+
+  .modal-header .modal-title,
+  #productDetailName,
+  #serviceDetailName {
+    font-size: 0.95rem !important;
   }
 }

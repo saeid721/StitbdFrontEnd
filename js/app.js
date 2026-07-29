@@ -382,7 +382,7 @@ function renderServices() {
   const grid = document.getElementById('servicesGrid');
   grid.innerHTML = SERVICES.map(
     (service, index) => `
-    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="${index * 80}">
+    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="${index * 80}">
       <div class="card card-modern card-hover-lift h-100 p-4 border d-flex flex-column justify-content-between">
         <div>
           <div class="d-flex align-items-center justify-content-between mb-3">
@@ -538,7 +538,7 @@ const ReadySoftwareGallery = {
     this.grid.innerHTML = list
       .map(
         (product) => `
-      <div class="col-md-6 col-lg-4" data-aos="fade-up">
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
         <div class="card card-modern card-hover-lift h-100 p-4 border d-flex flex-column justify-content-between">
           <div>
             <div class="d-flex align-items-center justify-content-between mb-3">
@@ -624,7 +624,7 @@ const ProductDetailModal = {
     document.getElementById('productDetailModules').innerHTML = product.modules
       .map(
         (mod) => `
-      <div class="col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="p-2 bg-light rounded-3 border d-flex align-items-center gap-2 small fw-semibold text-dark">
           <i class="bi bi-check2-square text-primary"></i>
           <span>${esc(mod)}</span>
