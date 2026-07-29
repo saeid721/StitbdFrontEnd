@@ -2095,3 +2095,155 @@ h6,
     padding: 0.45rem 0.6rem !important;
   }
 }
+
+
+/* --------------------------------------------------------------------------
+   Tech Stack Section — desktop tightening + full responsive breakpoints
+   -------------------------------------------------------------------------- */
+#tech-stack .badge-primary-soft {
+  font-size: 0.78rem;
+  padding: 0.32rem 0.8rem;
+}
+
+#tech-stack h2.display-6 {
+  font-size: 1.85rem;
+}
+
+#tech-stack p.fs-6 {
+  font-size: 0.9rem;
+}
+
+#techStackTabs {
+  gap: 0.4rem !important;
+  margin-bottom: 2rem !important;
+}
+
+#techStackGrid {
+  --bs-gutter-x: 0.85rem;
+  --bs-gutter-y: 0.85rem;
+}
+
+#techStackGrid .tech-card {
+  padding: 0.75rem !important;
+  min-height: 92px;
+}
+
+#techStackGrid .tech-icon i {
+  font-size: 2.2rem !important;
+}
+
+#techStackGrid .tech-name {
+  font-size: 0.82rem !important;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  #techStackGrid {
+    --bs-gutter-x: 0.7rem;
+    --bs-gutter-y: 0.7rem;
+  }
+}
+
+/* Mobile: 3 cards per row, description hidden, no hover/tap "stuck" state */
+@media (max-width: 767.98px) {
+  #tech-stack .badge-primary-soft {
+    font-size: 0.66rem !important;
+    padding: 0.26rem 0.6rem !important;
+  }
+
+  #tech-stack h2.display-6 {
+    font-size: 1.3rem !important;
+  }
+
+  #tech-stack p.fs-6 {
+    font-size: 0.78rem !important;
+    line-height: 1.5;
+  }
+
+  #techStackTabs {
+    gap: 0.3rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  #techStackGrid {
+    --bs-gutter-x: 0.4rem;
+    --bs-gutter-y: 0.4rem;
+  }
+
+  #techStackGrid .tech-card {
+    min-height: 74px;
+    padding: 0.45rem !important;
+    border-radius: 10px;
+    cursor: default;
+  }
+
+  #techStackGrid .tech-icon {
+    margin-bottom: 0.3rem !important;
+  }
+
+  #techStackGrid .tech-icon i {
+    font-size: 1.5rem !important;
+  }
+
+  #techStackGrid .tech-name {
+    font-size: 0.58rem !important;
+    line-height: 1.15;
+  }
+
+  /* Hover-reveal description is desktop-only; hide entirely on mobile */
+  #techStackGrid .tech-description {
+    display: none !important;
+  }
+
+  /* Neutralize hover/active transform so a tap never leaves the card
+     looking "pressed" or highlighted on touch devices */
+  #techStackGrid .tech-card:hover,
+  #techStackGrid .tech-card:active,
+  #techStackGrid .tech-card:focus {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: var(--border-color) !important;
+  }
+
+  #techStackGrid .tech-card:hover .tech-icon,
+  #techStackGrid .tech-card:active .tech-icon {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  #techStackGrid .tech-card:hover .tech-name,
+  #techStackGrid .tech-card:active .tech-name {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  #tech-stack h2.display-6 {
+    font-size: 1.1rem !important;
+  }
+
+  #tech-stack p.fs-6 {
+    font-size: 0.72rem !important;
+  }
+
+  #techStackGrid {
+    --bs-gutter-x: 0.3rem;
+    --bs-gutter-y: 0.3rem;
+  }
+
+  #techStackGrid .tech-card {
+    min-height: 66px;
+    padding: 0.35rem !important;
+    border-radius: 8px;
+  }
+
+  #techStackGrid .tech-icon i {
+    font-size: 1.3rem !important;
+  }
+
+  #techStackGrid .tech-name {
+    font-size: 0.54rem !important;
+  }
+}

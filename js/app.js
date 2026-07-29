@@ -742,7 +742,7 @@ const TechStackSection = {
     this.grid.innerHTML = list
       .map(
         (tech, index) => `
-      <div class="col-6 col-sm-4 col-md-3 col-lg-2-4" data-aos="zoom-in" data-aos-delay="${index * 30}">
+      <div class="col-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="${index * 30}">
         <div class="tech-card h-100 d-flex flex-column align-items-center justify-content-center position-relative overflow-hidden">
           <div class="tech-icon mb-2"><i class="${esc(tech.iconClass)}"></i></div>
           <h6 class="fw-bold font-heading text-dark mb-0 fs-6 tech-name">${esc(tech.name)}</h6>
