@@ -593,7 +593,7 @@ const CLIENT_LOGOS = [
   { name: 'Foster Logistics', sector: 'Logistics', image: 'asset/clients/faster-logistics-ltd.jpg' },
   { name: 'Fashion Bangla', sector: 'Fashion', image: 'asset/clients/fashion-bangla.jpg' },
   { name: 'Chef Cuisine', sector: 'Food & Beverage', image: 'asset/clients/chefs-cuisine.jpg' },
-  { name: 'Chathilpamgov College', sector: 'Education', image: 'asset/clients/Chathilpamgovcollege.jpg' },
+  { name: 'Chathilpamgov College', sector: 'Education', image: 'asset/clients/Chatkhilpmgovcollege.jpg' },
   { name: 'Cafe Famous', sector: 'Food & Beverage', image: 'asset/clients/cafe-famous.jpg' },
   { name: 'Bsofty', sector: 'Technology', image: 'asset/clients/bsofty.jpg' },
   { name: 'Beacon', sector: 'Services', image: 'asset/clients/beacon.jpg' },
