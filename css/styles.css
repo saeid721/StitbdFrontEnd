@@ -282,7 +282,12 @@ h6,
 
 @media (max-width: 991.98px) {
   .navbar-brand img {
-    height: 48px !important;
+    height: 38px !important;
+  }
+
+  .sticky-glass-navbar .container {
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.15rem !important;
   }
 }
 
@@ -487,12 +492,12 @@ h6,
    -------------------------------------------------------------------------- */
 @media (max-width: 991.98px) {
   .hero-gradient-bg {
-    min-height: 40svh !important;
-    height: 40svh !important;
+    min-height: 22svh !important;
+    height: 22svh !important;
     display: flex;
     align-items: center;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
     overflow: hidden;
   }
 
@@ -502,9 +507,9 @@ h6,
   }
 
   .hero-gradient-bg h1.display-4 {
-    font-size: 1.2rem !important;
-    line-height: 1.2 !important;
-    margin-bottom: 0.5rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.35rem !important;
   }
 
   .hero-gradient-bg .lead {
@@ -512,12 +517,12 @@ h6,
   }
 
   .hero-gradient-bg .d-inline-flex.rounded-pill {
-    padding: 0.2rem 0.55rem !important;
-    margin-bottom: 0.5rem !important;
+    padding: 0.12rem 0.4rem !important;
+    margin-bottom: 0.3rem !important;
   }
 
   .hero-gradient-bg .d-inline-flex.rounded-pill span.small {
-    font-size: 0.62rem !important;
+    font-size: 0.55rem !important;
   }
 
   .hero-gradient-bg .spinner-grow-sm {
@@ -526,17 +531,17 @@ h6,
   }
 
   .hero-gradient-bg .btn-lg {
-    font-size: 0.72rem !important;
-    padding: 0.5rem 0.9rem !important;
+    font-size: 0.62rem !important;
+    padding: 0.4rem 0.7rem !important;
   }
 
   .hero-gradient-bg .btn-lg i {
-    font-size: 0.85rem !important;
+    font-size: 0.72rem !important;
   }
 
   .hero-gradient-bg .col-lg-7>.d-flex.flex-column.flex-sm-row {
-    gap: 0.5rem !important;
-    margin-bottom: 0.6rem !important;
+    gap: 0.4rem !important;
+    margin-bottom: 0.35rem !important;
     flex-direction: row !important;
     flex-wrap: wrap;
   }
@@ -546,29 +551,29 @@ h6,
   }
 
   .hero-gradient-bg .border-top.border-white {
-    padding-top: 0.5rem !important;
-    margin-top: 0.4rem !important;
-    gap: 0.5rem !important;
+    padding-top: 0.3rem !important;
+    margin-top: 0.25rem !important;
+    gap: 0.35rem !important;
     flex-wrap: nowrap !important;
     justify-content: space-between !important;
   }
 
   .hero-gradient-bg .border-top.border-white>div {
-    gap: 0.35rem !important;
+    gap: 0.25rem !important;
   }
 
   .hero-gradient-bg .border-top.border-white .fs-4 {
-    font-size: 0.75rem !important;
+    font-size: 0.62rem !important;
   }
 
   .hero-gradient-bg .border-top.border-white .fw-bold {
-    font-size: 0.62rem !important;
-    line-height: 1.1 !important;
+    font-size: 0.52rem !important;
+    line-height: 1.05 !important;
   }
 
   .hero-gradient-bg .border-top.border-white .small {
-    font-size: 0.52rem !important;
-    line-height: 1.1 !important;
+    font-size: 0.44rem !important;
+    line-height: 1.05 !important;
   }
 
   /* Dashboard preview card is hidden entirely on mobile/tablet to keep
@@ -580,29 +585,29 @@ h6,
 
 @media (max-width: 380px) {
   .hero-gradient-bg {
-    min-height: 38svh !important;
-    height: 38svh !important;
+    min-height: 24svh !important;
+    height: 24svh !important;
   }
 
   .hero-gradient-bg h1.display-4 {
-    font-size: 1.05rem !important;
+    font-size: 0.82rem !important;
   }
 
   .hero-gradient-bg .btn-lg {
-    font-size: 0.68rem !important;
-    padding: 0.45rem 0.75rem !important;
+    font-size: 0.56rem !important;
+    padding: 0.32rem 0.6rem !important;
   }
 
   .hero-gradient-bg .border-top.border-white .fs-4 {
-    font-size: 0.65rem !important;
-  }
-
-  .hero-gradient-bg .border-top.border-white .fw-bold {
     font-size: 0.55rem !important;
   }
 
-  .hero-gradient-bg .border-top.border-white .small {
+  .hero-gradient-bg .border-top.border-white .fw-bold {
     font-size: 0.46rem !important;
+  }
+
+  .hero-gradient-bg .border-top.border-white .small {
+    font-size: 0.38rem !important;
   }
 }
 
