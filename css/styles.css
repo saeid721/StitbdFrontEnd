@@ -550,7 +550,7 @@ body {
 /* Navbar + Hero fill the full viewport on desktop */
 @media (min-width: 992px) {
   .hero-gradient-bg {
-    min-height: calc(100vh - var(--navbar-height, 84px));
+    min-height: 100vh;
   }
 }
 
