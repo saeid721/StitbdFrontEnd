@@ -54,6 +54,96 @@ function syncNavbarHeightVar() {
   document.documentElement.style.setProperty('--navbar-height', `${nav.offsetHeight}px`);
 }
 
+// Sticky Header Scroll Behavior - Smart hide/show on desktop, always visible on mobile
+(function () {
+  const navbar = document.getElementById('mainNavbar');
+  let lastScrollY = 0;
+  let isHidden = false;
+  let ticking = false;
+
+  function updateNavbar() {
+    const currentScrollY = window.scrollY;
+    const isDesktop = window.innerWidth >= 992;
+
+    if (isDesktop) {
+      // Desktop: Hide when scrolling down, show when scrolling up
+      if (currentScrollY <= 50) {
+        // At the top - always show
+        navbar.classList.remove('hidden');
+        navbar.classList.add('scrolled');
+        isHidden = false;
+      } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrolling down - hide navbar
+        if (!isHidden) {
+          navbar.classList.add('hidden');
+          navbar.classList.remove('scrolled');
+          isHidden = true;
+        }
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show navbar
+        if (isHidden) {
+          navbar.classList.remove('hidden');
+          navbar.classList.add('scrolled');
+          isHidden = false;
+        }
+      }
+    } else {
+      // Mobile: Always keep navbar visible - remove hidden class if present
+      navbar.classList.remove('hidden');
+      navbar.classList.add('scrolled');
+      isHidden = false;
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+
+  // Throttled scroll listener
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        updateNavbar();
+      });
+      ticking = true;
+    }
+  });
+
+  // Initial check on load - ensure navbar is visible
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      navbar.classList.remove('hidden');
+      navbar.classList.add('scrolled');
+      isHidden = false;
+      lastScrollY = window.scrollY;
+      updateNavbar();
+    }, 100);
+  });
+
+  // Handle resize events (desktop <-> mobile)
+  let resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      if (window.innerWidth < 992) {
+        navbar.classList.remove('hidden');
+        navbar.classList.add('scrolled');
+        isHidden = false;
+      }
+      updateNavbar();
+    }, 250);
+  });
+
+  // Also update on orientation change for mobile
+  window.addEventListener('orientationchange', function () {
+    setTimeout(function () {
+      navbar.classList.remove('hidden');
+      navbar.classList.add('scrolled');
+      isHidden = false;
+      updateNavbar();
+    }, 300);
+  });
+})();
+
 /* --------------------------------------------------------------------------
    Hero Background Slider (auto-rotating photo slideshow)
    -------------------------------------------------------------------------- */
