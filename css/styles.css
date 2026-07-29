@@ -492,8 +492,8 @@ h6,
    -------------------------------------------------------------------------- */
 @media (max-width: 991.98px) {
   .hero-gradient-bg {
-    min-height: 22svh !important;
-    height: 22svh !important;
+    min-height: 30svh !important;
+    height: 30svh !important;
     display: flex;
     align-items: center;
     padding-top: 0.6rem !important;
