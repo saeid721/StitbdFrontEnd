@@ -303,7 +303,7 @@ function initDomainSearch() {
 
   // Populate TLD select
   tldSelect.innerHTML = DOMAIN_PRICING.map(
-    (d) => `<option value="${esc(d.tld)}">${esc(d.tld)} (${esc(d.priceBdt)})</option>`
+    (d) => `<option value="${esc(d.tld)}">${esc(d.tld)}</option>`
   ).join('');
 
   // Populate pricing grid tags
@@ -313,11 +313,12 @@ function initDomainSearch() {
       <div class="card card-modern p-3 text-center cursor-pointer h-100 domain-pricing-card" data-tld="${esc(item.tld)}">
         ${item.tag ? `<span class="badge ${item.popular ? 'bg-warning text-dark' : 'bg-secondary'} mb-2 text-truncate">${esc(item.tag)}</span>` : ''}
         <h5 class="fw-extrabold text-primary font-heading mb-1">${esc(item.tld)}</h5>
-        <div class="fw-bold text-dark fs-5">${esc(item.priceBdt)}</div>
-        <span class="text-muted extra-small">${esc(item.priceUsd)} ${esc(item.period)}</span>
+        <div class="fw-bold text-dark fs-5">${esc(item.priceBdt)}<span class="text-muted extra-small">${esc(item.period)}</span></div>
+        
       </div>
     </div>`
   ).join('');
+
 
   function matchedPricing() {
     return DOMAIN_PRICING.find((d) => d.tld === tldSelect.value) || DOMAIN_PRICING[0];

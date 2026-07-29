@@ -1290,3 +1290,286 @@ h6,
     font-size: 0.95rem !important;
   }
 }
+
+
+/* --------------------------------------------------------------------------
+   Domain Search Section — dedicated mobile responsiveness
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  #domain-search .badge-primary-soft {
+    font-size: 0.68rem !important;
+    padding: 0.28rem 0.65rem !important;
+  }
+
+  #domain-search h2.display-6 {
+    font-size: 1.35rem !important;
+  }
+
+  #domain-search p.fs-6 {
+    font-size: 0.8rem !important;
+    line-height: 1.5;
+  }
+
+  #domain-search .bg-light.p-3.p-md-4 {
+    padding: 0.85rem !important;
+  }
+
+  #domainSearchForm .input-group-lg {
+    flex-wrap: nowrap;
+  }
+
+  #domainSearchForm .input-group-text {
+    padding: 0.5rem 0.6rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  #domainQueryInput {
+    font-size: 0.78rem !important;
+    padding: 0.5rem 0.6rem !important;
+  }
+
+  #domainTldSelect {
+    font-size: 0.75rem !important;
+    padding: 0.5rem 0.4rem !important;
+  }
+
+  #domainSearchSubmit {
+    font-size: 0.72rem !important;
+    padding: 0.5rem 0.5rem !important;
+    gap: 0.3rem !important;
+  }
+
+  #domainSearchSubmit i {
+    font-size: 0.8rem !important;
+  }
+
+  #domainResultBox {
+    padding: 0.65rem !important;
+    gap: 0.6rem !important;
+  }
+
+  #domainResultBox>div[class*="rounded-circle"] {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  #domainResultBox .fs-4 {
+    font-size: 1rem !important;
+  }
+
+  #domainResultName {
+    font-size: 0.85rem !important;
+  }
+
+  #domainResultPrice {
+    font-size: 0.72rem !important;
+  }
+
+  #domainOrderBtn {
+    font-size: 0.72rem !important;
+    padding: 0.5rem 0.9rem !important;
+    gap: 0.3rem !important;
+  }
+
+  .domain-pricing-card {
+    padding: 0.65rem !important;
+  }
+
+  .domain-pricing-card .badge {
+    font-size: 0.6rem !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+
+  .domain-pricing-card h5 {
+    font-size: 0.85rem !important;
+  }
+
+  .domain-pricing-card .fs-5 {
+    font-size: 0.78rem !important;
+  }
+
+  .domain-pricing-card .extra-small {
+    font-size: 0.6rem !important;
+  }
+
+  #domainPricingGrid.row.g-3 {
+    --bs-gutter-x: 0.5rem;
+    --bs-gutter-y: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #domain-search h2.display-6 {
+    font-size: 1.15rem !important;
+  }
+
+  #domainSearchForm .row.g-2 {
+    --bs-gutter-x: 0.4rem;
+    --bs-gutter-y: 0.4rem;
+  }
+
+  #domainQueryInput {
+    font-size: 0.72rem !important;
+  }
+
+  #domainQueryInput::placeholder {
+    font-size: 0.68rem;
+  }
+
+  #domainTldSelect {
+    font-size: 0.68rem !important;
+    padding: 0.5rem 0.3rem !important;
+  }
+
+  #domainSearchSubmit span {
+    display: inline !important;
+    font-size: 0.62rem !important;
+    white-space: nowrap;
+  }
+
+  #domainSearchSubmit {
+    padding: 0.4rem 0.3rem !important;
+    gap: 0.25rem !important;
+  }
+
+  #domainSearchSubmit i {
+    font-size: 0.75rem !important;
+    margin: 0 !important;
+  }
+
+  #domainResultBox {
+    flex-direction: column;
+    align-items: stretch !important;
+    text-align: center;
+  }
+
+  #domainOrderBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .domain-pricing-card h5 {
+    font-size: 0.78rem !important;
+  }
+
+  .domain-pricing-card .fs-5 {
+    font-size: 0.72rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Domain Pricing Grid — force 2 cards per row on mobile, tighter spacing
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  #domainPricingGrid.row.g-3 {
+    --bs-gutter-x: 0.6rem;
+    --bs-gutter-y: 0.6rem;
+  }
+
+  #domainPricingGrid>[class*="col-"] {
+    flex: 0 0 auto;
+    width: 50% !important;
+    max-width: 50% !important;
+  }
+
+  .domain-pricing-card {
+    padding: 0.55rem !important;
+  }
+
+  .domain-pricing-card .badge {
+    font-size: 0.55rem !important;
+    padding: 0.18rem 0.4rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .domain-pricing-card h5 {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .domain-pricing-card .fs-5 {
+    font-size: 0.72rem !important;
+  }
+
+  .domain-pricing-card .extra-small {
+    font-size: 0.55rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #domainPricingGrid.row.g-3 {
+    --bs-gutter-x: 0.4rem;
+    --bs-gutter-y: 0.4rem;
+  }
+
+  .domain-pricing-card {
+    padding: 0.45rem !important;
+    border-radius: 10px !important;
+  }
+
+  .domain-pricing-card .badge {
+    font-size: 0.5rem !important;
+    padding: 0.15rem 0.35rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .domain-pricing-card h5 {
+    font-size: 0.72rem !important;
+  }
+
+  .domain-pricing-card .fs-5 {
+    font-size: 0.66rem !important;
+  }
+
+  .domain-pricing-card .extra-small {
+    font-size: 0.5rem !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Domain Search Form — desktop placeholder sizing + equal field heights
+   -------------------------------------------------------------------------- */
+#domainQueryInput::placeholder {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+#domainSearchForm .input-group-text,
+#domainQueryInput,
+#domainTldSelect,
+#domainSearchSubmit {
+  height: 54px;
+  display: flex;
+  align-items: center;
+}
+
+#domainQueryInput,
+#domainTldSelect {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#domainSearchSubmit {
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  #domainQueryInput::placeholder {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+
+  #domainSearchForm .input-group-text,
+  #domainQueryInput,
+  #domainTldSelect,
+  #domainSearchSubmit {
+    height: 46px;
+  }
+
+  #domainQueryInput::placeholder {
+    font-size: 0.72rem;
+  }
+}
