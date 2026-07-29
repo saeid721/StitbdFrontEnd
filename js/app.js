@@ -765,12 +765,12 @@ function renderStats() {
   const grid = document.getElementById('statsGrid');
   grid.innerHTML = COMPANY_STATS.map(
     (stat, idx) => `
-    <div class="col-6 col-md-4 col-lg-2-4" data-aos="fade-up" data-aos-delay="${idx * 80}">
-      <div class="p-3 bg-white bg-opacity-10 backdrop-blur rounded-4 border border-white border-opacity-20 h-100 d-flex flex-column justify-content-center">
-        <div class="mb-2"><i class="bi ${esc(stat.icon)} text-warning fs-2"></i></div>
-        <h2 class="display-5 fw-extrabold font-heading text-white mb-1">${esc(stat.value)}</h2>
-        <h6 class="fw-bold text-white-90 font-heading mb-1 small">${esc(stat.label)}</h6>
-        <p class="text-white-50 extra-small mb-0">${esc(stat.description)}</p>
+    <div class="col-6 col-sm-6 col-md-4 col-lg-2-4" data-aos="fade-up" data-aos-delay="${idx * 80}">
+      <div class="stat-card h-100 d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="stat-card-icon mb-2 mb-md-3"><i class="bi ${esc(stat.icon)}"></i></div>
+        <h2 class="stat-card-value fw-extrabold font-heading text-white mb-1">${esc(stat.value)}</h2>
+        <h6 class="stat-card-label fw-bold font-heading mb-1">${esc(stat.label)}</h6>
+        <p class="stat-card-desc mb-0">${esc(stat.description)}</p>
       </div>
     </div>`
   ).join('');

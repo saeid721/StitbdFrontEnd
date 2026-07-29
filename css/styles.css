@@ -845,12 +845,156 @@ h6,
   transition-delay: 0s;
 }
 
-/* Stats Counter Pill */
-.stat-card-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  border: 1px solid #e2e8f0;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+/* --------------------------------------------------------------------------
+   Stats Counter — professional glass cards, high contrast, fully responsive
+   -------------------------------------------------------------------------- */
+#stats {
+  background: linear-gradient(135deg, #0a3680 0%, #0f52ba 55%, #1e5fd9 100%);
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  padding: 1.75rem 1.25rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.stat-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-card-icon i {
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+}
+
+.stat-card-value {
+  font-size: 2.4rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.stat-card-label {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.stat-card-desc {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  #statsGrid {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.4rem 1rem;
+  }
+
+  .stat-card-value {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile: force clean 2-per-row grid, tighter spacing, smaller type */
+@media (max-width: 767.98px) {
+  #stats {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+
+  #statsGrid {
+    --bs-gutter-x: 0.75rem;
+    --bs-gutter-y: 0.75rem;
+  }
+
+  .stat-card {
+    padding: 1.1rem 0.75rem;
+    border-radius: 14px;
+  }
+
+  .stat-card-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stat-card-icon i {
+    font-size: 1.1rem;
+  }
+
+  .stat-card-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-card-label {
+    font-size: 0.76rem;
+  }
+
+  .stat-card-desc {
+    font-size: 0.66rem;
+    line-height: 1.4;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  #statsGrid {
+    --bs-gutter-x: 0.6rem;
+    --bs-gutter-y: 0.6rem;
+  }
+
+  .stat-card {
+    padding: 0.9rem 0.6rem;
+    border-radius: 12px;
+  }
+
+  .stat-card-icon {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .stat-card-icon i {
+    font-size: 0.95rem;
+  }
+
+  .stat-card-value {
+    font-size: 1.25rem;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .stat-card-label {
+    font-size: 0.68rem;
+  }
+
+  .stat-card-desc {
+    display: none;
+  }
 }
 
 /* Custom Scrollbar */
@@ -1206,22 +1350,6 @@ h6,
     font-size: 0.68rem !important;
   }
 
-  /* Stats section */
-  #statsGrid h2.display-5 {
-    font-size: 1.6rem !important;
-  }
-
-  #statsGrid h6 {
-    font-size: 0.8rem !important;
-  }
-
-  #statsGrid p.extra-small {
-    font-size: 0.68rem !important;
-  }
-
-  #statsGrid .fs-2 {
-    font-size: 1.4rem !important;
-  }
 
   /* Domain search */
   #domain-search .input-group-lg .form-control,
@@ -2245,5 +2373,188 @@ h6,
 
   #techStackGrid .tech-name {
     font-size: 0.54rem !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Stats Counter — professional glass cards, high contrast, fully responsive
+   -------------------------------------------------------------------------- */
+#stats {
+  background: linear-gradient(135deg, #0a3680 0%, #0f52ba 55%, #1e5fd9 100%);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.stat-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-gold), #fde68a);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.08) 100%);
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.4);
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-card-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.28), rgba(245, 158, 11, 0.08));
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-card-icon i {
+  font-size: 1.6rem;
+  color: var(--accent-gold);
+}
+
+.stat-card-value {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.stat-card-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.97);
+}
+
+.stat-card-desc {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  #statsGrid {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem 1.1rem;
+    border-radius: 18px;
+  }
+
+  .stat-card-value {
+    font-size: 2.1rem;
+  }
+}
+
+/* Mobile: single-column stacked cards, larger tap targets, refined type */
+@media (max-width: 767.98px) {
+  #stats {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  #statsGrid {
+    --bs-gutter-x: 0.75rem;
+    --bs-gutter-y: 0.85rem;
+  }
+
+  #statsGrid>[class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .stat-card {
+    padding: 1.35rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .stat-card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .stat-card-icon i {
+    font-size: 1.25rem;
+  }
+
+  .stat-card-value {
+    font-size: 1.9rem;
+    margin-bottom: 0.15rem !important;
+  }
+
+  .stat-card-label {
+    font-size: 0.85rem;
+  }
+
+  .stat-card-desc {
+    font-size: 0.74rem;
+    line-height: 1.5;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  #statsGrid {
+    --bs-gutter-x: 0.6rem;
+    --bs-gutter-y: 0.7rem;
+  }
+
+  .stat-card {
+    padding: 1.15rem 1rem;
+    border-radius: 14px;
+  }
+
+  .stat-card-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .stat-card-icon i {
+    font-size: 1.1rem;
+  }
+
+  .stat-card-value {
+    font-size: 1.65rem;
+  }
+
+  .stat-card-label {
+    font-size: 0.8rem;
+  }
+
+  .stat-card-desc {
+    font-size: 0.7rem;
   }
 }
