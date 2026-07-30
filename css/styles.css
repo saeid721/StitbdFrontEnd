@@ -1380,8 +1380,7 @@ body {
   padding-right: calc(var(--bs-gutter-x, 0.5rem) * .5);
   padding-left: calc(var(--bs-gutter-x, 0.5rem) * .5);
   margin-bottom: 0.65rem;
-  width: 50%;
-  /* 2 per row on mobile */
+  width: 33.333%;
 }
 
 @media (min-width: 480px) {
@@ -2098,7 +2097,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Domain Pricing Grid — force 2 cards per row on mobile, tighter spacing
+   Domain Pricing Grid — force 3 cards per row on mobile, tighter spacing
    -------------------------------------------------------------------------- */
 @media (max-width: 767.98px) {
   #domainPricingGrid.row.g-3 {
@@ -2108,8 +2107,8 @@ body {
 
   #domainPricingGrid>[class*="col-"] {
     flex: 0 0 auto;
-    width: 50% !important;
-    max-width: 50% !important;
+    width: 33.333% !important;
+    max-width: 33.333% !important;
   }
 
   .domain-pricing-card {

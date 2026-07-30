@@ -891,7 +891,7 @@ function renderIndustries() {
 
   grid.innerHTML = INDUSTRIES.map(
     (item, idx) => `
-    <div class="col-6 col-sm-4 col-lg-2" data-aos="zoom-in" data-aos-delay="${idx * 40}">
+    <div class="col-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="${idx * 40}">
       <div class="industry-card h-100 d-flex flex-column align-items-center justify-content-center text-center">
         <div class="industry-icon mb-2" style="background:${esc(item.color)}22;color:${esc(item.color)};">
           <i class="bi ${esc(item.icon)}"></i>
