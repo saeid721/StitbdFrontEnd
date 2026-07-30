@@ -439,7 +439,7 @@ body {
    Dropdown menus (desktop) + mobile accordion submenu
    -------------------------------------------------------------------------- */
 .dropdown-menu {
-  min-width: 260px;
+  min-width: 320px;
   margin-top: 6px !important;
   z-index: 1050;
 }
@@ -467,7 +467,7 @@ body {
 }
 
 .dropdown-menu-scroll {
-  max-height: 420px;
+  max-height: 620px;
   overflow-y: auto;
 }
 
@@ -3077,4 +3077,189 @@ body {
 [data-view-service]:hover i,
 [data-view-product]:hover i {
   color: #ffffff !important;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Footer — "Proud Member Of" Badges
+   -------------------------------------------------------------------------- */
+.footer-membership-grid {
+  margin-top: 0.15rem;
+}
+
+.footer-membership-badge {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 0.55rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 62px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.footer-membership-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.footer-membership-badge img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.footer-membership-badge:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 16px 30px -8px rgba(0, 159, 227, 0.4);
+  border-color: rgba(0, 159, 227, 0.55);
+}
+
+.footer-membership-badge:hover::before {
+  transform: scaleX(1);
+}
+
+.footer-membership-badge:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  .footer-membership-badge {
+    width: 96px;
+    height: 58px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  .footer-membership-badge {
+    width: 88px;
+    height: 54px;
+    padding: 0.45rem 0.65rem;
+    border-radius: 10px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .footer-membership-badge {
+    width: 78px;
+    height: 48px;
+    padding: 0.4rem 0.5rem;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Footer — Payment Gateway Strip (above copyright divider)
+   -------------------------------------------------------------------------- */
+.footer-payment-strip {
+  margin-bottom: 0.5rem;
+}
+
+.footer-payment-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.85rem;
+}
+
+.footer-payment-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 0.65rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.footer-payment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent-red));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+
+.footer-payment-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px -10px rgba(0, 159, 227, 0.4);
+}
+
+.footer-payment-card:hover::before {
+  transform: scaleX(1);
+}
+
+.footer-payment-img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 38px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  .footer-payment-img {
+    max-height: 34px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  .footer-payment-label {
+    font-size: 0.64rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .footer-payment-card {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+  }
+
+  .footer-payment-img {
+    max-height: 28px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .footer-payment-card {
+    padding: 0.45rem 0.75rem;
+  }
+
+  .footer-payment-img {
+    max-height: 24px;
+  }
 }

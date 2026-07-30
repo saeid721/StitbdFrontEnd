@@ -226,6 +226,37 @@ function initDesktopDropdownHover() {
 }
 
 /* --------------------------------------------------------------------------
+   Products Nav Dropdown — populated from READY_SOFTWARE_PRODUCTS
+   -------------------------------------------------------------------------- */
+function renderProductsNavMenu() {
+  const desktopMenu = document.getElementById('productsDropdownMenu');
+  const mobileMenu = document.getElementById('mobProductsMenu');
+  if (!desktopMenu && !mobileMenu) return;
+
+  if (desktopMenu) {
+    desktopMenu.innerHTML = READY_SOFTWARE_PRODUCTS.map(
+      (p) => `<li><a class="dropdown-item rounded-2" href="#ready-software" data-nav-product="${esc(p.id)}">${esc(p.name)}</a></li>`
+    ).join('');
+  }
+
+  if (mobileMenu) {
+    mobileMenu.innerHTML = READY_SOFTWARE_PRODUCTS.map(
+      (p) => `<li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none" href="#ready-software" data-nav-product="${esc(p.id)}">${esc(p.name)}</a></li>`
+    ).join('');
+  }
+
+  document.querySelectorAll('[data-nav-product]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const product = READY_SOFTWARE_PRODUCTS.find((p) => p.id === link.getAttribute('data-nav-product'));
+      const target = document.getElementById('ready-software');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => ProductDetailModal.open(product), 500);
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
    Quote / Cost Estimator Modal
    -------------------------------------------------------------------------- */
 const QuoteModal = {
@@ -944,6 +975,7 @@ document.addEventListener('DOMContentLoaded', () => {
   syncNavbarHeightVar();
   window.addEventListener('resize', syncNavbarHeightVar);
   HeroSlider.init();
+  renderProductsNavMenu();
   initDesktopDropdownHover();
   QuoteModal.init();
   ProductDetailModal.init();
