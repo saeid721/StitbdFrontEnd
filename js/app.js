@@ -636,7 +636,7 @@ const ReadySoftwareGallery = {
         <div class="card card-modern card-hover-lift h-100 border overflow-hidden p-0 d-flex flex-column justify-content-between">
           <div class="rs-card-img-wrap position-relative">
             <img src="${esc(product.image)}" alt="${esc(product.name)}" class="rs-card-img" loading="lazy">
-            ${product.badge ? `<span class="badge rs-card-badge bg-warning-subtle text-warning-emphasis border border-warning-subtle rounded-pill px-3 py-1 font-semibold small">${esc(product.badge)}</span>` : ''}
+            ${product.badge ? `<span class="badge-gold rs-card-badge">${esc(product.badge)}</span>` : ''}
           </div>
           <div class="rs-card-body p-4 d-flex flex-column flex-grow-1">
             <div>
@@ -873,19 +873,20 @@ function renderStats() {
    Clients & Testimonials - Auto Sliding
    -------------------------------------------------------------------------- */
 function renderClientsAndTestimonials() {
-  // Render Clients Marquee
-  const marqueeTrack = document.getElementById('clientsMarqueeTrack');
-  if (marqueeTrack) {
-    // Double the items for seamless loop
-    const allClients = [...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS];
+  // Render Clients Grid (static, max 4 rows x 8 per row = 32 logos)
+  const clientsGrid = document.getElementById('clientsGrid');
+  if (clientsGrid) {
+    const MAX_CLIENTS_DISPLAY = 32;
+    const displayClients = CLIENT_LOGOS.slice(0, MAX_CLIENTS_DISPLAY);
 
-    marqueeTrack.innerHTML = allClients.map(
+    clientsGrid.innerHTML = displayClients.map(
       (client) => `
-      <div class="client-logo-item flex-shrink-0 mx-3 d-flex flex-column align-items-center">
-        <div class="client-logo-box bg-white rounded-3 p-3 d-flex align-items-center justify-content-center shadow-sm border" style="width:130px;height:90px;">
-          <img src="${esc(client.image)}" alt="${esc(client.name)}" class="img-fluid" style="max-width:100%;max-height:70px;object-fit:contain;" loading="lazy">
+      <div class="client-col" data-aos="zoom-in">
+        <div class="client-card d-flex flex-column align-items-center justify-content-center">
+          <div class="client-logo-box-grid">
+            <img src="${esc(client.image)}" alt="${esc(client.name)}" loading="lazy">
+          </div>
         </div>
-        <span class="client-logo-name text-muted extra-small mt-1 text-center">${esc(client.name)}</span>
       </div>`
     ).join('');
   }
@@ -925,15 +926,7 @@ function renderClientsAndTestimonials() {
    Auto Sliding Animations
    -------------------------------------------------------------------------- */
 function initAutoSliders() {
-  // Clients Marquee - Slower speed
-  const marqueeTrack = document.getElementById('clientsMarqueeTrack');
-  if (marqueeTrack) {
-    marqueeTrack.style.animation = 'none';
-    void marqueeTrack.offsetWidth;
-    marqueeTrack.style.animation = 'marqueeScroll 60s linear infinite';
-  }
-
-  // Testimonials Slider - Slower speed
+  // Testimonials Slider - Slower speed (Clients section is now a static grid)
   const sliderTrack = document.getElementById('testimonialsSliderTrack');
   if (sliderTrack) {
     sliderTrack.style.animation = 'none';
