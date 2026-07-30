@@ -883,6 +883,28 @@ const TechStackSection = {
 };
 
 /* --------------------------------------------------------------------------
+   Industries We Serve
+   -------------------------------------------------------------------------- */
+function renderIndustries() {
+  const grid = document.getElementById('industriesGrid');
+  if (!grid) return;
+
+  grid.innerHTML = INDUSTRIES.map(
+    (item, idx) => `
+    <div class="col-6 col-sm-4 col-lg-2" data-aos="zoom-in" data-aos-delay="${idx * 40}">
+      <div class="industry-card h-100 d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="industry-icon mb-2" style="background:${esc(item.color)}22;color:${esc(item.color)};">
+          <i class="bi ${esc(item.icon)}"></i>
+        </div>
+        <h6 class="industry-name fw-bold font-heading mb-0">${esc(item.name)}</h6>
+      </div>
+    </div>`
+  ).join('');
+
+  if (window.AOS) window.AOS.refreshHard();
+}
+
+/* --------------------------------------------------------------------------
    Stats Counter
    -------------------------------------------------------------------------- */
 function renderStats() {
@@ -898,6 +920,69 @@ function renderStats() {
       </div>
     </div>`
   ).join('');
+}
+
+/* --------------------------------------------------------------------------
+   Recent Blogs
+   -------------------------------------------------------------------------- */
+function renderBlogs() {
+  const grid = document.getElementById('blogsGrid');
+  if (!grid) return;
+
+  grid.innerHTML = BLOG_POSTS.map(
+    (post, idx) => `
+    <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="${idx * 80}">
+      <a href="blog-details.html?id=${encodeURIComponent(post.id)}" class="blog-card-link text-decoration-none d-block h-100">
+        <div class="card card-modern card-hover-lift h-100 border overflow-hidden p-0 d-flex flex-column">
+          <div class="blog-card-img-wrap position-relative">
+            <img src="${esc(post.image)}" alt="${esc(post.title)}" class="blog-card-img" loading="lazy">
+            <span class="badge-gold blog-card-badge">${esc(post.category)}</span>
+          </div>
+          <div class="p-4 d-flex flex-column flex-grow-1">
+            <span class="text-muted extra-small d-block mb-2"><i class="bi bi-calendar3 me-1"></i> ${esc(post.date)}</span>
+            <h5 class="fw-bold font-heading text-dark mb-2 fs-5 blog-card-title">${esc(post.title)}</h5>
+            <p class="text-muted small leading-relaxed mb-3 flex-grow-1">${esc(post.excerpt)}</p>
+            <span class="fw-semibold small text-primary d-flex align-items-center gap-1 mt-auto">
+              Read Full Article <i class="bi bi-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>`
+  ).join('');
+
+  if (window.AOS) window.AOS.refreshHard();
+}
+
+/* --------------------------------------------------------------------------
+   Leadership Team
+   -------------------------------------------------------------------------- */
+function renderTeam() {
+  const grid = document.getElementById('teamGrid');
+  if (!grid) return;
+
+  grid.innerHTML = TEAM_MEMBERS.map(
+    (member, idx) => `
+    <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="${idx * 80}">
+      <div class="card card-modern card-hover-lift h-100 border text-center p-4">
+        <div class="team-card-img-wrap mx-auto mb-3">
+          <img src="${esc(member.image)}" alt="${esc(member.name)}" class="team-card-img" loading="lazy">
+        </div>
+        <h5 class="fw-bold font-heading text-dark mb-1 fs-5">${esc(member.name)}</h5>
+        <span class="text-primary small fw-semibold d-block mb-3">${esc(member.designation)}</span>
+        <div class="d-flex align-items-center justify-content-center gap-2 mt-auto">
+          <a href="${esc(member.facebook)}" target="_blank" rel="noreferrer"
+            class="btn btn-outline-secondary rounded-circle p-2 d-flex align-items-center justify-content-center team-social-btn"
+            aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="${esc(member.linkedin)}" target="_blank" rel="noreferrer"
+            class="btn btn-outline-secondary rounded-circle p-2 d-flex align-items-center justify-content-center team-social-btn"
+            aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>`
+  ).join('');
+
+  if (window.AOS) window.AOS.refreshHard();
 }
 
 /* --------------------------------------------------------------------------
@@ -979,13 +1064,16 @@ document.addEventListener('DOMContentLoaded', () => {
   initDesktopDropdownHover();
   QuoteModal.init();
   ProductDetailModal.init();
-  ServiceDetailModal.init();  // <-- ADD THIS LINE
+  ServiceDetailModal.init();
   initContactForm();
   initDomainSearch();
   renderServices();
   ReadySoftwareGallery.init();
   TechStackSection.init();
   renderStats();
+  renderIndustries();
+  renderBlogs();
+  renderTeam();
   renderClientsAndTestimonials();
 
   if (window.AOS) {

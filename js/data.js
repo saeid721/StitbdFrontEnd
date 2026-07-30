@@ -141,6 +141,21 @@ const READY_SOFTWARE_PRODUCTS = [
   { id: 'lms', name: 'Learning Management System', category: 'Education & Health', shortDescription: 'Manage courses, online classes, exams, results, and student-teacher communication.', fullDescription: 'A powerful learning management system designed for schools, colleges, and training centers to manage courses, online classes, exams, results, and student-teacher communication.', features: ['Course & Curriculum Management', 'Online Class Delivery', 'Exam & Result Management', 'Student-Teacher Communication'], icon: 'bi-mortarboard', badge: 'E-Learning', rating: 4.8, popular: false, targetUsers: 'Schools, Colleges, Training Centers', modules: ['Course Management', 'Online Classes', 'Exam & Grading', 'Result Publishing', 'Attendance', 'Communication Portal'], image: 'asset/ready_software/24.jpg' },
 ];
 
+const INDUSTRIES = [
+  { name: 'Garments', icon: 'bi-scissors', color: '#f59e0b' },
+  { name: 'Real Estate', icon: 'bi-building-fill', color: '#0ea5e9' },
+  { name: 'Hospitality', icon: 'bi-cup-hot-fill', color: '#60a5fa' },
+  { name: 'RMG', icon: 'bi-bag-fill', color: '#22c55e' },
+  { name: 'Education', icon: 'bi-mortarboard-fill', color: '#10b981' },
+  { name: 'Pharmacy', icon: 'bi-capsule', color: '#14b8a6' },
+  { name: 'Automotive', icon: 'bi-car-front-fill', color: '#ec4899' },
+  { name: 'E-commerce', icon: 'bi-cart-fill', color: '#3b82f6' },
+  { name: 'UI/UX', icon: 'bi-palette-fill', color: '#f59e0b' },
+  { name: 'Health Care', icon: 'bi-heart-pulse-fill', color: '#f472b6' },
+  { name: 'Agro', icon: 'bi-tree-fill', color: '#22c55e' },
+  { name: 'Many More', icon: 'bi-grid-3x3-gap-fill', color: '#6366f1' },
+];
+
 const TECH_STACK = [
   // Frontend
   { name: 'React.js', category: 'Frontend', iconClass: 'devicon-react-original colored', description: 'Component-based UI library for ultra-fast web interfaces.' },
@@ -228,24 +243,6 @@ const COMPANY_STATS = [
   },
 ];
 
-const DOMAIN_PRICING = [
-  { tld: '.com', priceBdt: '\u09f31,400', period: '/year', tag: 'Most Popular', popular: true },
-  { tld: '.com.bd', priceBdt: '\u09f32,500', period: '/year', tag: 'Official BD', popular: true },
-  { tld: '.edu.bd', priceBdt: '\u09f3810', period: '/year', tag: 'Educational', popular: false },
-  { tld: '.net', priceBdt: '\u09f31,650', period: '/year', tag: 'Tech Standard', popular: false },
-  { tld: '.org', priceBdt: '\u09f31,550', period: '/year', tag: 'Non-Profit', popular: false },
-  { tld: '.info', priceBdt: '\u09f31,100', period: '/year', tag: 'Information', popular: false },
-  { tld: '.xyz', priceBdt: '\u09f3450', period: '/year', tag: 'Generic', popular: false },
-  { tld: '.me', priceBdt: '\u09f3450', period: '/year', tag: 'Personal Brand', popular: false },
-  { tld: '.ai', priceBdt: '\u09f3450', period: '/year', tag: 'AI & Tech', popular: false },
-  { tld: '.pro', priceBdt: '\u09f3450', period: '/year', tag: 'Professional', popular: false },
-  { tld: '.live', priceBdt: '\u09f3450', period: '/year', tag: 'Streaming & Events', popular: false },
-  { tld: '.news', priceBdt: '\u09f3450', period: '/year', tag: 'News & Media', popular: false },
-  { tld: '.online', priceBdt: '\u09f3450', period: '/year', tag: 'General Web', popular: false },
-  { tld: '.today', priceBdt: '\u09f3450', period: '/year', tag: 'Blog & Magazine', popular: false },
-  { tld: '.site', priceBdt: '\u09f3450', period: '/year', tag: 'Startup', popular: false },
-];
-
 const CLIENT_LOGOS = [
   // From "mi" section
   { name: 'Xiaomi', sector: 'Technology', image: 'asset/clients/xiaomi.png' },
@@ -322,7 +319,67 @@ const CLIENT_LOGOS = [
   { name: 'Azad Printers', sector: 'Services', image: 'asset/clients/Azad_Printers.jpg' },
   { name: 'Client 14', sector: 'Services', image: 'asset/clients/14.jpg' },
 ];
+const BLOG_POSTS = [
+  {
+    id: 'why-erp-matters-2026',
+    title: 'Why Every Growing Business Needs an ERP System in 2026',
+    excerpt: 'Discover how a unified ERP eliminates data silos, automates workflows, and gives leadership real-time visibility across every department.',
+    category: 'ERP & Software',
+    date: 'July 12, 2026',
+    image: 'asset/blog/01.png',
+  },
+  {
+    id: 'bkash-nagad-integration-guide',
+    title: 'A Practical Guide to Integrating bKash & Nagad Into Your Website',
+    excerpt: 'Step-by-step insight into how local payment gateway integration boosts checkout conversion for Bangladeshi e-commerce businesses.',
+    category: 'Web Development',
+    date: 'June 28, 2026',
+    image: 'asset/blog/02.png',
+  },
+  {
+    id: 'biometric-attendance-hr-2026',
+    title: 'Biometric Attendance: The Smartest Upgrade for Modern HR Teams',
+    excerpt: 'Explore how fingerprint and face recognition attendance systems cut payroll errors and save hundreds of manual HR hours every month.',
+    category: 'HR & Payroll',
+    date: 'June 15, 2026',
+    image: 'asset/blog/03.png',
+  },
+];
 
+const TEAM_MEMBERS = [
+  {
+    id: 'shaokat-hossain',
+    name: 'Shaokat Hossain',
+    designation: 'Founder & CEO',
+    image: 'asset/team/01.jpg',
+    facebook: '#',
+    linkedin: '#',
+  },
+  {
+    id: 'haider-hossain',
+    name: 'Md. Haider Hossain',
+    designation: 'Business Developer & Market Researche',
+    image: 'asset/team/02.jpg',
+    facebook: '#',
+    linkedin: '#',
+  },
+  {
+    id: 'humayun-farid',
+    name: 'Md. Humayun Farid',
+    designation: 'CTO',
+    image: 'asset/team/03.jpg',
+    facebook: '#',
+    linkedin: '#',
+  },
+  {
+    id: 'lead-software-architect',
+    name: 'Khondoker Eftakhar Jubayer',
+    designation: 'Lead Software Architect',
+    image: 'asset/team/04.jpg',
+    facebook: '#',
+    linkedin: '#',
+  },
+];
 
 const TESTIMONIALS = [
   {
@@ -361,4 +418,24 @@ const TESTIMONIALS = [
     text: 'We have been using STITBD\u2019s School Management System since 2018. Online bKash fee collection and instant exam result publishing transformed our parent communication.',
     rating: 5,
   }
+];
+
+
+
+const DOMAIN_PRICING = [
+  { tld: '.com', priceBdt: '\u09f31,400', period: '/year', tag: 'Most Popular', popular: true },
+  { tld: '.com.bd', priceBdt: '\u09f32,500', period: '/year', tag: 'Official BD', popular: true },
+  { tld: '.edu.bd', priceBdt: '\u09f3810', period: '/year', tag: 'Educational', popular: false },
+  { tld: '.net', priceBdt: '\u09f31,650', period: '/year', tag: 'Tech Standard', popular: false },
+  { tld: '.org', priceBdt: '\u09f31,550', period: '/year', tag: 'Non-Profit', popular: false },
+  { tld: '.info', priceBdt: '\u09f31,100', period: '/year', tag: 'Information', popular: false },
+  { tld: '.xyz', priceBdt: '\u09f3450', period: '/year', tag: 'Generic', popular: false },
+  { tld: '.me', priceBdt: '\u09f3450', period: '/year', tag: 'Personal Brand', popular: false },
+  { tld: '.ai', priceBdt: '\u09f3450', period: '/year', tag: 'AI & Tech', popular: false },
+  { tld: '.pro', priceBdt: '\u09f3450', period: '/year', tag: 'Professional', popular: false },
+  { tld: '.live', priceBdt: '\u09f3450', period: '/year', tag: 'Streaming & Events', popular: false },
+  { tld: '.news', priceBdt: '\u09f3450', period: '/year', tag: 'News & Media', popular: false },
+  { tld: '.online', priceBdt: '\u09f3450', period: '/year', tag: 'General Web', popular: false },
+  { tld: '.today', priceBdt: '\u09f3450', period: '/year', tag: 'Blog & Magazine', popular: false },
+  { tld: '.site', priceBdt: '\u09f3450', period: '/year', tag: 'Startup', popular: false },
 ];
