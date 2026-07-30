@@ -2096,6 +2096,58 @@ body {
 
 
 /* --------------------------------------------------------------------------
+   Services Cards — image header + icon badge overlay
+   -------------------------------------------------------------------------- */
+.svc-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.svc-card-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-lift:hover .svc-card-img {
+  transform: scale(1.04);
+}
+
+.svc-card-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 55%, rgba(15, 23, 42, 0.55) 100%);
+  pointer-events: none;
+}
+
+.svc-card-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+.svc-card-body {
+  padding-top: 2rem !important;
+}
+
+@media (max-width: 991.98px) {
+  #servicesGrid {
+    --bs-gutter-x: 1.25rem;
+    --bs-gutter-y: 1.25rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Services Section — dedicated mobile responsiveness
    -------------------------------------------------------------------------- */
 @media (max-width: 767.98px) {

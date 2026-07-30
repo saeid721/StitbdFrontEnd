@@ -476,19 +476,18 @@ function renderServices() {
   const grid = document.getElementById('servicesGrid');
   grid.innerHTML = SERVICES.map(
     (service, index) => `
-    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="${index * 80}">
-      <div class="card card-modern card-hover-lift h-100 p-4 border d-flex flex-column justify-content-between">
-        <div>
-          <div class="d-flex align-items-center justify-content-between mb-3">
-            <div class="bg-primary bg-opacity-10 text-primary rounded-3 p-3 d-flex align-items-center justify-content-center" style="width:56px;height:56px;">
-              <i class="bi ${esc(service.iconName)} fs-3"></i>
-            </div>
-            ${service.badge ? `<span class="badge-gold">${esc(service.badge)}</span>` : ''}
-          </div>
-          <h4 class="fw-bold font-heading text-dark mb-2 fs-5">${esc(service.title)}</h4>
-          <p class="text-muted small mb-4 leading-relaxed">${esc(service.description)}</p>
-          <ul class="list-unstyled mb-4 gap-2 d-flex flex-column">
-            ${service.features
+    <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="${index * 80}">
+      <div class="card card-modern card-hover-lift h-100 p-0 border overflow-hidden d-flex flex-column justify-content-between">
+        <div class="svc-card-img-wrap position-relative">
+          <img src="${esc(service.image)}" alt="${esc(service.title)}" class="svc-card-img" loading="lazy">
+          ${service.badge ? `<span class="badge-gold svc-card-badge">${esc(service.badge)}</span>` : ''}
+        </div>
+        <div class="svc-card-body p-4 d-flex flex-column flex-grow-1">
+          <div>
+            <h4 class="fw-bold font-heading text-dark mb-2 fs-5">${esc(service.title)}</h4>
+            <p class="text-muted small mb-4 leading-relaxed">${esc(service.description)}</p>
+            <ul class="list-unstyled mb-4 gap-2 d-flex flex-column">
+              ${service.features
         .slice(0, 2)
         .map(
           (feat) => `
@@ -498,21 +497,22 @@ function renderServices() {
               </li>`
         )
         .join('')}
-            ${service.features.length > 2 ? `<li class="d-flex align-items-start gap-2 small text-muted">
+              ${service.features.length > 2 ? `<li class="d-flex align-items-start gap-2 small text-muted">
                 <i class="bi bi-plus-circle-fill text-primary mt-1"></i>
                 <span>+${service.features.length - 2} more features</span>
               </li>` : ''}
-          </ul>
-        </div>
-        <div class="pt-3 border-top d-flex flex-column gap-2">
-          <button type="button" class="btn btn-outline-primary w-100 rounded-3 fw-semibold d-flex align-items-center justify-content-center gap-2" data-view-service="${esc(service.id)}">
-            <i class="bi bi-eye"></i>
-            <span>Read More</span>
-          </button>
-          <button type="button" class="btn btn-brand-primary w-100 rounded-3 fw-semibold d-flex align-items-center justify-content-center gap-2" data-request-service="${esc(service.title)}">
-            <i class="bi bi-envelope-paper-fill"></i>
-            <span>Request This Service</span>
-          </button>
+            </ul>
+          </div>
+          <div class="pt-3 border-top d-flex flex-column gap-2 mt-auto">
+            <button type="button" class="btn btn-outline-primary w-100 rounded-3 fw-semibold d-flex align-items-center justify-content-center gap-2" data-view-service="${esc(service.id)}">
+              <i class="bi bi-eye"></i>
+              <span>Read More</span>
+            </button>
+            <button type="button" class="btn btn-brand-primary w-100 rounded-3 fw-semibold d-flex align-items-center justify-content-center gap-2" data-request-service="${esc(service.title)}">
+              <i class="bi bi-envelope-paper-fill"></i>
+              <span>Request This Service</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>`
