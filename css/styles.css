@@ -931,10 +931,11 @@ body {
 
 /* Custom Badges */
 .badge-gold {
-  background-color: rgba(245, 158, 11, 0.15);
-  color: #b45309;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  background-color: rgba(245, 11, 11, 0.15);
+  color: #ed1c24;
+  border: 1px solid rgba(245, 11, 11, 0.3);
   font-weight: 600;
+  font-size: 12px;
   border-radius: 30px;
   padding: 0.35rem 0.85rem;
 }
