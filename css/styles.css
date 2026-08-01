@@ -198,8 +198,9 @@ h6,
   color: #ffffff !important;
 }
 
-/* 20%-width Bootstrap-grid-compatible column (5 items per row on lg) */
-.col-lg-2-4 {
+/* 12.5%-width Bootstrap-grid-compatible column (8 items per row on lg,
+   used by the Domain Pricing grid) */
+.col-lg-8th {
   position: relative;
   width: 100%;
   padding-right: calc(var(--bs-gutter-x, 1.5rem) * .5);
@@ -207,9 +208,9 @@ h6,
 }
 
 @media (min-width: 992px) {
-  .col-lg-2-4 {
+  .col-lg-8th {
     flex: 0 0 auto;
-    width: 20%;
+    width: 12.5%;
   }
 }
 
@@ -2169,6 +2170,44 @@ body {
 /* --------------------------------------------------------------------------
    Domain Search Form — desktop placeholder sizing + equal field heights
    -------------------------------------------------------------------------- */
+
+.domain-pricing-card {
+  padding: 0.5rem 0.6rem !important;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.domain-pricing-card .badge {
+  font-size: 0.62rem !important;
+  padding: 0.22rem 0.55rem !important;
+  margin-bottom: 0.5rem !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.domain-pricing-card h5 {
+  font-size: 1rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.domain-pricing-card .fs-5 {
+  font-size: 0.85rem !important;
+  font-weight: 700;
+}
+
+.domain-pricing-card .extra-small {
+  font-size: 0.65rem !important;
+}
+
+.domain-pricing-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px -10px rgba(0, 159, 227, 0.35);
+  border-color: rgba(0, 159, 227, 0.35);
+}
+
 #domainQueryInput::placeholder {
   font-size: 0.85rem;
   opacity: 0.75;
@@ -3498,49 +3537,132 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Leadership Team — card styling
+   Leadership Team — Modern Photo Card (v2)
    -------------------------------------------------------------------------- */
-.team-card-img-wrap {
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
+.team-card-v2 {
+  position: relative;
+  border-radius: 20px;
   overflow: hidden;
-  border: 4px solid var(--primary-light);
-  transition: border-color 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  aspect-ratio: 3 / 3.6;
+  background: #0f172a;
+  box-shadow: 0 14px 34px -14px rgba(15, 23, 42, 0.35);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
-.team-card-img {
-  display: block;
+.team-card-v2:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 48px -16px rgba(15, 82, 186, 0.35);
+}
+
+.team-photo-v2 {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.card-hover-lift:hover .team-card-img-wrap {
-  border-color: var(--primary);
-  transform: scale(1.05);
+.team-card-v2:hover .team-photo-v2 {
+  transform: scale(1.06);
 }
 
-.team-social-btn {
-  width: 38px;
-  height: 38px;
-  color: var(--text-muted);
-  border-color: var(--border-color);
+.team-card-v2::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 45%, rgba(15, 23, 42, 0.55) 72%, rgba(15, 23, 42, 0.94) 100%);
+  pointer-events: none;
+}
+
+.team-code-badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 2;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.team-overlay-v2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 1.1rem 1.1rem 1.25rem;
+  text-align: center;
+}
+
+.team-designation-pill {
+  display: inline-block;
+  background: rgba(var(--primary), 0.15);
+  border: 1px solid rgba(var(--primary), 0.35);
+  color: var(--primary);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.85rem;
+  border-radius: 30px;
+  margin-bottom: 0.55rem;
+}
+
+.team-name-v2 {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.team-role-v2 {
+  display: block;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.team-social-row-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.team-social-btn-v2 {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  font-size: 0.85rem;
   transition: all 0.25s ease;
 }
 
-.team-social-btn:hover {
+.team-social-btn-v2:hover {
   background: var(--primary);
   border-color: var(--primary);
-  color: #ffffff;
   transform: translateY(-2px);
+  color: #ffffff;
 }
 
 /* Tablet */
 @media (max-width: 991.98px) {
-  .team-card-img-wrap {
-    width: 110px;
-    height: 110px;
+  .team-card-v2 {
+    aspect-ratio: 3 / 3.8;
   }
 }
 
@@ -3560,38 +3682,55 @@ body {
     line-height: 1.5;
   }
 
-  .team-card-img-wrap {
-    width: 92px;
-    height: 92px;
-    border-width: 3px;
+  .team-card-v2 {
+    border-radius: 16px;
+    aspect-ratio: 3 / 3.6;
   }
 
-  #teamGrid .card-modern.p-4 {
-    padding: 1.1rem !important;
+  .team-code-badge {
+    top: 0.6rem;
+    left: 0.6rem;
+    font-size: 0.6rem;
+    padding: 0.24rem 0.5rem;
   }
 
-  #teamGrid h5.fs-5 {
-    font-size: 0.95rem !important;
+  .team-overlay-v2 {
+    padding: 0.85rem 0.85rem 1rem;
   }
 
-  .team-social-btn {
-    width: 34px;
-    height: 34px;
+  .team-designation-pill {
+    font-size: 0.58rem;
+    padding: 0.22rem 0.65rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .team-name-v2 {
+    font-size: 0.95rem;
+  }
+
+  .team-role-v2 {
+    font-size: 0.7rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .team-social-btn-v2 {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem;
   }
 }
 
 /* Small mobile */
 @media (max-width: 480px) {
-  #leadership-team h2.display-6 {
-    font-size: 1.15rem !important;
+  .team-card-v2 {
+    border-radius: 14px;
   }
 
-  .team-card-img-wrap {
-    width: 84px;
-    height: 84px;
+  .team-name-v2 {
+    font-size: 0.88rem;
   }
 
-  #teamGrid h5.fs-5 {
-    font-size: 0.88rem !important;
+  .team-designation-pill {
+    font-size: 0.54rem;
   }
 }

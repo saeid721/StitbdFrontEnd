@@ -412,95 +412,6 @@ function initContactForm() {
 }
 
 /* --------------------------------------------------------------------------
-   Domain Search
-   -------------------------------------------------------------------------- */
-function initDomainSearch() {
-  const form = document.getElementById('domainSearchForm');
-  const tldSelect = document.getElementById('domainTldSelect');
-  const queryInput = document.getElementById('domainQueryInput');
-  const submitBtn = document.getElementById('domainSearchSubmit');
-  const resultBox = document.getElementById('domainResultBox');
-  const resultName = document.getElementById('domainResultName');
-  const resultPrice = document.getElementById('domainResultPrice');
-  const orderBtn = document.getElementById('domainOrderBtn');
-  const pricingGrid = document.getElementById('domainPricingGrid');
-
-  // Populate TLD select
-  tldSelect.innerHTML = DOMAIN_PRICING.map(
-    (d) => `<option value="${esc(d.tld)}">${esc(d.tld)}</option>`
-  ).join('');
-
-  // Populate pricing grid tags
-  pricingGrid.innerHTML = DOMAIN_PRICING.map(
-    (item) => `
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2-4">
-      <div class="card card-modern p-3 text-center cursor-pointer h-100 domain-pricing-card" data-tld="${esc(item.tld)}">
-        ${item.tag ? `<span class="badge ${item.popular ? 'bg-warning text-dark' : 'bg-secondary'} mb-2 text-truncate">${esc(item.tag)}</span>` : ''}
-        <h5 class="fw-extrabold text-primary font-heading mb-1">${esc(item.tld)}</h5>
-        <div class="fw-bold text-dark fs-5">${esc(item.priceBdt)}<span class="text-muted extra-small">${esc(item.period)}</span></div>
-        
-      </div>
-    </div>`
-  ).join('');
-
-
-  function matchedPricing() {
-    return DOMAIN_PRICING.find((d) => d.tld === tldSelect.value) || DOMAIN_PRICING[0];
-  }
-
-  function highlightSelectedTld() {
-    pricingGrid.querySelectorAll('.domain-pricing-card').forEach((card) => {
-      card.classList.toggle('border-primary', card.dataset.tld === tldSelect.value);
-      card.classList.toggle('bg-primary', card.dataset.tld === tldSelect.value);
-      card.classList.toggle('bg-opacity-10', card.dataset.tld === tldSelect.value);
-      card.classList.toggle('shadow-sm', card.dataset.tld === tldSelect.value);
-    });
-  }
-  highlightSelectedTld();
-
-  pricingGrid.addEventListener('click', (e) => {
-    const card = e.target.closest('.domain-pricing-card');
-    if (!card) return;
-    tldSelect.value = card.dataset.tld;
-    highlightSelectedTld();
-    if (queryInput.value.trim()) {
-      showResult();
-    }
-  });
-
-  function showResult() {
-    const cleaned = queryInput.value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
-    const domain = `${cleaned}${tldSelect.value}`;
-    const pricing = matchedPricing();
-    resultName.textContent = `${domain} is available!`;
-    resultPrice.innerHTML = `Price: <strong class="text-dark">${esc(pricing.priceBdt)}</strong> (${esc(pricing.priceUsd)}) ${esc(pricing.period)} \u2022 Free SSL & cPanel DNS Included`;
-    orderBtn.dataset.domain = domain;
-    orderBtn.dataset.tld = pricing.tld;
-    orderBtn.dataset.price = pricing.priceBdt;
-    resultBox.classList.remove('d-none');
-  }
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (!queryInput.value.trim()) return;
-    resultBox.classList.add('d-none');
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span>Checking...</span>';
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '<i class="bi bi-lightning-charge-fill"></i><span>Check Domain</span>';
-      showResult();
-    }, 600);
-  });
-
-  queryInput.addEventListener('input', () => resultBox.classList.add('d-none'));
-
-  orderBtn.addEventListener('click', () => {
-    QuoteModal.open(`Domain Registration: ${orderBtn.dataset.domain} (${orderBtn.dataset.price})`);
-  });
-}
-
-/* --------------------------------------------------------------------------
    Services Section
    -------------------------------------------------------------------------- */
 function renderServices() {
@@ -964,19 +875,17 @@ function renderTeam() {
   grid.innerHTML = TEAM_MEMBERS.map(
     (member, idx) => `
     <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="${idx * 80}">
-      <div class="card card-modern card-hover-lift h-100 border text-center p-4">
-        <div class="team-card-img-wrap mx-auto mb-3">
-          <img src="${esc(member.image)}" alt="${esc(member.name)}" class="team-card-img" loading="lazy">
-        </div>
-        <h5 class="fw-bold font-heading text-dark mb-1 fs-5">${esc(member.name)}</h5>
-        <span class="text-primary small fw-semibold d-block mb-3">${esc(member.designation)}</span>
-        <div class="d-flex align-items-center justify-content-center gap-2 mt-auto">
-          <a href="${esc(member.facebook)}" target="_blank" rel="noreferrer"
-            class="btn btn-outline-secondary rounded-circle p-2 d-flex align-items-center justify-content-center team-social-btn"
-            aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="${esc(member.linkedin)}" target="_blank" rel="noreferrer"
-            class="btn btn-outline-secondary rounded-circle p-2 d-flex align-items-center justify-content-center team-social-btn"
-            aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <div class="team-card-v2 h-100">
+        <img src="${esc(member.image)}" alt="${esc(member.name)}" class="team-photo-v2" loading="lazy">
+        <div class="team-overlay-v2">
+          <h5 class="team-name-v2 font-heading">${esc(member.name)}</h5>
+          <span class="team-designation-pill">${esc(member.designation)}</span>
+          <div class="team-social-row-v2">
+            <a href="${esc(member.facebook)}" target="_blank" rel="noreferrer"
+              class="team-social-btn-v2" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="${esc(member.linkedin)}" target="_blank" rel="noreferrer"
+              class="team-social-btn-v2" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
         </div>
       </div>
     </div>`
@@ -1050,6 +959,97 @@ function initAutoSliders() {
     sliderTrack.style.animation = 'testimonialScroll 70s linear infinite';
   }
 }
+
+
+/* --------------------------------------------------------------------------
+   Domain Search
+   -------------------------------------------------------------------------- */
+function initDomainSearch() {
+  const form = document.getElementById('domainSearchForm');
+  const tldSelect = document.getElementById('domainTldSelect');
+  const queryInput = document.getElementById('domainQueryInput');
+  const submitBtn = document.getElementById('domainSearchSubmit');
+  const resultBox = document.getElementById('domainResultBox');
+  const resultName = document.getElementById('domainResultName');
+  const resultPrice = document.getElementById('domainResultPrice');
+  const orderBtn = document.getElementById('domainOrderBtn');
+  const pricingGrid = document.getElementById('domainPricingGrid');
+
+  // Populate TLD select
+  tldSelect.innerHTML = DOMAIN_PRICING.map(
+    (d) => `<option value="${esc(d.tld)}">${esc(d.tld)}</option>`
+  ).join('');
+
+  // Populate pricing grid tags
+  pricingGrid.innerHTML = DOMAIN_PRICING.map(
+    (item) => `
+    <div class="col-6 col-sm-4 col-md-3 col-lg-8th">
+      <div class="card card-modern p-3 text-center cursor-pointer h-100 domain-pricing-card" data-tld="${esc(item.tld)}">
+        ${item.tag ? `<span class="badge ${item.popular ? 'bg-warning text-dark' : 'bg-secondary'} mb-2 text-truncate">${esc(item.tag)}</span>` : ''}
+        <h5 class="fw-extrabold text-primary font-heading mb-1">${esc(item.tld)}</h5>
+        <div class="fw-bold text-dark fs-5">${esc(item.priceBdt)}<span class="text-muted extra-small">${esc(item.period)}</span></div>
+        
+      </div>
+    </div>`
+  ).join('');
+
+
+  function matchedPricing() {
+    return DOMAIN_PRICING.find((d) => d.tld === tldSelect.value) || DOMAIN_PRICING[0];
+  }
+
+  function highlightSelectedTld() {
+    pricingGrid.querySelectorAll('.domain-pricing-card').forEach((card) => {
+      card.classList.toggle('border-primary', card.dataset.tld === tldSelect.value);
+      card.classList.toggle('bg-primary', card.dataset.tld === tldSelect.value);
+      card.classList.toggle('bg-opacity-10', card.dataset.tld === tldSelect.value);
+      card.classList.toggle('shadow-sm', card.dataset.tld === tldSelect.value);
+    });
+  }
+  highlightSelectedTld();
+
+  pricingGrid.addEventListener('click', (e) => {
+    const card = e.target.closest('.domain-pricing-card');
+    if (!card) return;
+    tldSelect.value = card.dataset.tld;
+    highlightSelectedTld();
+    if (queryInput.value.trim()) {
+      showResult();
+    }
+  });
+
+  function showResult() {
+    const cleaned = queryInput.value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
+    const domain = `${cleaned}${tldSelect.value}`;
+    const pricing = matchedPricing();
+    resultName.textContent = `${domain} is available!`;
+    resultPrice.innerHTML = `Price: <strong class="text-dark">${esc(pricing.priceBdt)}</strong> (${esc(pricing.priceUsd)}) ${esc(pricing.period)} \u2022 Free SSL & cPanel DNS Included`;
+    orderBtn.dataset.domain = domain;
+    orderBtn.dataset.tld = pricing.tld;
+    orderBtn.dataset.price = pricing.priceBdt;
+    resultBox.classList.remove('d-none');
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!queryInput.value.trim()) return;
+    resultBox.classList.add('d-none');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span>Checking...</span>';
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="bi bi-lightning-charge-fill"></i><span>Check Domain</span>';
+      showResult();
+    }, 600);
+  });
+
+  queryInput.addEventListener('input', () => resultBox.classList.add('d-none'));
+
+  orderBtn.addEventListener('click', () => {
+    QuoteModal.open(`Domain Registration: ${orderBtn.dataset.domain} (${orderBtn.dataset.price})`);
+  });
+}
+
 
 /* --------------------------------------------------------------------------
    Boot
