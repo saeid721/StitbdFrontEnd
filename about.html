@@ -3,546 +3,287 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>About STITBD | Super Technic IT Bangladesh</title>
     <meta name="description"
         content="STITBD is a premier Bangladesh-based software engineering company since 2014, delivering ERP, POS, web, mobile, and IT solutions." />
-    <!-- Bootstrap 5 + Icons + Fonts -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+    <!-- ====== EXTERNAL RESOURCES (same as index) ====== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
+    <!-- Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Plus+Jakarta+Sans:wght@500..800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
         rel="stylesheet" />
-    <style>
-        /* ===== ROOT & RESET ===== */
-        :root {
-            --primary: #009fe3;
-            --primary-dark: #0171bb;
-            --secondary: #00a651;
-            --accent-red: #ed1c24;
-            --dark: #0f172a;
-            --text-main: #334155;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --body-bg: #f8fafc;
-            --card-bg: #ffffff;
-            --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
-            --font-body: 'Inter', system-ui, sans-serif;
-        }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-        body {
-            font-family: var(--font-body);
-            color: var(--text-main);
-            background: var(--body-bg);
-            line-height: 1.6;
-            padding-top: 76px;
-            width: 100%;
-            overflow-x: hidden;
-        }
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        .font-heading {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            color: var(--dark);
-            letter-spacing: -0.02em;
-        }
+    <!-- Devicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
-        a {
-            text-decoration: none;
-            color: var(--primary);
-        }
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-        .bg-soft-primary {
-            background: rgba(0, 159, 227, 0.06);
-        }
+    <!-- Custom CSS (same as index) -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/about.css" />
 
-        .text-primary {
-            color: var(--primary) !important;
-        }
+    <!-- Favicon (same as index) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="asset/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="asset/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-        .border-soft {
-            border-color: var(--border-color) !important;
-        }
-
-        /* ===== GLASS NAVBAR ===== */
-        .sticky-glass-navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1030;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-        }
-
-        .sticky-glass-navbar.scrolled {
-            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.15);
-            background: rgba(255, 255, 255, 0.98);
-        }
-
-        @media (max-width: 991.98px) {
-            .sticky-glass-navbar {
-                background: rgba(255, 255, 255, 0.98) !important;
-                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08) !important;
-            }
-
-            body {
-                padding-top: 70px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding-top: 65px;
-            }
-        }
-
-        .navbar-nav .nav-link {
-            white-space: nowrap;
-            font-size: 0.92rem;
-            padding: 0.5rem 0.6rem !important;
-            position: relative;
-        }
-
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0.6rem;
-            right: 0.6rem;
-            bottom: 2px;
-            height: 2px;
-            background: var(--primary);
-            border-radius: 2px;
-            transform: scaleX(0);
-            transition: transform 0.2s ease;
-        }
-
-        .navbar-nav .nav-link:hover::after {
-            transform: scaleX(1);
-        }
-
-        .navbar-toggler-modern {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: rgba(0, 159, 227, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-        }
-
-        .navbar-toggler-modern:hover {
-            background: rgba(0, 159, 227, 0.18);
-        }
-
-        .dropdown-menu {
-            min-width: 320px;
-            margin-top: 6px !important;
-            border-radius: 16px;
-        }
-
-        @media (min-width: 992px) {
-            .dropdown-menu {
-                display: block;
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(8px);
-                transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
-                pointer-events: none;
-            }
-
-            .dropdown-menu.show {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-                pointer-events: auto;
-            }
-        }
-
-        .dropdown-item:hover {
-            background: rgba(0, 159, 227, 0.08);
-            color: var(--primary);
-        }
-
-        .btn-brand-primary {
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            font-weight: 600;
-            border-radius: 30px;
-            padding: 0.6rem 1.5rem;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(0, 159, 227, 0.3);
-        }
-
-        .btn-brand-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 159, 227, 0.4);
-            color: #fff;
-        }
-
-        /* ===== SECTION TITLES ===== */
-        .section-badge {
-            display: inline-block;
-            background: rgba(0, 159, 227, 0.08);
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            letter-spacing: 0.03em;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title {
-            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-sub {
-            color: var(--text-muted);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* ===== ABOUT HERO ===== */
-        .about-hero {
-            background: linear-gradient(135deg, #0a2540 0%, #0f52ba 60%, #1e3a8a 100%);
-            padding: 4rem 0 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-hero::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .about-hero h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-        }
-
-        .about-hero .lead {
-            font-size: clamp(1rem, 1.5vw, 1.25rem);
-            opacity: 0.9;
-        }
-
-        /* ===== CARDS / MISSION ===== */
-        .mission-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 2rem 1.5rem;
-            height: 100%;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-            box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.06);
-        }
-
-        .mission-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -14px rgba(0, 159, 227, 0.15);
-            border-color: rgba(0, 159, 227, 0.25);
-        }
-
-        .mission-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 159, 227, 0.08);
-            color: var(--primary);
-            font-size: 1.8rem;
-        }
-
-        /* ===== STATS ===== */
-        .stat-mini {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 1.2rem 0.8rem;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        .stat-mini:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.08);
-        }
-
-        .stat-mini .number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--dark);
-        }
-
-        .stat-mini .label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        /* ===== ETHICS / VALUES ===== */
-        .value-badge {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 40px;
-            padding: 0.4rem 1.2rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.25s ease;
-        }
-
-        .value-badge:hover {
-            border-color: var(--primary);
-            background: rgba(0, 159, 227, 0.04);
-            transform: translateY(-2px);
-        }
-
-        /* ===== DIFFERENCE CARD ===== */
-        .diff-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 1.8rem 1.5rem;
-            height: 100%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .diff-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 32px -14px rgba(0, 0, 0, 0.08);
-        }
-
-        .diff-card .icon {
-            font-size: 2.2rem;
-            color: var(--primary);
-        }
-
-        /* ===== TEAM CARD ===== */
-        .team-card {
-            border-radius: 20px;
-            overflow: hidden;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -14px rgba(0, 159, 227, 0.15);
-        }
-
-        .team-card img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-        }
-
-        .team-card .info {
-            padding: 1rem 1rem 1.2rem;
-            text-align: center;
-        }
-
-        .team-card .info h5 {
-            font-size: 1.05rem;
-            margin-bottom: 0.1rem;
-        }
-
-        .team-card .info span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        /* ===== SPECIALITY LIST ===== */
-        .speciality-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .speciality-item:last-child {
-            border-bottom: 0;
-        }
-
-        .speciality-item i {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-top: 0.1rem;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 767.98px) {
-            .about-hero {
-                padding: 2.5rem 0 2rem;
-            }
-
-            .mission-card {
-                padding: 1.5rem 1rem;
-            }
-
-            .stat-mini .number {
-                font-size: 1.4rem;
-            }
-
-            .team-card .info h5 {
-                font-size: 0.95rem;
-            }
-
-            .value-badge {
-                font-size: 0.78rem;
-                padding: 0.3rem 0.9rem;
-            }
-
-            .diff-card {
-                padding: 1.2rem 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .about-hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .stat-mini .number {
-                font-size: 1.2rem;
-            }
-
-            .stat-mini .label {
-                font-size: 0.7rem;
-            }
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--dark);
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        footer a {
-            color: rgba(255, 255, 255, 0.6);
-            transition: color 0.2s;
-        }
-
-        footer a:hover {
-            color: #fff;
-        }
-
-        .footer-membership-badge {
-            background: #fff;
-            border-radius: 12px;
-            padding: 0.5rem 0.8rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 100px;
-            height: 58px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.2s;
-        }
-
-        .footer-membership-badge:hover {
-            transform: translateY(-3px);
-        }
-
-        .footer-membership-badge img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- ===== NAVBAR ===== -->
+    <!-- =====================================================
+       PRELOADER (same as index)
+       ====================================================== -->
+    <div id="pagePreloader">
+        <div class="preloader-ring"></div>
+    </div>
+    <noscript>
+        <style>
+            body {
+                opacity: 1 !important
+            }
+
+            #pagePreloader {
+                display: none !important
+            }
+        </style>
+    </noscript>
+
+    <!-- =====================================================
+       NAVBAR (exactly as index.html)
+       ====================================================== -->
     <nav id="mainNavbar" class="navbar navbar-expand-lg sticky-glass-navbar">
         <div class="container py-1">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-                <img src="asset/logo.png" alt="STITBD" style="height:55px;width:auto;object-fit:contain;">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="asset/logo.png" alt="STITBD Logo" style="height:55px;width:auto;object-fit:contain;" />
             </a>
-            <button class="navbar-toggler navbar-toggler-modern border-0 p-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false">
+
+            <!-- Toggler -->
+            <button class="navbar-toggler navbar-toggler-modern border-0 p-2 text-primary focus-ring-none" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#mobileMenuNav" aria-controls="mobileMenuNav"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi bi-list fs-1"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center gap-1">
-                    <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="index.html"><i
+
+            <!-- Desktop menu -->
+            <div class="collapse navbar-collapse d-lg-flex" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-xxl-0 align-items-xxl-center gap-1 gap-xxl-1 font-medium">
+                    <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2" href="index.html"><i
                                 class="bi bi-house-door me-1 text-primary"></i> Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark fw-semibold active" href="about.html">About Us</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2 active" href="about.html">About
+                            Us</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-dark fw-semibold dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown">Products</a>
-                        <ul class="dropdown-menu shadow-lg border-0 p-2">
-                            <li><a class="dropdown-item rounded-2" href="#">HR & Payroll</a></li>
-                            <li><a class="dropdown-item rounded-2" href="#">POS / Inventory</a></li>
-                            <li><a class="dropdown-item rounded-2" href="#">Education ERP</a></li>
-                            <li><a class="dropdown-item rounded-2" href="#">Garments ERP</a></li>
+                        <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Products <i
+                                class="bi bi-chevron-down dropdown-caret-icon"></i></a>
+                        <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2 dropdown-menu-scroll"
+                            id="productsDropdownMenu">
+                            <!-- populated by data.js -->
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-dark fw-semibold dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown">Services</a>
-                        <ul class="dropdown-menu shadow-lg border-0 p-2">
-                            <li><a class="dropdown-item rounded-2" href="#">Software Development</a></li>
-                            <li><a class="dropdown-item rounded-2" href="#">Web Design & Dev</a></li>
-                            <li><a class="dropdown-item rounded-2" href="#">Mobile Apps</a></li>
-                            <li><a class="dropdown-item rounded-2" href="#">Domain & Hosting</a></li>
-                            <li><a class="dropdown-item rounded-2" href="#">CCTV & Security</a></li>
+                        <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Services <i
+                                class="bi bi-chevron-down dropdown-caret-icon"></i></a>
+                        <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2">
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Service/service_details/11">Software Development</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Service/service_details/12">Website Design &amp;
+                                    Development</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Service/service_details/13">Domain Registration &amp;
+                                    Hosting</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Service/service_details/14">Android &amp; iOS App
+                                    Development</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Service/service_details/15">CCTV Camera</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Service/service_details/16">Digital Marketing</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Service/service_details/17">Email and SMS Marketing</a>
+                            </li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Service/service_details/18">Access Control Services</a>
+                            </li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="#">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark fw-semibold" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2"
+                            href="https://stitbd.com/team-page">Our Team</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Portfolio <i
+                                class="bi bi-chevron-down dropdown-caret-icon"></i></a>
+                        <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2">
+                            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/5">HR
+                                    Software Client</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Product/client_view/6">Restaurant POS Client</a></li>
+                            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/7">Edu
+                                    Soft Client</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Product/client_view/8">Website Client</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Product/client_view/11">Mobile Apps Client</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Product/client_view/12">Courier Software Client</a></li>
+                            <li><a class="dropdown-item rounded-2"
+                                    href="https://stitbd.com/Product/client_view/13">Digital Ward Seba Soft Client</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2" href="contact.html">Contact</a>
+                    </li>
                 </ul>
-                <div class="ms-3 d-flex align-items-center">
+
+                <div class="ms-xxl-3 d-flex align-items-center gap-2">
+                    <a href="#" target="_blank" rel="noreferrer" data-wa-link
+                        class="btn btn-outline-success d-none d-xxl-flex align-items-center gap-1 rounded-pill px-3 py-2 fw-semibold btn-sm">
+                        <i class="bi bi-whatsapp"></i> 24/7 Chat
+                    </a>
                     <button type="button"
-                        class="btn btn-brand-primary rounded-pill px-4 py-2 d-flex align-items-center gap-2">
-                        <i class="bi bi-calculator"></i> <span>Get Free Quote</span>
+                        class="btn btn-brand-primary rounded-pill px-4 py-2 d-flex align-items-center gap-2"
+                        data-open-quote-modal="">
+                        <i class="bi bi-calculator"></i>
+                        <span>Get Free Quote</span>
                     </button>
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Offcanvas Drawer for Mobile -->
+    <div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="mobileMenuNav"
+        aria-labelledby="mobileMenuNavLabel">
+        <div class="offcanvas-header border-bottom">
+            <div class="offcanvas-title d-flex align-items-center gap-2" id="mobileMenuNavLabel">
+                <img src="asset/logo.png" alt="STITBD Logo" style="height:40px;width:auto;object-fit:contain;" />
+            </div>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between">
+            <ul class="navbar-nav gap-1">
+                <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
+                        href="index.html"><i class="bi bi-house-door me-2 text-primary"></i> Home</a></li>
+                <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
+                        href="about.html"><i class="bi bi-people me-2 text-primary"></i> About Us</a></li>
+                <li class="nav-item mobile-accordion-item">
+                    <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
+                        href="#mobProducts" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <span><i class="bi bi-grid-3x3-gap me-2 text-primary"></i> Products</span>
+                        <i class="bi bi-chevron-down small"></i>
+                    </a>
+                    <div class="collapse ps-4" id="mobProducts">
+                        <ul class="list-unstyled d-flex flex-column gap-2 py-2" id="mobProductsMenu"></ul>
+                    </div>
+                </li>
+                <li class="nav-item mobile-accordion-item">
+                    <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
+                        href="#mobServices" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <span><i class="bi bi-layers me-2 text-primary"></i> Services</span>
+                        <i class="bi bi-chevron-down small"></i>
+                    </a>
+                    <div class="collapse ps-4" id="mobServices">
+                        <ul class="list-unstyled d-flex flex-column gap-2 py-2">
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Service/service_details/11">Software Development</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Service/service_details/12">Website Design &amp;
+                                    Development</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Service/service_details/13">Domain Registration &amp;
+                                    Hosting</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Service/service_details/14">Android &amp; iOS App
+                                    Development</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Service/service_details/15">CCTV Camera</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Service/service_details/16">Digital Marketing</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Service/service_details/17">Email and SMS Marketing</a>
+                            </li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Service/service_details/18">Access Control Services</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
+                        href="https://stitbd.com/team-page"><i class="bi bi-people me-2 text-primary"></i> Our Team</a>
+                </li>
+                <li class="nav-item mobile-accordion-item">
+                    <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
+                        href="#mobPortfolio" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <span><i class="bi bi-briefcase me-2 text-primary"></i> Portfolio</span>
+                        <i class="bi bi-chevron-down small"></i>
+                    </a>
+                    <div class="collapse ps-4" id="mobPortfolio">
+                        <ul class="list-unstyled d-flex flex-column gap-2 py-2">
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Product/client_view/5">HR Software Client</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Product/client_view/6">Restaurant POS Client</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Product/client_view/7">Edu Soft Client</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Product/client_view/8">Website Client</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Product/client_view/11">Mobile Apps Client</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Product/client_view/12">Courier Software Client</a></li>
+                            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                                    href="https://stitbd.com/Product/client_view/13">Digital Ward Seba Soft Client</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
+                        href="contact.html"><i class="bi bi-envelope me-2 text-primary"></i> Contact</a></li>
+            </ul>
+            <div class="mt-4 pt-3 border-top">
+                <button type="button"
+                    class="btn btn-brand-primary w-100 py-3 mb-2 rounded-3 d-flex align-items-center justify-content-center gap-2"
+                    data-bs-dismiss="offcanvas" data-open-quote-modal="">
+                    <i class="bi bi-calculator fs-5"></i>
+                    <span>Get Free Project Quote</span>
+                </button>
+                <a href="#" target="_blank" rel="noreferrer" data-wa-link
+                    class="btn btn-outline-success w-100 py-2 rounded-3 d-flex align-items-center justify-content-center gap-2 fw-semibold">
+                    <i class="bi bi-whatsapp"></i> Chat on WhatsApp (24/7)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+       ABOUT PAGE CONTENT
+       ====================================================== -->
+
     <!-- ===== ABOUT STITBD (HERO) ===== -->
     <section class="about-hero text-white">
         <div class="container position-relative">
             <div class="row align-items-center g-4">
-                <div class="col-12 col-lg-8 text-center text-lg-start">
+                <div class="col-12 col-lg-8 text-center text-lg-start" data-aos="fade-up">
                     <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold"><i
                             class="bi bi-building me-1"></i> Since 2014</span>
                     <h1 class="fw-extrabold mb-3">About <span class="text-warning">STITBD</span></h1>
@@ -563,7 +304,7 @@
     <section class="py-5 bg-white border-bottom border-soft">
         <div class="container">
             <div class="row g-5 align-items-center">
-                <div class="col-12 col-lg-6 order-2 order-lg-1">
+                <div class="col-12 col-lg-6 order-2 order-lg-1" data-aos="fade-right">
                     <span class="section-badge"><i class="bi bi-chat-quote me-1"></i> What We Are</span>
                     <h2 class="section-title">Young, Energetic &amp; <span class="text-primary">Committed</span></h2>
                     <p class="text-muted leading-relaxed">STIT BD is a young company in Dhaka, Bangladesh. We say we’re
@@ -583,9 +324,9 @@
                         <span class="value-badge"><i class="bi bi-graph-up-arrow text-primary"></i> Growth</span>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6 order-1 order-lg-2 text-center">
+                <div class="col-12 col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-left">
                     <img src="asset/about.jpg" alt="STITBD team" class="img-fluid rounded-4 shadow-lg"
-                        style="max-height:400px;width:100%;object-fit:cover;">
+                        style="max-height:400px;width:100%;object-fit:cover;" />
                 </div>
             </div>
         </div>
@@ -594,7 +335,7 @@
     <!-- ===== OUR VISION & MISSION ===== -->
     <section class="py-5 bg-light">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <span class="section-badge"><i class="bi bi-eye me-1"></i> Our Compass</span>
                 <h2 class="section-title">Vision &amp; <span class="text-primary">Mission</span></h2>
                 <p class="section-sub">To envision, design and construct the most magnificent software development and
@@ -602,7 +343,7 @@
                     highest Return on Investment.</p>
             </div>
             <div class="row g-4">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="mission-card d-flex flex-column">
                         <div class="mission-icon mb-3"><i class="bi bi-binoculars"></i></div>
                         <h4 class="fw-bold">Our Vision</h4>
@@ -614,7 +355,7 @@
                             solutions.”</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="mission-card d-flex flex-column">
                         <div class="mission-icon mb-3"><i class="bi bi-rocket-takeoff"></i></div>
                         <h4 class="fw-bold">Our Mission</h4>
@@ -637,7 +378,7 @@
     <section class="py-5 bg-white border-bottom border-soft">
         <div class="container">
             <div class="row align-items-center g-5">
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6" data-aos="fade-right">
                     <span class="section-badge"><i class="bi bi-heart-fill me-1"></i> Our Ethics</span>
                     <h2 class="section-title">Creativity, Technology &amp; <span class="text-primary">Marketing</span>
                     </h2>
@@ -652,7 +393,7 @@
                         <span class="value-badge"><i class="bi bi-people text-info"></i> Client First</span>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6" data-aos="fade-left">
                     <div class="bg-light p-4 rounded-4 shadow-sm border border-soft">
                         <h5 class="fw-bold"><i class="bi bi-quote text-primary me-2"></i>Our philosophy in action</h5>
                         <p class="text-muted fst-italic">“We view clients as partners, and our success is only measured
@@ -674,14 +415,14 @@
     <!-- ===== OUR DIFFERENCE ===== -->
     <section class="py-5 bg-light">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <span class="section-badge"><i class="bi bi-star me-1"></i> What Sets Us Apart</span>
                 <h2 class="section-title">Our <span class="text-primary">Difference</span></h2>
                 <p class="section-sub">Lots of firms offer online marketing assistance. We view clients as partners, and
                     our success is only measured by the success of our partners.</p>
             </div>
             <div class="row g-4">
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="diff-card text-center">
                         <div class="icon mb-3"><i class="bi bi-people"></i></div>
                         <h5 class="fw-bold">Partnership Approach</h5>
@@ -689,7 +430,7 @@
                             expectations.</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
                     <div class="diff-card text-center">
                         <div class="icon mb-3"><i class="bi bi-rocket"></i></div>
                         <h5 class="fw-bold">Risk-Taking Culture</h5>
@@ -697,7 +438,7 @@
                             rather bet on than ourselves.</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="diff-card text-center">
                         <div class="icon mb-3"><i class="bi bi-briefcase"></i></div>
                         <h5 class="fw-bold">Career, Not Just Job</h5>
@@ -705,7 +446,7 @@
                             carries our name.</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
                     <div class="diff-card text-center">
                         <div class="icon mb-3"><i class="bi bi-lightning"></i></div>
                         <h5 class="fw-bold">Passionate &amp; Innovative</h5>
@@ -720,56 +461,56 @@
     <!-- ===== OUR SKILL ===== -->
     <section class="py-5 bg-white border-bottom border-soft">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <span class="section-badge"><i class="bi bi-code-slash me-1"></i> Expertise</span>
                 <h2 class="section-title">Our <span class="text-primary">Skill</span></h2>
                 <p class="section-sub">STIT BD is a company where every solution and service is based on innovation. Our
                     wide range of services speak volumes about the skills we possess.</p>
             </div>
             <div class="row g-3">
-                <div class="col-6 col-md-4 col-lg-3">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="50">
                     <div class="p-3 bg-light rounded-3 text-center border border-soft h-100">
                         <i class="bi bi-code-square fs-1 text-primary"></i>
                         <h6 class="mt-2 fw-bold">Software Development</h6>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
                     <div class="p-3 bg-light rounded-3 text-center border border-soft h-100">
                         <i class="bi bi-window-stack fs-1 text-primary"></i>
                         <h6 class="mt-2 fw-bold">Web Design &amp; Dev</h6>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="150">
                     <div class="p-3 bg-light rounded-3 text-center border border-soft h-100">
                         <i class="bi bi-phone fs-1 text-primary"></i>
                         <h6 class="mt-2 fw-bold">Mobile Apps</h6>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
                     <div class="p-3 bg-light rounded-3 text-center border border-soft h-100">
                         <i class="bi bi-hdd-network fs-1 text-primary"></i>
                         <h6 class="mt-2 fw-bold">Domain &amp; Hosting</h6>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="250">
                     <div class="p-3 bg-light rounded-3 text-center border border-soft h-100">
                         <i class="bi bi-camera-video fs-1 text-primary"></i>
                         <h6 class="mt-2 fw-bold">CCTV Solutions</h6>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
                     <div class="p-3 bg-light rounded-3 text-center border border-soft h-100">
                         <i class="bi bi-megaphone fs-1 text-primary"></i>
                         <h6 class="mt-2 fw-bold">Digital Marketing</h6>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="350">
                     <div class="p-3 bg-light rounded-3 text-center border border-soft h-100">
                         <i class="bi bi-shield-lock fs-1 text-primary"></i>
                         <h6 class="mt-2 fw-bold">Access Control</h6>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 col-lg-3">
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
                     <div class="p-3 bg-light rounded-3 text-center border border-soft h-100">
                         <i class="bi bi-envelope-paper fs-1 text-primary"></i>
                         <h6 class="mt-2 fw-bold">Email &amp; SMS Marketing</h6>
@@ -782,39 +523,39 @@
     <!-- ===== OUR SUCCESS ===== -->
     <section class="py-5 bg-light">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <span class="section-badge"><i class="bi bi-trophy me-1"></i> Track Record</span>
                 <h2 class="section-title">Our <span class="text-primary">Success</span></h2>
                 <p class="section-sub">Each of our projects starts with the simple question “How will you measure the
                     success of this project?” Success is critical to our team.</p>
             </div>
             <div class="row g-4">
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="stat-mini">
                         <div class="number">1200+</div>
                         <div class="label">Projects Completed</div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="150">
                     <div class="stat-mini">
                         <div class="number">1000+</div>
                         <div class="label">Happy Clients</div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="stat-mini">
                         <div class="number">95%</div>
                         <div class="label">Success Rate</div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="250">
                     <div class="stat-mini">
                         <div class="number">12+</div>
                         <div class="label">Years of Excellence</div>
                     </div>
                 </div>
             </div>
-            <div class="mt-4 text-center">
+            <div class="mt-4 text-center" data-aos="fade-up">
                 <p class="text-muted fst-italic">“Our approach has yielded many successful products and happy customers
                     over the years.”</p>
             </div>
@@ -824,35 +565,35 @@
     <!-- ===== OUR TEAM ===== -->
     <section class="py-5 bg-white border-bottom border-soft">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <span class="section-badge"><i class="bi bi-people me-1"></i> Leadership</span>
                 <h2 class="section-title">Our <span class="text-primary">Team</span></h2>
                 <p class="section-sub">Experienced minds steering STITBD’s engineering, design, and business strategy.
                 </p>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-6 col-sm-4 col-lg-3">
+                <div class="col-6 col-sm-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="team-card"><img src="asset/team/01.jpg" alt="Shaokat Hossain">
                         <div class="info">
                             <h5>Shaokat Hossain</h5><span>Founder &amp; CEO</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-4 col-lg-3">
+                <div class="col-6 col-sm-4 col-lg-3" data-aos="fade-up" data-aos-delay="150">
                     <div class="team-card"><img src="asset/team/02.jpg" alt="Haider Hossain">
                         <div class="info">
                             <h5>Md. Haider Hossain</h5><span>Business Developer</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-4 col-lg-3">
+                <div class="col-6 col-sm-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="team-card"><img src="asset/team/03.jpg" alt="Humayun Farid">
                         <div class="info">
                             <h5>Md. Humayun Farid</h5><span>CTO</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-4 col-lg-3">
+                <div class="col-6 col-sm-4 col-lg-3" data-aos="fade-up" data-aos-delay="250">
                     <div class="team-card"><img src="asset/team/04.jpg" alt="Khondoker Jubayer">
                         <div class="info">
                             <h5>Khondoker E. Jubayer</h5><span>Lead Software Architect</span>
@@ -860,8 +601,9 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
-                <a href="#" class="btn btn-outline-primary rounded-pill px-5 py-2 fw-semibold">See All Team Members <i
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="https://stitbd.com/team-page"
+                    class="btn btn-outline-primary rounded-pill px-5 py-2 fw-semibold">See All Team Members <i
                         class="bi bi-arrow-right"></i></a>
             </div>
         </div>
@@ -870,14 +612,14 @@
     <!-- ===== OUR SPECIALITY ===== -->
     <section class="py-5 bg-light">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <span class="section-badge"><i class="bi bi-stars me-1"></i> What Makes Us Stand Out</span>
                 <h2 class="section-title">Our <span class="text-primary">Speciality</span></h2>
                 <p class="section-sub">STIT BD has a mature understanding and extensive experience designing across all
                     media.</p>
             </div>
             <div class="row g-4">
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6" data-aos="fade-right">
                     <div class="bg-white p-4 rounded-4 border border-soft h-100">
                         <h5 class="fw-bold"><i class="bi bi-shield-check text-primary me-2"></i> High Reliability</h5>
                         <p class="text-muted">We use the latest in software/hardware technology and have a
@@ -897,7 +639,7 @@
                             customize and implement your project in extremely short time interval.</p>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6" data-aos="fade-left">
                     <div class="bg-white p-4 rounded-4 border border-soft h-100">
                         <h5 class="fw-bold"><i class="bi bi-code-square text-primary me-2"></i> Development Languages
                         </h5>
@@ -934,36 +676,143 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="py-4">
+    <!-- =====================================================
+       FOOTER (exactly as index.html)
+       ====================================================== -->
+    <footer class="bg-dark text-white pt-5 pb-4 position-relative border-top border-secondary">
         <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-12 col-md-6">
-                    <a class="d-inline-block mb-2" href="#"><img src="asset/logo.png" alt="STITBD"
-                            style="height:40px;"></a>
-                    <p class="small text-white-50 mb-0">© 2014-<span id="year"></span> STITBD. All rights reserved.</p>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="d-flex flex-wrap gap-2 justify-content-md-end">
-                        <span class="footer-membership-badge"><img src="asset/membership/basis.png" alt="BASIS"></span>
-                        <span class="footer-membership-badge"><img src="asset/membership/bdhpa.png" alt="BDHPA"></span>
-                        <span class="footer-membership-badge"><img src="asset/membership/e-cab.png" alt="e-CAB"></span>
+            <div class="row g-4 mb-5">
+                <div class="col-12 col-lg-3 col-md-6">
+                    <a class="d-flex align-items-center gap-2 text-decoration-none mb-3" href="index.html">
+                        <img src="asset/logo.png" alt="STITBD Logo"
+                            style="height:48px;width:auto;object-fit:contain;" />
+                    </a>
+                    <p class="text-white-50 small leading-relaxed mb-4">
+                        Providing premier software engineering, web development, mobile app design, CCTV surveillance
+                        solutions,
+                        BTTB .bd domain registration, and cloud hosting in Bangladesh since <span
+                            data-since-year>2014</span>.
+                    </p>
+                    <div class="d-flex align-items-center gap-2">
+                        <a href="#" target="_blank" rel="noreferrer" data-fb-link
+                            class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width:38px;height:38px;" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" target="_blank" rel="noreferrer" data-li-link
+                            class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width:38px;height:38px;" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noreferrer" data-yt-link
+                            class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width:38px;height:38px;" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" target="_blank" rel="noreferrer" data-gh-link
+                            class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
+                            style="width:38px;height:38px;" aria-label="GitHub"><i class="bi bi-github"></i></a>
                     </div>
+                </div>
+
+                <div class="col-12 col-lg-2 col-md-6">
+                    <h6 class="fw-bold font-heading text-white mb-3 text-uppercase small tracking-wider">Our Services
+                    </h6>
+                    <ul class="list-unstyled d-flex flex-column gap-2 small text-white-50 mb-0">
+                        <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Software
+                                Development</a></li>
+                        <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Website Design
+                                &amp; Dev</a></li>
+                        <li><a href="#domain-search" class="text-white-50 text-decoration-none hover-white">Domain &amp;
+                                Cloud Hosting</a></li>
+                        <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Android &amp; iOS
+                                Mobile Apps</a></li>
+                        <li><a href="#services" class="text-white-50 text-decoration-none hover-white">CCTV &amp;
+                                Biometric Security</a></li>
+                        <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Access Control
+                                Services</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-lg-4 col-md-6">
+                    <h6 class="fw-bold font-heading text-white mb-3 text-uppercase small tracking-wider">We Are Proud
+                        Member Of</h6>
+                    <div class="d-flex flex-wrap gap-2 footer-membership-grid">
+                        <div class="footer-membership-badge"
+                            title="BASIS — Bangladesh Association of Software & Information Services">
+                            <img src="asset/membership/basis.png" alt="BASIS Member" loading="lazy" />
+                        </div>
+                        <div class="footer-membership-badge"
+                            title="BDHPA — Bangladesh Domain Hosting Provider's Association">
+                            <img src="asset/membership/bdhpa.png" alt="BDHPA Member" loading="lazy" />
+                        </div>
+                        <div class="footer-membership-badge" title="e-CAB — E-commerce Association of Bangladesh">
+                            <img src="asset/membership/e-cab.png" alt="e-CAB Member" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold font-heading text-white mb-3 text-uppercase small tracking-wider">Head Office
+                    </h6>
+                    <p class="text-white-50 small leading-relaxed mb-2"><i
+                            class="bi bi-geo-alt text-warning me-2"></i><span data-company-address></span></p>
+                    <p class="text-white-50 small mb-2"><i class="bi bi-telephone text-warning me-2"></i><span
+                            data-company-phone-primary></span></p>
+                    <p class="text-white-50 small mb-3"><i class="bi bi-envelope text-warning me-2"></i><span
+                            data-company-email></span></p>
+                    <div
+                        class="p-2 bg-white bg-opacity-10 rounded-3 border border-white border-opacity-15 small text-warning font-semibold">
+                        <i class="bi bi-shield-check me-1"></i> 24/7 Technical Support Available
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-payment-strip text-center">
+                <span class="footer-payment-label">We Accept Secure Payments</span>
+                <div class="footer-payment-card d-inline-flex align-items-center justify-content-center">
+                    <img src="asset/payment-gateway.png" alt="Accepted Payment Gateways"
+                        class="footer-payment-img d-none d-md-block" loading="lazy" />
+                    <img src="asset/payment-gateway-mobile.png" alt="Accepted Payment Gateways"
+                        class="footer-payment-img d-md-none" loading="lazy" />
+                </div>
+            </div>
+
+            <hr class="border-secondary my-4" />
+
+            <div
+                class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-white-50 small">
+                <div>&copy; 2014-<span data-copyright-year>2026</span> <strong>STITBD</strong>. All Rights Reserved.
+                </div>
+                <div class="d-flex align-items-center gap-3 extra-small">
+                    <span>Privacy Policy</span>
+                    <span>&bull;</span>
+                    <span>Terms of Service</span>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- ===== BOOTSTRAP JS ===== -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- =====================================================
+       SCRIPTS (same as index)
+       ====================================================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
+    <script src="js/data.js">
+    </script>
+    <script src="js/app.js">
+    </script>
+
+    <!-- AOS init -->
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        window.addEventListener('scroll', function () {
-            const nav = document.getElementById('mainNavbar');
-            if (window.scrollY > 30) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.AOS) {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    easing: 'ease-out-cubic'
+                });
+            }
         });
     </script>
+
 </body>
 
 </html>
