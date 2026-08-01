@@ -1,0 +1,285 @@
+/* ==========================================================================
+   STITBD — Premium 2026 UI Upgrade Layer
+   Load this AFTER css/styles.css (right before </head> ends, or as the
+   last <link> tag). It only overrides/extends existing rules — nothing in
+   styles.css needs to be rewritten, except the two deletions noted in the
+   accompanying instructions (duplicate #stats block + old mobile hero rules).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Accessibility & motion — required for any "premium" 2026 product
+   -------------------------------------------------------------------------- */
+:focus-visible {
+    outline: 2.5px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. Fluid type scale for the hero — replaces the ~15 hard-coded
+      breakpoint font-sizes on .hero-gradient-bg h1 with one clamp() rule.
+   -------------------------------------------------------------------------- */
+.hero-gradient-bg h1.display-4 {
+    font-size: clamp(1.65rem, 4.6vw + 0.6rem, 3.6rem) !important;
+    line-height: 1.12 !important;
+    margin-bottom: 1rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Mobile hero — full redesign (see instructions: delete the old
+      "max-width: 991.98px { .hero-gradient-bg { min-height:25svh ...} }"
+      block first, this replaces it with a legible, premium mobile hero
+      instead of a squeezed 25svh strip).
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .hero-gradient-bg {
+        min-height: auto !important;
+        height: auto !important;
+        padding-top: 2.25rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .hero-gradient-bg .lead {
+        display: block !important;
+    }
+
+    .hero-gradient-bg .d-inline-flex.rounded-pill {
+        padding: 0.3rem 0.8rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .hero-gradient-bg .d-inline-flex.rounded-pill span.small {
+        font-size: 0.75rem !important;
+    }
+
+    .hero-gradient-bg .btn-lg {
+        font-size: 0.85rem !important;
+        padding: 0.75rem 1.1rem !important;
+    }
+
+    .hero-gradient-bg .btn-lg i {
+        font-size: 0.95rem !important;
+    }
+
+    .hero-gradient-bg .col-lg-7>.d-flex.flex-column.flex-sm-row {
+        gap: 0.65rem !important;
+        margin-bottom: 1.25rem !important;
+        flex-direction: column !important;
+    }
+
+    .hero-gradient-bg .btn-lg span {
+        white-space: nowrap;
+    }
+
+    .hero-gradient-bg .border-top.border-white {
+        padding-top: 1rem !important;
+        margin-top: 0.5rem !important;
+        gap: 0.75rem !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+    }
+
+    .hero-gradient-bg .border-top.border-white>div {
+        gap: 0.4rem !important;
+    }
+
+    .hero-gradient-bg .border-top.border-white .fs-4 {
+        font-size: 1.1rem !important;
+    }
+
+    .hero-gradient-bg .border-top.border-white .fw-bold {
+        font-size: 0.72rem !important;
+        line-height: 1.15 !important;
+        margin-bottom: 0.1rem !important;
+    }
+
+    .hero-gradient-bg .border-top.border-white .small {
+        font-size: 0.62rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Dashboard preview card is no longer hidden — shown in a compact,
+     legible form under the headline instead of being removed entirely. */
+    .hero-gradient-bg .col-lg-5 {
+        display: block !important;
+        margin-top: 1.75rem;
+    }
+
+    .hero-dashboard-card {
+        background: rgba(255, 255, 255, 0.94);
+        max-width: 420px;
+    }
+
+    .hero-dashboard-card .row.g-2 .col-6 .p-2 {
+        padding: 0.6rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-gradient-bg .border-top.border-white .fw-bold {
+        font-size: 0.66rem !important;
+    }
+
+    .hero-gradient-bg .border-top.border-white .small {
+        font-size: 0.58rem !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. Button micro-interaction — premium "shine sweep" on primary CTAs
+   -------------------------------------------------------------------------- */
+.btn-brand-primary {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.btn-brand-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.35) 48%, transparent 66%);
+    transform: translateX(-120%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.btn-brand-primary:hover::after {
+    transform: translateX(120%);
+}
+
+.btn-brand-primary>* {
+    position: relative;
+    z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   5. Section title — thin accent rule under the eyebrow badge for a more
+      "premium SaaS" hierarchy (badge -> rule -> heading -> subhead)
+   -------------------------------------------------------------------------- */
+.badge-primary-soft {
+    position: relative;
+}
+
+section .text-center.mx-auto.mb-4 h2.section-title-oneline,
+section .text-center.mx-auto.mb-5 h2.section-title-oneline {
+    position: relative;
+    padding-bottom: 0.65rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. Card system — consistent top accent bar across every card type so
+      services / ready-software / testimonials / clients read as one family
+   -------------------------------------------------------------------------- */
+.testimonial-slide .card {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-slide .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.testimonial-slide .card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-modern.card-hover-lift {
+    position: relative;
+}
+
+/* Sharper, more premium shadow language (replaces flat card-hover-lift shadow) */
+.card-hover-lift:hover {
+    box-shadow: 0 24px 48px -20px rgba(15, 82, 186, 0.22), 0 4px 12px -4px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Stat cards — subtle count-up ready state + icon depth (visual only;
+      pairs with the de-duplicated #stats block — see instructions)
+   -------------------------------------------------------------------------- */
+.stat-card-value {
+    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.82) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   8. Filter tabs — clearer active/inactive contrast + tactile press state
+   -------------------------------------------------------------------------- */
+.filter-tab-btn:active {
+    transform: scale(0.97);
+}
+
+.filter-tab-btn.active {
+    box-shadow: 0 6px 18px -6px rgba(0, 159, 227, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   9. Modal polish — frosted header divider + tighter close affordance
+   -------------------------------------------------------------------------- */
+.modal-header {
+    position: relative;
+}
+
+.modal-header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   10. Domain search — result card entrance
+   -------------------------------------------------------------------------- */
+#domainResultBox {
+    animation: domainResultIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes domainResultIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   11. Client logo grid — remove the "wait for hover to see name" pattern
+       on touch devices (hover states never fire reliably on mobile/tablet)
+   -------------------------------------------------------------------------- */
+@media (hover: none) {
+    .client-name-grid {
+        max-height: 18px !important;
+        opacity: 0.75 !important;
+    }
+}
