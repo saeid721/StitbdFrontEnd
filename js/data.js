@@ -35,7 +35,7 @@ const SERVICES = [
       'Automated Billing & Financial Ledger Accounting',
       'Multi-User Role & Access Rights Management',
     ],
-    image: 'asset/services/software-development.png'
+    image: 'asset/services/software-development.jpg'
   },
   {
     id: 'web-dev',
@@ -50,7 +50,7 @@ const SERVICES = [
       'Local & Global Payment Gateway Integrations',
       'SEO-Optimized & Speed Audited Codebase',
     ],
-    image: 'asset/services/web-development.png'
+    image: 'asset/services/web-development.jpg'
   },
   {
     id: 'domain-hosting',
@@ -65,7 +65,7 @@ const SERVICES = [
       'Free Let\'s Encrypt SSL & Automated Backups',
       '24/7 Server Health Monitoring & DDoS Defense',
     ],
-    image: 'asset/services/domain-hosting.png'
+    image: 'asset/services/domain-hosting.jpg'
   },
   {
     id: 'app-dev',
@@ -80,7 +80,7 @@ const SERVICES = [
       'Biometric Login & In-App Payment Gateways',
       'Play Store & App Store Deployment Support',
     ],
-    image: 'asset/services/app-development.png'
+    image: 'asset/services/app-development.jpg'
   },
   {
     id: 'cctv-solutions',
@@ -95,7 +95,7 @@ const SERVICES = [
       'Biometric Fingerprint & Face Recognition Attendance',
       'On-Site Cable Network & NVR/DVR Installation',
     ],
-    image: 'asset/services/cctv-security.png'
+    image: 'asset/services/cctv-security.jpg'
   },
   {
     id: 'access-control',
@@ -110,7 +110,7 @@ const SERVICES = [
       'Access Control for Restricted Areas',
       'Automated Attendance Reports & Analytics',
     ],
-    image: 'asset/services/access-control.png'
+    image: 'asset/services/access-control.jpg'
   },
 ];
 
