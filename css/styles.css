@@ -3241,11 +3241,11 @@ body {
 }
 
 .footer-payment-card {
-  position: relative;
+  /* position: relative;
   background: #ffffff;
   border-radius: 12px;
   padding: 0.65rem 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1); */
   box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.55);
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
@@ -3299,10 +3299,14 @@ body {
   .footer-payment-card {
     padding: 0.5rem 1rem;
     border-radius: 10px;
+    width: 100%;
+    background: #000000;
   }
 
   .footer-payment-img {
-    max-height: 28px;
+    max-height: none !important;
+    width: 100% !important;
+    height: auto !important;
   }
 }
 
