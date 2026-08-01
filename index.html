@@ -119,6 +119,7 @@
   <!-- ========================================= -->
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
 
   <!-- ========================================= -->
   <!-- JSON-LD -->
@@ -144,1090 +145,1098 @@
 
 </head>
 
-<body class="min-vh-100 d-flex flex-column bg-light font-body">
+<div id="pagePreloader">
+  <div class="preloader-ring"></div>
+</div>
+<noscript>
+  <style>
+    body {
+      opacity: 1 !important
+    }
 
-  <!-- =====================================================
+    #pagePreloader {
+      display: none !important
+    }
+  </style>
+</noscript>
+
+<!-- =====================================================
      NAVBAR
      ====================================================== -->
-  <nav id="mainNavbar" class="navbar navbar-expand-lg sticky-glass-navbar">
-    <div class="container py-1">
-      <!-- Brand -->
-      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-        <img src="asset/logo.png" alt="STITBD Logo" style="height:55px;width:auto;object-fit:contain;">
-      </a>
+<nav id="mainNavbar" class="navbar navbar-expand-lg sticky-glass-navbar">
+  <div class="container py-1">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <img src="asset/logo.png" alt="STITBD Logo" style="height:55px;width:auto;object-fit:contain;">
+    </a>
 
-      <!-- Toggler for mobile (always visible on smaller screens) -->
-      <button class="navbar-toggler navbar-toggler-modern border-0 p-2 text-primary focus-ring-none" type="button"
-        data-bs-toggle="offcanvas" data-bs-target="#mobileMenuNav" aria-controls="mobileMenuNav" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="bi bi-list fs-1"></i>
+    <!-- Toggler for mobile (always visible on smaller screens) -->
+    <button class="navbar-toggler navbar-toggler-modern border-0 p-2 text-primary focus-ring-none" type="button"
+      data-bs-toggle="offcanvas" data-bs-target="#mobileMenuNav" aria-controls="mobileMenuNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="bi bi-list fs-1"></i>
+    </button>
+
+    <!-- Desktop menu: visible only on lg screens (≥1200px) -->
+    <div class="collapse navbar-collapse d-lg-flex" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-xxl-0 align-items-xxl-center gap-1 gap-xxl-1 font-medium">
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2" href="index.html"><i
+              class="bi bi-house-door me-1 text-primary"></i> Home</a></li>
+
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2" href="https://stitbd.com/about">About
+            Us</a></li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="#" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">Products <i
+              class="bi bi-chevron-down dropdown-caret-icon"></i></a>
+          <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2 dropdown-menu-scroll" id="productsDropdownMenu">
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="#" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">Services <i
+              class="bi bi-chevron-down dropdown-caret-icon"></i></a>
+          <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2">
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/11">Software
+                Development</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/12">Website Design
+                & Development</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/13">Domain
+                Registration & Hosting</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/14">Android & iOS
+                App Development</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/15">CCTV
+                Camera</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/16">Digital
+                Marketing</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/17">Email and SMS
+                Marketing</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/18">Access Control
+                Services</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2" href="https://stitbd.com/team-page">Our
+            Team</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="#" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">Portfolio <i
+              class="bi bi-chevron-down dropdown-caret-icon"></i></a>
+          <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2">
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/5">HR Software
+                Client</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/6">Restaurant POS
+                Client</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/7">Edu Soft Client</a>
+            </li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/8">Website Client</a>
+            </li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/11">Mobile Apps
+                Client</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/12">Courier Software
+                Client</a></li>
+            <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/13">Digital Ward Seba
+                Soft Client</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2" href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="ms-xxl-3 d-flex align-items-center gap-2">
+        <a href="#" target="_blank" rel="noreferrer" data-wa-link
+          class="btn btn-outline-success d-none d-xxl-flex align-items-center gap-1 rounded-pill px-3 py-2 fw-semibold btn-sm">
+          <i class="bi bi-whatsapp"></i> 24/7 Chat
+        </a>
+        <button type="button" class="btn btn-brand-primary rounded-pill px-4 py-2 d-flex align-items-center gap-2"
+          data-open-quote-modal="">
+          <i class="bi bi-calculator"></i>
+          <span>Get Free Quote</span>
+        </button>
+      </div>
+    </div>
+
+</nav>
+
+<!-- Offcanvas Drawer for Mobile (always visible, but toggled by the button) -->
+<div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="mobileMenuNav"
+  aria-labelledby="mobileMenuNavLabel">
+  <div class="offcanvas-header border-bottom">
+    <div class="offcanvas-title d-flex align-items-center gap-2" id="mobileMenuNavLabel">
+      <img src="asset/logo.png" alt="STITBD Logo" style="height:40px;width:auto;object-fit:contain;">
+    </div>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column justify-content-between">
+    <ul class="navbar-nav gap-1">
+      <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
+          href="index.html"><i class="bi bi-house-door me-2 text-primary"></i> Home</a></li>
+
+      <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
+          href="https://stitbd.com/about"><i class="bi bi-people me-2 text-primary"></i> About Us</a></li>
+
+
+      <li class="nav-item mobile-accordion-item">
+        <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
+          href="#mobProducts" data-bs-toggle="collapse" role="button" aria-expanded="false">
+          <span><i class="bi bi-grid-3x3-gap me-2 text-primary"></i> Products</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse ps-4" id="mobProducts">
+          <ul class="list-unstyled d-flex flex-column gap-2 py-2" id="mobProductsMenu"></ul>
+        </div>
+      </li>
+
+      <li class="nav-item mobile-accordion-item">
+        <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
+          href="#mobServices" data-bs-toggle="collapse" role="button" aria-expanded="false">
+          <span><i class="bi bi-layers me-2 text-primary"></i> Services</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse ps-4" id="mobServices">
+          <ul class="list-unstyled d-flex flex-column gap-2 py-2">
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Service/service_details/11">Software Development</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Service/service_details/12">Website Design & Development</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Service/service_details/13">Domain Registration & Hosting</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Service/service_details/14">Android & iOS App Development</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Service/service_details/15">CCTV Camera</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Service/service_details/16">Digital Marketing</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Service/service_details/17">Email and SMS Marketing</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Service/service_details/18">Access Control Services</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
+          href="https://stitbd.com/team-page"><i class="bi bi-people me-2 text-primary"></i> Our Team</a></li>
+
+      <li class="nav-item mobile-accordion-item">
+        <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
+          href="#mobPortfolio" data-bs-toggle="collapse" role="button" aria-expanded="false">
+          <span><i class="bi bi-briefcase me-2 text-primary"></i> Portfolio</span>
+          <i class="bi bi-chevron-down small"></i>
+        </a>
+        <div class="collapse ps-4" id="mobPortfolio">
+          <ul class="list-unstyled d-flex flex-column gap-2 py-2">
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Product/client_view/5">HR Software Client</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Product/client_view/6">Restaurant POS Client</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Product/client_view/7">Edu Soft Client</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Product/client_view/8">Website Client</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Product/client_view/11">Mobile Apps Client</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Product/client_view/12">Courier Software Client</a></li>
+            <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
+                href="https://stitbd.com/Product/client_view/13">Digital Ward Seba Soft Client</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
+          href="contact.html"><i class="bi bi-envelope me-2 text-primary"></i> Contact</a></li>
+    </ul>
+
+    <div class="mt-4 pt-3 border-top">
+      <button type="button"
+        class="btn btn-brand-primary w-100 py-3 mb-2 rounded-3 d-flex align-items-center justify-content-center gap-2"
+        data-bs-dismiss="offcanvas" data-open-quote-modal="">
+        <i class="bi bi-calculator fs-5"></i>
+        <span>Get Free Project Quote</span>
       </button>
+      <a href="#" target="_blank" rel="noreferrer" data-wa-link
+        class="btn btn-outline-success w-100 py-2 rounded-3 d-flex align-items-center justify-content-center gap-2 fw-semibold">
+        <i class="bi bi-whatsapp"></i> Chat on WhatsApp (24/7)
+      </a>
+    </div>
+  </div>
+</div>
 
-      <!-- Desktop menu: visible only on lg screens (≥1200px) -->
-      <div class="collapse navbar-collapse d-lg-flex" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-xxl-0 align-items-xxl-center gap-1 gap-xxl-1 font-medium">
-          <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2" href="index.html"><i
-                class="bi bi-house-door me-1 text-primary"></i> Home</a></li>
+<main class="flex-grow-1">
 
-          <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2" href="https://stitbd.com/about">About
-              Us</a></li>
+  <main class="flex-grow-1">
 
+    <!-- =====================================================
+         HERO SLIDER
+    ====================================================== -->
+    <section class="hero-gradient-bg py-5 py-lg-6 position-relative">
+      <div class="hero-slider-bg" id="heroSliderBg"></div>
+      <div class="hero-slider-overlay"></div>
+      <div class="container py-lg-4">
+        <div class="row align-items-center g-5">
+          <div class="col-12 col-lg-7 text-center text-lg-start" data-aos="fade-up">
+            <div
+              class="d-inline-flex align-items-center gap-2 bg-white bg-opacity-10 backdrop-blur border border-white border-opacity-20 rounded-pill px-3 py-1 mb-3">
+              <span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span>
+              <span class="text-white small fw-semibold">Bangladesh&rsquo;s Trusted Tech Partner Since <span
+                  data-since-year>2014</span></span>
+            </div>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="#" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">Products <i
-                class="bi bi-chevron-down dropdown-caret-icon"></i></a>
-            <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2 dropdown-menu-scroll" id="productsDropdownMenu">
-            </ul>
-          </li>
+            <h1 class="display-4 fw-extrabold text-white mb-3 font-heading lh-sm">
+              Transforming Businesses with <span class="text-warning">Next-Gen Software</span>, Web & Mobile
+              Engineering
+            </h1>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="#" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">Services <i
-                class="bi bi-chevron-down dropdown-caret-icon"></i></a>
-            <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2">
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/11">Software
-                  Development</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/12">Website Design
-                  & Development</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/13">Domain
-                  Registration & Hosting</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/14">Android & iOS
-                  App Development</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/15">CCTV
-                  Camera</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/16">Digital
-                  Marketing</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/17">Email and SMS
-                  Marketing</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Service/service_details/18">Access Control
-                  Services</a></li>
-            </ul>
-          </li>
+            <div
+              class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-3 mb-4">
+              <a href="#ready-software"
+                class="btn btn-brand-primary btn-lg rounded-pill px-4 py-3 text-white fw-bold d-flex align-items-center gap-2">
+                <i class="bi bi-grid-3x3-gap-fill fs-5"></i>
+                <span>Explore 40+ Ready Software</span>
+              </a>
+              <button type="button"
+                class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-semibold d-flex align-items-center gap-2 border-2"
+                data-open-quote-modal="">
+                <i class="bi bi-calculator-fill fs-5"></i>
+                <span>Request Free Quote</span>
+              </button>
+            </div>
 
-          <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2" href="https://stitbd.com/team-page">Our
-              Team</a></li>
+            <div
+              class="pt-3 border-top border-white border-opacity-15 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-4 gap-sm-4 gap-md-4">
+              <div class="d-flex align-items-center gap-2 gap-sm-2">
+                <i class="bi bi-patch-check-fill text-warning fs-4 fs-sm-5"></i>
+                <div class="text-start">
+                  <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">1,200+ Projects</span>
+                  <span class="text-white-50 small fs-7">Successfully Delivered</span>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-2 gap-sm-2">
+                <i class="bi bi-people-fill text-warning fs-4 fs-sm-5"></i>
+                <div class="text-start">
+                  <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">1,000+ Clients</span>
+                  <span class="text-white-50 small fs-7">Nationwide & Global</span>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-2 gap-sm-2">
+                <i class="bi bi-headset text-warning fs-4 fs-sm-5"></i>
+                <div class="text-start">
+                  <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">24/7 Support</span>
+                  <span class="text-white-50 small fs-7">36+ Expert Engineers</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="#" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">Portfolio <i
-                class="bi bi-chevron-down dropdown-caret-icon"></i></a>
-            <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2">
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/5">HR Software
-                  Client</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/6">Restaurant POS
-                  Client</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/7">Edu Soft Client</a>
-              </li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/8">Website Client</a>
-              </li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/11">Mobile Apps
-                  Client</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/12">Courier Software
-                  Client</a></li>
-              <li><a class="dropdown-item rounded-2" href="https://stitbd.com/Product/client_view/13">Digital Ward Seba
-                  Soft Client</a></li>
-            </ul>
-          </li>
+          <div class="col-lg-5 text-center" data-aos="zoom-in" data-aos-delay="100">
+            <div class="position-relative mx-auto" style="max-width:480px;">
+              <div
+                class="hero-dashboard-card text-dark rounded-4 p-4 text-start shadow-lg border border-white border-opacity-30 position-relative z-2">
+                <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
+                  <div class="d-flex align-items-center gap-2">
+                    <div
+                      class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 d-flex align-items-center justify-content-center"
+                      style="width:38px;height:38px;">
+                      <i class="bi bi-speedometer2 fs-5"></i>
+                    </div>
+                    <div>
+                      <h6 class="mb-0 fw-bold font-heading">STITBD Control Center</h6>
+                      <span class="text-muted small">Live Enterprise Dashboard</span>
+                    </div>
+                  </div>
+                  <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3">
+                    <i class="bi bi-circle-fill fs-8 me-1"></i> Active
+                  </span>
+                </div>
 
-          <li class="nav-item"><a class="nav-link text-dark fw-semibold px-2" href="contact.html">Contact</a></li>
-        </ul>
+                <div class="row g-2 mb-3">
+                  <div class="col-6">
+                    <div class="p-2 bg-light rounded-3 border">
+                      <div class="d-flex align-items-center gap-2 mb-1"><i
+                          class="bi bi-people text-primary fs-6"></i><span class="fw-bold small">HR & Payroll</span>
+                      </div>
+                      <span class="text-success small fw-semibold">Biometric Sync</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-2 bg-light rounded-3 border">
+                      <div class="d-flex align-items-center gap-2 mb-1"><i
+                          class="bi bi-mortarboard text-warning fs-6"></i><span class="fw-bold small">Education
+                          ERP</span></div>
+                      <span class="text-primary small fw-semibold">bKash Fees Sync</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-2 bg-light rounded-3 border">
+                      <div class="d-flex align-items-center gap-2 mb-1"><i
+                          class="bi bi-bag-check text-success fs-6"></i><span class="fw-bold small">Retail POS</span>
+                      </div>
+                      <span class="text-dark small fw-semibold">Barcode Scanning</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-2 bg-light rounded-3 border">
+                      <div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-truck text-info fs-6"></i><span
+                          class="fw-bold small">Courier Logistics</span>
+                      </div>
+                      <span class="text-warning small fw-semibold">Live Tracking</span>
+                    </div>
+                  </div>
+                </div>
 
-        <div class="ms-xxl-3 d-flex align-items-center gap-2">
-          <a href="#" target="_blank" rel="noreferrer" data-wa-link
-            class="btn btn-outline-success d-none d-xxl-flex align-items-center gap-1 rounded-pill px-3 py-2 fw-semibold btn-sm">
-            <i class="bi bi-whatsapp"></i> 24/7 Chat
+                <div
+                  class="p-3 bg-primary bg-opacity-10 rounded-3 border border-primary border-opacity-20 d-flex align-items-center justify-content-between">
+                  <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-shield-check text-primary fs-4"></i>
+                    <div>
+                      <span class="d-block fw-bold text-primary small">95% Client Retention</span>
+                      <span class="text-muted extra-small" style="font-size:0.75rem;">Engineered for High
+                        Scalability</span>
+                    </div>
+                  </div>
+                  <a href="clients.html">
+                    <i class="bi bi-arrow-right-circle-fill text-primary fs-4"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div
+                class="position-absolute top-0 start-0 translate-middle-y bg-warning text-dark px-3 py-2 rounded-pill shadow-lg fw-bold small z-3 d-none d-sm-flex align-items-center gap-2">
+                <i class="bi bi-star-fill text-dark"></i>
+                <span>40+ Ready Software</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+    <section id="services" class="py-5 py-lg-6 bg-light position-relative">
+      <div class="container">
+        <div class="text-center mx-auto mb-5" data-aos="fade-up">
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-briefcase me-1"></i> End-to-End IT
+            Expertise</span>
+          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Our Core IT & <span
+              class="text-primary">Software Services</span></h2>
+          <p class="text-muted fs-6">Complete technology solutions designed to accelerate growth, automate workflows,
+            and protect enterprise IT infrastructure for businesses across Bangladesh & worldwide.</p>
+        </div>
+        <div id="servicesGrid" class="row g-4"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ABOUT US
+    ====================================================== -->
+    <section id="about" class="py-5 py-lg-6 bg-white position-relative border-bottom">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-12 col-lg-6" data-aos="fade-right">
+            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-building me-1"></i> About
+              STITBD</span>
+            <h2 class="fw-extrabold font-heading text-dark display-6 mb-3">
+              Super Technic Information <span class="text-primary">Technology Bangladesh </span>
+            </h2>
+            <p class="text-muted leading-relaxed mb-4">
+              STITBD is a premier Bangladesh-based software engineering and technology solutions provider established
+              in
+              2014. For over a decade, we have been driving digital transformation across Bangladesh and international
+              markets by developing custom enterprise software, mobile apps, high-speed portals, BTTB domain hosting,
+              and CCTV surveillance networks.
+            </p>
+
+            <div class="row g-3 mb-4">
+              <div class="col-12 col-sm-6">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <div class="about-stat-icon bg-primary-subtle text-primary"><i
+                        class="bi bi-patch-check-fill fs-4"></i></div>
+                    <h6 class="fw-bold font-heading mb-0 text-dark">12+ Years Legacy</h6>
+                  </div>
+                  <p class="text-muted extra-small mb-0">Pioneering software engineering and IT infrastructure in
+                    Bangladesh since 2014.</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <div class="about-stat-icon bg-warning-subtle text-warning-emphasis"><i
+                        class="bi bi-headset fs-4"></i>
+                    </div>
+                    <h6 class="fw-bold font-heading mb-0 text-dark">24/7 Tech Support</h6>
+                  </div>
+                  <p class="text-muted extra-small mb-0">Dedicated support engineers monitor servers and answer
+                    queries
+                    round-the-clock.</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <div class="about-stat-icon bg-success-subtle text-success"><i class="bi bi-trophy-fill fs-4"></i>
+                    </div>
+                    <h6 class="fw-bold font-heading mb-0 text-dark">95% Success Rate</h6>
+                  </div>
+                  <p class="text-muted extra-small mb-0">Proven record of on-time delivery, high client satisfaction,
+                    and multi-year partnerships.</p>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="p-3 bg-light rounded-3 border h-100">
+                  <div class="d-flex align-items-center gap-3 mb-2">
+                    <div class="about-stat-icon bg-info-subtle text-info"><i class="bi bi-people-fill fs-4"></i>
+                    </div>
+                    <h6 class="fw-bold font-heading mb-0 text-dark">36+ Experts</h6>
+                  </div>
+                  <p class="text-muted extra-small mb-0">In-house software engineers, database architects, and mobile
+                    app developers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6" data-aos="fade-left">
+            <div class="about-image-wrap position-relative shadow-lg">
+              <img src="asset/about.jpg" alt="STITBD Software Engineering Team at Work" class="about-img"
+                loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         READY SOFTWARE GALLERY
+    ====================================================== -->
+    <section id="ready-software" class="py-5 py-lg-6 bg-light position-relative">
+      <div class="container">
+        <div class="text-center mx-auto mb-4" data-aos="fade-up">
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-rocket-takeoff-fill me-1"></i>
+            Ready-To-Deploy Solutions</span>
+          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">40+ Ready-Made <span
+              class="text-primary">Software Products</span></h2>
+          <p class="text-muted fs-6">Tested, reliable, and enterprise-grade software systems ready for immediate
+            installation with customization for your business workflows.</p>
+        </div>
+
+        <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="row g-3 align-items-center justify-content-between mb-4">
+            <div class="col-12 col-md-5 mx-auto">
+              <div class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden bg-white border">
+                <span class="input-group-text bg-white border-0 text-muted ps-3"><i class="bi bi-search"></i></span>
+                <input type="text" id="readySoftwareSearch"
+                  placeholder="Search products (e.g. Hospital, POS, School, ERP...)"
+                  class="form-control border-0 fs-6 focus-ring-none">
+                <button id="readySoftwareClear" class="btn bg-white border-0 text-muted pe-3 d-none" type="button"><i
+                    class="bi bi-x-circle-fill"></i></button>
+              </div>
+            </div>
+          </div>
+          <div id="readySoftwareTabs" class="d-flex flex-wrap justify-content-center gap-2"></div>
+        </div>
+
+        <div id="readySoftwareEmpty" class="text-center py-5 bg-white rounded-4 border p-4 my-4 d-none">
+          <i class="bi bi-emoji-frown text-muted fs-1 mb-2"></i>
+          <h5 class="fw-bold text-dark">No software product found</h5>
+          <p class="text-muted small">Try searching with a different term or select 'All' categories.</p>
+          <button id="readySoftwareReset" type="button" class="btn btn-outline-primary btn-sm rounded-pill px-4">Reset
+            Search Filter</button>
+        </div>
+
+        <div id="readySoftwareGrid" class="row g-4"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         INDUSTRIES WE SERVE
+    ====================================================== -->
+    <section id="industries" class="py-5 py-lg-6 bg-white position-relative border-bottom">
+      <div class="container">
+        <div class="text-center mx-auto mb-4" data-aos="fade-up">
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-diagram-3 me-1"></i> Sectors We
+            Empower</span>
+          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Industry <span
+              class="text-primary">We Serve</span></h2>
+          <p class="text-muted fs-6">Bridge your business with the virtual world &mdash; tailored software solutions
+            across every sector.</p>
+        </div>
+        <div id="industriesGrid" class="row g-3 g-md-4"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         TECH STACK
+    ====================================================== -->
+    <section id="tech-stack" class="py-5 py-lg-6 bg-light position-relative border-bottom">
+      <div class="container">
+        <div class="text-center mx-auto mb-4" data-aos="fade-up">
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-code-slash me-1"></i> Choose Your
+            Stack</span>
+          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Technologies <span
+              class="text-primary">We Use</span></h2>
+          <p class="text-muted fs-6">We leverage battle-tested modern web, mobile, database, and cloud engineering
+            frameworks to build enterprise-grade software.</p>
+        </div>
+        <div id="techStackTabs" class="d-flex flex-wrap justify-content-center gap-2 mb-5" data-aos="fade-up"
+          data-aos-delay="100"></div>
+        <div id="techStackGrid" class="row g-3 g-md-4"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         STATS COUNTER
+    ====================================================== -->
+    <section id="stats" class="py-5 bg-primary text-white position-relative overflow-hidden">
+      <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10 pointer-events-none"
+        style="background: radial-gradient(circle at 30% 30%, #ffffff 0%, transparent 70%);"></div>
+      <div class="container position-relative z-1 py-lg-3">
+        <div id="statsGrid" class="row text-center align-items-center g-4"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CLIENTS SECTION
+    ====================================================== -->
+    <section class="py-5 bg-white position-relative border-bottom">
+      <div class="container">
+        <div class="text-center mx-auto mb-4" data-aos="fade-up">
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-building-check me-1"></i> Trusted
+            Nationwide</span>
+          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Trusted by 1,000+ <span
+              class="text-primary">Enterprises & Institutions</span></h2>
+          <p class="text-muted fs-6">Serving leading conglomerates, garments exporters, hospitals, colleges, and
+            e-commerce companies across Bangladesh.</p>
+        </div>
+
+        <div id="clientsGrid" class="row g-2 g-md-3 justify-content-center" data-aos="fade-up" data-aos-delay="150">
+          <!-- Client cards will be rendered by JavaScript (max 4 rows x 8/row) -->
+        </div>
+
+        <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
+          <a href="clients.html"
+            class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
+            <span>See All Clients</span>
+            <i class="bi bi-arrow-right"></i>
           </a>
-          <button type="button" class="btn btn-brand-primary rounded-pill px-4 py-2 d-flex align-items-center gap-2"
-            data-open-quote-modal="">
-            <i class="bi bi-calculator"></i>
-            <span>Get Free Quote</span>
-          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         RECENT BLOGS
+    ====================================================== -->
+    <section id="blogs" class="py-5 py-lg-6 bg-light position-relative border-bottom">
+      <div class="container">
+        <div class="text-center mx-auto mb-4" data-aos="fade-up">
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-journal-richtext me-1"></i> From Our
+            Blog</span>
+          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Recent <span
+              class="text-primary">Blogs & Insights</span></h2>
+          <p class="text-muted fs-6">Practical guides, industry insights, and product updates from the STITBD
+            engineering team.</p>
+        </div>
+        <div id="blogsGrid" class="row g-4"></div>
+        <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
+          <a href="blogs.html"
+            class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
+            <span>View All Blogs</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         LEADERSHIP TEAM
+    ====================================================== -->
+    <section id="leadership-team" class="py-5 py-lg-6 bg-white position-relative border-bottom">
+      <div class="container">
+        <div class="text-center mx-auto mb-4" data-aos="fade-up">
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-people me-1"></i> Meet The
+            Leaders</span>
+          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Leadership <span
+              class="text-primary">Team</span></h2>
+          <p class="text-muted fs-6">The experienced minds steering STITBD's engineering, design, and business
+            strategy.</p>
+        </div>
+        <div id="teamGrid" class="row g-4"></div>
+        <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
+          <a href="teams.html"
+            class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
+            <span>See All Of Team Members</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         TESTIMONIALS SECTION - Auto Sliding Cards
+    ====================================================== -->
+    <section class="py-5 py-lg-6 bg-light position-relative border-bottom">
+      <div class="container">
+        <div class="text-center mx-auto mb-5" data-aos="fade-up">
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-star-fill me-1"></i> Client
+            Reviews</span>
+          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">What Our Clients <span
+              class="text-primary">Say About STITBD</span></h2>
+          <p class="text-muted fs-6">Real feedback from real businesses we've helped transform through our software
+            solutions.</p>
+        </div>
+
+        <div class="testimonials-slider-wrapper position-relative overflow-hidden" data-aos="fade-up"
+          data-aos-delay="150">
+          <div class="testimonials-slider-track d-flex" id="testimonialsSliderTrack">
+            <!-- Testimonial cards will be rendered by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         DOMAIN SEARCH
+    ====================================================== -->
+    <section id="domain-search" class="py-5 bg-white position-relative border-bottom">
+      <div class="container">
+        <div class="text-center mx-auto mb-4" data-aos="fade-up">
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-hdd-network me-1"></i> BTTB & Global
+            Domain Provider</span>
+          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Search & Register <span
+              class="text-primary">Your Domain Name</span></h2>
+          <p class="text-muted fs-6">Instant registration for global TLDs (.com, .net, .org) & official BTTB
+            Bangladesh
+            domains (.com.bd, .bd). Includes free NVMe DNS management & SSL.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto mb-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-light p-3 p-md-4 rounded-4 border shadow-sm">
+            <form id="domainSearchForm" class="row g-2 align-items-center">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
+                  <input type="text" id="domainQueryInput"
+                    placeholder="Enter your desired domain name (e.g. mybusiness)"
+                    class="form-control form-control-lg border-start-0 fs-6 focus-ring-none" required>
+                </div>
+              </div>
+              <div class="col-6 col-md-3 col-lg-3">
+                <select id="domainTldSelect"
+                  class="form-select form-select-lg fs-6 font-semibold focus-ring-none text-truncate"></select>
+              </div>
+              <div class="col-6 col-md-3 col-lg-3">
+                <button type="submit" id="domainSearchSubmit"
+                  class="btn btn-brand-primary btn-lg w-100 rounded-3 d-flex align-items-center justify-content-center gap-2 fs-6 fw-bold">
+                  <i class="bi bi-lightning-charge-fill"></i>
+                  <span>Check Domain</span>
+                </button>
+              </div>
+            </form>
+
+            <div id="domainResultBox"
+              class="mt-4 p-3 bg-success-subtle border border-success-subtle rounded-3 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 d-none">
+              <div class="d-flex align-items-center gap-3">
+                <div class="bg-success text-white rounded-circle p-2 d-flex align-items-center justify-content-center"
+                  style="width:42px;height:42px;">
+                  <i class="bi bi-check-circle-fill fs-4"></i>
+                </div>
+                <div>
+                  <h6 id="domainResultName" class="mb-0 fw-bold text-success font-heading fs-5"></h6>
+                  <span id="domainResultPrice" class="text-muted small"></span>
+                </div>
+              </div>
+              <button type="button" id="domainOrderBtn"
+                class="btn btn-success btn-lg rounded-pill px-4 fw-bold text-nowrap d-flex align-items-center gap-2 shadow-sm">
+                <i class="bi bi-cart-check-fill"></i>
+                <span>Register Now</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="domainPricingGrid" class="row g-3" data-aos="fade-up" data-aos-delay="150"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="bg-dark text-white pt-5 pb-4 position-relative border-top border-secondary">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <div class="col-12 col-lg-3 col-md-6">
+          <a class="d-flex align-items-center gap-2 text-decoration-none mb-3" href="index.html">
+            <img src="asset/logo.png" alt="STITBD Logo" style="height:48px;width:auto;object-fit:contain;">
+          </a>
+          <p class="text-white-50 small leading-relaxed mb-4">
+            Providing premier software engineering, web development, mobile app design, CCTV surveillance solutions,
+            BTTB .bd domain registration, and cloud hosting in Bangladesh since <span data-since-year>2014</span>.
+          </p>
+          <div class="d-flex align-items-center gap-2">
+            <a href="#" target="_blank" rel="noreferrer" data-fb-link
+              class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
+              style="width:38px;height:38px;" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" target="_blank" rel="noreferrer" data-li-link
+              class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
+              style="width:38px;height:38px;" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" target="_blank" rel="noreferrer" data-yt-link
+              class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
+              style="width:38px;height:38px;" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" target="_blank" rel="noreferrer" data-gh-link
+              class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
+              style="width:38px;height:38px;" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-2 col-md-6">
+          <h6 class="fw-bold font-heading text-white mb-3 text-uppercase small tracking-wider">Our Services</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 small text-white-50 mb-0">
+            <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Software Development</a>
+            </li>
+            <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Website Design & Dev</a>
+            </li>
+            <li><a href="#domain-search" class="text-white-50 text-decoration-none hover-white">Domain & Cloud
+                Hosting</a></li>
+            <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Android & iOS Mobile
+                Apps</a>
+            </li>
+            <li><a href="#services" class="text-white-50 text-decoration-none hover-white">CCTV & Biometric
+                Security</a>
+            </li>
+            <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Access Control Services</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-lg-4 col-md-6">
+          <h6 class="fw-bold font-heading text-white mb-3 text-uppercase small tracking-wider">We Are Proud Member Of
+          </h6>
+          <div class="d-flex flex-wrap gap-2 footer-membership-grid">
+            <div class="footer-membership-badge"
+              title="BASIS — Bangladesh Association of Software & Information Services">
+              <img src="asset/membership/basis.png" alt="BASIS Member" loading="lazy">
+            </div>
+            <div class="footer-membership-badge" title="BDHPA — Bangladesh Domain Hosting Provider's Association">
+              <img src="asset/membership/bdhpa.png" alt="BDHPA Member" loading="lazy">
+            </div>
+            <div class="footer-membership-badge" title="e-CAB — E-commerce Association of Bangladesh">
+              <img src="asset/membership/e-cab.png" alt="e-CAB Member" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h6 class="fw-bold font-heading text-white mb-3 text-uppercase small tracking-wider">Head Office</h6>
+          <p class="text-white-50 small leading-relaxed mb-2"><i class="bi bi-geo-alt text-warning me-2"></i><span
+              data-company-address></span></p>
+          <p class="text-white-50 small mb-2"><i class="bi bi-telephone text-warning me-2"></i><span
+              data-company-phone-primary></span></p>
+          <p class="text-white-50 small mb-3"><i class="bi bi-envelope text-warning me-2"></i><span
+              data-company-email></span></p>
+          <div
+            class="p-2 bg-white bg-opacity-10 rounded-3 border border-white border-opacity-15 small text-warning font-semibold">
+            <i class="bi bi-shield-check me-1"></i> 24/7 Technical Support Available
+          </div>
         </div>
       </div>
 
-  </nav>
-
-  <!-- Offcanvas Drawer for Mobile (always visible, but toggled by the button) -->
-  <div class="offcanvas offcanvas-end rounded-start-4" tabindex="-1" id="mobileMenuNav"
-    aria-labelledby="mobileMenuNavLabel">
-    <div class="offcanvas-header border-bottom">
-      <div class="offcanvas-title d-flex align-items-center gap-2" id="mobileMenuNavLabel">
-        <img src="asset/logo.png" alt="STITBD Logo" style="height:40px;width:auto;object-fit:contain;">
+      <div class="footer-payment-strip text-center">
+        <span class="footer-payment-label">We Accept Secure Payments</span>
+        <div class="footer-payment-card d-inline-flex align-items-center justify-content-center">
+          <img src="asset/payment-gateway.png" alt="Accepted Payment Gateways"
+            class="footer-payment-img d-none d-md-block" loading="lazy">
+          <img src="asset/payment-gateway-mobile.png" alt="Accepted Payment Gateways"
+            class="footer-payment-img d-md-none" loading="lazy">
+        </div>
       </div>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+      <hr class="border-secondary my-4">
+
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-white-50 small">
+        <div>&copy; 2014-<span data-copyright-year>2026</span> <strong>STITBD</strong>. All Rights Reserved.</div>
+        <div class="d-flex align-items-center gap-3 extra-small">
+          <span>Privacy Policy</span>
+          <span>&bull;</span>
+          <span>Terms of Service</span>
+        </div>
+      </div>
     </div>
-    <div class="offcanvas-body d-flex flex-column justify-content-between">
-      <ul class="navbar-nav gap-1">
-        <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
-            href="index.html"><i class="bi bi-house-door me-2 text-primary"></i> Home</a></li>
+  </footer>
 
-        <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
-            href="https://stitbd.com/about"><i class="bi bi-people me-2 text-primary"></i> About Us</a></li>
-
-
-        <li class="nav-item mobile-accordion-item">
-          <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
-            href="#mobProducts" data-bs-toggle="collapse" role="button" aria-expanded="false">
-            <span><i class="bi bi-grid-3x3-gap me-2 text-primary"></i> Products</span>
-            <i class="bi bi-chevron-down small"></i>
-          </a>
-          <div class="collapse ps-4" id="mobProducts">
-            <ul class="list-unstyled d-flex flex-column gap-2 py-2" id="mobProductsMenu"></ul>
+  <!-- =====================================================
+       PRODUCT DETAIL MODAL
+  ====================================================== -->
+  <div class="modal fade bg-dark bg-opacity-50 backdrop-blur" id="productDetailModal" tabindex="-1" role="dialog"
+    style="z-index:1060;">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content shadow-lg border-0 rounded-4">
+        <div class="modal-header bg-primary text-white p-4 rounded-top-4 align-items-start">
+          <div class="d-flex align-items-center gap-3">
+            <div class="bg-white text-primary rounded-3 p-3 d-flex align-items-center justify-content-center"
+              style="width:56px;height:56px;">
+              <i id="productDetailIcon" class="bi fs-2"></i>
+            </div>
+            <div>
+              <span id="productDetailCategory" class="badge bg-warning text-dark font-bold mb-1"></span>
+              <h4 id="productDetailName" class="modal-title font-heading fw-extrabold text-white mb-0"></h4>
+              <span class="text-white-50 small"><i class="bi bi-building me-1"></i> Target: <span
+                  id="productDetailTarget"></span></span>
+            </div>
           </div>
-        </li>
+          <button type="button" class="btn-close btn-close-white" data-close-product-modal aria-label="Close"></button>
+        </div>
 
-        <li class="nav-item mobile-accordion-item">
-          <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
-            href="#mobServices" data-bs-toggle="collapse" role="button" aria-expanded="false">
-            <span><i class="bi bi-layers me-2 text-primary"></i> Services</span>
-            <i class="bi bi-chevron-down small"></i>
-          </a>
-          <div class="collapse ps-4" id="mobServices">
-            <ul class="list-unstyled d-flex flex-column gap-2 py-2">
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Service/service_details/11">Software Development</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Service/service_details/12">Website Design & Development</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Service/service_details/13">Domain Registration & Hosting</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Service/service_details/14">Android & iOS App Development</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Service/service_details/15">CCTV Camera</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Service/service_details/16">Digital Marketing</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Service/service_details/17">Email and SMS Marketing</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Service/service_details/18">Access Control Services</a></li>
-            </ul>
+        <div class="modal-body p-4">
+          <div class="mb-4">
+            <h6 class="fw-bold text-dark font-heading mb-2"><i class="bi bi-info-circle text-primary me-2"></i>
+              Product
+              Overview</h6>
+            <p id="productDetailOverview" class="text-muted leading-relaxed"></p>
           </div>
-        </li>
 
-        <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
-            href="https://stitbd.com/team-page"><i class="bi bi-people me-2 text-primary"></i> Our Team</a></li>
-
-        <li class="nav-item mobile-accordion-item">
-          <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
-            href="#mobPortfolio" data-bs-toggle="collapse" role="button" aria-expanded="false">
-            <span><i class="bi bi-briefcase me-2 text-primary"></i> Portfolio</span>
-            <i class="bi bi-chevron-down small"></i>
-          </a>
-          <div class="collapse ps-4" id="mobPortfolio">
-            <ul class="list-unstyled d-flex flex-column gap-2 py-2">
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Product/client_view/5">HR Software Client</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Product/client_view/6">Restaurant POS Client</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Product/client_view/7">Edu Soft Client</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Product/client_view/8">Website Client</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Product/client_view/11">Mobile Apps Client</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Product/client_view/12">Courier Software Client</a></li>
-              <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                  href="https://stitbd.com/Product/client_view/13">Digital Ward Seba Soft Client</a></li>
-            </ul>
+          <div class="mb-4">
+            <h6 class="fw-bold text-dark font-heading mb-3"><i class="bi bi-grid-3x3-gap text-primary me-2"></i>
+              Included Software Modules (<span id="productDetailModulesCount"></span>)</h6>
+            <div id="productDetailModules" class="row g-2"></div>
           </div>
-        </li>
 
-        <li class="nav-item" data-bs-dismiss="offcanvas"><a class="nav-link fs-5 fw-semibold text-dark"
-            href="contact.html"><i class="bi bi-envelope me-2 text-primary"></i> Contact</a></li>
-      </ul>
+          <div class="mb-4">
+            <h6 class="fw-bold text-dark font-heading mb-2"><i class="bi bi-shield-check text-primary me-2"></i> Key
+              Technical Highlights</h6>
+            <ul id="productDetailFeatures" class="list-group list-group-flush border rounded-3"></ul>
+          </div>
 
-      <div class="mt-4 pt-3 border-top">
-        <button type="button"
-          class="btn btn-brand-primary w-100 py-3 mb-2 rounded-3 d-flex align-items-center justify-content-center gap-2"
-          data-bs-dismiss="offcanvas" data-open-quote-modal="">
-          <i class="bi bi-calculator fs-5"></i>
-          <span>Get Free Project Quote</span>
-        </button>
-        <a href="#" target="_blank" rel="noreferrer" data-wa-link
-          class="btn btn-outline-success w-100 py-2 rounded-3 d-flex align-items-center justify-content-center gap-2 fw-semibold">
-          <i class="bi bi-whatsapp"></i> Chat on WhatsApp (24/7)
-        </a>
+          <div
+            class="p-3 bg-primary bg-opacity-10 rounded-3 border border-primary border-opacity-20 d-flex align-items-center gap-3">
+            <i class="bi bi-headset text-primary fs-3"></i>
+            <div class="small">
+              <span class="fw-bold text-primary d-block">Includes Free Installation & 1 Year Support</span>
+              <span class="text-muted">Database setup, user training, and customized source adjustments included upon
+                purchase.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer bg-light p-3 rounded-bottom-4 d-flex align-items-center justify-content-between">
+          <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-close-product-modal>Close
+            Window</button>
+          <button type="button" id="productDetailDemoBtn"
+            class="btn btn-brand-primary rounded-pill px-4 d-flex align-items-center gap-2">
+            <i class="bi bi-calendar-check-fill"></i>
+            <span>Book Live Demo & Quote</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <main class="flex-grow-1">
-
-    <main class="flex-grow-1">
-
-      <!-- =====================================================
-         HERO SLIDER
-    ====================================================== -->
-      <section class="hero-gradient-bg py-5 py-lg-6 position-relative">
-        <div class="hero-slider-bg" id="heroSliderBg"></div>
-        <div class="hero-slider-overlay"></div>
-        <div class="container py-lg-4">
-          <div class="row align-items-center g-5">
-            <div class="col-12 col-lg-7 text-center text-lg-start" data-aos="fade-up">
-              <div
-                class="d-inline-flex align-items-center gap-2 bg-white bg-opacity-10 backdrop-blur border border-white border-opacity-20 rounded-pill px-3 py-1 mb-3">
-                <span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span>
-                <span class="text-white small fw-semibold">Bangladesh&rsquo;s Trusted Tech Partner Since <span
-                    data-since-year>2014</span></span>
-              </div>
-
-              <h1 class="display-4 fw-extrabold text-white mb-3 font-heading lh-sm">
-                Transforming Businesses with <span class="text-warning">Next-Gen Software</span>, Web & Mobile
-                Engineering
-              </h1>
-
-              <div
-                class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-3 mb-4">
-                <a href="#ready-software"
-                  class="btn btn-brand-primary btn-lg rounded-pill px-4 py-3 text-white fw-bold d-flex align-items-center gap-2">
-                  <i class="bi bi-grid-3x3-gap-fill fs-5"></i>
-                  <span>Explore 40+ Ready Software</span>
-                </a>
-                <button type="button"
-                  class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-semibold d-flex align-items-center gap-2 border-2"
-                  data-open-quote-modal="">
-                  <i class="bi bi-calculator-fill fs-5"></i>
-                  <span>Request Free Quote</span>
-                </button>
-              </div>
-
-              <div
-                class="pt-3 border-top border-white border-opacity-15 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-4 gap-sm-4 gap-md-4">
-                <div class="d-flex align-items-center gap-2 gap-sm-2">
-                  <i class="bi bi-patch-check-fill text-warning fs-4 fs-sm-5"></i>
-                  <div class="text-start">
-                    <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">1,200+ Projects</span>
-                    <span class="text-white-50 small fs-7">Successfully Delivered</span>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center gap-2 gap-sm-2">
-                  <i class="bi bi-people-fill text-warning fs-4 fs-sm-5"></i>
-                  <div class="text-start">
-                    <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">1,000+ Clients</span>
-                    <span class="text-white-50 small fs-7">Nationwide & Global</span>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center gap-2 gap-sm-2">
-                  <i class="bi bi-headset text-warning fs-4 fs-sm-5"></i>
-                  <div class="text-start">
-                    <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">24/7 Support</span>
-                    <span class="text-white-50 small fs-7">36+ Expert Engineers</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-5 text-center" data-aos="zoom-in" data-aos-delay="100">
-              <div class="position-relative mx-auto" style="max-width:480px;">
-                <div
-                  class="hero-dashboard-card text-dark rounded-4 p-4 text-start shadow-lg border border-white border-opacity-30 position-relative z-2">
-                  <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
-                    <div class="d-flex align-items-center gap-2">
-                      <div
-                        class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 d-flex align-items-center justify-content-center"
-                        style="width:38px;height:38px;">
-                        <i class="bi bi-speedometer2 fs-5"></i>
-                      </div>
-                      <div>
-                        <h6 class="mb-0 fw-bold font-heading">STITBD Control Center</h6>
-                        <span class="text-muted small">Live Enterprise Dashboard</span>
-                      </div>
-                    </div>
-                    <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3">
-                      <i class="bi bi-circle-fill fs-8 me-1"></i> Active
-                    </span>
-                  </div>
-
-                  <div class="row g-2 mb-3">
-                    <div class="col-6">
-                      <div class="p-2 bg-light rounded-3 border">
-                        <div class="d-flex align-items-center gap-2 mb-1"><i
-                            class="bi bi-people text-primary fs-6"></i><span class="fw-bold small">HR & Payroll</span>
-                        </div>
-                        <span class="text-success small fw-semibold">Biometric Sync</span>
-                      </div>
-                    </div>
-                    <div class="col-6">
-                      <div class="p-2 bg-light rounded-3 border">
-                        <div class="d-flex align-items-center gap-2 mb-1"><i
-                            class="bi bi-mortarboard text-warning fs-6"></i><span class="fw-bold small">Education
-                            ERP</span></div>
-                        <span class="text-primary small fw-semibold">bKash Fees Sync</span>
-                      </div>
-                    </div>
-                    <div class="col-6">
-                      <div class="p-2 bg-light rounded-3 border">
-                        <div class="d-flex align-items-center gap-2 mb-1"><i
-                            class="bi bi-bag-check text-success fs-6"></i><span class="fw-bold small">Retail POS</span>
-                        </div>
-                        <span class="text-dark small fw-semibold">Barcode Scanning</span>
-                      </div>
-                    </div>
-                    <div class="col-6">
-                      <div class="p-2 bg-light rounded-3 border">
-                        <div class="d-flex align-items-center gap-2 mb-1"><i
-                            class="bi bi-truck text-info fs-6"></i><span class="fw-bold small">Courier Logistics</span>
-                        </div>
-                        <span class="text-warning small fw-semibold">Live Tracking</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div
-                    class="p-3 bg-primary bg-opacity-10 rounded-3 border border-primary border-opacity-20 d-flex align-items-center justify-content-between">
-                    <div class="d-flex align-items-center gap-2">
-                      <i class="bi bi-shield-check text-primary fs-4"></i>
-                      <div>
-                        <span class="d-block fw-bold text-primary small">95% Client Retention</span>
-                        <span class="text-muted extra-small" style="font-size:0.75rem;">Engineered for High
-                          Scalability</span>
-                      </div>
-                    </div>
-                    <a href="clients.html">
-                      <i class="bi bi-arrow-right-circle-fill text-primary fs-4"></i>
-                    </a>
-                  </div>
-                </div>
-
-                <div
-                  class="position-absolute top-0 start-0 translate-middle-y bg-warning text-dark px-3 py-2 rounded-pill shadow-lg fw-bold small z-3 d-none d-sm-flex align-items-center gap-2">
-                  <i class="bi bi-star-fill text-dark"></i>
-                  <span>40+ Ready Software</span>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-         SERVICES
-    ====================================================== -->
-      <section id="services" class="py-5 py-lg-6 bg-light position-relative">
-        <div class="container">
-          <div class="text-center mx-auto mb-5" data-aos="fade-up">
-            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-briefcase me-1"></i> End-to-End IT
-              Expertise</span>
-            <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Our Core IT & <span
-                class="text-primary">Software Services</span></h2>
-            <p class="text-muted fs-6">Complete technology solutions designed to accelerate growth, automate workflows,
-              and protect enterprise IT infrastructure for businesses across Bangladesh & worldwide.</p>
-          </div>
-          <div id="servicesGrid" class="row g-4"></div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-         ABOUT US
-    ====================================================== -->
-      <section id="about" class="py-5 py-lg-6 bg-white position-relative border-bottom">
-        <div class="container">
-          <div class="row align-items-center g-5">
-            <div class="col-12 col-lg-6" data-aos="fade-right">
-              <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-building me-1"></i> About
-                STITBD</span>
-              <h2 class="fw-extrabold font-heading text-dark display-6 mb-3">
-                Super Technic Information <span class="text-primary">Technology Bangladesh </span>
-              </h2>
-              <p class="text-muted leading-relaxed mb-4">
-                STITBD is a premier Bangladesh-based software engineering and technology solutions provider established
-                in
-                2014. For over a decade, we have been driving digital transformation across Bangladesh and international
-                markets by developing custom enterprise software, mobile apps, high-speed portals, BTTB domain hosting,
-                and CCTV surveillance networks.
-              </p>
-
-              <div class="row g-3 mb-4">
-                <div class="col-12 col-sm-6">
-                  <div class="p-3 bg-light rounded-3 border h-100">
-                    <div class="d-flex align-items-center gap-3 mb-2">
-                      <div class="about-stat-icon bg-primary-subtle text-primary"><i
-                          class="bi bi-patch-check-fill fs-4"></i></div>
-                      <h6 class="fw-bold font-heading mb-0 text-dark">12+ Years Legacy</h6>
-                    </div>
-                    <p class="text-muted extra-small mb-0">Pioneering software engineering and IT infrastructure in
-                      Bangladesh since 2014.</p>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                  <div class="p-3 bg-light rounded-3 border h-100">
-                    <div class="d-flex align-items-center gap-3 mb-2">
-                      <div class="about-stat-icon bg-warning-subtle text-warning-emphasis"><i
-                          class="bi bi-headset fs-4"></i>
-                      </div>
-                      <h6 class="fw-bold font-heading mb-0 text-dark">24/7 Tech Support</h6>
-                    </div>
-                    <p class="text-muted extra-small mb-0">Dedicated support engineers monitor servers and answer
-                      queries
-                      round-the-clock.</p>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                  <div class="p-3 bg-light rounded-3 border h-100">
-                    <div class="d-flex align-items-center gap-3 mb-2">
-                      <div class="about-stat-icon bg-success-subtle text-success"><i class="bi bi-trophy-fill fs-4"></i>
-                      </div>
-                      <h6 class="fw-bold font-heading mb-0 text-dark">95% Success Rate</h6>
-                    </div>
-                    <p class="text-muted extra-small mb-0">Proven record of on-time delivery, high client satisfaction,
-                      and multi-year partnerships.</p>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6">
-                  <div class="p-3 bg-light rounded-3 border h-100">
-                    <div class="d-flex align-items-center gap-3 mb-2">
-                      <div class="about-stat-icon bg-info-subtle text-info"><i class="bi bi-people-fill fs-4"></i>
-                      </div>
-                      <h6 class="fw-bold font-heading mb-0 text-dark">36+ Experts</h6>
-                    </div>
-                    <p class="text-muted extra-small mb-0">In-house software engineers, database architects, and mobile
-                      app developers.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12 col-lg-6" data-aos="fade-left">
-              <div class="about-image-wrap position-relative shadow-lg">
-                <img src="asset/about.jpg" alt="STITBD Software Engineering Team at Work" class="about-img"
-                  loading="lazy">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-         READY SOFTWARE GALLERY
-    ====================================================== -->
-      <section id="ready-software" class="py-5 py-lg-6 bg-light position-relative">
-        <div class="container">
-          <div class="text-center mx-auto mb-4" data-aos="fade-up">
-            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-rocket-takeoff-fill me-1"></i>
-              Ready-To-Deploy Solutions</span>
-            <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">40+ Ready-Made <span
-                class="text-primary">Software Products</span></h2>
-            <p class="text-muted fs-6">Tested, reliable, and enterprise-grade software systems ready for immediate
-              installation with customization for your business workflows.</p>
-          </div>
-
-          <div class="mb-5" data-aos="fade-up" data-aos-delay="100">
-            <div class="row g-3 align-items-center justify-content-between mb-4">
-              <div class="col-12 col-md-5 mx-auto">
-                <div class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden bg-white border">
-                  <span class="input-group-text bg-white border-0 text-muted ps-3"><i class="bi bi-search"></i></span>
-                  <input type="text" id="readySoftwareSearch"
-                    placeholder="Search products (e.g. Hospital, POS, School, ERP...)"
-                    class="form-control border-0 fs-6 focus-ring-none">
-                  <button id="readySoftwareClear" class="btn bg-white border-0 text-muted pe-3 d-none" type="button"><i
-                      class="bi bi-x-circle-fill"></i></button>
-                </div>
-              </div>
-            </div>
-            <div id="readySoftwareTabs" class="d-flex flex-wrap justify-content-center gap-2"></div>
-          </div>
-
-          <div id="readySoftwareEmpty" class="text-center py-5 bg-white rounded-4 border p-4 my-4 d-none">
-            <i class="bi bi-emoji-frown text-muted fs-1 mb-2"></i>
-            <h5 class="fw-bold text-dark">No software product found</h5>
-            <p class="text-muted small">Try searching with a different term or select 'All' categories.</p>
-            <button id="readySoftwareReset" type="button" class="btn btn-outline-primary btn-sm rounded-pill px-4">Reset
-              Search Filter</button>
-          </div>
-
-          <div id="readySoftwareGrid" class="row g-4"></div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-         INDUSTRIES WE SERVE
-    ====================================================== -->
-      <section id="industries" class="py-5 py-lg-6 bg-white position-relative border-bottom">
-        <div class="container">
-          <div class="text-center mx-auto mb-4" data-aos="fade-up">
-            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-diagram-3 me-1"></i> Sectors We
-              Empower</span>
-            <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Industry <span
-                class="text-primary">We Serve</span></h2>
-            <p class="text-muted fs-6">Bridge your business with the virtual world &mdash; tailored software solutions
-              across every sector.</p>
-          </div>
-          <div id="industriesGrid" class="row g-3 g-md-4"></div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-         TECH STACK
-    ====================================================== -->
-      <section id="tech-stack" class="py-5 py-lg-6 bg-light position-relative border-bottom">
-        <div class="container">
-          <div class="text-center mx-auto mb-4" data-aos="fade-up">
-            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-code-slash me-1"></i> Choose Your
-              Stack</span>
-            <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Technologies <span
-                class="text-primary">We Use</span></h2>
-            <p class="text-muted fs-6">We leverage battle-tested modern web, mobile, database, and cloud engineering
-              frameworks to build enterprise-grade software.</p>
-          </div>
-          <div id="techStackTabs" class="d-flex flex-wrap justify-content-center gap-2 mb-5" data-aos="fade-up"
-            data-aos-delay="100"></div>
-          <div id="techStackGrid" class="row g-3 g-md-4"></div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-         STATS COUNTER
-    ====================================================== -->
-      <section id="stats" class="py-5 bg-primary text-white position-relative overflow-hidden">
-        <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10 pointer-events-none"
-          style="background: radial-gradient(circle at 30% 30%, #ffffff 0%, transparent 70%);"></div>
-        <div class="container position-relative z-1 py-lg-3">
-          <div id="statsGrid" class="row text-center align-items-center g-4"></div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-         CLIENTS SECTION
-    ====================================================== -->
-      <section class="py-5 bg-white position-relative border-bottom">
-        <div class="container">
-          <div class="text-center mx-auto mb-4" data-aos="fade-up">
-            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-building-check me-1"></i> Trusted
-              Nationwide</span>
-            <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Trusted by 1,000+ <span
-                class="text-primary">Enterprises & Institutions</span></h2>
-            <p class="text-muted fs-6">Serving leading conglomerates, garments exporters, hospitals, colleges, and
-              e-commerce companies across Bangladesh.</p>
-          </div>
-
-          <div id="clientsGrid" class="row g-2 g-md-3 justify-content-center" data-aos="fade-up" data-aos-delay="150">
-            <!-- Client cards will be rendered by JavaScript (max 4 rows x 8/row) -->
-          </div>
-
-          <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
-            <a href="clients.html"
-              class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
-              <span>See All Clients</span>
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-         RECENT BLOGS
-    ====================================================== -->
-      <section id="blogs" class="py-5 py-lg-6 bg-light position-relative border-bottom">
-        <div class="container">
-          <div class="text-center mx-auto mb-4" data-aos="fade-up">
-            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-journal-richtext me-1"></i> From Our
-              Blog</span>
-            <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Recent <span
-                class="text-primary">Blogs & Insights</span></h2>
-            <p class="text-muted fs-6">Practical guides, industry insights, and product updates from the STITBD
-              engineering team.</p>
-          </div>
-          <div id="blogsGrid" class="row g-4"></div>
-          <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
-            <a href="blogs.html"
-              class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
-              <span>View All Blogs</span>
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-         LEADERSHIP TEAM
-    ====================================================== -->
-      <section id="leadership-team" class="py-5 py-lg-6 bg-white position-relative border-bottom">
-        <div class="container">
-          <div class="text-center mx-auto mb-4" data-aos="fade-up">
-            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-people me-1"></i> Meet The
-              Leaders</span>
-            <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Leadership <span
-                class="text-primary">Team</span></h2>
-            <p class="text-muted fs-6">The experienced minds steering STITBD's engineering, design, and business
-              strategy.</p>
-          </div>
-          <div id="teamGrid" class="row g-4"></div>
-          <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
-            <a href="teams.html"
-              class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
-              <span>See All Of Team Members</span>
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- =====================================================
-         TESTIMONIALS SECTION - Auto Sliding Cards
-    ====================================================== -->
-      <section class="py-5 py-lg-6 bg-light position-relative border-bottom">
-        <div class="container">
-          <div class="text-center mx-auto mb-5" data-aos="fade-up">
-            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-star-fill me-1"></i> Client
-              Reviews</span>
-            <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">What Our Clients <span
-                class="text-primary">Say About STITBD</span></h2>
-            <p class="text-muted fs-6">Real feedback from real businesses we've helped transform through our software
-              solutions.</p>
-          </div>
-
-          <div class="testimonials-slider-wrapper position-relative overflow-hidden" data-aos="fade-up"
-            data-aos-delay="150">
-            <div class="testimonials-slider-track d-flex" id="testimonialsSliderTrack">
-              <!-- Testimonial cards will be rendered by JavaScript -->
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- =====================================================
-         DOMAIN SEARCH
-    ====================================================== -->
-      <section id="domain-search" class="py-5 bg-white position-relative border-bottom">
-        <div class="container">
-          <div class="text-center mx-auto mb-4" data-aos="fade-up">
-            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-hdd-network me-1"></i> BTTB & Global
-              Domain Provider</span>
-            <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Search & Register <span
-                class="text-primary">Your Domain Name</span></h2>
-            <p class="text-muted fs-6">Instant registration for global TLDs (.com, .net, .org) & official BTTB
-              Bangladesh
-              domains (.com.bd, .bd). Includes free NVMe DNS management & SSL.</p>
-          </div>
-
-          <div class="max-w-4xl mx-auto mb-5" data-aos="fade-up" data-aos-delay="100">
-            <div class="bg-light p-3 p-md-4 rounded-4 border shadow-sm">
-              <form id="domainSearchForm" class="row g-2 align-items-center">
-                <div class="col-12 col-md-6 col-lg-6">
-                  <div class="input-group input-group-lg">
-                    <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
-                    <input type="text" id="domainQueryInput"
-                      placeholder="Enter your desired domain name (e.g. mybusiness)"
-                      class="form-control form-control-lg border-start-0 fs-6 focus-ring-none" required>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3 col-lg-3">
-                  <select id="domainTldSelect"
-                    class="form-select form-select-lg fs-6 font-semibold focus-ring-none text-truncate"></select>
-                </div>
-                <div class="col-6 col-md-3 col-lg-3">
-                  <button type="submit" id="domainSearchSubmit"
-                    class="btn btn-brand-primary btn-lg w-100 rounded-3 d-flex align-items-center justify-content-center gap-2 fs-6 fw-bold">
-                    <i class="bi bi-lightning-charge-fill"></i>
-                    <span>Check Domain</span>
-                  </button>
-                </div>
-              </form>
-
-              <div id="domainResultBox"
-                class="mt-4 p-3 bg-success-subtle border border-success-subtle rounded-3 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 d-none">
-                <div class="d-flex align-items-center gap-3">
-                  <div class="bg-success text-white rounded-circle p-2 d-flex align-items-center justify-content-center"
-                    style="width:42px;height:42px;">
-                    <i class="bi bi-check-circle-fill fs-4"></i>
-                  </div>
-                  <div>
-                    <h6 id="domainResultName" class="mb-0 fw-bold text-success font-heading fs-5"></h6>
-                    <span id="domainResultPrice" class="text-muted small"></span>
-                  </div>
-                </div>
-                <button type="button" id="domainOrderBtn"
-                  class="btn btn-success btn-lg rounded-pill px-4 fw-bold text-nowrap d-flex align-items-center gap-2 shadow-sm">
-                  <i class="bi bi-cart-check-fill"></i>
-                  <span>Register Now</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div id="domainPricingGrid" class="row g-3" data-aos="fade-up" data-aos-delay="150"></div>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-    <footer class="bg-dark text-white pt-5 pb-4 position-relative border-top border-secondary">
-      <div class="container">
-        <div class="row g-4 mb-5">
-          <div class="col-12 col-lg-3 col-md-6">
-            <a class="d-flex align-items-center gap-2 text-decoration-none mb-3" href="index.html">
-              <img src="asset/logo.png" alt="STITBD Logo" style="height:48px;width:auto;object-fit:contain;">
-            </a>
-            <p class="text-white-50 small leading-relaxed mb-4">
-              Providing premier software engineering, web development, mobile app design, CCTV surveillance solutions,
-              BTTB .bd domain registration, and cloud hosting in Bangladesh since <span data-since-year>2014</span>.
-            </p>
-            <div class="d-flex align-items-center gap-2">
-              <a href="#" target="_blank" rel="noreferrer" data-fb-link
-                class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
-                style="width:38px;height:38px;" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" target="_blank" rel="noreferrer" data-li-link
-                class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
-                style="width:38px;height:38px;" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-              <a href="#" target="_blank" rel="noreferrer" data-yt-link
-                class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
-                style="width:38px;height:38px;" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-              <a href="#" target="_blank" rel="noreferrer" data-gh-link
-                class="btn btn-outline-light rounded-circle p-2 d-flex align-items-center justify-content-center"
-                style="width:38px;height:38px;" aria-label="GitHub"><i class="bi bi-github"></i></a>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-2 col-md-6">
-            <h6 class="fw-bold font-heading text-white mb-3 text-uppercase small tracking-wider">Our Services</h6>
-            <ul class="list-unstyled d-flex flex-column gap-2 small text-white-50 mb-0">
-              <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Software Development</a>
-              </li>
-              <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Website Design & Dev</a>
-              </li>
-              <li><a href="#domain-search" class="text-white-50 text-decoration-none hover-white">Domain & Cloud
-                  Hosting</a></li>
-              <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Android & iOS Mobile
-                  Apps</a>
-              </li>
-              <li><a href="#services" class="text-white-50 text-decoration-none hover-white">CCTV & Biometric
-                  Security</a>
-              </li>
-              <li><a href="#services" class="text-white-50 text-decoration-none hover-white">Access Control Services</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-12 col-lg-4 col-md-6">
-            <h6 class="fw-bold font-heading text-white mb-3 text-uppercase small tracking-wider">We Are Proud Member Of
-            </h6>
-            <div class="d-flex flex-wrap gap-2 footer-membership-grid">
-              <div class="footer-membership-badge"
-                title="BASIS — Bangladesh Association of Software & Information Services">
-                <img src="asset/membership/basis.png" alt="BASIS Member" loading="lazy">
-              </div>
-              <div class="footer-membership-badge" title="BDHPA — Bangladesh Domain Hosting Provider's Association">
-                <img src="asset/membership/bdhpa.png" alt="BDHPA Member" loading="lazy">
-              </div>
-              <div class="footer-membership-badge" title="e-CAB — E-commerce Association of Bangladesh">
-                <img src="asset/membership/e-cab.png" alt="e-CAB Member" loading="lazy">
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <h6 class="fw-bold font-heading text-white mb-3 text-uppercase small tracking-wider">Head Office</h6>
-            <p class="text-white-50 small leading-relaxed mb-2"><i class="bi bi-geo-alt text-warning me-2"></i><span
-                data-company-address></span></p>
-            <p class="text-white-50 small mb-2"><i class="bi bi-telephone text-warning me-2"></i><span
-                data-company-phone-primary></span></p>
-            <p class="text-white-50 small mb-3"><i class="bi bi-envelope text-warning me-2"></i><span
-                data-company-email></span></p>
-            <div
-              class="p-2 bg-white bg-opacity-10 rounded-3 border border-white border-opacity-15 small text-warning font-semibold">
-              <i class="bi bi-shield-check me-1"></i> 24/7 Technical Support Available
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-payment-strip text-center">
-          <span class="footer-payment-label">We Accept Secure Payments</span>
-          <div class="footer-payment-card d-inline-flex align-items-center justify-content-center">
-            <img src="asset/payment-gateway.png" alt="Accepted Payment Gateways"
-              class="footer-payment-img d-none d-md-block" loading="lazy">
-            <img src="asset/payment-gateway-mobile.png" alt="Accepted Payment Gateways"
-              class="footer-payment-img d-md-none" loading="lazy">
-          </div>
-        </div>
-
-        <hr class="border-secondary my-4">
-
-        <div
-          class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-white-50 small">
-          <div>&copy; 2014-<span data-copyright-year>2026</span> <strong>STITBD</strong>. All Rights Reserved.</div>
-          <div class="d-flex align-items-center gap-3 extra-small">
-            <span>Privacy Policy</span>
-            <span>&bull;</span>
-            <span>Terms of Service</span>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- =====================================================
-       PRODUCT DETAIL MODAL
-  ====================================================== -->
-    <div class="modal fade bg-dark bg-opacity-50 backdrop-blur" id="productDetailModal" tabindex="-1" role="dialog"
-      style="z-index:1060;">
-      <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-        <div class="modal-content shadow-lg border-0 rounded-4">
-          <div class="modal-header bg-primary text-white p-4 rounded-top-4 align-items-start">
-            <div class="d-flex align-items-center gap-3">
-              <div class="bg-white text-primary rounded-3 p-3 d-flex align-items-center justify-content-center"
-                style="width:56px;height:56px;">
-                <i id="productDetailIcon" class="bi fs-2"></i>
-              </div>
-              <div>
-                <span id="productDetailCategory" class="badge bg-warning text-dark font-bold mb-1"></span>
-                <h4 id="productDetailName" class="modal-title font-heading fw-extrabold text-white mb-0"></h4>
-                <span class="text-white-50 small"><i class="bi bi-building me-1"></i> Target: <span
-                    id="productDetailTarget"></span></span>
-              </div>
-            </div>
-            <button type="button" class="btn-close btn-close-white" data-close-product-modal
-              aria-label="Close"></button>
-          </div>
-
-          <div class="modal-body p-4">
-            <div class="mb-4">
-              <h6 class="fw-bold text-dark font-heading mb-2"><i class="bi bi-info-circle text-primary me-2"></i>
-                Product
-                Overview</h6>
-              <p id="productDetailOverview" class="text-muted leading-relaxed"></p>
-            </div>
-
-            <div class="mb-4">
-              <h6 class="fw-bold text-dark font-heading mb-3"><i class="bi bi-grid-3x3-gap text-primary me-2"></i>
-                Included Software Modules (<span id="productDetailModulesCount"></span>)</h6>
-              <div id="productDetailModules" class="row g-2"></div>
-            </div>
-
-            <div class="mb-4">
-              <h6 class="fw-bold text-dark font-heading mb-2"><i class="bi bi-shield-check text-primary me-2"></i> Key
-                Technical Highlights</h6>
-              <ul id="productDetailFeatures" class="list-group list-group-flush border rounded-3"></ul>
-            </div>
-
-            <div
-              class="p-3 bg-primary bg-opacity-10 rounded-3 border border-primary border-opacity-20 d-flex align-items-center gap-3">
-              <i class="bi bi-headset text-primary fs-3"></i>
-              <div class="small">
-                <span class="fw-bold text-primary d-block">Includes Free Installation & 1 Year Support</span>
-                <span class="text-muted">Database setup, user training, and customized source adjustments included upon
-                  purchase.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="modal-footer bg-light p-3 rounded-bottom-4 d-flex align-items-center justify-content-between">
-            <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-close-product-modal>Close
-              Window</button>
-            <button type="button" id="productDetailDemoBtn"
-              class="btn btn-brand-primary rounded-pill px-4 d-flex align-items-center gap-2">
-              <i class="bi bi-calendar-check-fill"></i>
-              <span>Book Live Demo & Quote</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- =====================================================
+  <!-- =====================================================
        SERVICE DETAIL MODAL
   ====================================================== -->
-    <div class="modal fade bg-dark bg-opacity-50 backdrop-blur" id="serviceDetailModal" tabindex="-1" role="dialog"
-      style="z-index:1060;">
-      <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-        <div class="modal-content shadow-lg border-0 rounded-4">
-          <div class="modal-header bg-primary text-white p-4 rounded-top-4 align-items-start">
-            <div class="d-flex align-items-center gap-3">
-              <div class="bg-white text-primary rounded-3 p-3 d-flex align-items-center justify-content-center"
-                style="width:56px;height:56px;">
-                <i id="serviceDetailIcon" class="bi fs-2"></i>
-              </div>
-              <div>
-                <span id="serviceDetailBadge" class="badge bg-warning text-dark font-bold mb-1"></span>
-                <h4 id="serviceDetailName" class="modal-title font-heading fw-extrabold text-white mb-0"></h4>
-              </div>
+  <div class="modal fade bg-dark bg-opacity-50 backdrop-blur" id="serviceDetailModal" tabindex="-1" role="dialog"
+    style="z-index:1060;">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content shadow-lg border-0 rounded-4">
+        <div class="modal-header bg-primary text-white p-4 rounded-top-4 align-items-start">
+          <div class="d-flex align-items-center gap-3">
+            <div class="bg-white text-primary rounded-3 p-3 d-flex align-items-center justify-content-center"
+              style="width:56px;height:56px;">
+              <i id="serviceDetailIcon" class="bi fs-2"></i>
             </div>
-            <button type="button" class="btn-close btn-close-white" data-close-service-modal
-              aria-label="Close"></button>
-          </div>
-
-          <div class="modal-body p-4">
-            <div class="mb-4">
-              <h6 class="fw-bold text-dark font-heading mb-2"><i class="bi bi-info-circle text-primary me-2"></i>
-                Service
-                Overview</h6>
-              <p id="serviceDetailDescription" class="text-muted leading-relaxed"></p>
-            </div>
-
-            <div class="mb-4">
-              <h6 class="fw-bold text-dark font-heading mb-3"><i class="bi bi-grid-3x3-gap text-primary me-2"></i> Key
-                Features</h6>
-              <ul id="serviceDetailFeatures" class="list-group list-group-flush border rounded-3"></ul>
-            </div>
-
-            <div
-              class="p-3 bg-primary bg-opacity-10 rounded-3 border border-primary border-opacity-20 d-flex align-items-center gap-3">
-              <i class="bi bi-headset text-primary fs-3"></i>
-              <div class="small">
-                <span class="fw-bold text-primary d-block">Need This Service?</span>
-                <span class="text-muted">Get a free consultation and quote from our technical team.</span>
-              </div>
+            <div>
+              <span id="serviceDetailBadge" class="badge bg-warning text-dark font-bold mb-1"></span>
+              <h4 id="serviceDetailName" class="modal-title font-heading fw-extrabold text-white mb-0"></h4>
             </div>
           </div>
+          <button type="button" class="btn-close btn-close-white" data-close-service-modal aria-label="Close"></button>
+        </div>
 
-          <div class="modal-footer bg-light p-3 rounded-bottom-4 d-flex align-items-center justify-content-between">
-            <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-close-service-modal>Close
-              Window</button>
-            <button type="button" id="serviceDetailQuoteBtn"
-              class="btn btn-brand-primary rounded-pill px-4 d-flex align-items-center gap-2">
-              <i class="bi bi-calculator-fill"></i>
-              <span>Request Free Quote</span>
-            </button>
+        <div class="modal-body p-4">
+          <div class="mb-4">
+            <h6 class="fw-bold text-dark font-heading mb-2"><i class="bi bi-info-circle text-primary me-2"></i>
+              Service
+              Overview</h6>
+            <p id="serviceDetailDescription" class="text-muted leading-relaxed"></p>
           </div>
+
+          <div class="mb-4">
+            <h6 class="fw-bold text-dark font-heading mb-3"><i class="bi bi-grid-3x3-gap text-primary me-2"></i> Key
+              Features</h6>
+            <ul id="serviceDetailFeatures" class="list-group list-group-flush border rounded-3"></ul>
+          </div>
+
+          <div
+            class="p-3 bg-primary bg-opacity-10 rounded-3 border border-primary border-opacity-20 d-flex align-items-center gap-3">
+            <i class="bi bi-headset text-primary fs-3"></i>
+            <div class="small">
+              <span class="fw-bold text-primary d-block">Need This Service?</span>
+              <span class="text-muted">Get a free consultation and quote from our technical team.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer bg-light p-3 rounded-bottom-4 d-flex align-items-center justify-content-between">
+          <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-close-service-modal>Close
+            Window</button>
+          <button type="button" id="serviceDetailQuoteBtn"
+            class="btn btn-brand-primary rounded-pill px-4 d-flex align-items-center gap-2">
+            <i class="bi bi-calculator-fill"></i>
+            <span>Request Free Quote</span>
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- =====================================================
+  <!-- =====================================================
        COST ESTIMATOR / QUOTE MODAL
   ====================================================== -->
-    <div class="modal fade bg-dark bg-opacity-50 backdrop-blur" id="quoteModal" tabindex="-1" role="dialog"
-      style="z-index:1060;">
-      <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-        <div class="modal-content shadow-lg border-0 rounded-4">
-          <div class="modal-header bg-primary text-white p-4 rounded-top-4 align-items-center">
-            <div class="d-flex align-items-center gap-3">
-              <div class="bg-white text-primary rounded-circle p-2 d-flex align-items-center justify-content-center"
-                style="width:48px;height:48px;"><i class="bi bi-calculator-fill fs-4"></i></div>
-              <div>
-                <h4 class="modal-title font-heading fw-extrabold text-white mb-0">Project Cost Estimator & Consultation
-                </h4>
-                <span class="text-white-50 small">Get an instant estimation and official callback from STITBD technical
-                  team</span>
-              </div>
+  <div class="modal fade bg-dark bg-opacity-50 backdrop-blur" id="quoteModal" tabindex="-1" role="dialog"
+    style="z-index:1060;">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content shadow-lg border-0 rounded-4">
+        <div class="modal-header bg-primary text-white p-4 rounded-top-4 align-items-center">
+          <div class="d-flex align-items-center gap-3">
+            <div class="bg-white text-primary rounded-circle p-2 d-flex align-items-center justify-content-center"
+              style="width:48px;height:48px;"><i class="bi bi-calculator-fill fs-4"></i></div>
+            <div>
+              <h4 class="modal-title font-heading fw-extrabold text-white mb-0">Project Cost Estimator & Consultation
+              </h4>
+              <span class="text-white-50 small">Get an instant estimation and official callback from STITBD technical
+                team</span>
             </div>
-            <button type="button" class="btn-close btn-close-white" data-close-quote-modal aria-label="Close"></button>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-close-quote-modal aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-4">
+          <div id="quoteFormSection">
+            <form id="quoteForm">
+              <div class="row g-3 mb-4">
+                <div class="col-12 col-md-6">
+                  <label class="form-label fw-bold text-dark small">1. Select Requirement Type</label>
+                  <select id="quoteServiceType" class="form-select form-select-lg fs-6 focus-ring-none">
+                    <option value="Ready Software Purchase">Ready Software Purchase (20+ List)</option>
+                    <option value="Custom Software Development" selected>Custom Software Development</option>
+                    <option value="Website Design & Development">Website Design & E-Commerce</option>
+                    <option value="Android & iOS App Development">Android & iOS App Development</option>
+                    <option value="Domain & Cloud Hosting">Domain Registration & Hosting</option>
+                    <option value="CCTV & Security System">CCTV & Biometric Access Setup</option>
+                    <option value="Digital Marketing & SEO">Digital Marketing & SEO</option>
+                  </select>
+                </div>
+
+                <div class="col-12 col-md-6 d-none" id="quoteProductField">
+                  <label class="form-label fw-bold text-dark small">Select Ready Software Product</label>
+                  <select id="quoteProduct" class="form-select form-select-lg fs-6 focus-ring-none"></select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label fw-bold text-dark small">2. Business Scale</label>
+                  <select id="quoteScale" class="form-select form-select-lg fs-6 focus-ring-none">
+                    <option value="Startup / Single Counter">Startup / Single Counter</option>
+                    <option value="Small / Medium Enterprise" selected>Small / Medium Enterprise (1-5 Branches)
+                    </option>
+                    <option value="Large Corporation">Large Corporation / Multi-Branch Factory</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label fw-bold text-dark small">3. Target Timeline</label>
+                  <select id="quoteTimeline" class="form-select form-select-lg fs-6 focus-ring-none">
+                    <option value="Urgent (1-2 Weeks)">Urgent (1-2 Weeks)</option>
+                    <option value="Standard (2-4 Weeks)" selected>Standard (2-4 Weeks)</option>
+                    <option value="Flexible Scope">Flexible Scope / Long Term</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- NEW — product-specific demo request fields (populated by JS) -->
+              <div id="quoteDynamicFields" class="row g-3 mb-4"></div>
+
+              <hr class="my-4">
+
+              <h6 class="fw-bold text-dark font-heading mb-3">Your Contact Details</h6>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold text-dark small">Your Name / Organization *</label>
+                  <input type="text" id="quoteName" required placeholder="e.g. Tanvir Ahmed (Green Valley Ltd)"
+                    class="form-control form-control-lg fs-6 focus-ring-none">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold text-dark small">Phone / Mobile Number *</label>
+                  <input type="tel" id="quotePhone" required placeholder="e.g. 01711000000"
+                    class="form-control form-control-lg fs-6 focus-ring-none">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold text-dark small">Email Address</label>
+                  <input type="email" id="quoteEmail" placeholder="e.g. tanvir@company.com"
+                    class="form-control form-control-lg fs-6 focus-ring-none">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fw-semibold text-dark small">Special Requirements / Notes</label>
+                  <textarea rows="2" id="quoteNotes"
+                    placeholder="Mention any custom modules or specific requirements..."
+                    class="form-control focus-ring-none"></textarea>
+                </div>
+              </div>
+
+              <div class="d-flex align-items-center justify-content-between pt-2">
+                <button type="button" class="btn btn-outline-secondary rounded-pill px-4"
+                  data-close-quote-modal>Cancel</button>
+                <button type="submit" class="btn btn-brand-primary btn-lg rounded-pill px-5 fw-bold shadow-sm">Submit
+                  Quote Request</button>
+              </div>
+            </form>
           </div>
 
-          <div class="modal-body p-4">
-            <div id="quoteFormSection">
-              <form id="quoteForm">
-                <div class="row g-3 mb-4">
-                  <div class="col-12 col-md-6">
-                    <label class="form-label fw-bold text-dark small">1. Select Requirement Type</label>
-                    <select id="quoteServiceType" class="form-select form-select-lg fs-6 focus-ring-none">
-                      <option value="Ready Software Purchase">Ready Software Purchase (20+ List)</option>
-                      <option value="Custom Software Development" selected>Custom Software Development</option>
-                      <option value="Website Design & Development">Website Design & E-Commerce</option>
-                      <option value="Android & iOS App Development">Android & iOS App Development</option>
-                      <option value="Domain & Cloud Hosting">Domain Registration & Hosting</option>
-                      <option value="CCTV & Security System">CCTV & Biometric Access Setup</option>
-                      <option value="Digital Marketing & SEO">Digital Marketing & SEO</option>
-                    </select>
-                  </div>
-
-                  <div class="col-12 col-md-6 d-none" id="quoteProductField">
-                    <label class="form-label fw-bold text-dark small">Select Ready Software Product</label>
-                    <select id="quoteProduct" class="form-select form-select-lg fs-6 focus-ring-none"></select>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold text-dark small">2. Business Scale</label>
-                    <select id="quoteScale" class="form-select form-select-lg fs-6 focus-ring-none">
-                      <option value="Startup / Single Counter">Startup / Single Counter</option>
-                      <option value="Small / Medium Enterprise" selected>Small / Medium Enterprise (1-5 Branches)
-                      </option>
-                      <option value="Large Corporation">Large Corporation / Multi-Branch Factory</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label fw-bold text-dark small">3. Target Timeline</label>
-                    <select id="quoteTimeline" class="form-select form-select-lg fs-6 focus-ring-none">
-                      <option value="Urgent (1-2 Weeks)">Urgent (1-2 Weeks)</option>
-                      <option value="Standard (2-4 Weeks)" selected>Standard (2-4 Weeks)</option>
-                      <option value="Flexible Scope">Flexible Scope / Long Term</option>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- NEW — product-specific demo request fields (populated by JS) -->
-                <div id="quoteDynamicFields" class="row g-3 mb-4"></div>
-
-                <hr class="my-4">
-
-                <h6 class="fw-bold text-dark font-heading mb-3">Your Contact Details</h6>
-
-                <div class="row g-3 mb-4">
-                  <div class="col-md-6">
-                    <label class="form-label fw-semibold text-dark small">Your Name / Organization *</label>
-                    <input type="text" id="quoteName" required placeholder="e.g. Tanvir Ahmed (Green Valley Ltd)"
-                      class="form-control form-control-lg fs-6 focus-ring-none">
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-semibold text-dark small">Phone / Mobile Number *</label>
-                    <input type="tel" id="quotePhone" required placeholder="e.g. 01711000000"
-                      class="form-control form-control-lg fs-6 focus-ring-none">
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-semibold text-dark small">Email Address</label>
-                    <input type="email" id="quoteEmail" placeholder="e.g. tanvir@company.com"
-                      class="form-control form-control-lg fs-6 focus-ring-none">
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label fw-semibold text-dark small">Special Requirements / Notes</label>
-                    <textarea rows="2" id="quoteNotes"
-                      placeholder="Mention any custom modules or specific requirements..."
-                      class="form-control focus-ring-none"></textarea>
-                  </div>
-                </div>
-
-                <div class="d-flex align-items-center justify-content-between pt-2">
-                  <button type="button" class="btn btn-outline-secondary rounded-pill px-4"
-                    data-close-quote-modal>Cancel</button>
-                  <button type="submit" class="btn btn-brand-primary btn-lg rounded-pill px-5 fw-bold shadow-sm">Submit
-                    Quote Request</button>
-                </div>
-              </form>
+          <div id="quoteSuccessSection" class="text-center py-5 d-none">
+            <div class="bg-success text-white rounded-circle p-3 d-inline-flex mb-3"><i class="bi bi-check-lg fs-1"></i>
             </div>
-
-            <div id="quoteSuccessSection" class="text-center py-5 d-none">
-              <div class="bg-success text-white rounded-circle p-3 d-inline-flex mb-3"><i
-                  class="bi bi-check-lg fs-1"></i>
-              </div>
-              <h4 class="fw-bold font-heading text-dark mb-2">Quote Request Received!</h4>
-              <p class="text-muted max-w-md mx-auto mb-4">
-                Thank you, <strong id="quoteSuccessName"></strong>! Our senior engineer will analyze your requirements
-                for
-                <strong id="quoteSuccessServiceType"></strong> and contact you at <strong
-                  id="quoteSuccessPhone"></strong>
-                within 1-2 hours.
-              </p>
-              <div class="d-flex justify-content-center gap-3">
-                <a href="#" id="quoteSuccessWaBtn" target="_blank" rel="noreferrer"
-                  class="btn btn-success rounded-pill px-4 fw-bold d-flex align-items-center gap-2">
-                  <i class="bi bi-whatsapp"></i> Chat Instant on WhatsApp
-                </a>
-                <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-close-quote-modal>Close
-                  Window</button>
-              </div>
+            <h4 class="fw-bold font-heading text-dark mb-2">Quote Request Received!</h4>
+            <p class="text-muted max-w-md mx-auto mb-4">
+              Thank you, <strong id="quoteSuccessName"></strong>! Our senior engineer will analyze your requirements
+              for
+              <strong id="quoteSuccessServiceType"></strong> and contact you at <strong id="quoteSuccessPhone"></strong>
+              within 1-2 hours.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+              <a href="#" id="quoteSuccessWaBtn" target="_blank" rel="noreferrer"
+                class="btn btn-success rounded-pill px-4 fw-bold d-flex align-items-center gap-2">
+                <i class="bi bi-whatsapp"></i> Chat Instant on WhatsApp
+              </a>
+              <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-close-quote-modal>Close
+                Window</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Bootstrap 5.3 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"></script>
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- App scripts -->
-    <script src="js/data.js"></script>
-    <script src="js/app.js"></script>
-</body>
+  <!-- App scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  </body>
 
 </html>

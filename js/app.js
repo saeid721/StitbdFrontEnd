@@ -1104,6 +1104,84 @@ function initDomainSearch() {
   });
 }
 
+/* --------------------------------------------------------------------------
+   Premium UI Animations & Micro-interactions (additive, non-breaking)
+   -------------------------------------------------------------------------- */
+function initPremiumAnimations() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReduced) {
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest(
+        '.btn-brand-primary, .btn-outline-light, .btn-outline-primary, .btn-outline-secondary, .btn-success, .filter-tab-btn'
+      );
+      if (!btn) return;
+      const rect = btn.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      const size = Math.max(rect.width, rect.height);
+      ripple.className = 'ripple-ink';
+      ripple.style.width = ripple.style.height = `${size}px`;
+      ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+      ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+      btn.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  }
+
+  // img 'load' doesn't bubble — use the capturing phase to catch all images
+  document.addEventListener('load', (e) => {
+    if (e.target.tagName === 'IMG') e.target.classList.add('img-loaded');
+  }, true);
+
+  document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+    if (img.complete) img.classList.add('img-loaded-fallback');
+  });
+
+  const statValues = document.querySelectorAll('.stat-card-value');
+  if (statValues.length && 'IntersectionObserver' in window) {
+    const statObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const raw = el.textContent.trim();
+        const match = raw.match(/^(\d+)(.*)$/);
+        observer.unobserve(el);
+        if (!match || prefersReduced) return;
+        const target = parseInt(match[1], 10);
+        const suffix = match[2];
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = `${Math.round(target * eased)}${suffix}`;
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = raw;
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+    statValues.forEach((el) => statObserver.observe(el));
+  }
+
+  const revealEls = document.querySelectorAll('.reveal-init');
+  if (revealEls.length && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach((el) => revealObserver.observe(el));
+  }
+}
+
+window.addEventListener('load', () => {
+  document.body.classList.add('page-loaded');
+});
+
 
 /* --------------------------------------------------------------------------
    Boot
@@ -1129,6 +1207,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBlogs();
   renderTeam();
   renderClientsAndTestimonials();
+  initPremiumAnimations();
 
   if (window.AOS) {
     window.AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });

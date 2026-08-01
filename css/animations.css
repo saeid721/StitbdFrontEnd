@@ -1,0 +1,231 @@
+/* ==========================================================================
+   STITBD — UI Animation & Micro-interaction Enhancements
+   Additive only. Respects prefers-reduced-motion. GPU-friendly
+   (transform/opacity only).
+   ========================================================================== */
+
+:root {
+    --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-fast: 0.2s;
+    --dur-base: 0.35s;
+    --dur-slow: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Page Preloader */
+#pagePreloader {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    transition: opacity 0.5s var(--ease-premium), visibility 0.5s var(--ease-premium);
+}
+
+#pagePreloader .preloader-ring {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 159, 227, 0.15);
+    border-top-color: var(--primary, #009fe3);
+    animation: preloaderSpin 0.9s linear infinite;
+}
+
+body.page-loaded #pagePreloader {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@keyframes preloaderSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+body {
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-premium);
+}
+
+body.page-loaded {
+    opacity: 1;
+}
+
+/* Buttons — ripple + refined hover (layers on top of existing btn styles) */
+.btn-brand-primary,
+.btn-outline-light,
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-success,
+.btn-success,
+.filter-tab-btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--dur-fast) var(--ease-premium),
+        box-shadow var(--dur-fast) var(--ease-premium),
+        background-color var(--dur-fast) ease,
+        color var(--dur-fast) ease,
+        border-color var(--dur-fast) ease;
+}
+
+.btn-brand-primary:active,
+.btn-outline-light:active,
+.btn-outline-primary:active,
+.btn-success:active {
+    transform: translateY(0) scale(0.97);
+}
+
+.ripple-ink {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background: rgba(255, 255, 255, 0.55);
+    pointer-events: none;
+    animation: rippleAnim 0.6s var(--ease-premium);
+}
+
+@keyframes rippleAnim {
+    to {
+        transform: scale(2.6);
+        opacity: 0;
+    }
+}
+
+/* Card gloss sweep — additive to existing .card-hover-lift */
+.card-modern {
+    position: relative;
+}
+
+.card-modern::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.35) 50%, transparent 60%);
+    background-size: 220% 100%;
+    background-position: 150% 0;
+    opacity: 0;
+    transition: opacity var(--dur-fast) ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card-hover-lift:hover::after {
+    opacity: 1;
+    animation: cardGloss 1s var(--ease-premium);
+}
+
+@keyframes cardGloss {
+    from {
+        background-position: 150% 0;
+    }
+
+    to {
+        background-position: -50% 0;
+    }
+}
+
+/* Lazy image fade/scale-in (prevents pop-in) */
+img[loading="lazy"] {
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity var(--dur-slow) var(--ease-premium),
+        transform var(--dur-slow) var(--ease-premium);
+}
+
+img[loading="lazy"].img-loaded,
+img[loading="lazy"].img-loaded-fallback {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Form focus micro-interaction */
+.form-control,
+.form-select {
+    transition: border-color var(--dur-fast) ease,
+        box-shadow var(--dur-fast) ease,
+        transform var(--dur-fast) ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px -6px rgba(0, 159, 227, 0.35);
+}
+
+/* Nav icon micro-bounce */
+.navbar-nav .nav-link i {
+    display: inline-block;
+    transition: transform var(--dur-fast) var(--ease-premium);
+}
+
+.navbar-nav .nav-link:hover i {
+    transform: translateY(-2px) scale(1.1);
+}
+
+/* Modal entrance polish (works with Bootstrap's existing .fade class) */
+.modal.fade .modal-dialog {
+    transition: transform 0.35s var(--ease-premium), opacity 0.35s var(--ease-premium);
+    opacity: 0;
+}
+
+.modal.show.d-block .modal-dialog {
+    opacity: 1;
+}
+
+/* Success checkmark pop */
+#quoteSuccessSection .bi-check-lg,
+#contactSuccessWrap .bi-check-lg {
+    display: inline-block;
+    animation: checkPop 0.5s var(--ease-premium);
+}
+
+@keyframes checkPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.stat-card-value {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Generic scroll-reveal safety net (used alongside your existing AOS setup) */
+.reveal-init {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity var(--dur-slow) var(--ease-premium),
+        transform var(--dur-slow) var(--ease-premium);
+}
+
+.reveal-init.reveal-in {
+    opacity: 1;
+    transform: translateY(0);
+}
