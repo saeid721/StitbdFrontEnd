@@ -256,6 +256,22 @@ function renderProductsNavMenu() {
   });
 }
 
+function esc(str) {
+  const div = document.createElement('div');
+  div.textContent = String(str ?? '');
+  return div.innerHTML;
+}
+
+/* NEW — converts a product heading into a safe .html filename */
+function slugify(str) {
+  return String(str)
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
 /* --------------------------------------------------------------------------
    Quote / Cost Estimator Modal
    -------------------------------------------------------------------------- */
@@ -286,6 +302,8 @@ const QuoteModal = {
     this.successPhone = document.getElementById('quoteSuccessPhone');
     this.successName = document.getElementById('quoteSuccessName');
     this.waButton = document.getElementById('quoteSuccessWaBtn');
+    this.dynamicFieldsContainer = document.getElementById('quoteDynamicFields');
+    this.currentProductId = null;
 
     // Populate product dropdown
     this.productSelect.innerHTML = READY_SOFTWARE_PRODUCTS.map(
@@ -316,8 +334,28 @@ const QuoteModal = {
     this.productField.classList.toggle('d-none', !isReady);
   },
 
-  open(prefillProduct) {
+  /* NEW — builds the product-specific extra fields */
+  renderDynamicFields(productId) {
+    const fields = (productId && PRODUCT_DEMO_FIELDS[productId]) || PRODUCT_DEMO_FIELDS.default;
+    this.dynamicFieldsContainer.innerHTML = fields
+      .map(
+        (f) => `
+      <div class="col-md-6">
+        <label class="form-label fw-semibold text-dark small">${esc(f.label)}</label>
+        ${f.type === 'select'
+            ? `<select id="${esc(f.id)}" class="form-select form-select-lg fs-6 focus-ring-none quote-dynamic-field">
+                ${f.options.map((o) => `<option value="${esc(o)}">${esc(o)}</option>`).join('')}
+              </select>`
+            : `<input type="number" id="${esc(f.id)}" min="0" placeholder="${esc(f.placeholder || '')}" class="form-control form-control-lg fs-6 focus-ring-none quote-dynamic-field" data-field-label="${esc(f.label)}">`
+          }
+      </div>`
+      )
+      .join('');
+  },
+
+  open(prefillProduct, productId) {
     this.reset();
+    this.currentProductId = productId || null; // NEW
     if (prefillProduct) {
       // Mirror React logic: a prefill implies "Ready Software Purchase" only
       // when it exactly matches a known product name; otherwise it's used
@@ -326,12 +364,14 @@ const QuoteModal = {
       if (matched) {
         this.serviceTypeSelect.value = 'Ready Software Purchase';
         this.productSelect.value = matched.name;
+        if (!this.currentProductId) this.currentProductId = matched.id; // NEW
       } else {
         // Custom notes field: stash the prefill text into the notes textarea
         document.getElementById('quoteNotes').value = prefillProduct;
       }
     }
     this.syncProductField();
+    this.renderDynamicFields(this.currentProductId); // NEW
     this.el.classList.add('show', 'd-block');
     document.body.classList.add('modal-open');
     this.ensureBackdrop(true);
@@ -362,6 +402,8 @@ const QuoteModal = {
     document.getElementById('quoteForm').reset();
     this.formSection.classList.remove('d-none');
     this.successSection.classList.add('d-none');
+    if (this.dynamicFieldsContainer) this.dynamicFieldsContainer.innerHTML = ''; // NEW
+    this.currentProductId = null; // NEW
   },
 
   showSuccess() {
@@ -370,11 +412,21 @@ const QuoteModal = {
     const phone = this.phoneInput.value;
     const product = this.productSelect.value;
 
+    /* NEW — collect the product-specific field values */
+    const dynamicDetails = Array.from(document.querySelectorAll('.quote-dynamic-field'))
+      .map((el) => {
+        const label = el.tagName === 'SELECT'
+          ? (el.previousElementSibling ? el.previousElementSibling.textContent : el.id)
+          : (el.dataset.fieldLabel || el.id);
+        return `${label}: ${el.value || 'N/A'}`;
+      })
+      .join(', ');
+
     this.successName.textContent = name;
     this.successServiceType.textContent = serviceType;
     this.successPhone.textContent = phone;
     this.waButton.href = waLink(
-      `Hello STITBD, I submitted a quote request for ${serviceType} (${product}). Name: ${name}, Phone: ${phone}`
+      `Hello STITBD, I submitted a quote request for ${serviceType} (${product}).${dynamicDetails ? ' ' + dynamicDetails + '.' : ''} Name: ${name}, Phone: ${phone}`
     );
 
     this.formSection.classList.add('d-none');
@@ -601,7 +653,7 @@ const ReadySoftwareGallery = {
                 <i class="bi bi-eye"></i>
                 <span>View Modules & Features</span>
               </button>
-              <button type="button" class="btn btn-brand-primary w-100 rounded-3 fw-semibold small d-flex align-items-center justify-content-center gap-2" data-demo-product="${esc(product.name)}">
+              <button type="button" class="btn btn-brand-primary w-100 rounded-3 fw-semibold small d-flex align-items-center justify-content-center gap-2" data-demo-product="${esc(product.name)}" data-demo-product-id="${esc(product.id)}">
                 <i class="bi bi-calendar-event"></i>
                 <span>Request Live Demo</span>
               </button>
@@ -615,13 +667,15 @@ const ReadySoftwareGallery = {
     this.grid.querySelectorAll('[data-view-product]').forEach((btn) => {
       btn.addEventListener('click', () => {
         const product = READY_SOFTWARE_PRODUCTS.find((p) => p.id === btn.getAttribute('data-view-product'));
-        ProductDetailModal.open(product);
+        if (product) {
+          window.location.href = `${slugify(product.name)}.html`;
+        }
       });
     });
 
     this.grid.querySelectorAll('[data-demo-product]').forEach((btn) => {
       btn.addEventListener('click', () => {
-        QuoteModal.open(btn.getAttribute('data-demo-product'));
+        QuoteModal.open(btn.getAttribute('data-demo-product'), btn.getAttribute('data-demo-product-id'));
       });
     });
 

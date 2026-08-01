@@ -141,6 +141,109 @@ const READY_SOFTWARE_PRODUCTS = [
   { id: 'lms', name: 'Learning Management System', category: 'Education & Health', shortDescription: 'Manage courses, online classes, exams, results, and student-teacher communication.', fullDescription: 'A powerful learning management system designed for schools, colleges, and training centers to manage courses, online classes, exams, results, and student-teacher communication.', features: ['Course & Curriculum Management', 'Online Class Delivery', 'Exam & Result Management', 'Student-Teacher Communication'], icon: 'bi-mortarboard', badge: 'E-Learning', rating: 4.8, popular: false, targetUsers: 'Schools, Colleges, Training Centers', modules: ['Course Management', 'Online Classes', 'Exam & Grading', 'Result Publishing', 'Attendance', 'Communication Portal'], image: 'asset/ready_software/24.jpg' },
 ];
 
+const PRODUCT_DEMO_FIELDS = {
+  default: [
+    { id: 'demoBranches', label: 'Number of Branches / Locations', type: 'number', placeholder: 'e.g. 1' },
+    { id: 'demoUsers', label: 'Number of Users', type: 'number', placeholder: 'e.g. 10' },
+  ],
+  hrms: [
+    { id: 'demoBranches', label: 'Number of Branches', type: 'number', placeholder: 'e.g. 3' },
+    { id: 'demoEmployees', label: 'Number of Employees', type: 'number', placeholder: 'e.g. 150' },
+  ],
+  courier: [
+    { id: 'demoBranches', label: 'Number of Branches / Hubs', type: 'number', placeholder: 'e.g. 5' },
+    { id: 'demoParcels', label: 'Daily Parcel Volume', type: 'number', placeholder: 'e.g. 500' },
+  ],
+  pos: [
+    { id: 'demoBranches', label: 'Number of Outlets / Shops', type: 'number', placeholder: 'e.g. 2' },
+    { id: 'demoCounters', label: 'Number of POS Counters', type: 'number', placeholder: 'e.g. 4' },
+  ],
+  edu: [
+    { id: 'demoStudents', label: 'Number of Students', type: 'number', placeholder: 'e.g. 800' },
+    { id: 'demoBranches', label: 'Number of Campuses / Branches', type: 'number', placeholder: 'e.g. 1' },
+  ],
+  website: [
+    { id: 'demoPages', label: 'Approx. Number of Pages', type: 'number', placeholder: 'e.g. 10' },
+    { id: 'demoEcommerce', label: 'Need E-Commerce?', type: 'select', options: ['No', 'Yes'] },
+  ],
+  'real-estate': [
+    { id: 'demoProperties', label: 'Number of Properties to List', type: 'number', placeholder: 'e.g. 50' },
+    { id: 'demoBranches', label: 'Number of Offices / Branches', type: 'number', placeholder: 'e.g. 1' },
+  ],
+  'agro-erp': [
+    { id: 'demoFarms', label: 'Number of Farms / Locations', type: 'number', placeholder: 'e.g. 3' },
+    { id: 'demoUsers', label: 'Number of Users', type: 'number', placeholder: 'e.g. 10' },
+  ],
+  'accounts-erp': [
+    { id: 'demoBranches', label: 'Number of Branches', type: 'number', placeholder: 'e.g. 2' },
+    { id: 'demoUsers', label: 'Number of Accounting Users', type: 'number', placeholder: 'e.g. 5' },
+  ],
+  'garments-erp': [
+    { id: 'demoLines', label: 'Number of Production Lines', type: 'number', placeholder: 'e.g. 8' },
+    { id: 'demoEmployees', label: 'Number of Employees', type: 'number', placeholder: 'e.g. 500' },
+  ],
+  hospital: [
+    { id: 'demoBeds', label: 'Number of Beds', type: 'number', placeholder: 'e.g. 50' },
+    { id: 'demoDoctors', label: 'Number of Doctors', type: 'number', placeholder: 'e.g. 15' },
+  ],
+  'restaurant-pos': [
+    { id: 'demoBranches', label: 'Number of Branches', type: 'number', placeholder: 'e.g. 2' },
+    { id: 'demoTables', label: 'Number of Tables', type: 'number', placeholder: 'e.g. 20' },
+  ],
+  crm: [
+    { id: 'demoReps', label: 'Number of Sales Reps', type: 'number', placeholder: 'e.g. 10' },
+    { id: 'demoUsers', label: 'Number of Users', type: 'number', placeholder: 'e.g. 15' },
+  ],
+  ecommerce: [
+    { id: 'demoOrders', label: 'Expected Monthly Orders', type: 'number', placeholder: 'e.g. 1000' },
+    { id: 'demoProducts', label: 'Number of Products', type: 'number', placeholder: 'e.g. 200' },
+  ],
+  'rental-erp': [
+    { id: 'demoAssets', label: 'Number of Rental Assets', type: 'number', placeholder: 'e.g. 100' },
+    { id: 'demoBranches', label: 'Number of Branches', type: 'number', placeholder: 'e.g. 1' },
+  ],
+  'rice-mill': [
+    { id: 'demoCapacity', label: 'Daily Processing Capacity (Tons)', type: 'number', placeholder: 'e.g. 20' },
+    { id: 'demoBranches', label: 'Number of Mills / Branches', type: 'number', placeholder: 'e.g. 1' },
+  ],
+  'furniture-mfg': [
+    { id: 'demoWorkshops', label: 'Number of Workshops', type: 'number', placeholder: 'e.g. 2' },
+    { id: 'demoEmployees', label: 'Number of Employees', type: 'number', placeholder: 'e.g. 40' },
+  ],
+  'dairy-farm': [
+    { id: 'demoCattle', label: 'Number of Cattle', type: 'number', placeholder: 'e.g. 100' },
+    { id: 'demoBranches', label: 'Number of Farm Locations', type: 'number', placeholder: 'e.g. 1' },
+  ],
+  'isp-dish': [
+    { id: 'demoSubscribers', label: 'Number of Subscribers', type: 'number', placeholder: 'e.g. 500' },
+    { id: 'demoBranches', label: 'Number of Branches', type: 'number', placeholder: 'e.g. 1' },
+  ],
+  'digital-up-sheba': [
+    { id: 'demoWards', label: 'Number of Wards', type: 'number', placeholder: 'e.g. 9' },
+    { id: 'demoUsers', label: 'Number of Staff Users', type: 'number', placeholder: 'e.g. 5' },
+  ],
+  'launch-ticket': [
+    { id: 'demoVessels', label: 'Number of Launches / Vessels', type: 'number', placeholder: 'e.g. 5' },
+    { id: 'demoBranches', label: 'Number of Ticket Counters', type: 'number', placeholder: 'e.g. 3' },
+  ],
+  'medicine-delivery': [
+    { id: 'demoBranches', label: 'Number of Pharmacy Branches', type: 'number', placeholder: 'e.g. 2' },
+    { id: 'demoOrders', label: 'Expected Daily Orders', type: 'number', placeholder: 'e.g. 100' },
+  ],
+  'cheque-printing': [
+    { id: 'demoAccounts', label: 'Number of Bank Accounts', type: 'number', placeholder: 'e.g. 5' },
+    { id: 'demoUsers', label: 'Number of Users', type: 'number', placeholder: 'e.g. 3' },
+  ],
+  'hardware-shop': [
+    { id: 'demoBranches', label: 'Number of Branches', type: 'number', placeholder: 'e.g. 2' },
+    { id: 'demoCounters', label: 'Number of Sales Counters', type: 'number', placeholder: 'e.g. 3' },
+  ],
+  lms: [
+    { id: 'demoStudents', label: 'Number of Students', type: 'number', placeholder: 'e.g. 300' },
+    { id: 'demoCourses', label: 'Number of Courses', type: 'number', placeholder: 'e.g. 12' },
+  ],
+};
+
 const INDUSTRIES = [
   { name: 'Garments', icon: 'bi-scissors', color: '#f59e0b' },
   { name: 'Real Estate', icon: 'bi-building-fill', color: '#0ea5e9' },
