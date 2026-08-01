@@ -2129,7 +2129,7 @@ body {
   }
 
   .domain-pricing-card {
-    padding: 0.55rem !important;
+    padding: 0.4rem 0.45rem !important;
   }
 
   .domain-pricing-card .badge {
@@ -2159,7 +2159,7 @@ body {
   }
 
   .domain-pricing-card {
-    padding: 0.45rem !important;
+    padding: 0.32rem 0.35rem !important;
     border-radius: 10px !important;
   }
 
