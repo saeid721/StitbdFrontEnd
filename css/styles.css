@@ -2165,8 +2165,7 @@ body {
 
   .domain-pricing-card .badge {
     font-size: 0.5rem !important;
-    padding: 0.15rem 0.35rem !important;
-    margin-bottom: 0.3rem !important;
+    padding: 0.1rem 0.35rem !important;
   }
 
   .domain-pricing-card h5 {
