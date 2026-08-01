@@ -822,7 +822,7 @@ function renderStats() {
   const grid = document.getElementById('statsGrid');
   grid.innerHTML = COMPANY_STATS.map(
     (stat, idx) => `
-    <div class="col-6 col-sm-6 col-md-4 col-lg-2-4" data-aos="fade-up" data-aos-delay="${idx * 80}">
+    <div class="col-6 col-sm-6 col-md-4 col-lg-5th" data-aos="fade-up" data-aos-delay="${idx * 80}">
       <div class="stat-card h-100 d-flex flex-column align-items-center justify-content-center text-center">
         <div class="stat-card-icon mb-2 mb-md-3"><i class="bi ${esc(stat.icon)}"></i></div>
         <h2 class="stat-card-value fw-extrabold font-heading text-white mb-1">${esc(stat.value)}</h2>

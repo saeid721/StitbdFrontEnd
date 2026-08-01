@@ -214,6 +214,22 @@ h6,
   }
 }
 
+/* 20%-width Bootstrap-grid-compatible column (5 items per row on lg,
+   used by the Stats Counter grid) */
+.col-lg-5th {
+  position: relative;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x, 1.5rem) * .5);
+  padding-left: calc(var(--bs-gutter-x, 1.5rem) * .5);
+}
+
+@media (min-width: 992px) {
+  .col-lg-5th {
+    flex: 0 0 auto;
+    width: 20%;
+  }
+}
+
 .focus-ring-none:focus {
   box-shadow: none;
 }
