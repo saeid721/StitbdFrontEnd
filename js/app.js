@@ -157,11 +157,11 @@ const HERO_SLIDES = [
   { image: 'asset/slider/02.png', prefix: 'Engineering ', highlight: 'Enterprise ERP & POS', suffix: ' for Bangladesh' },
   { image: 'asset/slider/03.png', prefix: 'Building ', highlight: 'High-Speed Websites', suffix: ' That Convert' },
   { image: 'asset/slider/04.png', prefix: 'Delivering ', highlight: 'Android & iOS Apps', suffix: ' People Love to Use' },
-  { image: 'asset/slider/05.png', prefix: 'Securing Businesses with ', highlight: 'CCTV & Biometric Access', suffix: ' Systems' },
-  { image: 'asset/slider/06.png', prefix: 'Trusted ', highlight: 'BTTB Domain & Cloud Hosting', suffix: ' Since 2014' },
-  { image: 'asset/slider/07.png', prefix: '36+ Engineers, ', highlight: '1,200+ Projects', suffix: ' Delivered On Time' },
+  { image: 'asset/slider/05.png', prefix: '36+ Engineers, ', highlight: '1,200+ Projects', suffix: ' Systems' },
+  { image: 'asset/slider/06.png', prefix: 'Your ', highlight: '24/7 Technology Partner', suffix: ' Since 2014' },
+  { image: 'asset/slider/07.png', prefix: 'Trusted ', highlight: 'BTTB Domain & Cloud Hosting', suffix: ' Delivered On Time' },
   { image: 'asset/slider/08.png', prefix: 'Automating Workflows with ', highlight: 'Custom Software', suffix: ' Built for You' },
-  { image: 'asset/slider/09.png', prefix: 'Your ', highlight: '24/7 Technology Partner', suffix: ' in Bangladesh' },
+  { image: 'asset/slider/15.png', prefix: 'Securing Businesses with  ', highlight: 'CCTV & Biometric Access', suffix: ' in Bangladesh' },
 ];
 
 const HeroSlider = {
