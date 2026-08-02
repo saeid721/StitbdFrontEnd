@@ -1112,6 +1112,31 @@ function renderClientsAndTestimonials() {
 }
 
 /* --------------------------------------------------------------------------
+   Built by People Who Deliver — Auto Sliding Culture Gallery
+   -------------------------------------------------------------------------- */
+function renderCultureGallery() {
+  const track = document.getElementById('cultureSliderTrack');
+  if (!track) return;
+
+  // Triple the set for a seamless infinite loop
+  const allPhotos = [...CULTURE_GALLERY, ...CULTURE_GALLERY, ...CULTURE_GALLERY];
+
+  track.innerHTML = allPhotos.map(
+    (item) => `
+    <div class="culture-slide flex-shrink-0 px-2">
+      <div class="culture-card">
+        <img src="${esc(item.image)}" alt="${esc(item.caption)}" loading="lazy">
+        <span class="culture-caption">${esc(item.caption)}</span>
+      </div>
+    </div>`
+  ).join('');
+
+  track.style.animation = 'none';
+  void track.offsetWidth;
+  track.style.animation = 'cultureScroll 55s linear infinite';
+}
+
+/* --------------------------------------------------------------------------
    Auto Sliding Animations
    -------------------------------------------------------------------------- */
 function initAutoSliders() {
@@ -1317,6 +1342,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderIndustries();
   renderBlogs();
   renderTeam();
+  renderCultureGallery();
   renderClientsAndTestimonials();
   initPremiumAnimations();
 

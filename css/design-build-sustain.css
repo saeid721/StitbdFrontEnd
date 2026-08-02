@@ -1,0 +1,332 @@
+/* ==========================================================================
+   Design-Build-Sustain Page — dedicated styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+.dbs-hero {
+    background: linear-gradient(135deg, #0a2540 0%, #0f52ba 60%, #1e3a8a 100%);
+    padding: 4rem 0 3.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.dbs-hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -8%;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.16) 0%, rgba(245, 158, 11, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.dbs-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    left: -10%;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.22) 0%, rgba(59, 130, 246, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.dbs-hero h1 {
+    font-size: clamp(1.9rem, 4.6vw, 3rem);
+    line-height: 1.22;
+}
+
+.dbs-hero .lead {
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    opacity: 0.92;
+    max-width: 44rem;
+}
+
+.dbs-hero-visual {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px -18px rgba(0, 0, 0, 0.5);
+    aspect-ratio: 4 / 3;
+}
+
+.dbs-hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   "Our Strategy" — dark step tabs
+   -------------------------------------------------------------------------- */
+.dbs-strategy {
+    background: var(--dark);
+    padding: 3.5rem 0;
+}
+
+.dbs-strategy-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.dbs-step-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.dbs-step-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    background: rgba(0, 159, 227, 0.1);
+}
+
+.dbs-step-mode {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    margin-bottom: 0.6rem;
+}
+
+.dbs-step-card h6 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Alternating image + text rows
+   -------------------------------------------------------------------------- */
+.dbs-row {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dbs-row:last-child {
+    border-bottom: none;
+}
+
+.dbs-row-img {
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    box-shadow: 0 14px 34px -16px rgba(15, 23, 42, 0.25);
+}
+
+.dbs-row-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dbs-row-img:hover img {
+    transform: scale(1.05);
+}
+
+.dbs-row-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-bottom: 0.85rem;
+}
+
+.dbs-row h3 {
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+}
+
+.dbs-row p {
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Offer list (checklist)
+   -------------------------------------------------------------------------- */
+.dbs-offer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.dbs-offer-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+    color: var(--text-main);
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.7rem 0.9rem;
+}
+
+.dbs-offer-list i {
+    color: var(--secondary);
+    font-size: 1.05rem;
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — Tablet
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    .dbs-hero {
+        padding: 3rem 0 2.5rem;
+    }
+
+    .dbs-strategy-steps {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+
+    .dbs-row {
+        padding: 2rem 0;
+    }
+
+    .dbs-offer-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — Mobile
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+    .dbs-hero {
+        padding: 2.25rem 0 1.75rem;
+        text-align: center;
+    }
+
+    .dbs-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .dbs-hero .lead {
+        font-size: 0.85rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dbs-hero-visual {
+        margin-top: 1.25rem;
+        border-radius: 14px;
+    }
+
+    .dbs-strategy {
+        padding: 2.25rem 0;
+    }
+
+    .dbs-strategy h2 {
+        font-size: 1.25rem !important;
+    }
+
+    .dbs-step-card {
+        padding: 0.9rem 0.85rem;
+        border-radius: 12px;
+    }
+
+    .dbs-step-mode {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.55rem;
+    }
+
+    .dbs-step-card h6 {
+        font-size: 0.82rem;
+    }
+
+    .dbs-row {
+        padding: 1.5rem 0;
+    }
+
+    .dbs-row-img {
+        border-radius: 12px;
+        margin-bottom: 1rem;
+    }
+
+    .dbs-row-num {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .dbs-row h3 {
+        font-size: 1.02rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .dbs-row p {
+        font-size: 0.82rem;
+        line-height: 1.55;
+    }
+
+    .dbs-offer-list li {
+        font-size: 0.82rem;
+        padding: 0.6rem 0.75rem;
+        border-radius: 10px;
+    }
+
+    .dbs-offer-list i {
+        font-size: 0.95rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — Small mobile
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    .dbs-hero h1 {
+        font-size: 1.3rem;
+    }
+
+    .dbs-hero .lead {
+        font-size: 0.78rem;
+    }
+
+    .dbs-row h3 {
+        font-size: 0.92rem;
+    }
+
+    .dbs-row p {
+        font-size: 0.78rem;
+    }
+
+    .dbs-offer-list li {
+        font-size: 0.76rem;
+        padding: 0.5rem 0.65rem;
+    }
+}

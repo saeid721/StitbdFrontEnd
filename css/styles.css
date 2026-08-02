@@ -3782,3 +3782,306 @@ body {
     font-size: 0.54rem;
   }
 }
+
+
+/* --------------------------------------------------------------------------
+   Proven Approach Section — icon cards + CTA pill button
+   -------------------------------------------------------------------------- */
+.proven-card {
+  border-radius: 18px;
+}
+
+.proven-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, color 0.35s ease;
+}
+
+.proven-icon i {
+  font-size: 1.6rem;
+}
+
+.proven-card:hover .proven-icon {
+  background: var(--primary);
+  color: #ffffff;
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.btn-proven-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--dark);
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 30px;
+  padding: 0.7rem 0.7rem 0.7rem 1.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px -8px rgba(15, 23, 42, 0.4);
+}
+
+.btn-proven-cta i {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: transform 0.25s ease;
+}
+
+.btn-proven-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -8px rgba(15, 23, 42, 0.5);
+}
+
+.btn-proven-cta:hover i {
+  transform: translateX(3px);
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  #provenApproachGrid {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+  }
+
+  .proven-card {
+    padding: 1.5rem !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  #proven-approach {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  #proven-approach .badge-primary-soft {
+    font-size: 0.68rem !important;
+    padding: 0.28rem 0.65rem !important;
+  }
+
+  #proven-approach h2.section-title-oneline {
+    font-size: 1.35rem !important;
+  }
+
+  #proven-approach p.fs-6 {
+    font-size: 0.8rem !important;
+    line-height: 1.5;
+  }
+
+  #provenApproachGrid {
+    --bs-gutter-x: 0.75rem;
+    --bs-gutter-y: 0.75rem;
+  }
+
+  .proven-card {
+    padding: 1.1rem !important;
+    border-radius: 14px;
+  }
+
+  .proven-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .proven-icon i {
+    font-size: 1.25rem;
+  }
+
+  .proven-card h5 {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .proven-card p.small {
+    font-size: 0.76rem !important;
+  }
+
+  .btn-proven-cta {
+    font-size: 0.8rem;
+    padding: 0.55rem 0.55rem 0.55rem 1.1rem;
+  }
+
+  .btn-proven-cta i {
+    width: 26px;
+    height: 26px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  #proven-approach h2.section-title-oneline {
+    font-size: 1.15rem !important;
+  }
+
+  .proven-card {
+    padding: 0.9rem !important;
+  }
+
+  .proven-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .proven-icon i {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Built by People Who Deliver — Auto Sliding Culture Gallery
+   -------------------------------------------------------------------------- */
+.culture-slider-wrapper {
+  width: 100%;
+  padding: 6px 0;
+}
+
+.culture-slider-track {
+  display: flex;
+  align-items: stretch;
+  width: max-content;
+  animation: cultureScroll 55s linear infinite;
+}
+
+@keyframes cultureScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+.culture-slider-wrapper:hover .culture-slider-track {
+  animation-play-state: paused;
+}
+
+.culture-slide {
+  transition: transform 0.3s ease;
+}
+
+.culture-card {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 26px -14px rgba(15, 23, 42, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.culture-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px -14px rgba(15, 82, 186, 0.28);
+}
+
+.culture-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.culture-card:hover img {
+  transform: scale(1.06);
+}
+
+.culture-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 55%, rgba(15, 23, 42, 0.75) 100%);
+  pointer-events: none;
+}
+
+.culture-caption {
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.7rem;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  .culture-card {
+    width: 280px;
+    height: 195px;
+    border-radius: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  #culture .badge-primary-soft {
+    font-size: 0.68rem !important;
+    padding: 0.28rem 0.65rem !important;
+  }
+
+  #culture h2.section-title-oneline {
+    font-size: 1.35rem !important;
+  }
+
+  #culture p.fs-6 {
+    font-size: 0.8rem !important;
+    line-height: 1.5;
+  }
+
+  .culture-card {
+    width: 230px;
+    height: 160px;
+    border-radius: 12px;
+  }
+
+  .culture-caption {
+    font-size: 0.7rem;
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: 0.55rem;
+  }
+
+  .culture-slide {
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  #culture h2.section-title-oneline {
+    font-size: 1.15rem !important;
+  }
+
+  .culture-card {
+    width: 190px;
+    height: 135px;
+    border-radius: 10px;
+  }
+
+  .culture-caption {
+    font-size: 0.62rem;
+  }
+}

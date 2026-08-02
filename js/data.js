@@ -580,7 +580,20 @@ const TESTIMONIALS = [
   }
 ];
 
-
+const CULTURE_GALLERY = [
+  { image: 'asset/culture/01.jpg', caption: 'Team collaboration session' },
+  { image: 'asset/culture/02.jpg', caption: 'On-site client deployment' },
+  { image: 'asset/culture/03.jpg', caption: 'Engineering huddle' },
+  { image: 'asset/culture/04.jpg', caption: 'Product planning sprint' },
+  { image: 'asset/culture/05.jpg', caption: 'Design workshop' },
+  { image: 'asset/culture/06.jpg', caption: 'Company milestone celebration' },
+  { image: 'asset/culture/07.jpg', caption: 'Cross-team standup' },
+  { image: 'asset/culture/08.jpg', caption: 'Client handover day' },
+  { image: 'asset/culture/09.jpg', caption: 'Quality assurance review' },
+  { image: 'asset/culture/10.jpg', caption: 'Award recognition' },
+  { image: 'asset/culture/11.jpg', caption: 'Team building event' },
+  { image: 'asset/culture/12.jpg', caption: 'STITBD annual gathering' },
+];
 
 const DOMAIN_PRICING = [
   { tld: '.com', priceBdt: '\u09f31,400', period: '/year', tag: 'Most Popular', popular: true },
