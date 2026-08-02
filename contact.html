@@ -87,6 +87,7 @@
         </style>
     </noscript>
 
+
     <!-- =====================================================
      NAVBAR
      ====================================================== -->
@@ -116,8 +117,8 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="products.html"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Products <i
-                                class="bi bi-chevron-down dropdown-caret-icon"></i></a>
+                            role="button" aria-expanded="false">Products <i
+                                class="bi bi-chevron-down dropdown-caret-icon" data-dropdown-caret></i></a>
                         <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2 dropdown-menu-scroll"
                             id="productsDropdownMenu">
                         </ul>
@@ -125,8 +126,8 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="services.html"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Services <i
-                                class="bi bi-chevron-down dropdown-caret-icon"></i></a>
+                            role="button" aria-expanded="false">Services <i
+                                class="bi bi-chevron-down dropdown-caret-icon" data-dropdown-caret></i></a>
                         <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2">
                             <li><a class="dropdown-item rounded-2" href="software-development.html">Software
                                     Development</a></li>
@@ -152,8 +153,8 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="portfolio.html"
-                            role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio <i
-                                class="bi bi-chevron-down dropdown-caret-icon"></i></a>
+                            role="button" aria-expanded="false">Portfolio <i
+                                class="bi bi-chevron-down dropdown-caret-icon" data-dropdown-caret></i></a>
                         <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2">
                             <li><a class="dropdown-item rounded-2" href="portfolio-hr.html">HR Software
                                     Client</a></li>
@@ -211,22 +212,31 @@
 
 
                 <li class="nav-item mobile-accordion-item">
-                    <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
-                        href="products.html" data-bs-toggle="collapse" role="button" aria-expanded="false">
-                        <span><i class="bi bi-grid-3x3-gap me-2 text-primary"></i> Products</span>
-                        <i class="bi bi-chevron-down small"></i>
-                    </a>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a class="nav-link fs-5 fw-semibold text-dark flex-grow-1" href="products.html"
+                            data-bs-dismiss="offcanvas"><i class="bi bi-grid-3x3-gap me-2 text-primary"></i>
+                            Products</a>
+                        <button type="button" class="mobile-accordion-toggle" data-bs-toggle="collapse"
+                            data-bs-target="#mobProducts" aria-expanded="false" aria-controls="mobProducts"
+                            aria-label="Toggle Products submenu">
+                            <i class="bi bi-chevron-down small"></i>
+                        </button>
+                    </div>
                     <div class="collapse ps-4" id="mobProducts">
                         <ul class="list-unstyled d-flex flex-column gap-2 py-2" id="mobProductsMenu"></ul>
                     </div>
                 </li>
 
                 <li class="nav-item mobile-accordion-item">
-                    <a class="nav-link fs-5 fw-semibold text-dark d-flex align-items-center justify-content-between"
-                        href="services.html" data-bs-toggle="collapse" role="button" aria-expanded="false">
-                        <span><i class="bi bi-layers me-2 text-primary"></i> Services</span>
-                        <i class="bi bi-chevron-down small"></i>
-                    </a>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <a class="nav-link fs-5 fw-semibold text-dark flex-grow-1" href="services.html"
+                            data-bs-dismiss="offcanvas"><i class="bi bi-layers me-2 text-primary"></i> Services</a>
+                        <button type="button" class="mobile-accordion-toggle" data-bs-toggle="collapse"
+                            data-bs-target="#mobServices" aria-expanded="false" aria-controls="mobServices"
+                            aria-label="Toggle Services submenu">
+                            <i class="bi bi-chevron-down small"></i>
+                        </button>
+                    </div>
                     <div class="collapse ps-4" id="mobServices">
                         <ul class="list-unstyled d-flex flex-column gap-2 py-2">
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
@@ -236,15 +246,18 @@
                                     href="web-development.html">Website Design &
                                     Development</a></li>
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                                    href="domain-hosting.html">Domain Registration &
+                                    href="domain-hosting.html">Domain
+                                    Registration &
                                     Hosting</a></li>
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
                                     href="mobile-app-development.html">Android & iOS App
                                     Development</a></li>
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                                    href="cctv.html">CCTV Camera</a></li>
+                                    href="cctv.html">CCTV Camera</a>
+                            </li>
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                                    href="access-control.html">Access Control
+                                    href="access-control.html">Access
+                                    Control
                                     Services</a></li>
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
                                     href="digital-marketing.html">Digital Marketing</a></li>
@@ -267,15 +280,18 @@
                     <div class="collapse ps-4" id="mobPortfolio">
                         <ul class="list-unstyled d-flex flex-column gap-2 py-2">
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                                    href="portfolio-hr.html">HR Software Client</a>
+                                    href="portfolio-hr.html">HR
+                                    Software Client</a>
                             </li>
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
                                     href="portfolio-pos.html">Restaurant POS Client</a>
                             </li>
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                                    href="portfolio-edu.html">Edu Soft Client</a></li>
+                                    href="portfolio-edu.html">Edu Soft
+                                    Client</a></li>
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                                    href="portfolio-web.html">Website Client</a></li>
+                                    href="portfolio-web.html">Website
+                                    Client</a></li>
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
                                     href="portfolio-mobile.html">Mobile Apps Client</a>
                             </li>
@@ -283,7 +299,8 @@
                                     href="portfolio-courier.html">Courier Software
                                     Client</a></li>
                             <li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none"
-                                    href="portfolio-ward.html">Digital Ward Seba Soft
+                                    href="portfolio-ward.html">Digital
+                                    Ward Seba Soft
                                     Client</a></li>
                         </ul>
                     </div>

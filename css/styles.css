@@ -521,8 +521,17 @@ body {
   transition: transform 0.2s ease;
 }
 
-.mobile-accordion-item .nav-link[aria-expanded="true"] .bi-chevron-down {
+.mobile-accordion-item .mobile-accordion-toggle[aria-expanded="true"] .bi-chevron-down {
   transform: rotate(180deg);
+}
+
+.mobile-accordion-toggle {
+  border: 0;
+  background: transparent;
+  padding: 0.5rem 0.4rem;
+  line-height: 1;
+  color: var(--dark);
+  flex-shrink: 0;
 }
 
 .mobile-accordion-item .collapse a {

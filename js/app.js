@@ -222,6 +222,34 @@ function initDesktopDropdownHover() {
         toggle.setAttribute('aria-expanded', 'false');
       }, 150);
     });
+
+    const caret = toggle.querySelector('[data-dropdown-caret]');
+    if (caret) {
+      caret.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = item.classList.contains('show');
+        dropdowns.forEach((other) => {
+          other.classList.remove('show');
+          other.querySelector('.dropdown-menu')?.classList.remove('show');
+          other.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('show');
+          menu.classList.add('show');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.nav-item.dropdown')) return;
+    dropdowns.forEach((item) => {
+      item.classList.remove('show');
+      item.querySelector('.dropdown-menu')?.classList.remove('show');
+      item.querySelector('.dropdown-toggle')?.setAttribute('aria-expanded', 'false');
+    });
   });
 }
 
@@ -233,25 +261,34 @@ function renderProductsNavMenu() {
   const mobileMenu = document.getElementById('mobProductsMenu');
   if (!desktopMenu && !mobileMenu) return;
 
+  // #ready-software only exists on index.html — on other pages (about.html etc.)
+  // link back to the homepage gallery instead of a same-page anchor.
+  const hasReadySoftwareSection = !!document.getElementById('ready-software');
+  const navHref = hasReadySoftwareSection ? '#ready-software' : 'index.html#ready-software';
+
   if (desktopMenu) {
     desktopMenu.innerHTML = READY_SOFTWARE_PRODUCTS.map(
-      (p) => `<li><a class="dropdown-item rounded-2" href="#ready-software" data-nav-product="${esc(p.id)}">${esc(p.name)}</a></li>`
+      (p) => `<li><a class="dropdown-item rounded-2" href="${navHref}" data-nav-product="${esc(p.id)}">${esc(p.name)}</a></li>`
     ).join('');
   }
 
   if (mobileMenu) {
     mobileMenu.innerHTML = READY_SOFTWARE_PRODUCTS.map(
-      (p) => `<li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none" href="#ready-software" data-nav-product="${esc(p.id)}">${esc(p.name)}</a></li>`
+      (p) => `<li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none" href="${navHref}" data-nav-product="${esc(p.id)}">${esc(p.name)}</a></li>`
     ).join('');
   }
 
   document.querySelectorAll('[data-nav-product]').forEach((link) => {
     link.addEventListener('click', (e) => {
-      e.preventDefault();
       const product = READY_SOFTWARE_PRODUCTS.find((p) => p.id === link.getAttribute('data-nav-product'));
       const target = document.getElementById('ready-software');
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => ProductDetailModal.open(product), 500);
+      if (target) {
+        // Already on index.html: scroll + open the product modal in place
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => ProductDetailModal.open(product), 500);
+      }
+      // On other pages: let the browser navigate to index.html#ready-software normally
     });
   });
 }
@@ -468,6 +505,7 @@ function initContactForm() {
    -------------------------------------------------------------------------- */
 function renderServices() {
   const grid = document.getElementById('servicesGrid');
+  if (!grid) return; // section only exists on index.html
   grid.innerHTML = SERVICES.map(
     (service, index) => `
     <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="${index * 80}">
@@ -544,6 +582,7 @@ const ReadySoftwareGallery = {
 
   init() {
     this.tabsEl = document.getElementById('readySoftwareTabs');
+    if (!this.tabsEl) return; // section only exists on index.html
     this.searchInput = document.getElementById('readySoftwareSearch');
     this.clearBtn = document.getElementById('readySoftwareClear');
     this.grid = document.getElementById('readySoftwareGrid');
@@ -689,19 +728,23 @@ const ReadySoftwareGallery = {
 const ProductDetailModal = {
   init() {
     this.el = document.getElementById('productDetailModal');
+    if (!this.el) return; // this modal markup only exists on index.html
     this.body = document.getElementById('productDetailBody');
     document.querySelectorAll('[data-close-product-modal]').forEach((btn) => {
       btn.addEventListener('click', () => this.close());
     });
-    document.getElementById('productDetailDemoBtn').addEventListener('click', () => {
-      const productName = this.el.dataset.currentProduct;
-      this.close();
-      QuoteModal.open(productName);
-    });
+    const demoBtn = document.getElementById('productDetailDemoBtn');
+    if (demoBtn) {
+      demoBtn.addEventListener('click', () => {
+        const productName = this.el.dataset.currentProduct;
+        this.close();
+        QuoteModal.open(productName);
+      });
+    }
   },
 
   open(product) {
-    if (!product) return;
+    if (!product || !this.el) return;
     this.el.dataset.currentProduct = product.name;
 
     document.getElementById('productDetailIcon').className = `bi ${product.icon} fs-2`;
@@ -752,14 +795,18 @@ const ProductDetailModal = {
 const ServiceDetailModal = {
   init() {
     this.el = document.getElementById('serviceDetailModal');
+    if (!this.el) return; // this modal markup only exists on index.html
     document.querySelectorAll('[data-close-service-modal]').forEach((btn) => {
       btn.addEventListener('click', () => this.close());
     });
-    document.getElementById('serviceDetailQuoteBtn').addEventListener('click', () => {
-      const serviceName = this.el.dataset.currentService;
-      this.close();
-      QuoteModal.open(`Service Request: ${serviceName}`);
-    });
+    const quoteBtn = document.getElementById('serviceDetailQuoteBtn');
+    if (quoteBtn) {
+      quoteBtn.addEventListener('click', () => {
+        const serviceName = this.el.dataset.currentService;
+        this.close();
+        QuoteModal.open(`Service Request: ${serviceName}`);
+      });
+    }
   },
 
   open(service) {
@@ -803,6 +850,7 @@ const TechStackSection = {
 
   init() {
     this.tabsEl = document.getElementById('techStackTabs');
+    if (!this.tabsEl) return; // section only exists on index.html
     this.grid = document.getElementById('techStackGrid');
 
     this.tabsEl.innerHTML =
@@ -874,6 +922,7 @@ function renderIndustries() {
    -------------------------------------------------------------------------- */
 function renderStats() {
   const grid = document.getElementById('statsGrid');
+  if (!grid) return; // JS-rendered stats grid only exists on index.html (about.html has its own static markup)
   grid.innerHTML = COMPANY_STATS.map(
     (stat, idx) => `
     <div class="col-6 col-sm-6 col-md-4 col-lg-5th" data-aos="fade-up" data-aos-delay="${idx * 80}">
@@ -1020,6 +1069,7 @@ function initAutoSliders() {
    -------------------------------------------------------------------------- */
 function initDomainSearch() {
   const form = document.getElementById('domainSearchForm');
+  if (!form) return; // section only exists on index.html
   const tldSelect = document.getElementById('domainTldSelect');
   const queryInput = document.getElementById('domainQueryInput');
   const submitBtn = document.getElementById('domainSearchSubmit');
