@@ -148,18 +148,23 @@ function syncNavbarHeightVar() {
 })();
 
 /* --------------------------------------------------------------------------
-   Hero Background Slider (auto-rotating photo slideshow)
+   Hero Background Slider (auto-rotating photo slideshow) — each slide
+   carries its own heading text, typed out letter-by-letter in sync with
+   the photo change for a modern, professional feel.
    -------------------------------------------------------------------------- */
+const HERO_SLIDES = [
+  { image: 'asset/slider/01.png', prefix: 'Transforming Businesses with ', highlight: 'Next-Gen Software', suffix: ', Web & Mobile Engineering' },
+  { image: 'asset/slider/02.png', prefix: 'Engineering ', highlight: 'Enterprise ERP & POS', suffix: ' for Bangladesh' },
+  { image: 'asset/slider/03.png', prefix: 'Building ', highlight: 'High-Speed Websites', suffix: ' That Convert' },
+  { image: 'asset/slider/04.png', prefix: 'Delivering ', highlight: 'Android & iOS Apps', suffix: ' People Love to Use' },
+  { image: 'asset/slider/05.png', prefix: 'Securing Businesses with ', highlight: 'CCTV & Biometric Access', suffix: ' Systems' },
+  { image: 'asset/slider/06.png', prefix: 'Trusted ', highlight: 'BTTB Domain & Cloud Hosting', suffix: ' Since 2014' },
+  { image: 'asset/slider/07.png', prefix: '36+ Engineers, ', highlight: '1,200+ Projects', suffix: ' Delivered On Time' },
+  { image: 'asset/slider/08.png', prefix: 'Automating Workflows with ', highlight: 'Custom Software', suffix: ' Built for You' },
+  { image: 'asset/slider/09.png', prefix: 'Your ', highlight: '24/7 Technology Partner', suffix: ' in Bangladesh' },
+];
+
 const HeroSlider = {
-  images: [
-    'asset/slider/01.jpg',
-    'asset/slider/02.jpg',
-    'asset/slider/03.jpg',
-    'asset/slider/04.jpg',
-    'asset/slider/05.png',
-    'asset/slider/06.png',
-    'asset/slider/07.jpg',
-  ],
   current: 0,
   timer: null,
 
@@ -167,14 +172,17 @@ const HeroSlider = {
     this.track = document.getElementById('heroSliderBg');
     if (!this.track) return;
 
-    this.track.innerHTML = this.images
+    this.track.innerHTML = HERO_SLIDES
       .map(
-        (src, i) =>
-          `<div class="hero-slider-slide${i === 0 ? ' active' : ''}" style="background-image:url('${esc(src)}');"></div>`
+        (slide, i) =>
+          `<div class="hero-slider-slide${i === 0 ? ' active' : ''}" style="background-image:url('${esc(slide.image)}');"></div>`
       )
       .join('');
 
     this.slides = this.track.querySelectorAll('.hero-slider-slide');
+
+    TypingHeadline.init(HERO_SLIDES[0]);
+
     if (this.slides.length > 1) {
       this.timer = setInterval(() => this.next(), 5000);
     }
@@ -184,6 +192,59 @@ const HeroSlider = {
     this.slides[this.current].classList.remove('active');
     this.current = (this.current + 1) % this.slides.length;
     this.slides[this.current].classList.add('active');
+    TypingHeadline.type(HERO_SLIDES[this.current]);
+  },
+};
+
+/* --------------------------------------------------------------------------
+   Typing Headline — types each slide's heading letter-by-letter, keeping
+   the highlighted phrase colored (matches the old static markup's
+   <span class="text-warning">) while it types.
+   -------------------------------------------------------------------------- */
+const TypingHeadline = {
+  el: null,
+  typeTimer: null,
+  typeSpeed: 32,
+
+  init(firstSlide) {
+    this.el = document.getElementById('heroTypingHeading');
+    if (!this.el) return;
+    this.type(firstSlide);
+  },
+
+  type(slide) {
+    if (!this.el) return;
+    clearTimeout(this.typeTimer);
+
+    const full = `${slide.prefix}${slide.highlight}${slide.suffix}`;
+    const highlightStart = slide.prefix.length;
+    const highlightEnd = highlightStart + slide.highlight.length;
+    let i = 0;
+
+    this.el.classList.add('is-typing');
+
+    const step = () => {
+      const shown = full.slice(0, i);
+      const prefixPart = esc(shown.slice(0, Math.min(shown.length, highlightStart)));
+      const highlightPart = shown.length > highlightStart
+        ? esc(shown.slice(highlightStart, Math.min(shown.length, highlightEnd)))
+        : '';
+      const suffixPart = shown.length > highlightEnd ? esc(shown.slice(highlightEnd)) : '';
+
+      this.el.innerHTML =
+        prefixPart +
+        (highlightPart ? `<span class="text-warning">${highlightPart}</span>` : '') +
+        suffixPart;
+
+      i++;
+      if (i <= full.length) {
+        this.typeTimer = setTimeout(step, this.typeSpeed);
+      } else {
+        this.el.classList.remove('is-typing');
+      }
+    };
+
+    step();
   },
 };
 
