@@ -114,12 +114,11 @@
 
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- ========================================= -->
-  <!-- Custom CSS -->
-  <!-- ========================================= -->
 
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/about.css">
 
   <!-- ========================================= -->
   <!-- JSON-LD -->
@@ -382,243 +381,49 @@
 
   <main class="flex-grow-1">
 
+
     <!-- =====================================================
-         HERO SLIDER
+         Product HERO
     ====================================================== -->
-    <section class="hero-gradient-bg py-5 py-lg-6 position-relative">
-      <div class="hero-slider-bg" id="heroSliderBg"></div>
-      <div class="hero-slider-overlay"></div>
-      <div class="container py-lg-4">
-        <div class="row align-items-center g-5">
-          <div class="col-12 col-lg-7 text-center text-lg-start" data-aos="fade-up">
-            <div
-              class="d-inline-flex align-items-center gap-2 bg-white bg-opacity-10 backdrop-blur border border-white border-opacity-20 rounded-pill px-3 py-1 mb-3">
-              <span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span>
-              <span class="text-white small fw-semibold">Bangladesh&rsquo;s Trusted Tech Partner Since <span
-                  data-since-year>2014</span></span>
-            </div>
-
-            <h1 class="display-4 fw-extrabold text-white mb-3 font-heading lh-sm">
-              Transforming Businesses with <span class="text-warning">Next-Gen Software</span>, Web & Mobile
-              Engineering
-            </h1>
-
-            <div
-              class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-3 mb-4">
-              <a href="#ready-software"
-                class="btn btn-brand-primary btn-lg rounded-pill px-4 py-3 text-white fw-bold d-flex align-items-center gap-2">
-                <i class="bi bi-grid-3x3-gap-fill fs-5"></i>
-                <span>Explore 40+ Ready Software</span>
+    <section class="about-hero text-white">
+      <div class="container position-relative">
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-lg-9 text-center text-lg-start" data-aos="fade-up">
+            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">
+              <i class="bi bi-building me-1"></i> Est. 2014 &middot; Dhaka, Bangladesh
+            </span>
+            <h1 class="fw-extrabold mb-3">Engineering the Software Backbone of <span class="text-warning">Bangladeshi
+                Business</span></h1>
+            <p class="lead mb-4">
+              For over a decade, STITBD has designed and shipped the ERP, POS, and web platforms that
+              garment
+              factories, hospitals, banks, and 1,000+ other organizations run on every single day.
+            </p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start mb-4">
+              <a href="clients.html"
+                class="btn btn-brand-gold rounded-pill px-4 py-3 fw-bold d-flex align-items-center gap-2">
+                <i class="bi bi-briefcase-fill"></i> See Our Work
               </a>
               <button type="button"
-                class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-semibold d-flex align-items-center gap-2 border-2"
+                class="btn btn-outline-light rounded-pill px-4 py-3 fw-semibold border-2 d-flex align-items-center gap-2"
                 data-open-quote-modal="">
-                <i class="bi bi-calculator-fill fs-5"></i>
-                <span>Request Free Quote</span>
+                <i class="bi bi-chat-square-text-fill"></i> Talk to Our Team
               </button>
             </div>
-
             <div
-              class="pt-3 border-top border-white border-opacity-15 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-4 gap-sm-4 gap-md-4">
-              <div class="d-flex align-items-center gap-2 gap-sm-2">
-                <i class="bi bi-patch-check-fill text-warning fs-4 fs-sm-5"></i>
-                <div class="text-start">
-                  <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">1,200+ Projects</span>
-                  <span class="text-white-50 small fs-7">Successfully Delivered</span>
-                </div>
-              </div>
-              <div class="d-flex align-items-center gap-2 gap-sm-2">
-                <i class="bi bi-people-fill text-warning fs-4 fs-sm-5"></i>
-                <div class="text-start">
-                  <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">1,000+ Clients</span>
-                  <span class="text-white-50 small fs-7">Nationwide & Global</span>
-                </div>
-              </div>
-              <div class="d-flex align-items-center gap-2 gap-sm-2">
-                <i class="bi bi-headset text-warning fs-4 fs-sm-5"></i>
-                <div class="text-start">
-                  <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">24/7 Support</span>
-                  <span class="text-white-50 small fs-7">36+ Expert Engineers</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-5 text-center" data-aos="zoom-in" data-aos-delay="100">
-            <div class="position-relative mx-auto" style="max-width:480px;">
-              <div
-                class="hero-dashboard-card text-dark rounded-4 p-4 text-start shadow-lg border border-white border-opacity-30 position-relative z-2">
-                <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
-                  <div class="d-flex align-items-center gap-2">
-                    <div
-                      class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 d-flex align-items-center justify-content-center"
-                      style="width:38px;height:38px;">
-                      <i class="bi bi-speedometer2 fs-5"></i>
-                    </div>
-                    <div>
-                      <h6 class="mb-0 fw-bold font-heading">STITBD Control Center</h6>
-                      <span class="text-muted small">Live Enterprise Dashboard</span>
-                    </div>
-                  </div>
-                  <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3">
-                    <i class="bi bi-circle-fill fs-8 me-1"></i> Active
-                  </span>
-                </div>
-
-                <div class="row g-2 mb-3">
-                  <div class="col-6">
-                    <div class="p-2 bg-light rounded-3 border">
-                      <div class="d-flex align-items-center gap-2 mb-1"><i
-                          class="bi bi-people text-primary fs-6"></i><span class="fw-bold small">HR & Payroll</span>
-                      </div>
-                      <span class="text-success small fw-semibold">Biometric Sync</span>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="p-2 bg-light rounded-3 border">
-                      <div class="d-flex align-items-center gap-2 mb-1"><i
-                          class="bi bi-mortarboard text-warning fs-6"></i><span class="fw-bold small">Education
-                          ERP</span></div>
-                      <span class="text-primary small fw-semibold">bKash Fees Sync</span>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="p-2 bg-light rounded-3 border">
-                      <div class="d-flex align-items-center gap-2 mb-1"><i
-                          class="bi bi-bag-check text-success fs-6"></i><span class="fw-bold small">Retail POS</span>
-                      </div>
-                      <span class="text-dark small fw-semibold">Barcode Scanning</span>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="p-2 bg-light rounded-3 border">
-                      <div class="d-flex align-items-center gap-2 mb-1"><i class="bi bi-truck text-info fs-6"></i><span
-                          class="fw-bold small">Courier Logistics</span>
-                      </div>
-                      <span class="text-warning small fw-semibold">Live Tracking</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="p-3 bg-primary bg-opacity-10 rounded-3 border border-primary border-opacity-20 d-flex align-items-center justify-content-between">
-                  <div class="d-flex align-items-center gap-2">
-                    <i class="bi bi-shield-check text-primary fs-4"></i>
-                    <div>
-                      <span class="d-block fw-bold text-primary small">95% Client Retention</span>
-                      <span class="text-muted extra-small" style="font-size:0.75rem;">Engineered for High
-                        Scalability</span>
-                    </div>
-                  </div>
-                  <a href="clients.html">
-                    <i class="bi bi-arrow-right-circle-fill text-primary fs-4"></i>
-                  </a>
-                </div>
-              </div>
-
-              <div
-                class="position-absolute top-0 start-0 translate-middle-y bg-warning text-dark px-3 py-2 rounded-pill shadow-lg fw-bold small z-3 d-none d-sm-flex align-items-center gap-2">
-                <i class="bi bi-star-fill text-dark"></i>
-                <span>40+ Ready Software</span>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         SERVICES
-    ====================================================== -->
-    <section id="services" class="py-5 py-lg-6 bg-light position-relative">
-      <div class="container">
-        <div class="text-center mx-auto mb-5" data-aos="fade-up">
-          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-briefcase me-1"></i> End-to-End IT
-            Expertise</span>
-          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Our Core IT & <span
-              class="text-primary">Software Services</span></h2>
-          <p class="text-muted fs-6">Complete technology solutions designed to accelerate growth, automate workflows,
-            and protect enterprise IT infrastructure for businesses across Bangladesh & worldwide.</p>
-        </div>
-        <div id="servicesGrid" class="row g-4"></div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         ABOUT US
-    ====================================================== -->
-    <section id="about" class="py-5 py-lg-6 bg-white position-relative border-bottom">
-      <div class="container">
-        <div class="row align-items-center g-5">
-          <div class="col-12 col-lg-6" data-aos="fade-right">
-            <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-building me-1"></i> About
-              STITBD</span>
-            <h2 class="fw-extrabold font-heading text-dark display-6 mb-3">
-              Super Technic Information <span class="text-primary">Technology Bangladesh </span>
-            </h2>
-            <p class="text-muted leading-relaxed mb-4">
-              STITBD is a premier Bangladesh-based software engineering and technology solutions provider established
-              in
-              2014. For over a decade, we have been driving digital transformation across Bangladesh and international
-              markets by developing custom enterprise software, mobile apps, high-speed portals, BTTB domain hosting,
-              and CCTV surveillance networks.
-            </p>
-
-            <div class="row g-3 mb-4">
-              <div class="col-12 col-sm-6">
-                <div class="p-3 bg-light rounded-3 border h-100">
-                  <div class="d-flex align-items-center gap-3 mb-2">
-                    <div class="about-stat-icon bg-primary-subtle text-primary"><i
-                        class="bi bi-patch-check-fill fs-4"></i></div>
-                    <h6 class="fw-bold font-heading mb-0 text-dark">12+ Years Legacy</h6>
-                  </div>
-                  <p class="text-muted extra-small mb-0">Pioneering software engineering and IT infrastructure in
-                    Bangladesh since 2014.</p>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6">
-                <div class="p-3 bg-light rounded-3 border h-100">
-                  <div class="d-flex align-items-center gap-3 mb-2">
-                    <div class="about-stat-icon bg-warning-subtle text-warning-emphasis"><i
-                        class="bi bi-headset fs-4"></i>
-                    </div>
-                    <h6 class="fw-bold font-heading mb-0 text-dark">24/7 Tech Support</h6>
-                  </div>
-                  <p class="text-muted extra-small mb-0">Dedicated support engineers monitor servers and answer
-                    queries
-                    round-the-clock.</p>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6">
-                <div class="p-3 bg-light rounded-3 border h-100">
-                  <div class="d-flex align-items-center gap-3 mb-2">
-                    <div class="about-stat-icon bg-success-subtle text-success"><i class="bi bi-trophy-fill fs-4"></i>
-                    </div>
-                    <h6 class="fw-bold font-heading mb-0 text-dark">95% Success Rate</h6>
-                  </div>
-                  <p class="text-muted extra-small mb-0">Proven record of on-time delivery, high client satisfaction,
-                    and multi-year partnerships.</p>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6">
-                <div class="p-3 bg-light rounded-3 border h-100">
-                  <div class="d-flex align-items-center gap-3 mb-2">
-                    <div class="about-stat-icon bg-info-subtle text-info"><i class="bi bi-people-fill fs-4"></i>
-                    </div>
-                    <h6 class="fw-bold font-heading mb-0 text-dark">36+ Experts</h6>
-                  </div>
-                  <p class="text-muted extra-small mb-0">In-house software engineers, database architects, and mobile
-                    app developers.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-lg-6" data-aos="fade-left">
-            <div class="about-image-wrap position-relative shadow-lg">
-              <img src="asset/about.jpg" alt="STITBD Software Engineering Team at Work" class="about-img"
-                loading="lazy">
+              class="d-flex flex-wrap gap-4 gap-sm-5 justify-content-center justify-content-lg-start pt-3 border-top border-white border-opacity-15">
+              <div class="text-center text-lg-start"><span
+                  class="d-block fw-extrabold fs-3 text-warning">1,200+</span><span class="small text-white-50">Projects
+                  Delivered</span></div>
+              <div class="text-center text-lg-start"><span
+                  class="d-block fw-extrabold fs-3 text-warning">1,000+</span><span class="small text-white-50">Clients
+                  Served</span></div>
+              <div class="text-center text-lg-start"><span
+                  class="d-block fw-extrabold fs-3 text-warning">36+</span><span class="small text-white-50">In-House
+                  Engineers</span></div>
+              <div class="text-center text-lg-start"><span
+                  class="d-block fw-extrabold fs-3 text-warning">95%</span><span class="small text-white-50">Success
+                  Rate</span></div>
             </div>
           </div>
         </div>
@@ -714,169 +519,6 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         CLIENTS SECTION
-    ====================================================== -->
-    <section class="py-5 bg-white position-relative border-bottom">
-      <div class="container">
-        <div class="text-center mx-auto mb-4" data-aos="fade-up">
-          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-building-check me-1"></i> Trusted
-            Nationwide</span>
-          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Trusted by 1,000+ <span
-              class="text-primary">Enterprises & Institutions</span></h2>
-          <p class="text-muted fs-6">Serving leading conglomerates, garments exporters, hospitals, colleges, and
-            e-commerce companies across Bangladesh.</p>
-        </div>
-
-        <div id="clientsGrid" class="row g-2 g-md-3 justify-content-center" data-aos="fade-up" data-aos-delay="150">
-          <!-- Client cards will be rendered by JavaScript (max 4 rows x 8/row) -->
-        </div>
-
-        <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
-          <a href="clients.html"
-            class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
-            <span>See All Clients</span>
-            <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         RECENT BLOGS
-    ====================================================== -->
-    <section id="blogs" class="py-5 py-lg-6 bg-light position-relative border-bottom">
-      <div class="container">
-        <div class="text-center mx-auto mb-4" data-aos="fade-up">
-          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-journal-richtext me-1"></i> From Our
-            Blog</span>
-          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Recent <span
-              class="text-primary">Blogs & Insights</span></h2>
-          <p class="text-muted fs-6">Practical guides, industry insights, and product updates from the STITBD
-            engineering team.</p>
-        </div>
-        <div id="blogsGrid" class="row g-4"></div>
-        <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
-          <a href="blogs.html"
-            class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
-            <span>View All Blogs</span>
-            <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         LEADERSHIP TEAM
-    ====================================================== -->
-    <section id="leadership-team" class="py-5 py-lg-6 bg-white position-relative border-bottom">
-      <div class="container">
-        <div class="text-center mx-auto mb-4" data-aos="fade-up">
-          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-people me-1"></i> Meet The
-            Leaders</span>
-          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Leadership <span
-              class="text-primary">Team</span></h2>
-          <p class="text-muted fs-6">The experienced minds steering STITBD's engineering, design, and business
-            strategy.</p>
-        </div>
-        <div id="teamGrid" class="row g-4"></div>
-        <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
-          <a href="teams.html"
-            class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
-            <span>See All Of Team Members</span>
-            <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         TESTIMONIALS SECTION - Auto Sliding Cards
-    ====================================================== -->
-    <section class="py-5 py-lg-6 bg-light position-relative border-bottom">
-      <div class="container">
-        <div class="text-center mx-auto mb-5" data-aos="fade-up">
-          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-star-fill me-1"></i> Client
-            Reviews</span>
-          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">What Our Clients <span
-              class="text-primary">Say About STITBD</span></h2>
-          <p class="text-muted fs-6">Real feedback from real businesses we've helped transform through our software
-            solutions.</p>
-        </div>
-
-        <div class="testimonials-slider-wrapper position-relative overflow-hidden" data-aos="fade-up"
-          data-aos-delay="150">
-          <div class="testimonials-slider-track d-flex" id="testimonialsSliderTrack">
-            <!-- Testimonial cards will be rendered by JavaScript -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =====================================================
-         DOMAIN SEARCH
-    ====================================================== -->
-    <section id="domain-search" class="py-5 bg-white position-relative border-bottom">
-      <div class="container">
-        <div class="text-center mx-auto mb-4" data-aos="fade-up">
-          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-hdd-network me-1"></i> BTTB & Global
-            Domain Provider</span>
-          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Search & Register <span
-              class="text-primary">Your Domain Name</span></h2>
-          <p class="text-muted fs-6">Instant registration for global TLDs (.com, .net, .org) & official BTTB
-            Bangladesh
-            domains (.com.bd, .bd). Includes free NVMe DNS management & SSL.</p>
-        </div>
-
-        <div class="max-w-4xl mx-auto mb-5" data-aos="fade-up" data-aos-delay="100">
-          <div class="bg-light p-3 p-md-4 rounded-4 border shadow-sm">
-            <form id="domainSearchForm" class="row g-2 align-items-center">
-              <div class="col-12 col-md-6 col-lg-6">
-                <div class="input-group input-group-lg">
-                  <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
-                  <input type="text" id="domainQueryInput"
-                    placeholder="Enter your desired domain name (e.g. mybusiness)"
-                    class="form-control form-control-lg border-start-0 fs-6 focus-ring-none" required>
-                </div>
-              </div>
-              <div class="col-6 col-md-3 col-lg-3">
-                <select id="domainTldSelect"
-                  class="form-select form-select-lg fs-6 font-semibold focus-ring-none text-truncate"></select>
-              </div>
-              <div class="col-6 col-md-3 col-lg-3">
-                <button type="submit" id="domainSearchSubmit"
-                  class="btn btn-brand-primary btn-lg w-100 rounded-3 d-flex align-items-center justify-content-center gap-2 fs-6 fw-bold">
-                  <i class="bi bi-lightning-charge-fill"></i>
-                  <span>Check Domain</span>
-                </button>
-              </div>
-            </form>
-
-            <div id="domainResultBox"
-              class="mt-4 p-3 bg-success-subtle border border-success-subtle rounded-3 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 d-none">
-              <div class="d-flex align-items-center gap-3">
-                <div class="bg-success text-white rounded-circle p-2 d-flex align-items-center justify-content-center"
-                  style="width:42px;height:42px;">
-                  <i class="bi bi-check-circle-fill fs-4"></i>
-                </div>
-                <div>
-                  <h6 id="domainResultName" class="mb-0 fw-bold text-success font-heading fs-5"></h6>
-                  <span id="domainResultPrice" class="text-muted small"></span>
-                </div>
-              </div>
-              <button type="button" id="domainOrderBtn"
-                class="btn btn-success btn-lg rounded-pill px-4 fw-bold text-nowrap d-flex align-items-center gap-2 shadow-sm">
-                <i class="bi bi-cart-check-fill"></i>
-                <span>Register Now</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div id="domainPricingGrid" class="row g-3" data-aos="fade-up" data-aos-delay="150"></div>
-      </div>
-    </section>
 
   </main>
 

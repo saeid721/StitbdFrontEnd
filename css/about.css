@@ -1,4 +1,15 @@
 /* ===== ABOUT-SPECIFIC STYLES ===== */
+
+/* Small helper used throughout about.html for soft section dividers /
+   soft badge backgrounds. Defined here since it isn't in styles.css. */
+.border-soft {
+    border-color: var(--border-color, #e2e8f0) !important;
+}
+
+.bg-primary-soft {
+    background-color: rgba(0, 159, 227, 0.08);
+}
+
 .about-hero {
     background: linear-gradient(135deg, #0a2540 0%, #0f52ba 60%, #1e3a8a 100%);
     padding: 4rem 0 3rem;
@@ -18,13 +29,27 @@
     pointer-events: none;
 }
 
+.about-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    left: -10%;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
 .about-hero h1 {
     font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.2;
 }
 
 .about-hero .lead {
     font-size: clamp(1rem, 1.5vw, 1.25rem);
-    opacity: 0.9;
+    opacity: 0.92;
+    max-width: 46rem;
 }
 
 .section-badge {
@@ -197,9 +222,57 @@
     margin-top: 0.1rem;
 }
 
+/* --------------------------------------------------------------------------
+   CTA Banner
+   -------------------------------------------------------------------------- */
+.cta-banner {
+    background: linear-gradient(135deg, #0a2540 0%, #0f52ba 60%, #1e3a8a 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 45px -18px rgba(15, 82, 186, 0.4);
+}
+
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -8%;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(245, 158, 11, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cta-banner>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — mobile / tablet
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    #about .row.g-5 {
+        --bs-gutter-y: 2rem;
+    }
+
+    .about-image-wrap {
+        margin-top: 0.75rem;
+    }
+}
+
 @media (max-width: 767.98px) {
     .about-hero {
         padding: 2.5rem 0 2rem;
+    }
+
+    .about-hero .d-flex.gap-4 {
+        gap: 1rem !important;
+    }
+
+    .about-hero .fs-3 {
+        font-size: 1.4rem !important;
     }
 
     .mission-card {
@@ -222,11 +295,23 @@
     .diff-card {
         padding: 1.2rem 1rem;
     }
+
+    .cta-banner {
+        padding: 1.75rem !important;
+    }
+
+    .cta-banner h3 {
+        font-size: 1.25rem;
+    }
 }
 
 @media (max-width: 480px) {
     .about-hero h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+
+    .about-hero .fs-3 {
+        font-size: 1.15rem !important;
     }
 
     .stat-mini .number {
@@ -235,5 +320,9 @@
 
     .stat-mini .label {
         font-size: 0.7rem;
+    }
+
+    .cta-banner h3 {
+        font-size: 1.1rem;
     }
 }

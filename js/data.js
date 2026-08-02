@@ -518,7 +518,7 @@ const TEAM_MEMBERS = [
   {
     id: 'haider-hossain',
     name: 'Md. Haider Hossain',
-    designation: 'Business Developer & Market Researche',
+    designation: 'Business Developer',
     image: 'asset/team/02.jpg',
     facebook: '#',
     linkedin: '#',
