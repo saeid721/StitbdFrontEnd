@@ -1415,35 +1415,29 @@ body {
 /* Mobile */
 @media (max-width: 767.98px) {
   .stats-brand-panel {
-    flex: 1 1 100%;
-    min-height: 90px;
-    padding: 1rem;
-  }
-
-  .stats-brand-logo {
-    max-width: 120px;
+    display: none !important;
   }
 
   .stats-achieve-panel {
     flex: 1 1 100%;
     min-height: auto;
-    padding: 1.25rem 1.25rem 1.5rem;
+    padding: 1rem 1rem 1.25rem;
     text-align: center;
     align-items: center;
   }
 
   .stats-achieve-title {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
   }
 
   .stats-achieve-sub {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
   }
 
   .stat-card {
     flex: 1 1 50%;
     min-width: 50%;
-    padding: 1.15rem 0.6rem;
+    padding: 0.75rem 0.4rem;
   }
 
   .stat-card:nth-child(3n+1) {
@@ -1455,38 +1449,34 @@ body {
   }
 
   .stat-card-value {
-    font-size: 1.55rem;
+    font-size: 1.3rem;
   }
 
   .stat-card-label {
-    font-size: 0.72rem;
+    font-size: 0.62rem;
   }
 }
 
 /* Small mobile */
 @media (max-width: 480px) {
-  .stats-brand-logo {
-    max-width: 100px;
-  }
-
   .stats-achieve-title {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
 
   .stats-achieve-sub {
-    font-size: 0.72rem;
+    font-size: 0.66rem;
   }
 
   .stat-card {
-    padding: 0.95rem 0.5rem;
+    padding: 0.55rem 0.3rem;
   }
 
   .stat-card-value {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .stat-card-label {
-    font-size: 0.66rem;
+    font-size: 0.56rem;
   }
 }
 
@@ -2335,8 +2325,8 @@ body {
    -------------------------------------------------------------------------- */
 @media (max-width: 767.98px) {
   #domainPricingGrid.row.g-3 {
-    --bs-gutter-x: 0.6rem;
-    --bs-gutter-y: 0.6rem;
+    --bs-gutter-x: 0.3rem;
+    --bs-gutter-y: 0.3rem;
   }
 
   #domainPricingGrid>[class*="col-"] {
@@ -2346,55 +2336,68 @@ body {
   }
 
   .domain-pricing-card {
-    padding: 0.4rem 0.45rem !important;
+    padding: 0.2rem 0.22rem !important;
+    border-radius: 9px !important;
+    line-height: 1.1 !important;
   }
 
   .domain-pricing-card .badge {
-    font-size: 0.55rem !important;
-    padding: 0.18rem 0.4rem !important;
-    margin-bottom: 0.4rem !important;
+    font-size: 0.42rem !important;
+    padding: 0.1rem 0.26rem !important;
+    margin-bottom: 0.18rem !important;
+    line-height: 1 !important;
   }
 
   .domain-pricing-card h5 {
-    font-size: 0.8rem !important;
-    margin-bottom: 0.15rem !important;
+    font-size: 0.66rem !important;
+    margin-bottom: 0.05rem !important;
+    line-height: 1.1 !important;
   }
 
   .domain-pricing-card .fs-5 {
-    font-size: 0.72rem !important;
+    font-size: 0.58rem !important;
+    line-height: 1.1 !important;
   }
 
   .domain-pricing-card .extra-small {
-    font-size: 0.55rem !important;
+    font-size: 0.42rem !important;
+    line-height: 1 !important;
   }
 }
 
 @media (max-width: 480px) {
   #domainPricingGrid.row.g-3 {
-    --bs-gutter-x: 0.4rem;
-    --bs-gutter-y: 0.4rem;
+    --bs-gutter-x: 0.2rem;
+    --bs-gutter-y: 0.2rem;
   }
 
   .domain-pricing-card {
-    padding: 0.3rem 0.35rem !important;
-    border-radius: 10px !important;
+    padding: 0.15rem 0.15rem !important;
+    border-radius: 8px !important;
+    line-height: 1.05 !important;
   }
 
   .domain-pricing-card .badge {
-    font-size: 0.5rem !important;
-    padding: 0.1rem 0.35rem !important;
+    font-size: 0.36rem !important;
+    padding: 0.06rem 0.22rem !important;
+    margin-bottom: 0.14rem !important;
+    line-height: 1 !important;
   }
 
   .domain-pricing-card h5 {
-    font-size: 0.72rem !important;
+    font-size: 0.56rem !important;
+    margin-bottom: 0.04rem !important;
+    line-height: 1.05 !important;
   }
 
   .domain-pricing-card .fs-5 {
-    font-size: 0.66rem !important;
+    font-size: 0.5rem !important;
+    line-height: 1.05 !important;
   }
 
   .domain-pricing-card .extra-small {
-    font-size: 0.5rem !important;
+    font-size: 0.36rem !important;
+    line-height: 1 !important;
   }
 }
 
@@ -2963,24 +2966,30 @@ body {
     --bs-gutter-y: 0.4rem;
   }
 
+  #techStackGrid>[class*="col-"] {
+    flex: 0 0 auto;
+    width: 33.333% !important;
+    max-width: 33.333% !important;
+  }
+
   #techStackGrid .tech-card {
-    min-height: 74px;
-    padding: 0.45rem !important;
-    border-radius: 10px;
+    min-height: 64px;
+    padding: 0.35rem 0.25rem !important;
+    border-radius: 9px;
     cursor: default;
   }
 
   #techStackGrid .tech-icon {
-    margin-bottom: 0.3rem !important;
+    margin-bottom: 0.2rem !important;
   }
 
   #techStackGrid .tech-icon i {
-    font-size: 1.5rem !important;
+    font-size: 1.2rem !important;
   }
 
   #techStackGrid .tech-name {
-    font-size: 0.58rem !important;
-    line-height: 1.15;
+    font-size: 0.52rem !important;
+    line-height: 1.1;
   }
 
   /* Hover-reveal description is desktop-only; hide entirely on mobile */
@@ -3022,22 +3031,27 @@ body {
   }
 
   #techStackGrid {
-    --bs-gutter-x: 0.3rem;
-    --bs-gutter-y: 0.3rem;
+    --bs-gutter-x: 0.25rem;
+    --bs-gutter-y: 0.25rem;
+  }
+
+  #techStackGrid>[class*="col-"] {
+    width: 33.333% !important;
+    max-width: 33.333% !important;
   }
 
   #techStackGrid .tech-card {
-    min-height: 66px;
-    padding: 0.35rem !important;
+    min-height: 56px;
+    padding: 0.28rem 0.2rem !important;
     border-radius: 8px;
   }
 
   #techStackGrid .tech-icon i {
-    font-size: 1.3rem !important;
+    font-size: 1.05rem !important;
   }
 
   #techStackGrid .tech-name {
-    font-size: 0.54rem !important;
+    font-size: 0.48rem !important;
   }
 }
 
@@ -3757,6 +3771,18 @@ body {
   border-radius: 18px;
 }
 
+.proven-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 0.75rem;
+}
+
+.proven-card-header h5 {
+  margin-top: 0.75rem;
+}
+
 .proven-icon {
   width: 64px;
   height: 64px;
@@ -3766,6 +3792,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, color 0.35s ease;
 }
 
@@ -3855,26 +3882,40 @@ body {
   }
 
   .proven-card {
-    padding: 1.1rem !important;
-    border-radius: 14px;
+    padding: 0.75rem 0.9rem !important;
+    border-radius: 12px;
+    text-align: center !important;
+  }
+
+  .proven-card-header {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.35rem;
   }
 
   .proven-icon {
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 38px;
   }
 
   .proven-icon i {
-    font-size: 1.25rem;
+    font-size: 1.05rem;
+  }
+
+  .proven-card-header h5 {
+    margin-top: 0;
   }
 
   .proven-card h5 {
-    font-size: 0.9rem !important;
-    margin-bottom: 0.35rem !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 0 !important;
   }
 
   .proven-card p.small {
-    font-size: 0.76rem !important;
+    font-size: 0.72rem !important;
+    margin-left: 0;
   }
 
   .btn-proven-cta {
@@ -3896,16 +3937,30 @@ body {
   }
 
   .proven-card {
-    padding: 0.9rem !important;
+    padding: 0.6rem 0.75rem !important;
   }
 
   .proven-icon {
-    width: 42px;
-    height: 42px;
+    width: 32px;
+    height: 32px;
   }
 
   .proven-icon i {
-    font-size: 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  .proven-card-header {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .proven-card h5 {
+    font-size: 0.78rem !important;
+  }
+
+  .proven-card p.small {
+    font-size: 0.68rem !important;
+    margin-left: 0;
   }
 }
 
@@ -4197,13 +4252,19 @@ body {
 
 .hwm-feature {
   display: flex;
-  align-items: flex-start;
-  gap: 0.85rem;
+  flex-direction: column;
+  gap: 0.5rem;
   background: var(--body-bg);
   border: 1px solid var(--border-color);
   border-radius: 14px;
   padding: 1.1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hwm-feature-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
 }
 
 .hwm-feature:hover {
@@ -4263,24 +4324,30 @@ body {
   }
 
   .hwm-feature {
-    padding: 0.85rem;
+    padding: 0.6rem 0.75rem;
     border-radius: 12px;
-    gap: 0.65rem;
+    gap: 0.3rem;
+    text-align: center;
+  }
+
+  .hwm-feature-header {
+    justify-content: center;
+    gap: 0.5rem;
   }
 
   .hwm-feature-icon {
-    width: 38px;
-    height: 38px;
-    font-size: 1.05rem;
-    border-radius: 10px;
+    width: 34px;
+    height: 34px;
+    font-size: 0.95rem;
+    border-radius: 9px;
   }
 
   .hwm-feature h6 {
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
   }
 
   .hwm-feature p.extra-small {
-    font-size: 0.7rem !important;
+    font-size: 0.66rem !important;
   }
 }
 
@@ -4300,16 +4367,27 @@ body {
   }
 
   .hwm-feature {
-    padding: 0.7rem;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    padding: 0.5rem 0.6rem;
+    text-align: center;
+  }
+
+  .hwm-feature-header {
+    justify-content: center;
+    gap: 0.4rem;
   }
 
   .hwm-feature-icon {
-    width: 34px;
-    height: 34px;
-    font-size: 0.95rem;
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+
+  .hwm-feature h6 {
+    font-size: 0.75rem !important;
+  }
+
+  .hwm-feature p.extra-small {
+    font-size: 0.62rem !important;
   }
 }
 
@@ -4367,6 +4445,18 @@ body {
   flex-direction: column;
 }
 
+.why-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 0.5rem;
+}
+
+.why-card-header h6 {
+  margin-top: 1rem;
+}
+
 .why-icon {
   width: 46px;
   height: 46px;
@@ -4377,7 +4467,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
 .why-card h6 {
@@ -4445,29 +4535,41 @@ body {
   }
 
   .why-card {
-    padding: 1.15rem;
-    border-radius: 14px;
+    padding: 0.75rem 0.9rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .why-card-header {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .why-card-header h6 {
+    margin-top: 0;
   }
 
   .why-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.05rem;
-    border-radius: 10px;
-    margin-bottom: 0.75rem;
+    width: 34px;
+    height: 34px;
+    font-size: 0.95rem;
+    border-radius: 9px;
   }
 
   .why-card h6 {
-    font-size: 0.9rem !important;
+    font-size: 0.82rem !important;
   }
 
   .why-card p.small {
-    font-size: 0.78rem !important;
+    font-size: 0.72rem !important;
   }
 
   .why-dots {
-    height: 80px;
-    padding-top: 1rem;
+    height: 55px;
+    padding-top: 0.6rem;
   }
 }
 
@@ -4478,18 +4580,28 @@ body {
   }
 
   .why-card {
-    padding: 1rem;
+    padding: 0.6rem 0.7rem;
+  }
+
+  .why-card-header {
+    gap: 0.4rem;
+  }
+
+  .why-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
   }
 
   .why-card h6 {
-    font-size: 0.85rem !important;
+    font-size: 0.76rem !important;
   }
 
   .why-card p.small {
-    font-size: 0.72rem !important;
+    font-size: 0.66rem !important;
   }
 
   .why-dots {
-    height: 65px;
+    height: 45px;
   }
 }
