@@ -1131,14 +1131,14 @@ function renderClientsAndTestimonials() {
   const clientsGrid = document.getElementById('clientsGrid');
   if (clientsGrid) {
     const MAX_CLIENTS_DISPLAY = 32;
-    const displayClients = CLIENT_LOGOS.slice(0, MAX_CLIENTS_DISPLAY);
+    const displayClients = CLIENT_PROJECTS.slice(0, MAX_CLIENTS_DISPLAY);
 
     clientsGrid.innerHTML = displayClients.map(
       (client) => `
       <div class="client-col" data-aos="zoom-in">
         <div class="client-card d-flex flex-column align-items-center justify-content-center">
           <div class="client-logo-box-grid">
-            <img src="${esc(client.image)}" alt="${esc(client.name)}" loading="lazy">
+            <img src="${esc(client.logo)}" alt="${esc(client.name)}" loading="lazy">
           </div>
         </div>
       </div>`

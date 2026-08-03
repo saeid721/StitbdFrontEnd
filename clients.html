@@ -297,24 +297,27 @@
 
 
         <!-- =====================================================
-         CLIENTS SECTION
+         VALUABLE CLIENTS — Detailed Project Cards
     ====================================================== -->
-        <section class="py-5 position-relative bg-light border-bottom">
+        <section id="valuable-clients" class="position-relative bg-light border-bottom">
             <div class="container">
                 <div class="text-center mx-auto mb-4" data-aos="fade-up">
                     <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-building-check me-1"></i>
-                        Trusted
-                        Nationwide</span>
+                        Trusted Nationwide</span>
                     <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Trusted by 1,000+ <span
                             class="text-primary">Enterprises & Institutions</span></h2>
                     <p class="text-muted fs-6">Serving leading conglomerates, garments exporters, hospitals, colleges,
-                        and
-                        e-commerce companies across Bangladesh.</p>
+                        and e-commerce companies across Bangladesh.</p>
                 </div>
 
-                <div id="clientsGrid" class="row g-2 g-md-3 justify-content-center" data-aos="fade-up"
-                    data-aos-delay="150">
+                <div id="clientsFilterTabs" class="vc-filter-tabs" data-aos="fade-up" data-aos-delay="100"></div>
+
+                <div id="clientsProjectEmpty" class="vc-empty d-none" data-aos="fade-up">
+                    <i class="bi bi-emoji-frown fs-1 mb-2 d-block"></i>
+                    <p class="mb-0">No clients found in this category.</p>
                 </div>
+
+                <div id="clientsProjectGrid" class="vc-grid" data-aos="fade-up" data-aos-delay="150"></div>
             </div>
         </section>
 
@@ -599,12 +602,12 @@
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Data layer (COMPANY_INFO, READY_SOFTWARE_PRODUCTS, PRODUCT_DEMO_FIELDS) -->
+    <!-- Data layer (COMPANY_INFO, READY_SOFTWARE_PRODUCTS, PRODUCT_DEMO_FIELDS, CLIENT_PROJECTS) -->
     <script src="js/data.js"></script>
     <!-- Common app logic (navbar, footer, dropdowns, quote modal, animations) — shared by every page -->
     <script src="js/app.js"></script>
-    <!-- About-page-only logic (currently empty, reserved for future about-specific behavior) -->
-    <script src="js/about.js"></script>
+    <!-- Clients-page-only logic (filter tabs + detailed project cards) -->
+    <script src="js/clients.js"></script>
 
 </body>
 
