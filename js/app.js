@@ -726,7 +726,7 @@ const ReadySoftwareGallery = {
     this.grid.innerHTML = list
       .map(
         (product) => `
-      <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up">
+  <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up">
         <div class="card card-modern card-hover-lift h-100 border overflow-hidden p-0 d-flex flex-column justify-content-between">
           <div class="rs-card-img-wrap position-relative">
             <img src="${esc(product.image)}" alt="${esc(product.name)}" class="rs-card-img" loading="lazy">
@@ -940,7 +940,7 @@ const TechStackSection = {
     this.grid.innerHTML = list
       .map(
         (tech, index) => `
-      <div class="col-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="${index * 30}">
+  <div class="col-4 col-md-3 col-lg-9th" data-aos="zoom-in" data-aos-delay="${index * 30}">
         <div class="tech-card h-100 d-flex flex-column align-items-center justify-content-center position-relative overflow-hidden">
           <div class="tech-icon mb-2"><i class="${esc(tech.iconClass)}"></i></div>
           <h6 class="fw-bold font-heading text-dark mb-0 fs-6 tech-name">${esc(tech.name)}</h6>
@@ -985,14 +985,10 @@ function renderStats() {
   const grid = document.getElementById('statsGrid');
   if (!grid) return; // JS-rendered stats grid only exists on index.html (about.html has its own static markup)
   grid.innerHTML = COMPANY_STATS.map(
-    (stat, idx) => `
-    <div class="col-6 col-sm-6 col-md-4 col-lg-5th" data-aos="fade-up" data-aos-delay="${idx * 80}">
-      <div class="stat-card h-100 d-flex flex-column align-items-center justify-content-center text-center">
-        <div class="stat-card-icon mb-2 mb-md-3"><i class="bi ${esc(stat.icon)}"></i></div>
-        <h2 class="stat-card-value fw-extrabold font-heading text-white mb-1">${esc(stat.value)}</h2>
-        <h6 class="stat-card-label fw-bold font-heading mb-1">${esc(stat.label)}</h6>
-        <p class="stat-card-desc mb-0">${esc(stat.description)}</p>
-      </div>
+    (stat) => `
+    <div class="stat-card">
+      <span class="stat-card-value">${esc(stat.value)}</span>
+      <span class="stat-card-label">${esc(stat.label)}</span>
     </div>`
   ).join('');
 }

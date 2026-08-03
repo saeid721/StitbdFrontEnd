@@ -346,69 +346,31 @@
 
   <main class="flex-grow-1">
 
-    <!-- =====================================================
+    <div class="hero-stats-viewport">
+      <!-- =====================================================
          HERO SLIDER
     ====================================================== -->
-    <section class="hero-gradient-bg py-5 py-lg-6 position-relative">
-      <div class="hero-slider-bg" id="heroSliderBg"></div>
-      <div class="hero-slider-overlay"></div>
-      <div class="container py-lg-4">
-        <div class="row align-items-center g-5">
-          <div class="col-12 col-lg-7 text-center text-lg-start" data-aos="fade-up">
-            <div
-              class="d-inline-flex align-items-center gap-2 bg-white bg-opacity-10 backdrop-blur border border-white border-opacity-20 rounded-pill px-3 py-1 mb-3">
-              <span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span>
-              <span class="text-white small fw-semibold">Bangladesh&rsquo;s Trusted Tech Partner Since <span
-                  data-since-year>2014</span></span>
+      <section class="hero-gradient-bg py-5 py-lg-6 position-relative">
+        <div class="hero-slider-bg" id="heroSliderBg"></div>
+        <div class="hero-slider-overlay"></div>
+        <div class="container py-lg-4">
+          <div class="row align-items-center g-5">
+            <div class="col-12 col-lg-7 text-center text-lg-start" data-aos="fade-up">
+              <div
+                class="d-inline-flex align-items-center gap-2 bg-white bg-opacity-10 backdrop-blur border border-white border-opacity-20 rounded-pill px-3 py-1 mb-3">
+                <span class="spinner-grow spinner-grow-sm text-warning" role="status" aria-hidden="true"></span>
+                <span class="text-white small fw-semibold">Bangladesh&rsquo;s Trusted Tech Partner Since <span
+                    data-since-year>2014</span></span>
+              </div>
+
+              <h1 class="display-4 fw-extrabold text-white mb-3 font-heading lh-sm hero-typing-title">
+                <span id="heroTypingHeading"></span><span class="hero-typing-caret" aria-hidden="true"></span>
+              </h1>
+
             </div>
 
-            <h1 class="display-4 fw-extrabold text-white mb-3 font-heading lh-sm hero-typing-title">
-              <span id="heroTypingHeading"></span><span class="hero-typing-caret" aria-hidden="true"></span>
-            </h1>
-
-            <div
-              class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-3 mb-4">
-              <a href="#ready-software"
-                class="btn btn-brand-primary btn-lg rounded-pill px-4 py-3 text-white fw-bold d-flex align-items-center gap-2">
-                <i class="bi bi-grid-3x3-gap-fill fs-5"></i>
-                <span>Explore 40+ Ready Software</span>
-              </a>
-              <button type="button"
-                class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-semibold d-flex align-items-center gap-2 border-2"
-                data-open-quote-modal="">
-                <i class="bi bi-calculator-fill fs-5"></i>
-                <span>Request Free Quote</span>
-              </button>
-            </div>
-
-            <div
-              class="pt-3 border-top border-white border-opacity-15 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start gap-4 gap-sm-4 gap-md-4">
-              <div class="d-flex align-items-center gap-2 gap-sm-2">
-                <i class="bi bi-patch-check-fill text-warning fs-4 fs-sm-5"></i>
-                <div class="text-start">
-                  <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">1,200+ Projects</span>
-                  <span class="text-white-50 small fs-7">Successfully Delivered</span>
-                </div>
-              </div>
-              <div class="d-flex align-items-center gap-2 gap-sm-2">
-                <i class="bi bi-people-fill text-warning fs-4 fs-sm-5"></i>
-                <div class="text-start">
-                  <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">1,000+ Clients</span>
-                  <span class="text-white-50 small fs-7">Nationwide & Global</span>
-                </div>
-              </div>
-              <div class="d-flex align-items-center gap-2 gap-sm-2">
-                <i class="bi bi-headset text-warning fs-4 fs-sm-5"></i>
-                <div class="text-start">
-                  <span class="d-block text-white fw-bold leading-tight fs-6 fs-sm-6">24/7 Support</span>
-                  <span class="text-white-50 small fs-7">36+ Expert Engineers</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-5 text-center" data-aos="zoom-in" data-aos-delay="100">
-            <!-- <div class="position-relative mx-auto" style="max-width:480px;">
+            <div class="col-lg-5 text-center" data-aos="zoom-in" data-aos-delay="100">
+              <!-- <div class="position-relative mx-auto" style="max-width:480px;">
               <div
                 class="hero-dashboard-card text-dark rounded-4 p-4 text-start shadow-lg border border-white border-opacity-30 position-relative z-2">
                 <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
@@ -486,27 +448,34 @@
               </div>
 
             </div> -->
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
 
-    <!-- =====================================================
-         STATS COUNTER
-    ====================================================== -->
-    <section id="stats" class="py-5 bg-primary text-white position-relative overflow-hidden">
-      <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10 pointer-events-none"
-        style="background: radial-gradient(circle at 30% 30%, #ffffff 0%, transparent 70%);"></div>
-      <div class="container position-relative z-1 py-lg-3">
-        <div id="statsGrid" class="row text-center align-items-center g-4"></div>
-      </div>
-    </section>
-
+      <!-- =====================================================
+     STATS COUNTER
+====================================================== -->
+      <section id="stats" class="position-relative bg-white border-bottom">
+        <div class=" stats-split">
+          <div class="stats-brand-panel">
+            <img src="asset/logo.png" alt="STITBD" class="stats-brand-logo" loading="lazy">
+          </div>
+          <div class="stats-achieve-panel">
+            <h3 class="stats-achieve-title">Achievements</h3>
+            <p class="stats-achieve-sub">12+ years of excellence delivering ERP, POS, Mobile Apps &amp; web platforms
+              across
+              Bangladesh.</p>
+          </div>
+          <div id="statsGrid" class="stats-cards-row"></div>
+        </div>
+      </section>
+    </div>
     <!-- =====================================================
          SERVICES
     ====================================================== -->
-    <section id="services" class="py-5 py-lg-6 bg-light position-relative">
+    <section id="services" class="py-5 py-lg-6 bg-light position-relative border-bottom">
       <div class="container">
         <div class="text-center mx-auto mb-5" data-aos="fade-up">
           <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-briefcase me-1"></i> End-to-End IT
@@ -573,7 +542,7 @@
     <!-- =====================================================
          ABOUT US
     ====================================================== -->
-    <section id="about" class="py-5 py-lg-6 bg-white position-relative border-bottom">
+    <section id="about" class="py-5 py-lg-6  bg-light position-relative border-bottom">
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-12 col-lg-6" data-aos="fade-right">
@@ -781,7 +750,7 @@
     <!-- =====================================================
          READY SOFTWARE GALLERY
     ====================================================== -->
-    <section id="ready-software" class="py-5 py-lg-6 bg-light position-relative">
+    <section id="ready-software" class="py-5 py-lg-6 bg-white position-relative">
       <div class="container">
         <div class="text-center mx-auto mb-4" data-aos="fade-up">
           <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-rocket-takeoff-fill me-1"></i>
@@ -824,7 +793,7 @@
     <!-- =====================================================
          INDUSTRIES WE SERVE
     ====================================================== -->
-    <section id="industries" class="py-5 py-lg-6 bg-white position-relative border-bottom">
+    <section id="industries" class="py-5 py-lg-6 bg-light position-relative border-bottom">
       <div class="container">
         <div class="text-center mx-auto mb-4" data-aos="fade-up">
           <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-diagram-3 me-1"></i> Sectors We
@@ -841,7 +810,7 @@
     <!-- =====================================================
          TECH STACK
     ====================================================== -->
-    <section id="tech-stack" class="py-5 py-lg-6 bg-light position-relative border-bottom">
+    <section id="tech-stack" class="py-5 py-lg-6 bg-white position-relative border-bottom">
       <div class="container">
         <div class="text-center mx-auto mb-4" data-aos="fade-up">
           <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-code-slash me-1"></i> Choose Your
@@ -860,7 +829,7 @@
     <!-- =====================================================
          CLIENTS SECTION
     ====================================================== -->
-    <section class="py-5 bg-white position-relative border-bottom">
+    <section class="py-5 position-relative bg-light border-bottom">
       <div class="container">
         <div class="text-center mx-auto mb-4" data-aos="fade-up">
           <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-building-check me-1"></i> Trusted
@@ -879,30 +848,6 @@
           <a href="clients.html"
             class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
             <span>See All Clients</span>
-            <i class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         RECENT BLOGS
-    ====================================================== -->
-    <section id="blogs" class="py-5 py-lg-6 bg-light position-relative border-bottom">
-      <div class="container">
-        <div class="text-center mx-auto mb-4" data-aos="fade-up">
-          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-journal-richtext me-1"></i> From Our
-            Blog</span>
-          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Recent <span
-              class="text-primary">Blogs & Insights</span></h2>
-          <p class="text-muted fs-6">Practical guides, industry insights, and product updates from the STITBD
-            engineering team.</p>
-        </div>
-        <div id="blogsGrid" class="row g-4"></div>
-        <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
-          <a href="blogs.html"
-            class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
-            <span>View All Blogs</span>
             <i class="bi bi-arrow-right"></i>
           </a>
         </div>
@@ -961,6 +906,31 @@
             <span>What's New at STITBD</span>
             <i class="bi bi-chevron-right"></i>
           </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         RECENT BLOGS
+    ====================================================== -->
+    <section id="blogs" class="py-5 py-lg-6 bg-white position-relative border-bottom">
+      <div class="container">
+        <div class="text-center mx-auto mb-4" data-aos="fade-up">
+          <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-journal-richtext me-1"></i> From Our
+            Blog</span>
+          <h2 class="fw-extrabold font-heading display-6 mb-2 section-title-oneline">Recent <span
+              class="text-primary">Blogs & Insights</span></h2>
+          <p class="text-muted fs-6">Practical guides, industry insights, and product updates from the STITBD
+            engineering team.</p>
+        </div>
+        <div id="blogsGrid" class="row g-4"></div>
+        <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
+          <a href="blogs.html"
+            class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2">
+            <span>View All Blogs</span>
+            <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
