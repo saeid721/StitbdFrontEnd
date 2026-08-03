@@ -491,6 +491,18 @@
       </div>
     </section>
 
+
+    <!-- =====================================================
+         STATS COUNTER
+    ====================================================== -->
+    <section id="stats" class="py-5 bg-primary text-white position-relative overflow-hidden">
+      <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10 pointer-events-none"
+        style="background: radial-gradient(circle at 30% 30%, #ffffff 0%, transparent 70%);"></div>
+      <div class="container position-relative z-1 py-lg-3">
+        <div id="statsGrid" class="row text-center align-items-center g-4"></div>
+      </div>
+    </section>
+
     <!-- =====================================================
          SERVICES
     ====================================================== -->
@@ -703,6 +715,70 @@
     </section>
 
     <!-- =====================================================
+     WHY SHOULD YOU CHOOSE STITBD
+====================================================== -->
+    <section id="why-choose" class="py-5 py-lg-6 bg-light position-relative border-bottom">
+      <div class="container">
+        <div class="text-center mx-auto mb-4 mb-md-5" style="max-width:700px;" data-aos="fade-up">
+          <h2 class="fw-extrabold font-heading display-6 mb-3 section-title-oneline">
+            Why Should You Choose <span class="text-primary">STITBD?</span>
+          </h2>
+          <p class="text-muted fs-6 mb-0">
+            We bring 12+ years of local expertise, certified engineering practices, and a support-first mindset to every
+            project.
+          </p>
+        </div>
+
+        <div class="why-grid" data-aos="fade-up" data-aos-delay="100">
+          <div class="why-card why-card-a">
+            <div class="why-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <h6 class="fw-bold text-dark mb-2">Deep Local Expertise</h6>
+            <p class="text-muted small mb-0">12+ years engineering ERP, POS, and web platforms exclusively for
+              Bangladeshi businesses.</p>
+          </div>
+
+          <div class="why-card why-card-b">
+            <div class="why-icon"><i class="bi bi-shield-check"></i></div>
+            <h6 class="fw-bold text-dark mb-2">Built for Long-Term Support</h6>
+            <p class="text-muted small mb-0">Every system ships with real 24/7 support and continuous updates, not a
+              one-time handover.</p>
+          </div>
+
+          <div class="why-card why-card-c">
+            <div class="why-icon"><i class="bi bi-diagram-3-fill"></i></div>
+            <h6 class="fw-bold text-dark mb-2">Balanced Between Custom & Ready Software</h6>
+            <p class="text-muted small mb-0">Launch fast with a ready-made product, or go fully custom — both built with
+              the same engineering rigor.</p>
+            <div class="why-dots" aria-hidden="true"></div>
+          </div>
+
+          <div class="why-card why-card-d">
+            <div class="why-icon"><i class="bi bi-building-check"></i></div>
+            <h6 class="fw-bold text-dark mb-2">Experienced Across Industries</h6>
+            <p class="text-muted small mb-0">With 1,200+ projects across garments, healthcare, banking, and retail, we
+              bring proven patterns that reduce risk.</p>
+          </div>
+
+          <div class="why-card why-card-e">
+            <div class="why-icon"><i class="bi bi-bar-chart-line-fill"></i></div>
+            <h6 class="fw-bold text-dark mb-2">Data-Driven Decision Making</h6>
+            <p class="text-muted small mb-0">Every platform includes dashboards and reports that turn daily operations
+              into clear decisions.</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
+          <button type="button"
+            class="btn btn-brand-primary rounded-pill px-5 py-3 fw-bold d-inline-flex align-items-center gap-2"
+            data-open-quote-modal="">
+            <i class="bi bi-chat-square-text-fill"></i>
+            <span>Contact Us Today</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
          READY SOFTWARE GALLERY
     ====================================================== -->
     <section id="ready-software" class="py-5 py-lg-6 bg-light position-relative">
@@ -778,17 +854,6 @@
         <div id="techStackTabs" class="d-flex flex-wrap justify-content-center gap-2 mb-5" data-aos="fade-up"
           data-aos-delay="100"></div>
         <div id="techStackGrid" class="row g-3 g-md-4"></div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         STATS COUNTER
-    ====================================================== -->
-    <section id="stats" class="py-5 bg-primary text-white position-relative overflow-hidden">
-      <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10 pointer-events-none"
-        style="background: radial-gradient(circle at 30% 30%, #ffffff 0%, transparent 70%);"></div>
-      <div class="container position-relative z-1 py-lg-3">
-        <div id="statsGrid" class="row text-center align-items-center g-4"></div>
       </div>
     </section>
 
@@ -871,7 +936,7 @@
     <!-- =====================================================
      BUILT BY PEOPLE WHO DELIVER
 ====================================================== -->
-    <section id="culture" class="py-5 py-lg-6 bg-white position-relative border-bottom">
+    <section id="culture" class="py-5 py-lg-6 bg-light position-relative border-bottom overflow-hidden">
       <div class="container">
         <div class="text-center mx-auto mb-4 mb-md-5" data-aos="fade-up">
           <span class="badge-primary-soft mb-2 d-inline-block"><i class="bi bi-people-fill me-1"></i> Our People</span>
@@ -880,11 +945,22 @@
           <p class="text-muted fs-6">The engineers, designers, and problem-solvers behind every STITBD project —
             celebrating wins, big and small, together.</p>
         </div>
+      </div>
 
-        <div class="culture-slider-wrapper position-relative overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+      <div class="culture-full-bleed" data-aos="fade-up" data-aos-delay="150">
+        <div class="culture-slider-wrapper position-relative">
           <div class="culture-slider-track d-flex" id="cultureSliderTrack">
             <!-- Culture photo cards rendered by JavaScript -->
           </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="text-center mt-4 mt-md-5" data-aos="fade-up" data-aos-delay="200">
+          <button type="button" class="btn-culture-cta" data-open-quote-modal="">
+            <span>What's New at STITBD</span>
+            <i class="bi bi-chevron-right"></i>
+          </button>
         </div>
       </div>
     </section>

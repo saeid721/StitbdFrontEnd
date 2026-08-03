@@ -3945,18 +3945,28 @@ body {
 
 
 /* --------------------------------------------------------------------------
-   Built by People Who Deliver — Auto Sliding Culture Gallery
+   Built by People Who Deliver — Full-Bleed Auto Sliding Gallery
    -------------------------------------------------------------------------- */
+.culture-full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
 .culture-slider-wrapper {
   width: 100%;
-  padding: 6px 0;
+  overflow: hidden;
+  padding: 10px 0;
 }
 
 .culture-slider-track {
   display: flex;
   align-items: stretch;
   width: max-content;
-  animation: cultureScroll 55s linear infinite;
+  animation: cultureScroll 60s linear infinite;
 }
 
 @keyframes cultureScroll {
@@ -3975,22 +3985,36 @@ body {
 
 .culture-slide {
   transition: transform 0.3s ease;
+  padding: 0 0.6rem;
 }
 
 .culture-card {
   position: relative;
-  width: 320px;
-  height: 220px;
-  border-radius: 16px;
+  width: 460px;
+  height: 380px;
+  border-radius: 20px;
   overflow: hidden;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 10px 26px -14px rgba(15, 23, 42, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 3px solid #ffffff;
+  box-shadow: 0 16px 40px -18px rgba(15, 23, 42, 0.3);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+/* Vary card widths for a dynamic, editorial feel like a real photo wall */
+.culture-slide:nth-child(3n+1) .culture-card {
+  width: 320px;
+}
+
+.culture-slide:nth-child(3n+2) .culture-card {
+  width: 520px;
+}
+
+.culture-slide:nth-child(3n+3) .culture-card {
+  width: 400px;
 }
 
 .culture-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 36px -14px rgba(15, 82, 186, 0.28);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px -16px rgba(0, 159, 227, 0.32);
 }
 
 .culture-card img {
@@ -4002,35 +4026,81 @@ body {
 }
 
 .culture-card:hover img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .culture-card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 55%, rgba(15, 23, 42, 0.75) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 60%, rgba(15, 23, 42, 0.72) 100%);
   pointer-events: none;
 }
 
 .culture-caption {
   position: absolute;
-  left: 0.85rem;
-  right: 0.85rem;
-  bottom: 0.7rem;
+  left: 1.1rem;
+  right: 1.1rem;
+  bottom: 0.9rem;
   z-index: 2;
   color: #ffffff;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.3;
 }
 
+/* CTA pill button (matches .btn-proven-cta pattern) */
+.btn-culture-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--dark);
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 30px;
+  padding: 0.7rem 0.7rem 0.7rem 1.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px -8px rgba(15, 23, 42, 0.4);
+}
+
+.btn-culture-cta i {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: transform 0.25s ease;
+}
+
+.btn-culture-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -8px rgba(15, 23, 42, 0.5);
+}
+
+.btn-culture-cta:hover i {
+  transform: translateX(3px);
+}
+
 /* Tablet */
 @media (max-width: 991.98px) {
-  .culture-card {
-    width: 280px;
-    height: 195px;
-    border-radius: 14px;
+
+  .culture-card,
+  .culture-slide:nth-child(3n+1) .culture-card,
+  .culture-slide:nth-child(3n+2) .culture-card,
+  .culture-slide:nth-child(3n+3) .culture-card {
+    width: 340px;
+    height: 280px;
+    border-radius: 16px;
+  }
+
+  .culture-caption {
+    font-size: 0.8rem;
   }
 }
 
@@ -4050,22 +4120,36 @@ body {
     line-height: 1.5;
   }
 
-  .culture-card {
-    width: 230px;
-    height: 160px;
+  .culture-card,
+  .culture-slide:nth-child(3n+1) .culture-card,
+  .culture-slide:nth-child(3n+2) .culture-card,
+  .culture-slide:nth-child(3n+3) .culture-card {
+    width: 250px;
+    height: 210px;
     border-radius: 12px;
+    border-width: 2px;
   }
 
   .culture-caption {
     font-size: 0.7rem;
-    left: 0.6rem;
-    right: 0.6rem;
-    bottom: 0.55rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    bottom: 0.6rem;
   }
 
   .culture-slide {
-    padding-left: 0.4rem !important;
-    padding-right: 0.4rem !important;
+    padding: 0 0.4rem;
+  }
+
+  .btn-culture-cta {
+    font-size: 0.8rem;
+    padding: 0.55rem 0.55rem 0.55rem 1.1rem;
+  }
+
+  .btn-culture-cta i {
+    width: 26px;
+    height: 26px;
+    font-size: 0.7rem;
   }
 }
 
@@ -4075,14 +4159,17 @@ body {
     font-size: 1.15rem !important;
   }
 
-  .culture-card {
-    width: 190px;
-    height: 135px;
+  .culture-card,
+  .culture-slide:nth-child(3n+1) .culture-card,
+  .culture-slide:nth-child(3n+2) .culture-card,
+  .culture-slide:nth-child(3n+3) .culture-card {
+    width: 200px;
+    height: 170px;
     border-radius: 10px;
   }
 
   .culture-caption {
-    font-size: 0.62rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -4248,5 +4335,186 @@ body {
     width: 34px;
     height: 34px;
     font-size: 0.95rem;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Why Should You Choose STITBD — bento grid
+   -------------------------------------------------------------------------- */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "a b c"
+    "d e c";
+  gap: 1.25rem;
+}
+
+.why-card-a {
+  grid-area: a;
+}
+
+.why-card-b {
+  grid-area: b;
+}
+
+.why-card-c {
+  grid-area: c;
+}
+
+.why-card-d {
+  grid-area: d;
+}
+
+.why-card-e {
+  grid-area: e;
+}
+
+.why-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.75rem;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 159, 227, 0.35);
+  box-shadow: 0 20px 40px -18px rgba(0, 159, 227, 0.25);
+}
+
+.why-card-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.why-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.why-card h6 {
+  font-size: 1.02rem;
+  line-height: 1.3;
+}
+
+.why-card p {
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+/* Decorative dot-grid graphic inside the tall card */
+.why-dots {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  height: 130px;
+  background-image: radial-gradient(var(--border-color) 1.4px, transparent 1.4px);
+  background-size: 12px 12px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 90% at center, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 90% at center, #000 55%, transparent 100%);
+  opacity: 0.9;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "a b"
+      "d e"
+      "c c";
+    gap: 1rem;
+  }
+
+  .why-card {
+    padding: 1.5rem;
+  }
+
+  .why-dots {
+    height: 100px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  #why-choose h2.section-title-oneline {
+    font-size: 1.35rem !important;
+  }
+
+  #why-choose p.fs-6 {
+    font-size: 0.82rem !important;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "a"
+      "b"
+      "c"
+      "d"
+      "e";
+    gap: 0.85rem;
+  }
+
+  .why-card {
+    padding: 1.15rem;
+    border-radius: 14px;
+  }
+
+  .why-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.05rem;
+    border-radius: 10px;
+    margin-bottom: 0.75rem;
+  }
+
+  .why-card h6 {
+    font-size: 0.9rem !important;
+  }
+
+  .why-card p.small {
+    font-size: 0.78rem !important;
+  }
+
+  .why-dots {
+    height: 80px;
+    padding-top: 1rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  #why-choose h2.section-title-oneline {
+    font-size: 1.15rem !important;
+  }
+
+  .why-card {
+    padding: 1rem;
+  }
+
+  .why-card h6 {
+    font-size: 0.85rem !important;
+  }
+
+  .why-card p.small {
+    font-size: 0.72rem !important;
+  }
+
+  .why-dots {
+    height: 65px;
   }
 }
