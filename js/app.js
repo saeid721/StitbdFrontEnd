@@ -783,6 +783,75 @@ const ReadySoftwareGallery = {
   },
 };
 
+
+/* --------------------------------------------------------------------------
+   Home Page Ready Software Preview (first 8 products, no filter/search)
+   -------------------------------------------------------------------------- */
+function renderHomeReadySoftware() {
+  const grid = document.getElementById('readySoftwareGrid');
+  // Only run when tabs/search are absent — i.e. index.html, not products.html
+  if (!grid || document.getElementById('readySoftwareTabs')) return;
+
+  const list = READY_SOFTWARE_PRODUCTS.slice(0, 8);
+
+  grid.innerHTML = list
+    .map(
+      (product) => `
+    <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up">
+      <div class="card card-modern card-hover-lift h-100 border overflow-hidden p-0 d-flex flex-column justify-content-between">
+        <div class="rs-card-img-wrap position-relative">
+          <img src="${esc(product.image)}" alt="${esc(product.name)}" class="rs-card-img" loading="lazy">
+          ${product.badge ? `<span class="badge-gold rs-card-badge">${esc(product.badge)}</span>` : ''}
+        </div>
+        <div class="rs-card-body p-4 d-flex flex-column flex-grow-1">
+          <div>
+            <h5 class="fw-bold font-heading text-dark mb-1 fs-5">${esc(product.name)}</h5>
+            <span class="text-muted extra-small d-block mb-2"><i class="bi bi-building me-1"></i> ${esc(product.targetUsers)}</span>
+            <p class="text-muted small mb-3 leading-relaxed">${esc(product.shortDescription)}</p>
+            <div class="d-flex flex-wrap gap-1 mb-4">
+              ${product.modules
+          .slice(0, 4)
+          .map((mod) => `<span class="badge bg-light text-dark border extra-small font-normal">${esc(mod)}</span>`)
+          .join('')}
+              ${product.modules.length > 4
+          ? `<span class="badge bg-primary-subtle text-primary extra-small font-semibold">+${product.modules.length - 4} more</span>`
+          : ''
+        }
+            </div>
+          </div>
+          <div class="pt-3 border-top d-flex flex-column gap-2 mt-auto">
+            <button type="button" class="btn btn-outline-primary w-100 rounded-3 fw-semibold small d-flex align-items-center justify-content-center gap-2" data-view-product="${esc(product.id)}">
+              <i class="bi bi-eye"></i>
+              <span>View Modules & Features</span>
+            </button>
+            <button type="button" class="btn btn-brand-primary w-100 rounded-3 fw-semibold small d-flex align-items-center justify-content-center gap-2" data-demo-product="${esc(product.name)}" data-demo-product-id="${esc(product.id)}">
+              <i class="bi bi-calendar-event"></i>
+              <span>Request Live Demo</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>`
+    )
+    .join('');
+
+  grid.querySelectorAll('[data-view-product]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const product = READY_SOFTWARE_PRODUCTS.find((p) => p.id === btn.getAttribute('data-view-product'));
+      if (product) window.location.href = `${slugify(product.name)}.html`;
+    });
+  });
+
+  grid.querySelectorAll('[data-demo-product]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      QuoteModal.open(btn.getAttribute('data-demo-product'), btn.getAttribute('data-demo-product-id'));
+    });
+  });
+
+  if (window.AOS) window.AOS.refreshHard();
+}
+
+
 /* --------------------------------------------------------------------------
    Product Detail Modal
    -------------------------------------------------------------------------- */
@@ -1333,6 +1402,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDomainSearch();
   renderServices();
   ReadySoftwareGallery.init();
+  renderHomeReadySoftware();
   TechStackSection.init();
   renderStats();
   renderIndustries();
