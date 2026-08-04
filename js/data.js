@@ -507,38 +507,31 @@ const BLOG_POSTS = [
 ];
 
 const TEAM_MEMBERS = [
-  {
-    id: 'shaokat-hossain',
-    name: 'Shaokat Hossain',
-    designation: 'Founder & CEO',
-    image: 'asset/team/01.jpg',
-    facebook: '#',
-    linkedin: '#',
-  },
-  {
-    id: 'haider-hossain',
-    name: 'Md. Haider Hossain',
-    designation: 'Business Developer',
-    image: 'asset/team/02.jpg',
-    facebook: '#',
-    linkedin: '#',
-  },
-  {
-    id: 'humayun-farid',
-    name: 'Md. Humayun Farid',
-    designation: 'CTO',
-    image: 'asset/team/03.jpg',
-    facebook: '#',
-    linkedin: '#',
-  },
-  {
-    id: 'lead-software-architect',
-    name: 'Khondoker Eftakhar Jubayer',
-    designation: 'Lead Software Architect',
-    image: 'asset/team/04.jpg',
-    facebook: '#',
-    linkedin: '#',
-  },
+  { id: 'shaokat-hossain', order: 1, name: 'Shaokat Hossain', designation: 'Founder & CEO', image: 'asset/team/Shaokat-Hossain.jpg', facebook: '#', linkedin: '#' },
+  { id: 'haider-hossain', order: 2, name: 'Md. Haider Hossain', designation: 'Business Developer', image: 'asset/team/Haider-Hossain.jpg', facebook: '#', linkedin: '#' },
+  { id: 'humayun-farid', order: 3, name: 'Md. Humayun Farid', designation: 'CTO', image: 'asset/team/Humayun-Farid.jpg', facebook: '#', linkedin: '#' },
+  { id: 'khondoker-eftakhar-jubayer', order: 4, name: 'Khondoker Eftakhar Jubayer', designation: 'Lead Software Architect', image: 'asset/team/Khondoker-Eftakhar-Jubayer.jpg', facebook: '#', linkedin: '#' },
+  { id: 'asraf-mridha', order: 5, name: 'Asraf Mridha', designation: 'Senior DevOps Engineer', image: 'asset/team/Asraf-Mridha.png', facebook: '#', linkedin: '#' },
+  { id: 'sazal-abdullah', order: 6, name: 'Sazal Abdullah', designation: 'DevOps Engineer', image: 'asset/team/Sazal-Abdullah.png', facebook: '#', linkedin: '#' },
+  { id: 'pranta-das', order: 7, name: 'Pranta Das', designation: 'Jr. Web Application Developer', image: 'asset/team/Pranta-Das.png', facebook: '#', linkedin: '#' },
+  { id: 'minhazul-islam-saeid', order: 8, name: 'Minhazul Islam Saeid', designation: 'Mobile Apps Developer (Flutter)', image: 'asset/team/Minhazul-Islam-Saeid.png', facebook: '#', linkedin: '#' },
+  { id: 'nazrul-islam-patowary-rakib', order: 9, name: 'Nazrul Islam Patowary Rakib', designation: 'Senior Mobile Apps Developer', image: 'asset/team/Nazrul-Islam-Patowary-Rakib.png', facebook: '#', linkedin: '#' },
+  { id: 'naymur-rahaman', order: 10, name: 'Naymur Rahaman', designation: 'Mobile Apps Developer (Flutter)', image: 'asset/team/Naymur-Rahaman.jpg', facebook: '#', linkedin: '#' },
+  { id: 'iftekher-rafti', order: 11, name: 'Iftekher Rafti', designation: 'Jr. Node JS Developer', image: 'asset/team/Iftekher-Rafti.png', facebook: '#', linkedin: '#' },
+  { id: 'riaz', order: 12, name: 'Riaz', designation: 'Software Engineer', image: 'asset/team/Riaz.jpg', facebook: '#', linkedin: '#' },
+  { id: 'leaya-sultana', order: 13, name: 'Leaya Sultana', designation: 'DevOps Engineer', image: 'asset/team/Leaya-Sultana.png', facebook: '#', linkedin: '#' },
+  { id: 'jannatun-naim-mitu', order: 14, name: 'Jannatun Naim Mitu', designation: 'QA Engineer', image: 'asset/team/Jannatun-Naim-Mitu.jpg', facebook: '#', linkedin: '#' },
+  { id: 'arpita-ghosh', order: 15, name: 'Arpita Ghosh', designation: 'UI/UX Designer', image: 'asset/team/Arpita-Ghosh.jpg', facebook: '#', linkedin: '#' },
+  { id: 'shikhor-soyon', order: 16, name: 'Shikhor Soyon', designation: 'Graphic Designer', image: 'asset/team/Shikhor-Soyon.png', facebook: '#', linkedin: '#' },
+  { id: 'apu-sardar', order: 17, name: 'Apu Sardar', designation: 'Web Application Developer', image: 'asset/team/Apu-Sardar.jpg', facebook: '#', linkedin: '#' },
+  { id: 'masud-rana', order: 18, name: 'Masud Rana', designation: 'Jr. Node JS Developer', image: 'asset/team/Masud-Rana.jpg', facebook: '#', linkedin: '#' },
+  { id: 'fokrul-islam-mehedi', order: 19, name: 'Fokrul Islam Mehedi', designation: 'Jr. Node JS Developer', image: 'asset/team/FOKRUL-ISLAM-MEHEDI.jpg', facebook: '#', linkedin: '#' },
+  { id: 'rashedul-islam', order: 20, name: 'Rashedul Islam', designation: 'DevOps Engineer', image: 'asset/team/Rashedul-Islam.jpg', facebook: '#', linkedin: '#' },
+  { id: 'ridoy-islam-nasim', order: 21, name: 'Ridoy Islam Nasim', designation: 'Software Engineer', image: 'asset/team/Ridoy-Islam-Nasim.jpg', facebook: '#', linkedin: '#' },
+  { id: 'ricky-david-gomes', order: 22, name: 'Ricky David Gomes', designation: 'Marketing Executive', image: 'asset/team/Ricky-David-Gomes.jpg', facebook: '#', linkedin: '#' },
+  { id: 'sharaf-uddin', order: 23, name: 'Sharaf Uddin', designation: 'Senior Marketing Executive', image: 'asset/team/Sharaf-Uddin.png', facebook: '#', linkedin: '#' },
+  { id: 'rashed-khan', order: 24, name: 'Rashed Khan', designation: 'Marketing Executive', image: 'asset/team/Rashed-Khan.jpg', facebook: '#', linkedin: '#' },
+
 ];
 
 const TESTIMONIALS = [

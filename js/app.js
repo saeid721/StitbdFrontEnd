@@ -1118,7 +1118,11 @@ function renderTeam() {
   const grid = document.getElementById('teamGrid');
   if (!grid) return;
 
-  grid.innerHTML = TEAM_MEMBERS.map(
+  const limit = parseInt(grid.dataset.teamLimit, 10);
+  const sorted = [...TEAM_MEMBERS].sort((a, b) => (a.order || 0) - (b.order || 0));
+  const list = limit ? sorted.slice(0, limit) : sorted;
+
+  grid.innerHTML = list.map(
     (member, idx) => `
     <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="${idx * 80}">
       <div class="team-card-v2 h-100">
