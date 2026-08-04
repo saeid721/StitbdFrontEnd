@@ -1,0 +1,328 @@
+/* ===== PRODUCT-DETAILS-SPECIFIC STYLES ===== */
+
+/* Small helper used throughout product-details.html for soft section dividers /
+   soft badge backgrounds. Defined here since it isn't in styles.css. */
+.border-soft {
+    border-color: var(--border-color, #e2e8f0) !important;
+}
+
+.bg-primary-soft {
+    background-color: rgba(0, 159, 227, 0.08);
+}
+
+.about-hero {
+    background: linear-gradient(135deg, #0a2540 0%, #0f52ba 60%, #1e3a8a 100%);
+    padding: 4rem 0 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.about-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    left: -10%;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.about-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.2;
+}
+
+.about-hero .lead {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    opacity: 0.92;
+    max-width: 46rem;
+}
+
+.section-badge {
+    display: inline-block;
+    background: rgba(0, 159, 227, 0.08);
+    color: var(--primary, #009fe3);
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+}
+
+.section-sub {
+    color: var(--text-muted, #64748b);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mission-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    height: 100%;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.06);
+}
+
+.mission-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -14px rgba(0, 159, 227, 0.15);
+    border-color: rgba(0, 159, 227, 0.25);
+}
+
+.mission-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 159, 227, 0.08);
+    color: #009fe3;
+    font-size: 1.8rem;
+}
+
+.stat-mini {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.2rem 0.8rem;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stat-mini:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.08);
+}
+
+.stat-mini .number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.stat-mini .label {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.value-badge {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 40px;
+    padding: 0.4rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+}
+
+.value-badge:hover {
+    border-color: #009fe3;
+    background: rgba(0, 159, 227, 0.04);
+    transform: translateY(-2px);
+}
+
+.diff-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 1.8rem 1.5rem;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.diff-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px -14px rgba(0, 0, 0, 0.08);
+}
+
+.diff-card .icon {
+    font-size: 2.2rem;
+    color: #009fe3;
+}
+
+.team-card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -14px rgba(0, 159, 227, 0.15);
+}
+
+.team-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.team-card .info {
+    padding: 1rem 1rem 1.2rem;
+    text-align: center;
+}
+
+.team-card .info h5 {
+    font-size: 1.05rem;
+    margin-bottom: 0.1rem;
+}
+
+.team-card .info span {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.speciality-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.speciality-item:last-child {
+    border-bottom: 0;
+}
+
+.speciality-item i {
+    font-size: 1.4rem;
+    color: #009fe3;
+    margin-top: 0.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   CTA Banner
+   -------------------------------------------------------------------------- */
+.cta-banner {
+    background: linear-gradient(135deg, #0a2540 0%, #0f52ba 60%, #1e3a8a 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 45px -18px rgba(15, 82, 186, 0.4);
+}
+
+.cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -8%;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.22) 0%, rgba(245, 158, 11, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cta-banner>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — mobile / tablet
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+    #about .row.g-5 {
+        --bs-gutter-y: 2rem;
+    }
+
+    .about-image-wrap {
+        margin-top: 0.75rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .about-hero {
+        padding: 2.5rem 0 2rem;
+    }
+
+    .about-hero .d-flex.gap-4 {
+        gap: 1rem !important;
+    }
+
+    .about-hero .fs-3 {
+        font-size: 1.4rem !important;
+    }
+
+    .mission-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .stat-mini .number {
+        font-size: 1.4rem;
+    }
+
+    .team-card .info h5 {
+        font-size: 0.95rem;
+    }
+
+    .value-badge {
+        font-size: 0.78rem;
+        padding: 0.3rem 0.9rem;
+    }
+
+    .diff-card {
+        padding: 1.2rem 1rem;
+    }
+
+    .cta-banner {
+        padding: 1.75rem !important;
+    }
+
+    .cta-banner h3 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .about-hero .fs-3 {
+        font-size: 1.15rem !important;
+    }
+
+    .stat-mini .number {
+        font-size: 1.2rem;
+    }
+
+    .stat-mini .label {
+        font-size: 0.7rem;
+    }
+
+    .cta-banner h3 {
+        font-size: 1.1rem;
+    }
+}
