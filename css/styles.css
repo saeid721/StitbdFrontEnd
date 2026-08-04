@@ -1040,6 +1040,115 @@ body {
   }
 }
 
+/* --------------------------------------------------------------------------
+   Hero Section — dedicated mobile responsiveness (title + buttons)
+   -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .hero-gradient-bg {
+    min-height: 22svh !important;
+    height: auto !important;
+    padding-top: 1.1rem !important;
+    padding-bottom: 1.1rem !important;
+  }
+
+  .hero-gradient-bg .d-inline-flex.rounded-pill {
+    padding: 0.1rem 0.35rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .hero-gradient-bg .d-inline-flex.rounded-pill span.small {
+    font-size: 0.5rem !important;
+  }
+
+  .hero-gradient-bg .spinner-grow-sm {
+    width: 0.4rem !important;
+    height: 0.4rem !important;
+  }
+
+  .hero-gradient-bg h1.display-4 {
+    font-size: 1.15rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .hero-gradient-bg .lead {
+    font-size: 0.7rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.6rem !important;
+    -webkit-line-clamp: 2;
+  }
+
+  .hero-cta-row {
+    gap: 0.5rem !important;
+  }
+
+  .hero-gradient-bg .btn-lg {
+    font-size: 0.68rem !important;
+    padding: 0.5rem 0.9rem !important;
+  }
+
+  .hero-gradient-bg .btn-lg i {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .hero-gradient-bg {
+    min-height: 20svh !important;
+    padding-top: 0.9rem !important;
+    padding-bottom: 0.9rem !important;
+  }
+
+  .hero-gradient-bg h1.display-4 {
+    font-size: 0.98rem !important;
+    line-height: 1.18 !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .hero-gradient-bg .lead {
+    font-size: 0.64rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .hero-cta-row {
+    gap: 0.4rem !important;
+  }
+
+  .hero-gradient-bg .btn-lg {
+    font-size: 0.6rem !important;
+    padding: 0.42rem 0.7rem !important;
+  }
+
+  .hero-gradient-bg .btn-lg i {
+    font-size: 0.66rem !important;
+  }
+
+  .hero-gradient-bg .d-inline-flex.rounded-pill span.small {
+    font-size: 0.44rem !important;
+  }
+}
+
+/* Very small mobile */
+@media (max-width: 380px) {
+  .hero-gradient-bg h1.display-4 {
+    font-size: 0.85rem !important;
+  }
+
+  .hero-gradient-bg .lead {
+    font-size: 0.58rem !important;
+  }
+
+  .hero-gradient-bg .btn-lg {
+    font-size: 0.54rem !important;
+    padding: 0.36rem 0.6rem !important;
+  }
+
+  .hero-gradient-bg .btn-lg i {
+    font-size: 0.6rem !important;
+  }
+}
+
 /* ==========================================================================
    Mobile Hero Stats Fix
    ========================================================================== */
@@ -3231,27 +3340,27 @@ body {
 
   #techStackGrid>[class*="col-"] {
     flex: 0 0 auto;
-    width: 33.333% !important;
-    max-width: 33.333% !important;
+    width: 25% !important;
+    max-width: 25% !important;
   }
 
   #techStackGrid .tech-card {
-    min-height: 64px;
-    padding: 0.35rem 0.25rem !important;
+    min-height: 58px;
+    padding: 0.3rem 0.15rem !important;
     border-radius: 9px;
     cursor: default;
   }
 
   #techStackGrid .tech-icon {
-    margin-bottom: 0.2rem !important;
+    margin-bottom: 0.15rem !important;
   }
 
   #techStackGrid .tech-icon i {
-    font-size: 1.2rem !important;
+    font-size: 1.05rem !important;
   }
 
   #techStackGrid .tech-name {
-    font-size: 0.52rem !important;
+    font-size: 0.46rem !important;
     line-height: 1.1;
   }
 
@@ -3299,22 +3408,22 @@ body {
   }
 
   #techStackGrid>[class*="col-"] {
-    width: 33.333% !important;
-    max-width: 33.333% !important;
+    width: 25% !important;
+    max-width: 25% !important;
   }
 
   #techStackGrid .tech-card {
-    min-height: 56px;
-    padding: 0.28rem 0.2rem !important;
+    min-height: 50px;
+    padding: 0.22rem 0.12rem !important;
     border-radius: 8px;
   }
 
   #techStackGrid .tech-icon i {
-    font-size: 1.05rem !important;
+    font-size: 0.92rem !important;
   }
 
   #techStackGrid .tech-name {
-    font-size: 0.48rem !important;
+    font-size: 0.42rem !important;
   }
 }
 
