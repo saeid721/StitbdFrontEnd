@@ -1333,7 +1333,7 @@ body {
 
 /* Tech Stack Logo Cards */
 .tech-card {
-  background: #ffffff;
+  background: color-mix(in srgb, var(--tech-accent, var(--primary)) 4%, white);
   border: 1px solid var(--border-color);
   border-radius: 14px;
   padding: 1rem 1rem;
@@ -1343,6 +1343,24 @@ body {
   min-height: 110px;
   position: relative;
   overflow: hidden;
+}
+
+.tech-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--tech-accent, var(--primary));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s ease;
+  z-index: 3;
+}
+
+.tech-card:hover::before {
+  transform: scaleX(1);
 }
 
 .tech-card .tech-icon {
@@ -1365,7 +1383,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(135deg, var(--tech-accent, var(--primary)) 0%, color-mix(in srgb, var(--tech-accent, var(--primary)) 70%, black) 100%);
   border-radius: 14px;
   opacity: 0;
   transform: scale(0.9);
@@ -1384,8 +1402,8 @@ body {
 
 .tech-card:hover {
   transform: translateY(-6px) scale(1.02);
-  border-color: var(--primary);
-  box-shadow: 0 16px 40px -12px rgba(15, 82, 186, 0.25);
+  border-color: var(--tech-accent, var(--primary));
+  box-shadow: 0 16px 40px -12px color-mix(in srgb, var(--tech-accent, var(--primary)) 40%, transparent);
 }
 
 .tech-card:hover .tech-icon {
@@ -1760,41 +1778,34 @@ body {
 /* --------------------------------------------------------------------------
    Clients Grid — Static, Modern, Fully Responsive (max 4 rows x 8/row)
    -------------------------------------------------------------------------- */
-.client-col {
-  padding-right: calc(var(--bs-gutter-x, 0.5rem) * .5);
-  padding-left: calc(var(--bs-gutter-x, 0.5rem) * .5);
-  margin-bottom: 0.65rem;
-  width: 33.333%;
+.clients-grid-4row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 0.65rem;
 }
 
 @media (min-width: 480px) {
-  .client-col {
-    width: 33.333%;
-    /* 3 per row */
+  .clients-grid-4row {
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
 @media (min-width: 768px) {
-  .client-col {
-    width: 25%;
-    margin-bottom: 0.85rem;
-    /* 4 per row */
-  }
-}
-
-@media (min-width: 992px) {
-  .client-col {
-    width: 16.666%;
-    /* 6 per row */
+  .clients-grid-4row {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.85rem;
   }
 }
 
 @media (min-width: 1200px) {
-  .client-col {
-    width: 12.5%;
-    margin-bottom: 1rem;
-    /* 8 per row on large desktop */
+  .clients-grid-4row {
+    gap: 1rem;
   }
+}
+
+.client-cell {
+  height: 100%;
 }
 
 .client-card {
@@ -1802,10 +1813,22 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 14px;
   padding: 0.9rem 0.75rem;
-  height: 100%;
+  height: 90px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 767.98px) {
+  .client-card {
+    height: 62px;
+    padding: 0.6rem 0.4rem;
+    border-radius: 11px;
+  }
+
+  .client-logo-box-grid {
+    height: 40px;
+  }
 }
 
 .client-card::before {
@@ -1919,8 +1942,36 @@ body {
 }
 
 .testimonial-slide .card:hover {
-  border-color: var(--primary) !important;
-  box-shadow: 0 12px 35px rgba(15, 82, 186, 0.12) !important;
+  border-color: var(--secondary) !important;
+  box-shadow: 0 12px 35px rgba(0, 166, 81, 0.15) !important;
+  transform: translateY(-4px);
+}
+
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-quote-mark {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.08;
+  pointer-events: none;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.testimonial-card:hover .testimonial-quote-mark {
+  opacity: 0.14;
+  color: var(--secondary);
+}
+
+.testimonial-text {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes testimonialScroll {
@@ -1951,12 +2002,18 @@ body {
 
 @media (max-width: 480px) {
   .testimonial-slide {
-    width: 260px !important;
+    width: 320px !important;
   }
 
   .testimonial-slide .card {
     min-height: 220px !important;
     padding: 1rem !important;
+  }
+
+  .testimonial-quote-mark {
+    font-size: 2.75rem;
+    top: 0.35rem;
+    right: 0.65rem;
   }
 }
 
@@ -2176,6 +2233,24 @@ body {
   footer .col-lg-4 img,
   footer .navbar-brand img {
     height: 38px !important;
+  }
+
+  .footer-newsletter-strip {
+    padding: 1.25rem;
+    border-radius: 14px;
+    text-align: center;
+  }
+
+  .footer-newsletter-strip h5 {
+    font-size: 1rem !important;
+  }
+
+  .footer-newsletter-strip p {
+    font-size: 0.75rem !important;
+  }
+
+  .footer-newsletter-form {
+    max-width: 100%;
   }
 }
 
@@ -2840,6 +2915,50 @@ body {
   border-bottom: 1px solid var(--border-color);
 }
 
+.rs-card {
+  position: relative;
+}
+
+.rs-card-img-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--cat-accent, var(--primary));
+  z-index: 2;
+}
+
+.rs-card-category-tag {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.75rem;
+  z-index: 2;
+  background: var(--cat-accent, var(--primary));
+  color: #ffffff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.22rem 0.65rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.28);
+}
+
+.rs-mod-badge {
+  background: color-mix(in srgb, var(--cat-accent, var(--primary)) 12%, white);
+  color: var(--cat-accent, var(--primary));
+  border: 1px solid color-mix(in srgb, var(--cat-accent, var(--primary)) 35%, white) !important;
+  font-weight: 600;
+}
+
+.rs-mod-more {
+  background: var(--cat-accent, var(--primary));
+  color: #ffffff;
+  border: none !important;
+  font-weight: 700;
+}
+
 .rs-card-img {
   display: block;
   width: 100%;
@@ -2939,6 +3058,13 @@ body {
     right: 0.5rem;
     font-size: 0.62rem !important;
     padding: 0.25rem 0.6rem !important;
+  }
+
+  .rs-card-category-tag {
+    font-size: 0.56rem !important;
+    padding: 0.18rem 0.5rem !important;
+    bottom: 0.45rem;
+    left: 0.5rem;
   }
 
   .rs-card-body {
@@ -3373,6 +3499,36 @@ body {
 /* --------------------------------------------------------------------------
    Footer — Payment Gateway Strip (above copyright divider)
    -------------------------------------------------------------------------- */
+.footer-newsletter-strip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+}
+
+.footer-newsletter-form {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 420px;
+}
+
+.footer-newsletter-form input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.footer-newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footer-newsletter-form input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.15);
+  color: #ffffff;
+}
+
 .footer-payment-strip {
   margin-bottom: 0.5rem;
 }
@@ -3481,8 +3637,8 @@ body {
 
 .industry-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(15, 82, 186, 0.3);
-  box-shadow: 0 18px 36px -14px rgba(15, 82, 186, 0.18);
+  border-color: color-mix(in srgb, var(--ind-accent, var(--primary)) 45%, white);
+  box-shadow: 0 18px 36px -14px color-mix(in srgb, var(--ind-accent, var(--primary)) 40%, transparent);
 }
 
 .industry-icon {
@@ -3501,6 +3657,8 @@ body {
 
 .industry-card:hover .industry-icon {
   transform: scale(1.1) rotate(-4deg);
+  background: var(--ind-accent, var(--primary)) !important;
+  color: #ffffff !important;
 }
 
 .industry-name {
@@ -3633,6 +3791,27 @@ body {
   top: 0.75rem;
   left: 0.75rem;
   z-index: 2;
+  background: var(--accent-red) !important;
+  border-color: var(--accent-red) !important;
+}
+
+.blog-card-meta-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.blog-card-author {
+  display: flex;
+  align-items: center;
+  font-size: 0.78rem;
+}
+
+.blog-card-author i {
+  color: var(--primary);
+  font-size: 0.95rem;
 }
 
 .blog-card-title {
@@ -3688,6 +3867,14 @@ body {
   .blog-card-link p.small.leading-relaxed {
     font-size: 0.76rem !important;
   }
+
+  .blog-card-meta {
+    font-size: 0.66rem !important;
+  }
+
+  .blog-card-author {
+    font-size: 0.7rem !important;
+  }
 }
 
 /* Small mobile */
@@ -3740,21 +3927,11 @@ body {
   pointer-events: none;
 }
 
-.team-code-badge {
-  position: absolute;
-  top: 0.85rem;
-  left: 0.85rem;
-  z-index: 2;
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: #ffffff;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  padding: 0.3rem 0.65rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+
+.team-card-v2:hover .team-code-badge {
+  opacity: 1;
+  transform: translateY(0);
+  background: var(--primary);
 }
 
 .team-overlay-v2 {
@@ -3787,13 +3964,6 @@ body {
   font-size: 1.15rem;
   margin-bottom: 0.2rem;
   letter-spacing: -0.01em;
-}
-
-.team-role-v2 {
-  display: block;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.8rem;
-  margin-bottom: 0.75rem;
 }
 
 .team-social-row-v2 {
@@ -3850,13 +4020,6 @@ body {
   .team-card-v2 {
     border-radius: 16px;
     aspect-ratio: 3 / 3.6;
-  }
-
-  .team-code-badge {
-    top: 0.6rem;
-    left: 0.6rem;
-    font-size: 0.6rem;
-    padding: 0.24rem 0.5rem;
   }
 
   .team-overlay-v2 {
@@ -4246,7 +4409,37 @@ body {
 
 .culture-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 50px -16px rgba(0, 159, 227, 0.32);
+  box-shadow: 0 24px 50px -16px rgba(0, 166, 81, 0.35);
+  border-color: var(--secondary);
+}
+
+.culture-icon-badge {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+
+.culture-card:hover .culture-icon-badge {
+  opacity: 1;
+  transform: scale(1);
+  background: var(--secondary);
+  border-color: var(--secondary);
 }
 
 .culture-card img {
@@ -4279,6 +4472,9 @@ body {
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.3;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--secondary);
+  transition: border-color 0.3s ease;
 }
 
 /* CTA pill button (matches .btn-proven-cta pattern) */
@@ -4286,7 +4482,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: var(--dark);
+  background: var(--secondary-dark);
   color: #ffffff;
   border: none;
   font-weight: 700;
@@ -4294,7 +4490,7 @@ body {
   border-radius: 30px;
   padding: 0.7rem 0.7rem 0.7rem 1.5rem;
   transition: all 0.25s ease;
-  box-shadow: 0 8px 20px -8px rgba(15, 23, 42, 0.4);
+  box-shadow: 0 8px 20px -8px rgba(0, 143, 74, 0.45);
 }
 
 .btn-culture-cta i {
@@ -4302,7 +4498,7 @@ body {
   height: 30px;
   border-radius: 50%;
   background: #ffffff;
-  color: var(--dark);
+  color: var(--secondary-dark);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4729,6 +4925,22 @@ body {
 .why-card-c {
   display: flex;
   flex-direction: column;
+  border: 1.5px solid rgba(237, 28, 36, 0.18);
+}
+
+.why-card-c .why-icon {
+  background: rgba(237, 28, 36, 0.1);
+  color: var(--accent-red);
+}
+
+.why-card-c:hover .why-icon {
+  background: var(--accent-red);
+  color: #ffffff;
+}
+
+.why-card-c:hover {
+  border-color: rgba(237, 28, 36, 0.4);
+  box-shadow: 0 20px 40px -18px rgba(237, 28, 36, 0.22);
 }
 
 .why-card-header {
@@ -4754,6 +4966,13 @@ body {
   justify-content: center;
   font-size: 1.25rem;
   flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease, color 0.35s ease;
+}
+
+.why-card:hover .why-icon {
+  background: var(--primary);
+  color: #ffffff;
+  transform: scale(1.1) rotate(-4deg);
 }
 
 .why-card h6 {

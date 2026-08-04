@@ -534,6 +534,24 @@ const QuoteModal = {
 /* --------------------------------------------------------------------------
    Contact Section form (inline success state, not a modal)
    -------------------------------------------------------------------------- */
+function initNewsletterForm() {
+  const form = document.getElementById('newsletterForm');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailInput = document.getElementById('newsletterEmail');
+    const btn = form.querySelector('button[type="submit"]');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="bi bi-check-lg"></i>';
+    btn.disabled = true;
+    setTimeout(() => {
+      emailInput.value = '';
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+    }, 2000);
+  });
+}
+
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const formWrap = document.getElementById('contactFormWrap');
@@ -627,6 +645,14 @@ function renderServices() {
 /* --------------------------------------------------------------------------
    Ready Software Gallery (search + category filter + detail modal)
    -------------------------------------------------------------------------- */
+const CATEGORY_ACCENT = {
+  'Enterprise & ERP': '#009fe3',
+  'Retail & POS': '#00a651',
+  'Education & Health': '#f472b6',
+  'Services & Logistics': '#6366f1',
+  'Real Estate & Infrastructure': '#f59e0b',
+};
+
 const CATEGORIES = [
   'All',
   'Enterprise & ERP',
@@ -726,10 +752,11 @@ const ReadySoftwareGallery = {
       .map(
         (product) => `
   <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up">
-        <div class="card card-modern card-hover-lift h-100 border overflow-hidden p-0 d-flex flex-column justify-content-between">
+        <div class="card card-modern card-hover-lift h-100 border overflow-hidden p-0 d-flex flex-column justify-content-between rs-card" style="--cat-accent:${CATEGORY_ACCENT[product.category] || '#009fe3'}">
           <div class="rs-card-img-wrap position-relative">
             <img src="${esc(product.image)}" alt="${esc(product.name)}" class="rs-card-img" loading="lazy">
             ${product.badge ? `<span class="badge-gold rs-card-badge">${esc(product.badge)}</span>` : ''}
+            <span class="rs-card-category-tag">${esc(product.category)}</span>
           </div>
           <div class="rs-card-body p-4 d-flex flex-column flex-grow-1">
             <div>
@@ -739,10 +766,10 @@ const ReadySoftwareGallery = {
               <div class="d-flex flex-wrap gap-1 mb-4">
                 ${product.modules
             .slice(0, 4)
-            .map((mod) => `<span class="badge bg-light text-dark border extra-small font-normal">${esc(mod)}</span>`)
+            .map((mod) => `<span class="badge rs-mod-badge extra-small font-normal">${esc(mod)}</span>`)
             .join('')}
                 ${product.modules.length > 4
-            ? `<span class="badge bg-primary-subtle text-primary extra-small font-semibold">+${product.modules.length - 4} more</span>`
+            ? `<span class="badge rs-mod-more extra-small font-semibold">+${product.modules.length - 4} more</span>`
             : ''
           }
               </div>
@@ -797,10 +824,11 @@ function renderHomeReadySoftware() {
     .map(
       (product) => `
     <div class="col-12 col-sm-6 col-lg-3" data-aos="fade-up">
-      <div class="card card-modern card-hover-lift h-100 border overflow-hidden p-0 d-flex flex-column justify-content-between">
+      <div class="card card-modern card-hover-lift h-100 border overflow-hidden p-0 d-flex flex-column justify-content-between rs-card" style="--cat-accent:${CATEGORY_ACCENT[product.category] || '#009fe3'}">
         <div class="rs-card-img-wrap position-relative">
           <img src="${esc(product.image)}" alt="${esc(product.name)}" class="rs-card-img" loading="lazy">
           ${product.badge ? `<span class="badge-gold rs-card-badge">${esc(product.badge)}</span>` : ''}
+          <span class="rs-card-category-tag">${esc(product.category)}</span>
         </div>
         <div class="rs-card-body p-4 d-flex flex-column flex-grow-1">
           <div>
@@ -810,10 +838,10 @@ function renderHomeReadySoftware() {
             <div class="d-flex flex-wrap gap-1 mb-4">
               ${product.modules
           .slice(0, 4)
-          .map((mod) => `<span class="badge bg-light text-dark border extra-small font-normal">${esc(mod)}</span>`)
+          .map((mod) => `<span class="badge rs-mod-badge extra-small font-normal">${esc(mod)}</span>`)
           .join('')}
               ${product.modules.length > 4
-          ? `<span class="badge bg-primary-subtle text-primary extra-small font-semibold">+${product.modules.length - 4} more</span>`
+          ? `<span class="badge rs-mod-more extra-small font-semibold">+${product.modules.length - 4} more</span>`
           : ''
         }
             </div>
@@ -973,6 +1001,14 @@ const ServiceDetailModal = {
 /* --------------------------------------------------------------------------
    Tech Stack
    -------------------------------------------------------------------------- */
+const TECH_CATEGORY_ACCENT = {
+  'Frontend': '#009fe3',
+  'Backend': '#00a651',
+  'Mobile': '#6366f1',
+  'Databases': '#f59e0b',
+  'Languages & Tools': '#ed1c24',
+};
+
 const TechStackSection = {
   selectedCategory: 'All',
   categories: ['Frontend', 'Backend', 'Mobile', 'Databases', 'Languages & Tools'],
@@ -1009,7 +1045,7 @@ const TechStackSection = {
       .map(
         (tech, index) => `
   <div class="col-4 col-md-3 col-lg-9th" data-aos="zoom-in" data-aos-delay="${index * 30}">
-        <div class="tech-card h-100 d-flex flex-column align-items-center justify-content-center position-relative overflow-hidden">
+        <div class="tech-card h-100 d-flex flex-column align-items-center justify-content-center position-relative overflow-hidden" style="--tech-accent:${TECH_CATEGORY_ACCENT[tech.category] || '#009fe3'}">
           <div class="tech-icon mb-2"><i class="${esc(tech.iconClass)}"></i></div>
           <h6 class="fw-bold font-heading text-dark mb-0 fs-6 tech-name">${esc(tech.name)}</h6>
           <div class="tech-description position-absolute w-100 h-100 d-flex align-items-center justify-content-center p-3">
@@ -1034,7 +1070,7 @@ function renderIndustries() {
   grid.innerHTML = INDUSTRIES.map(
     (item, idx) => `
     <div class="col-4 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="${idx * 40}">
-      <div class="industry-card h-100 d-flex flex-column align-items-center justify-content-center text-center">
+      <div class="industry-card h-100 d-flex flex-column align-items-center justify-content-center text-center" style="--ind-accent:${esc(item.color)}">
         <div class="industry-icon mb-2" style="background:${esc(item.color)}22;color:${esc(item.color)};">
           <i class="bi ${esc(item.icon)}"></i>
         </div>
@@ -1078,12 +1114,19 @@ function renderBlogs() {
             <span class="badge-gold blog-card-badge">${esc(post.category)}</span>
           </div>
           <div class="p-4 d-flex flex-column flex-grow-1">
-            <span class="text-muted extra-small d-block mb-2"><i class="bi bi-calendar3 me-1"></i> ${esc(post.date)}</span>
+            <div class="blog-card-meta d-flex align-items-center gap-2 mb-2">
+              <span class="text-muted extra-small"><i class="bi bi-calendar3 me-1"></i>${esc(post.date)}</span>
+              <span class="blog-card-meta-dot"></span>
+              <span class="text-muted extra-small"><i class="bi bi-clock me-1"></i>${esc(post.readTime)}</span>
+            </div>
             <h5 class="fw-bold font-heading text-dark mb-2 fs-5 blog-card-title">${esc(post.title)}</h5>
             <p class="text-muted small leading-relaxed mb-3 flex-grow-1">${esc(post.excerpt)}</p>
-            <span class="fw-semibold small text-primary d-flex align-items-center gap-1 mt-auto">
-              Read Full Article <i class="bi bi-arrow-right"></i>
-            </span>
+            <div class="pt-3 border-top d-flex align-items-center justify-content-between mt-auto">
+              <span class="blog-card-author small text-dark fw-semibold"><i class="bi bi-person-circle me-1"></i>${esc(post.author)}</span>
+              <span class="fw-semibold small text-primary d-flex align-items-center gap-1">
+                Read <i class="bi bi-arrow-right"></i>
+              </span>
+            </div>
           </div>
         </div>
       </a>
@@ -1130,7 +1173,7 @@ function renderTeam() {
    Clients & Testimonials - Auto Sliding
    -------------------------------------------------------------------------- */
 function renderClientsAndTestimonials() {
-  // Render Clients Grid (static, max 4 rows x 8 per row = 32 logos)
+  // Render Clients Grid — fixed 4 rows x 8 per row = 32 logos
   const clientsGrid = document.getElementById('clientsGrid');
   if (clientsGrid) {
     const MAX_CLIENTS_DISPLAY = 32;
@@ -1138,7 +1181,7 @@ function renderClientsAndTestimonials() {
 
     clientsGrid.innerHTML = displayClients.map(
       (client) => `
-      <div class="client-col" data-aos="zoom-in">
+      <div class="client-cell" data-aos="zoom-in">
         <div class="client-card d-flex flex-column align-items-center justify-content-center">
           <div class="client-logo-box-grid">
             <img src="${esc(client.logo)}" alt="${esc(client.name)}" loading="lazy">
@@ -1157,11 +1200,14 @@ function renderClientsAndTestimonials() {
     sliderTrack.innerHTML = allTestimonials.map(
       (t) => `
       <div class="testimonial-slide flex-shrink-0 px-3" style="width:380px;">
-        <div class="card card-modern h-100 p-4 border shadow-sm" style="min-height:280px;">
-          <div class="d-flex align-items-center gap-1 text-warning mb-3">
-            ${'<i class="bi bi-star-fill fs-6"></i>'.repeat(t.rating)}
+        <div class="card card-modern h-100 p-4 border shadow-sm testimonial-card" style="min-height:280px;">
+          <i class="bi bi-quote testimonial-quote-mark" aria-hidden="true"></i>
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center gap-1 text-warning">
+              ${'<i class="bi bi-star-fill fs-6"></i>'.repeat(t.rating)}
+            </div>
           </div>
-          <p class="text-muted small leading-relaxed mb-3 flex-grow-1">"${esc(t.text)}"</p>
+          <p class="text-muted small leading-relaxed mb-3 flex-grow-1 testimonial-text">${esc(t.text)}</p>
           <div class="pt-3 border-top d-flex align-items-center gap-3">
             <img src="${esc(t.avatar)}" alt="${esc(t.name)}" class="rounded-circle object-fit-cover border" style="width:46px;height:46px;">
             <div>
@@ -1193,6 +1239,7 @@ function renderCultureGallery() {
     (item) => `
     <div class="culture-slide flex-shrink-0 px-2">
       <div class="culture-card">
+        <span class="culture-icon-badge"><i class="bi bi-camera-fill"></i></span>
         <img src="${esc(item.image)}" alt="${esc(item.caption)}" loading="lazy">
         <span class="culture-caption">${esc(item.caption)}</span>
       </div>
@@ -1402,6 +1449,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ProductDetailModal.init();
   ServiceDetailModal.init();
   initContactForm();
+  initNewsletterForm();
   initDomainSearch();
   renderServices();
   ReadySoftwareGallery.init();

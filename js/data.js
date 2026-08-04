@@ -486,6 +486,8 @@ const BLOG_POSTS = [
     excerpt: 'Discover how a unified ERP eliminates data silos, automates workflows, and gives leadership real-time visibility across every department.',
     category: 'ERP & Software',
     date: 'July 12, 2026',
+    readTime: '6 min read',
+    author: 'STITBD Editorial Team',
     image: 'asset/blog/01.png',
   },
   {
@@ -494,6 +496,8 @@ const BLOG_POSTS = [
     excerpt: 'Step-by-step insight into how local payment gateway integration boosts checkout conversion for Bangladeshi e-commerce businesses.',
     category: 'Web Development',
     date: 'June 28, 2026',
+    readTime: '5 min read',
+    author: 'STITBD Editorial Team',
     image: 'asset/blog/02.png',
   },
   {
@@ -502,6 +506,8 @@ const BLOG_POSTS = [
     excerpt: 'Explore how fingerprint and face recognition attendance systems cut payroll errors and save hundreds of manual HR hours every month.',
     category: 'HR & Payroll',
     date: 'June 15, 2026',
+    readTime: '4 min read',
+    author: 'STITBD Editorial Team',
     image: 'asset/blog/03.png',
   },
 ];
