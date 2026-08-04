@@ -189,8 +189,8 @@
           <a class="nav-link text-dark fw-semibold px-2 dropdown-toggle" href="products.html" role="button"
             aria-expanded="false">Products <i class="bi bi-chevron-down dropdown-caret-icon"
               data-dropdown-caret></i></a>
-          <ul class="dropdown-menu shadow-lg border-0 rounded-3 p-2 dropdown-menu-scroll" id="productsDropdownMenu">
-          </ul>
+          <div class="dropdown-menu shadow-lg border-0 rounded-4 p-0 dropdown-mega-products" id="productsDropdownMenu">
+          </div>
         </li>
 
         <li class="nav-item dropdown">
@@ -229,8 +229,7 @@
       </ul>
 
       <div class="ms-xxl-3 d-flex align-items-center gap-2">
-        <a href="#" target="_blank" rel="noreferrer" data-wa-link
-          class="btn btn-outline-success d-none d-xxl-flex align-items-center gap-1 rounded-pill px-3 py-2 fw-semibold btn-sm">
+        <a href="#" target="_blank" rel="noreferrer" data-wa-link class="btn-nav-whatsapp">
           <i class="bi bi-whatsapp"></i> 24/7 Chat
         </a>
         <button type="button" class="btn btn-brand-primary rounded-pill px-4 py-2 d-flex align-items-center gap-2"
@@ -364,6 +363,19 @@
               <h1 class="display-4 fw-extrabold text-white mb-3 font-heading lh-sm hero-typing-title">
                 <span id="heroTypingHeading"></span><span class="hero-typing-caret" aria-hidden="true"></span>
               </h1>
+              <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start hero-cta-row">
+                <button type="button"
+                  class="btn btn-brand-gold btn-lg rounded-pill px-4 py-3 fw-bold d-flex align-items-center justify-content-center gap-2"
+                  data-open-quote-modal="">
+                  <i class="bi bi-calculator-fill"></i>
+                  <span>Get Free Quote</span>
+                </button>
+                <a href="#ready-software"
+                  class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-bold d-flex align-items-center justify-content-center gap-2">
+                  <span>See Our Products</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
 
             </div>
 
@@ -490,21 +502,22 @@
     <!-- ==================== Proven Approach ==================== -->
     <section id="proven-approach" class="py-5 py-lg-6 bg-white">
       <div class="container">
-        <div class="text-center mx-auto mb-5" style="max-width:700px;">
+        <div class="text-center mx-auto mb-5">
           <span class="badge-primary-soft mb-3">
             <i class="bi bi-diagram-3-fill"></i> How We Work
           </span>
           <h2 class="display-6 fw-extrabold font-heading mb-3 section-title-oneline">
             Our <span class="text-primary">Proven</span> Approach
           </h2>
-          <p class="text-muted fs-6 mb-0">
+          <p class="text-muted fs-6">
             A proven approach to automation success, ensuring every project delivers measurable impact.
           </p>
         </div>
 
-        <div class="row g-4 justify-content-center" id="provenApproachGrid">
-          <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+        <div class="proven-steps-track" id="provenApproachGrid">
+          <div class="proven-step" data-aos="fade-up" data-aos-delay="0">
             <div class="card card-modern card-hover-lift h-100 p-4 text-center proven-card">
+              <span class="proven-step-number">01</span>
               <div class="proven-card-header">
                 <div class="proven-icon"><i class="bi bi-pencil-square"></i></div>
                 <h5 class="fw-bold font-heading text-dark mb-0">Design</h5>
@@ -513,8 +526,9 @@
             </div>
           </div>
 
-          <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="proven-step" data-aos="fade-up" data-aos-delay="120">
             <div class="card card-modern card-hover-lift h-100 p-4 text-center proven-card">
+              <span class="proven-step-number">02</span>
               <div class="proven-card-header">
                 <div class="proven-icon"><i class="bi bi-code-slash"></i></div>
                 <h5 class="fw-bold font-heading text-dark mb-0">Build</h5>
@@ -523,8 +537,9 @@
             </div>
           </div>
 
-          <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="proven-step" data-aos="fade-up" data-aos-delay="240">
             <div class="card card-modern card-hover-lift h-100 p-4 text-center proven-card">
+              <span class="proven-step-number">03</span>
               <div class="proven-card-header">
                 <div class="proven-icon"><i class="bi bi-gear-fill"></i></div>
                 <h5 class="fw-bold font-heading text-dark mb-0">Sustain</h5>
@@ -565,7 +580,7 @@
 
             <div class="row g-3 mb-4">
               <div class="col-12 col-sm-6">
-                <div class="p-3 bg-light rounded-3 border h-100">
+                <div class="p-3 bg-light rounded-3 border h-100 about-stat-card">
                   <div class="d-flex align-items-center gap-3 mb-2">
                     <div class="about-stat-icon bg-primary-subtle text-primary"><i
                         class="bi bi-patch-check-fill fs-4"></i></div>
@@ -576,7 +591,7 @@
                 </div>
               </div>
               <div class="col-12 col-sm-6">
-                <div class="p-3 bg-light rounded-3 border h-100">
+                <div class="p-3 bg-light rounded-3 border h-100 about-stat-card">
                   <div class="d-flex align-items-center gap-3 mb-2">
                     <div class="about-stat-icon bg-warning-subtle text-warning-emphasis"><i
                         class="bi bi-headset fs-4"></i>
@@ -589,7 +604,7 @@
                 </div>
               </div>
               <div class="col-12 col-sm-6">
-                <div class="p-3 bg-light rounded-3 border h-100">
+                <div class="p-3 bg-light rounded-3 border h-100 about-stat-card">
                   <div class="d-flex align-items-center gap-3 mb-2">
                     <div class="about-stat-icon bg-success-subtle text-success"><i class="bi bi-trophy-fill fs-4"></i>
                     </div>
@@ -600,7 +615,7 @@
                 </div>
               </div>
               <div class="col-12 col-sm-6">
-                <div class="p-3 bg-light rounded-3 border h-100">
+                <div class="p-3 bg-light rounded-3 border h-100 about-stat-card">
                   <div class="d-flex align-items-center gap-3 mb-2">
                     <div class="about-stat-icon bg-info-subtle text-info"><i class="bi bi-people-fill fs-4"></i>
                     </div>
@@ -640,15 +655,25 @@
           </div>
 
           <div class="col-12 col-lg-6" data-aos="fade-left" data-aos-delay="100">
-            <div class="hwm-collage">
-              <div class="hwm-img hwm-img-1">
-                <img src="asset/how-we-move/01.jpg" alt="STITBD engineer working on-site" loading="lazy">
+            <div class="hwm-collage-wrap">
+              <div class="hwm-collage">
+                <div class="hwm-img hwm-img-1">
+                  <img src="asset/how-we-move/01.jpg" alt="STITBD engineer working on-site" loading="lazy">
+                </div>
+                <div class="hwm-img hwm-img-2">
+                  <img src="asset/how-we-move/02.jpg" alt="STITBD team training session" loading="lazy">
+                </div>
+                <div class="hwm-img hwm-img-3">
+                  <img src="asset/how-we-move/03.jpg" alt="STITBD support specialist" loading="lazy">
+                </div>
               </div>
-              <div class="hwm-img hwm-img-2">
-                <img src="asset/how-we-move/02.jpg" alt="STITBD team training session" loading="lazy">
-              </div>
-              <div class="hwm-img hwm-img-3">
-                <img src="asset/how-we-move/03.jpg" alt="STITBD support specialist" loading="lazy">
+
+              <div class="hwm-floating-badge">
+                <div class="hwm-floating-badge-icon"><i class="bi bi-patch-check-fill"></i></div>
+                <div class="d-flex flex-column">
+                  <span class="hwm-floating-badge-value">1,200+</span>
+                  <span class="hwm-floating-badge-label">Projects Delivered</span>
+                </div>
               </div>
             </div>
           </div>

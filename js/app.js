@@ -328,9 +328,26 @@ function renderProductsNavMenu() {
   const navHref = hasReadySoftwareSection ? '#ready-software' : 'index.html#ready-software';
 
   if (desktopMenu) {
-    desktopMenu.innerHTML = READY_SOFTWARE_PRODUCTS.map(
-      (p) => `<li><a class="dropdown-item rounded-2" href="${navHref}" data-nav-product="${esc(p.id)}">${esc(p.name)}</a></li>`
-    ).join('');
+    const groups = CATEGORIES.filter((c) => c !== 'All').map((cat) => ({
+      category: cat,
+      items: READY_SOFTWARE_PRODUCTS.filter((p) => p.category === cat),
+    }));
+
+    desktopMenu.innerHTML = `
+      <div class="mega-products-grid">
+        ${groups.map((g) => `
+          <div class="mega-products-col">
+            <span class="mega-products-col-title">${esc(g.category)}</span>
+            ${g.items.map((p) => `
+              <a class="mega-products-item" href="${navHref}" data-nav-product="${esc(p.id)}">
+                <i class="bi ${esc(p.icon)}"></i>
+                <span>${esc(p.name)}</span>
+              </a>`).join('')}
+          </div>`).join('')}
+      </div>
+      <div class="mega-products-footer">
+        <a href="products.html" class="mega-products-viewall">See All 40+ Products <i class="bi bi-arrow-right"></i></a>
+      </div>`;
   }
 
   if (mobileMenu) {
@@ -570,7 +587,7 @@ function renderServices() {
   grid.innerHTML = SERVICES.map(
     (service, index) => `
     <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="${index * 80}">
-      <div class="card card-modern card-hover-lift h-100 p-0 border overflow-hidden d-flex flex-column justify-content-between">
+      <div class="card card-modern card-hover-lift h-100 p-0 border overflow-hidden d-flex flex-column justify-content-between${service.badge === 'Core Specialty' ? ' svc-card-featured' : ''}">
         <div class="svc-card-img-wrap position-relative">
           <img src="${esc(service.image)}" alt="${esc(service.title)}" class="svc-card-img" loading="lazy">
           ${service.badge ? `<span class="badge-gold svc-card-badge">${esc(service.badge)}</span>` : ''}
