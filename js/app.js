@@ -322,11 +322,6 @@ function renderProductsNavMenu() {
   const mobileMenu = document.getElementById('mobProductsMenu');
   if (!desktopMenu && !mobileMenu) return;
 
-  // #ready-software only exists on index.html — on other pages (about.html etc.)
-  // link back to the homepage gallery instead of a same-page anchor.
-  const hasReadySoftwareSection = !!document.getElementById('ready-software');
-  const navHref = hasReadySoftwareSection ? '#ready-software' : 'index.html#ready-software';
-
   if (desktopMenu) {
     const groups = CATEGORIES.filter((c) => c !== 'All').map((cat) => ({
       category: cat,
@@ -339,7 +334,7 @@ function renderProductsNavMenu() {
           <div class="mega-products-col">
             <span class="mega-products-col-title">${esc(g.category)}</span>
             ${g.items.map((p) => `
-              <a class="mega-products-item" href="${navHref}" data-nav-product="${esc(p.id)}">
+              <a class="mega-products-item" href="${slugify(p.name)}.html">
                 <i class="bi ${esc(p.icon)}"></i>
                 <span>${esc(p.name)}</span>
               </a>`).join('')}
@@ -352,23 +347,10 @@ function renderProductsNavMenu() {
 
   if (mobileMenu) {
     mobileMenu.innerHTML = READY_SOFTWARE_PRODUCTS.map(
-      (p) => `<li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none" href="${navHref}" data-nav-product="${esc(p.id)}">${esc(p.name)}</a></li>`
+      (p) => `<li data-bs-dismiss="offcanvas"><a class="text-dark text-decoration-none" href="${slugify(p.name)}.html">${esc(p.name)}</a></li>`
     ).join('');
   }
 
-  document.querySelectorAll('[data-nav-product]').forEach((link) => {
-    link.addEventListener('click', (e) => {
-      const product = READY_SOFTWARE_PRODUCTS.find((p) => p.id === link.getAttribute('data-nav-product'));
-      const target = document.getElementById('ready-software');
-      if (target) {
-        // Already on index.html: scroll + open the product modal in place
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setTimeout(() => ProductDetailModal.open(product), 500);
-      }
-      // On other pages: let the browser navigate to index.html#ready-software normally
-    });
-  });
 }
 
 function esc(str) {
