@@ -1153,7 +1153,7 @@ function renderClientsAndTestimonials() {
 
     sliderTrack.innerHTML = allTestimonials.map(
       (t) => `
-      <div class="testimonial-slide flex-shrink-0 px-3" style="width:320px;">
+      <div class="testimonial-slide flex-shrink-0 px-3" style="width:380px;">
         <div class="card card-modern h-100 p-4 border shadow-sm" style="min-height:280px;">
           <div class="d-flex align-items-center gap-1 text-warning mb-3">
             ${'<i class="bi bi-star-fill fs-6"></i>'.repeat(t.rating)}
