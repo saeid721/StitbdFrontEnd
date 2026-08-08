@@ -528,7 +528,7 @@ const TEAM_MEMBERS = [
   { id: 'leaya-sultana', order: 13, name: 'Leaya Sultana', designation: 'DevOps Engineer', image: 'asset/team/Leaya-Sultana.jpg', facebook: '#', linkedin: '#' },
   { id: 'jannatun-naim-mitu', order: 14, name: 'Jannatun Naim Mitu', designation: 'QA Engineer', image: 'asset/team/Jannatun-Naim-Mitu.jpg', facebook: '#', linkedin: '#' },
   { id: 'arpita-ghosh', order: 15, name: 'Arpita Ghosh', designation: 'UI/UX Designer', image: 'asset/team/Arpita-Ghosh.jpg', facebook: '#', linkedin: '#' },
-  { id: 'shikhor-soyon', order: 16, name: 'Shikhor Soyon', designation: 'Graphic Designer', image: 'asset/team/Shikhor-Soyon.png', facebook: '#', linkedin: '#' },
+  { id: 'shikhor-soyon', order: 16, name: 'Shikhor Soyon', designation: 'Graphic Designer', image: 'asset/team/Shikhor-Soyon.jpg', facebook: '#', linkedin: '#' },
   { id: 'apu-sardar', order: 17, name: 'Apu Sardar', designation: 'Web Application Developer', image: 'asset/team/Apu-Sardar.jpg', facebook: '#', linkedin: '#' },
   { id: 'masud-rana', order: 18, name: 'Masud Rana', designation: 'Jr. Node JS Developer', image: 'asset/team/Masud-Rana.jpg', facebook: '#', linkedin: '#' },
   { id: 'fokrul-islam-mehedi', order: 19, name: 'Fokrul Islam Mehedi', designation: 'Jr. Node JS Developer', image: 'asset/team/FOKRUL-ISLAM-MEHEDI.jpg', facebook: '#', linkedin: '#' },
